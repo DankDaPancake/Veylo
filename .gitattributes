@@ -1,0 +1,19 @@
+# Normalize text in Git while leaving supplied binary documents intact.
+* text=auto
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+*.pdf binary
+*.docx binary
+*.dot binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary

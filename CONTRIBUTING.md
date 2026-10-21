@@ -1,0 +1,34 @@
+# Contributing to SmartRoute
+
+This is initial repository guidance for PA1. Team-owned decisions are still pending; this file does not establish an agreed team contract.
+
+## Course Requirements
+
+- Record each project task before starting it. Each task has exactly one assignee and real creation, assignment, and completion dates.
+- Keep actual Git history and task-board evidence. Do not backdate or fabricate activity.
+- All members must participate as full-stack engineers; coordination roles do not restrict them to one layer.
+- Submitted documents must be English Markdown, with matching PDF exports and Mermaid diagrams where appropriate.
+- Immediately after each submitted report section heading, record who performed, reviewed, and edited that section. Unknown names stay explicitly pending.
+- From PA2, each task needs a different member to review it; do not imply a human review has happened when it has not.
+- Preserve AI prompts/history and record affected work and human validation. PA2 explicitly requires an AI usage report; no completed declaration is supplied by this setup.
+- Update the root [AI_LOG.md](AI_LOG.md) for each AI-assisted task, following [AGENTS.md](AGENTS.md). Keep actual human validation separate from AI output/review.
+
+## Editing and Verification
+
+Read the relevant assignment and current proposal before changing requirements. Treat the wider research notes as background rather than an approved expansion of scope.
+
+Keep edits scoped to the assigned work. Preserve existing user changes and document links. Avoid mass-formatting supplied material. Edit Markdown as the source; a PDF export may become stale when the corresponding Markdown changes.
+
+Before handing work over, inspect the changed files and run the relevant available checks. At present, use `git status --short --branch`, `git diff --check`, and `git diff`; newly created untracked files also need direct inspection because `git diff` does not include them. Check local Markdown links after moves or renames. No application test suite exists yet.
+
+Record what changed, what was checked, and what remains unverified. The pull-request template is a reporting aid, not evidence that checks or reviews ran.
+
+## Repository Hygiene
+
+Commit source documents and necessary reference files. Keep secrets, local environment files, dependency directories, caches, and disposable render output out of Git. Preserve placeholder-only `.env.example` files when application configuration is added.
+
+Use one Git repository at the root. `src` is reserved for application code and the later Spec Kit workspace. Do not add framework-specific dependencies until the stack is selected.
+
+## Pending Team Agreement
+
+GitHub ownership/access, task-board tool, branch naming, commit conventions, reviewer rotation, merge strategy, meeting dates, and application tooling must be agreed by the team. Templates intentionally leave these fields open.
