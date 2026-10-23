@@ -37,3 +37,67 @@ This log records actual AI assistance in this workspace. It is a summary, not a 
 - Human decisions: approval is required for functional-requirement updates, especially database-related changes. The detailed log fields and grouping by task are AI-proposed implementation details of the requested logging rule; no additional team agreement is claimed.
 - Verification: the full repository file-link check passed (57 links); all 15 new text files passed UTF-8/final-newline/trailing-whitespace checks; `git diff --cached --check` passed. AGENTS.md links to this log, and README/CONTRIBUTING link the rules and log.
 - Limitations: no functional requirements, application code, database structure, or migration were changed. No original evidence was fabricated or backdated.
+
+## 2026-10-22 — Planned Branch Protection and CI/CD Rules
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: "bổ sung quy định về branch protection, ci-cd (dự kiến sau khi chọn stack),"
+- Purpose: document branch protection and the deferred CI/CD policy without selecting the application stack or configuring remote services.
+- AI work: added protected-branch/PR review rules, prohibition on bypassing checks, planned CI gates after stack selection, and deployment authorization/secrets/rollback guidance after hosting selection. Linked this policy from contributor guidance and README.
+- Files changed: `AGENTS.md`, `CONTRIBUTING.md`, `README.md`, `AI_LOG.md`.
+- Sources: official GitHub documentation on [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) and [deployment environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments), consulted on the session date.
+- Verification: inspected the diff; `git diff --check` passed. Four changed documents decoded as UTF-8 with final newlines, and all 17 local file links resolved. No application build/test or hosted workflow was run because this change only documents planned policies.
+- Limitations: these are working instructions and proposed remote settings, not a team agreement or enabled protection. No workflow, remote rule, deployment, functional requirement, or database schema was changed. No human review is recorded.
+
+## 2026-10-23 — PA1 Submission Readiness Review
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: "quay trở về PA1, team tôi đã có survey 2 app tương quan, còn thiếu những gì để nộp"
+- Purpose: identify remaining PA1 submission work while accepting the user's report that the team has surveyed two comparable applications.
+- AI work: reread PA1 with `pdftotext`, checked the current proposal/checklist and documentation index, inventoried workspace files, and inspected local Git status/history/remotes. Prepared a submission checklist distinguishing course requirements, available drafts, user-reported survey completion, and evidence not present locally.
+- Files changed: `AI_LOG.md` only. Product requirements and existing draft status tables were not edited.
+- Verification: PA1 sections A-E and submission guidelines were checked directly. The workspace contains a draft proposal, local repository setup and initial commit, but no separate survey report/screenshots, agreed team contract, meeting records, or submission package were found in the file inventory. No Git remote is configured in this checkout; the latest branch-protection documentation changes remain uncommitted.
+- Human information: the user reports that the two-app survey has been performed; its artifacts have not been reviewed in this workspace. No claim is made that missing local evidence means the team has not completed that work elsewhere.
+- Limitations: no external board, remote repository, course registration, educational AI account, or meeting evidence was accessed. This is a readiness assessment, not a graded acceptance or a completed submission.
+
+## 2026-10-23 — Provisional Technology Stack Recommendation
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: "recommend stack cho dự án"
+- Purpose: recommend a manageable implementation stack for the current two-actor, five-member SmartRoute MVP, without selecting it for the team.
+- AI work: reread the current project context and earlier React/FastAPI research; consulted official Next.js backend-for-frontend, Prisma PostgreSQL, FastAPI module, and OpenStreetMap tile documentation. Asked which backend languages/frameworks the team already knows; no answer was available when drafting this recommendation.
+- Recommendation: provisionally favor a single modular Next.js/TypeScript application with PostgreSQL and Prisma if the team has no existing backend preference. Keep business rules separate from HTTP/UI adapters, call the eventual LLM provider server-side, and use a replaceable map/AI integration. React/Vite + FastAPI remains a reasonable alternative if Python is the team's stronger language. This changes the earlier technical suggestion, not the agreed product requirements: the current AI scope is note normalization through an external API rather than local ML training.
+- Files changed: `AI_LOG.md` only.
+- Verification: official primary sources were read and the log diff was checked for whitespace. No framework was installed, version pinned, benchmark run, schema created, or pipeline configured.
+- Limitations: team experience, hosting, provider, and budget remain unknown. Suitability is an engineering judgment, not a measured performance result or team agreement. Database schema and functional-requirement changes still require user approval.
+
+## 2026-10-23 — Repository Publication Inventory and Stack Deferral
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: "vậy thì khoan chốt stack, repo bây giờ nếu publish thì đang có những gì"
+- Human decision: leave the stack undecided. The user asked for an inventory, not remote creation or publication.
+- AI work: inspected `git status`, remote configuration, commit history, the committed file tree, and ignored local files. Distinguished committed material from newer local documentation changes and missing application/submission artifacts.
+- Files changed: `AI_LOG.md` only.
+- Verification: HEAD is `f3f8fb4` on `setup/repo-foundation`, with 36 committed files and no remote. `AGENTS.md`, `AI_LOG.md`, `CONTRIBUTING.md`, and `README.md` have uncommitted changes. Temporary PDF renders and the original duplicate course ZIP are ignored. `git diff --check` passed after the log update.
+- Limitations: nothing was published, committed, or configured on GitHub. No stack, dependency, schema, or functional requirement was selected or changed. Survey completion is user-reported; its files are not in the committed tree.
+
+## 2026-10-23 — Veylo Branding, Team Placeholders, and Claude Instructions
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: add CLAUDE.md with the AGENTS.md rules; rename the project Veylo (Velocity Flow); write a README brief and leave GroupID, StudentID, FullName, and Handle for the user to fill in.
+- Human decision: the new project name is Veylo (Velocity Flow). Member identities and GroupID placeholders are intentionally not filled by AI.
+- AI work: added the new name and a brief describing the existing proposed scope, a five-row team table, and a legacy-name note in README. Added CLAUDE.md importing AGENTS.md as the shared policy source; documented that relationship and the new name in AGENTS.md. Updated contributor/source-workspace headings without rewriting historical research, proposal files, or logs.
+- Files changed: `README.md`, `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `src/README.md`, `AI_LOG.md`.
+- Verification: `git diff --check` passed; six changed/new documents passed UTF-8, newline, and trailing-whitespace checks; 20 local file links resolved. Checked the CLAUDE -> AGENTS -> RTK references, Veylo/Velocity Flow branding, blank GroupID, and five blank member rows. Official [Claude memory documentation](https://code.claude.com/docs/en/memory) was consulted for the import mechanism. Claude runtime loading itself was not exercised.
+- Limitations: the legacy PA1 proposal and PDF still contain SmartRoute branding and require a coordinated refresh before submission. No functional requirements, schema, stack, remote, or deployment were changed. No human review is recorded.
+
+## 2026-10-23 — Publish Veylo to a Private GitHub Repository
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: "publish từng bước lên repo, bước nào cần tôi làm manual thì nhắc tôi. Tên repo sẽ là Veylo, còn tên folder local tôi sẽ đổi sau khi publish xong"
+- Human decisions: repository owner is `DankDaPancake`, explicitly confirmed after discovering that the separate GitHub connector uses `entidy06`. Keep the local folder unchanged; the stack remains undecided.
+- AI work: verified the workspace, pending documentation changes, existing commit, and Git credential account. Used Git Credential Manager through its normal credential interface and kept credentials in process memory without printing them. Created `DankDaPancake/Veylo` through the GitHub REST API with `private: true` and no generated initial files; verified repository ownership, visibility, default branch `main`, and push/admin permissions. Added the confirmed repository link/status to README.
+- Publication workflow: bootstrap the empty remote's `main` from the existing foundation commit `f3f8fb4`, then publish the newer documentation on `setup/repo-foundation` and open a PR for non-author human review. Do not merge, weaken protection, choose a stack, or rename the local folder.
+- Files changed: `README.md` and `AI_LOG.md` for this publication task; the publication commit also includes the earlier user-requested updates already documented above in `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `src/README.md`, and this log.
+- Verification/status: remote creation confirmed at https://github.com/DankDaPancake/Veylo. The 37-file publication inventory passed 62 local file-link checks, six changed/new document UTF-8/newline/whitespace checks, Claude import checks, and the five blank member-row check; `git diff --check` passed. Push/PR outcomes will be recorded in a subsequent entry after they actually occur.
+- Limitations: team invitations and independent human review remain manual until member handles/review are available. No hosted CI/CD or application exists. No GitHub protection setting was changed or claimed enabled.

@@ -1,4 +1,4 @@
-# Contributing to SmartRoute
+# Contributing to Veylo
 
 This is initial repository guidance for PA1. Team-owned decisions are still pending; this file does not establish an agreed team contract.
 
@@ -28,6 +28,12 @@ Record what changed, what was checked, and what remains unverified. The pull-req
 Commit source documents and necessary reference files. Keep secrets, local environment files, dependency directories, caches, and disposable render output out of Git. Preserve placeholder-only `.env.example` files when application configuration is added.
 
 Use one Git repository at the root. `src` is reserved for application code and the later Spec Kit workspace. Do not add framework-specific dependencies until the stack is selected.
+
+## Planned Branch Protection and CI/CD
+
+Follow the [branch protection and CI/CD instructions](AGENTS.md). Use task branches and PRs for the eventual protected integration branch, with a non-author human approval, resolved conversations, and passing required checks. Do not bypass protection or force-push to a protected branch. Remote enforcement is not configured by this document.
+
+Framework-specific CI is deferred until stack selection; deployment automation additionally depends on agreed hosting and release authorization. The planned checks cover lint/format, types where relevant, tests, build, and relevant documentation/database checks. Exact jobs, branch names, merge strategy, and deployment environments remain to be agreed and implemented.
 
 ## Pending Team Agreement
 

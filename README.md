@@ -1,16 +1,40 @@
-# SmartRoute
+# Veylo
 
-SmartRoute is a proposed responsive web application for last-mile delivery coordination and shared location knowledge. Its primary users are Hub Dispatchers and Delivery Riders. The proposed AI feature normalizes rider notes into drafts that a dispatcher reviews before publication.
+**Velocity Flow**
 
-Current stage: **PA1 preparation, Group 9**. The proposal is a draft; implementation, application survey, and team agreements must not be represented as completed work.
+Repository: [DankDaPancake/Veylo](https://github.com/DankDaPancake/Veylo) — private.
+
+## Project Brief
+
+Veylo is a proposed responsive web application that helps small delivery hubs coordinate last-mile deliveries and share practical knowledge about delivery locations. Hub Dispatchers manage orders and rider assignments, while Delivery Riders view their assigned work, consult location guides, and record delivery attempts and outcomes.
+
+The proposed system suggests the next delivery using explicit priority rules. Its AI feature turns informal rider notes into structured guide drafts, which a dispatcher reviews before publication. Veylo aims to make field knowledge reusable and daily coordination clearer; these benefits are project goals, not measured results.
+
+Current stage: **PA1 preparation**. The technology stack remains undecided, and the application has not been implemented. The team reports completing a two-app survey; its report and screenshots have not yet been added to this repository.
+
+Veylo was previously named SmartRoute. Existing proposal filenames and historical preparation records retain that name; the linked proposal remains the scope draft and needs its branding refreshed before submission.
+
+## Team
+
+**GroupID:** _To be filled in_
+
+Fill in each member's StudentID, FullName, and Handle (for example, their GitHub username).
+
+| StudentID | FullName | Handle |
+| --- | --- | --- |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
 
 ## Start Here
 
-- [Current PA1 proposal](Group9_SmartRoute.md)
+- [PA1 scope draft — previous SmartRoute branding](Group9_SmartRoute.md)
 - [PA1 preparation checklist](proposal_checklist.md)
 - [Documentation index](docs/README.md)
 - [Contribution guidance](CONTRIBUTING.md)
-- [Agent instructions](AGENTS.md) and [AI assistance log](AI_LOG.md)
+- [Agent instructions](AGENTS.md), [Claude instructions](CLAUDE.md), and [AI assistance log](AI_LOG.md)
 - [Repository setup plan](REPO_SETUP_PLAN.md) and [actual setup record](docs/management/repo-setup-log.md)
 
 ## Repository Layout
@@ -42,8 +66,10 @@ Temporary PDF renders and the duplicate original course ZIP are ignored, while s
 
 ## Deferred Team Decisions
 
-The application stack, GitHub owner/remote, board, member responsibilities, sprint dates, hosting, AI provider, budget, and team branching/merge policy are not selected here. No application scaffold or framework-specific CI has been created.
+The private GitHub repository is owned by `DankDaPancake`. The application stack, task board, member access/responsibilities, sprint dates, hosting, AI provider, budget, and team branching/merge policy remain pending. No application scaffold or framework-specific CI has been created.
+
+[AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. GitHub enforcement will be checked after remote setup; framework-specific CI follows stack selection, and CD follows hosting/release decisions.
 
 PA2 will require Spec Kit artifacts inside `src`. Initialization and coding-agent selection are deferred until the course instructions and team integration are agreed. Do not create a nested Git repository under `src`.
 
-When creating the remote later, use a private GitHub repository and provide instructor/TA access when requested, as PA1 requires. Do not initialize a separate remote README that conflicts with the local repository history.
+Keep the repository private and provide instructor/TA access when requested, as PA1 requires. Add team collaborators after their handles are supplied. Preserve the existing Git history when cloning or setting up another machine.
