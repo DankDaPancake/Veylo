@@ -30,6 +30,15 @@ coverage/
 /.superpowers/
 /Intro2SE-AI-Integrated-2026-Public-*.zip
 
+# Local preparation/reference material; curated PA1 documents live in docs/.
+/BC26-BCE001*
+/Group9_SmartRoute.*
+/proposal_checklist.md
+/REPO_SETUP_PLAN.md
+/Intro2SE-AI-Integrated-2026-Public/
+# Keep old local setup notes; publish the PA1 summary in tools-and-process.md.
+/docs/management/repo-setup-log.md
+
 # Per-machine files. Shared editor settings can be added deliberately later.
 .DS_Store
 Thumbs.db

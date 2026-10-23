@@ -10,9 +10,9 @@ Veylo is a proposed responsive web application that helps small delivery hubs co
 
 The proposed system suggests the next delivery using explicit priority rules. Its AI feature turns informal rider notes into structured guide drafts, which a dispatcher reviews before publication. Veylo aims to make field knowledge reusable and daily coordination clearer; these benefits are project goals, not measured results.
 
-Current stage: **PA1 preparation**. The technology stack remains undecided, and the application has not been implemented. The team reports completing a two-app survey; its report and screenshots have not yet been added to this repository.
+Current stage: **PA1 preparation**. The technology stack remains undecided, and the application has not been implemented. The team reports completing a two-app survey; add its actual report and screenshots to the survey document linked below.
 
-Veylo was previously named SmartRoute. Existing proposal filenames and historical preparation records retain that name; the linked proposal remains the scope draft and needs its branding refreshed before submission.
+Veylo was previously named SmartRoute. Published PA1 documents now live under `docs/`. Old root drafts, research, course bundles, and PDF exports remain local references excluded from the current Git tree. Pending information is explicitly left for the team to complete.
 
 ## Team
 
@@ -30,25 +30,27 @@ Fill in each member's StudentID, FullName, and Handle (for example, their GitHub
 
 ## Start Here
 
-- [PA1 scope draft — previous SmartRoute branding](Group9_SmartRoute.md)
-- [PA1 preparation checklist](proposal_checklist.md)
+- [PA1 project proposal](docs/requirements/project-proposal.md)
+- [Existing-app survey — add the team's report](docs/requirements/existing-app-survey.md)
+- [Team contract — complete and agree as a team](docs/management/team-contract.md)
+- [PA1 submission checklist](docs/management/submission-checklist.md)
 - [Documentation index](docs/README.md)
 - [Contribution guidance](CONTRIBUTING.md)
 - [Agent instructions](AGENTS.md), [Claude instructions](CLAUDE.md), and [AI assistance log](AI_LOG.md)
-- [Repository setup plan](REPO_SETUP_PLAN.md) and [actual setup record](docs/management/repo-setup-log.md)
+- [Tools and process](docs/management/tools-and-process.md), [weekly report](docs/management/weekly-report.md), and [AI usage declaration](docs/management/ai-usage.md)
 
 ## Repository Layout
 
 ```text
 src/                       Future application source; no stack selected
-docs/management/           Setup record, planning, reporting, and evidence
-docs/requirements/         Index of proposal and requirements documents
+docs/management/           PA1 contract, tools/process, reports, and checklist
+docs/requirements/         PA1 proposal and survey
 docs/analysis-and-design/  Future architecture, diagrams, and UI design
 docs/test/                 Future test plans, cases, and results
 .github/                   Task and pull-request templates
 ```
 
-Existing preparation documents and supplied course references remain at their original paths. The index links to them instead of creating editable duplicates.
+Original preparation/reference files stay locally at their existing paths and are ignored. Published links point to curated repository documents. Existing copies in earlier commits remain in Git history.
 
 ## Working Locally
 
@@ -62,7 +64,7 @@ git diff
 
 Use UTF-8 text files. `.gitattributes` normalizes Markdown and script line endings to LF; supplied PDFs, Word files, and images remain binary. `.editorconfig` supplies conservative editing defaults.
 
-Temporary PDF renders and the duplicate original course ZIP are ignored, while source Markdown, reference PDFs, and required documents remain eligible for version control. Do not commit API keys, credentials, private operational data, or personal recipient data.
+Root research/course material, old draft exports, and temporary renders are ignored. Add final PA1 PDF exports beside their reviewed Markdown sources in `docs/`; they are not globally ignored. Do not commit API keys, credentials, private operational data, or personal recipient data.
 
 ## Deferred Team Decisions
 

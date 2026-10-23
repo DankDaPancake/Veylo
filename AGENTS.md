@@ -10,7 +10,7 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 - [AGENTS.md](AGENTS.md) is the shared instruction source. [CLAUDE.md](CLAUDE.md) imports it so Claude follows the same rules; maintain shared rules here instead of creating divergent copies.
 - The upcoming deadline is PA1. The current assignment is repository setup; the application has not been implemented.
 - Read [README.md](README.md), [the documentation index](docs/README.md), and the relevant course assignment before changing project material.
-- The current product-scope draft is [Group9_SmartRoute.md](Group9_SmartRoute.md). The `BC26-BCE001*` documents are background research, not approval to implement every idea they describe.
+- The current product-scope draft is [docs/requirements/project-proposal.md](docs/requirements/project-proposal.md). Older root preparation/research files are ignored local references, not published requirements or approval to implement additional ideas.
 - Follow the user's current task scope. When the user says to skip team decisions, record those decisions as pending and continue independent work.
 - Do not choose a stack, AI provider, hosting, budget, external board, team responsibilities, or team policies on the team's behalf. Recommendations must remain explicitly proposed.
 
@@ -30,6 +30,7 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 - Use Mermaid for course diagrams where appropriate. Keep Markdown as the editable source and regenerate PDF exports after material changes.
 - In submitted report sections, place actual performer, reviewer, and editor information immediately after the heading. Leave unknown attribution pending.
 - Preserve existing user work. Keep relative links valid when moving or renaming files and distinguish draft sources from older PDF exports.
+- Keep published PA1 documents under `docs/`. Leave unavailable team information/evidence for the user to fill in; do not turn placeholders into claimed agreements. Do not re-add ignored research, course bundles, or obsolete exports unless requested.
 - Never fabricate survey screenshots, tasks, dates, meeting minutes, reviews, Git history, training evidence, or benchmark results.
 - Keep secrets, credentials, and real recipient data out of commits and AI requests. Preserve factual AI-use records; never label AI work as independently completed student work.
 
