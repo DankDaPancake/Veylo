@@ -33,8 +33,10 @@ Use one Git repository at the root. `src` is reserved for application code and t
 
 Follow the [branch protection and CI/CD instructions](AGENTS.md). Use task branches and PRs for the eventual protected integration branch, with a non-author human approval, resolved conversations, and passing required checks. Do not bypass protection or force-push to a protected branch. Remote enforcement is not configured by this document.
 
-Framework-specific CI is deferred until stack selection; deployment automation additionally depends on agreed hosting and release authorization. The planned checks cover lint/format, types where relevant, tests, build, and relevant documentation/database checks. Exact jobs, branch names, merge strategy, and deployment environments remain to be agreed and implemented.
+Framework-specific CI is deferred until stack selection; deployment automation additionally depends on agreed hosting and release authorization. The planned checks cover lint/format, types where relevant, tests, build, and relevant documentation/database checks. `main` is selected for stable releases and `dev` for sprint integration; both branches exist and protection was verified on October 25, 2026. Squash task PRs into `dev`; use merge commits for milestone PRs from `dev` into `main`. Exact CI jobs and deployment environments remain pending.
 
 ## Pending Team Agreement
 
-GitHub ownership/access, task-board tool, branch naming, commit conventions, reviewer rotation, merge strategy, meeting dates, and application tooling must be agreed by the team. Templates intentionally leave these fields open.
+Remaining access/tooling, reviewer rotation, meeting dates, and application tooling must be confirmed by the team. Templates intentionally leave unavailable fields open; the user's confirmed `main`/`dev` workflow is recorded above.
+
+Record each AI-assisted task using the [phase/member log guide](docs/ai-logs/README.md) before commit or handoff.

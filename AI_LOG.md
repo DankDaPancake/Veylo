@@ -135,3 +135,41 @@ This log records actual AI assistance in this workspace. It is a summary, not a 
 - Files changed for publication: `.gitignore`, `README.md`, `docs/management/repo-setup-log.md`, and this log. The setup record is historical; its earlier pending states are not assertions about today's repository.
 - Verification: 24 staged files and 44 local file links were checked with no missing/untracked targets; `git diff --cached --check` passed. Remote synchronization will be checked after push. No application build/test exists at this stage.
 - Handoff: publish the task branch, open/link a PR for human review, and request settlement of the current T3 thread. No merge, branch-protection change, stack selection, requirement/schema change, or folder rename is authorized by this task.
+
+## 2026-10-24 — Review Group09_Veylo PA1 Sections A, B, D, E
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User request: review `Group09_Veylo.md`, specifically PA1 sections A, B, D, and E.
+- AI work: read the requested sections, compared them with the distributed PA1/Weekly Reports instructions using `pdftotext`, checked subsection attribution and the two E image paths, and compared scope/tooling/timeline claims with the current repository proposal and recorded setup history. Section C content was outside the review scope.
+- Findings: A contains the registration fields; B has the required eight paragraph-described groups, at least two actors, environment descriptions, and a meaningful AI workflow. Important issues include missing subsection attribution; new functional scope inconsistent with the current controlled draft; unsubstantiated timing/cost claims and a prematurely stated stack; incomplete task assignment-date evidence; late task dates contradicted by an on-time claim; the October 21 private-repository claim versus recorded October 23 remote creation; two missing E image assets; and missing next-work/blocker answers in Scrum meeting 2. D covers the suggested contract topics but needs consistent branch/review rules and actual acknowledgment evidence.
+- Files changed: `AI_LOG.md` only. The supplied report remains unmodified/untracked. No functional requirements, signatures, meeting facts, dates, or student work were rewritten or approved.
+- Verification: both E image paths (`images/repo_screenshot.png`, `images/jira.png`) are absent relative to the report; the full document contains three Mermaid blocks. The source report was read with line numbers and retained unchanged. No PDF export/render or external Jira/account/registration evidence was verified.
+- Limitations: this is an AI document review, not human approval or grading. Team claims of instructor feedback, actual agreement, meetings, and educational accounts require the team's genuine evidence; the review does not assume they are fabricated.
+
+## 2026-10-24 — Apply Confirmed PA1 Review Corrections and Draft Goal Wording
+
+- Tool/model: Codex in T3 Code, `gpt-6.1-sol`.
+- User clarification: shared attribution at major B/D sections is sufficient for this report; acknowledge deadline overruns caused by first-week setup and commit to improvements; assignment dates equal creation dates; Git was local first and published with invitations on October 23; skip image checks; add shared PA1 review/submission next steps and no blockers; show goal-based wording as a draft; `dev` is agreed and the owner will create/configure it.
+- AI work: updated only D/E in `Group09_Veylo.md` with these facts, a separate Assigned column, preserved real due/completion dates, late-task accounting, and retrospective commitments. Clarified planning responsibilities versus actual Jira creation/assignment. Recorded the confirmed main/dev workflow and report-specific attribution preference in repository instructions/guidance. Saved unapplied English replacement wording for B in `docs/draft/Group09_Veylo_B_goals_draft.md` for user review; that draft remains ignored.
+- Files changed: `Group09_Veylo.md`, `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, `AI_LOG.md`; one local ignored wording draft was added under `docs/draft`.
+- Verification: A/B/C text is unchanged from the pre-edit snapshot. All five Jira rows now have ten columns, Created equals Assigned (October 20), and existing due/completion dates are retained. Shared next steps/None blockers and the local/remote distinction are present. The false all-on-time statement is removed. `git diff --check` passed; images were not inspected per user instruction.
+- Correction to the preceding review: subsection-attribution criticism for B/D is superseded by the user's explicit shared-attribution direction. Invitations on October 23 are user-confirmed, not independently checked through GitHub. `dev` is a confirmed workflow decision, not an already verified remote setting.
+- Limitations: no part of the proposed B wording was applied; the new actor/functional scope raised in review item 7 remains unapproved for synchronization into the controlled repository proposal. No functional requirement, database, GitHub branch setting, or protection rule was changed. No commit, push, or PDF export was performed in this editing task.
+
+
+## 2026-10-25 — Create dev and Audit Repository Governance
+
+- Tool/model: Codex in T3 Code, gpt-6.1-sol.
+- User request: PA1 is finalized/submitted; set up dev, inspect access, and propose project management.
+- AI work: authenticated as DankDaPancake via Git Credential Manager without exposing credentials; inspected repository permissions, branches, collaborators, invitations, rulesets, main protection, and Actions permissions through GitHub REST. Created remote dev from latest remote main at 3c56aa7d732b964986f29d8e933c6089f28e7d31; fetched origin and added local dev tracking origin/dev without changing the current checkout.
+- Findings: owner admin; Yelgsef and Cee-Ka accepted write access; kiettheis0702 and thepenguinguy123 invitations pending. No rulesets; main and dev unprotected. Actions enabled, all actions allowed, default token read-only, workflow PR approval disabled. Account plan metadata unavailable; private protection capability remains unverified.
+- Files: added docs/management/branch-governance-proposal.md and appended this log. Proposed task-to-dev squash PRs, milestone dev-to-main merge PRs, one non-author human approval, protection for both branches, and stack-dependent CI. These policies/settings remain proposals, not approved or enforced changes.
+- Verification: REST readback and git rev-parse confirmed dev, origin/dev, and origin/main at the same source SHA. git fetch and local tracking creation succeeded. git diff --check and direct inspection/link checks of the new proposal completed successfully. No application build/test applies.
+- Limitations: no protection/permission/merge/default-branch/workflow settings changed; no commit, document push, PR, or merge. Existing dirty PA1 files and submission artifacts preserved. User-reported submission was not independently verified. Existing PA1 preparation docs have not been synchronized with final team decisions.
+
+
+## 2026-10-25 — Log Organization Transition
+
+- Owner approved branch governance and requested AI logs organized by member or project stage.
+- Historical entries above remain unchanged. New entries use [phase/member logs](docs/ai-logs/README.md).
+- This task's actions, approval, verification, and limitations are recorded in [PA2 preparation — DankDaPancake](docs/ai-logs/PA2/DankDaPancake.md).
