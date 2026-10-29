@@ -10,13 +10,13 @@ Veylo is a proposed responsive web application that helps small delivery hubs co
 
 The proposed system suggests the next delivery using explicit priority rules. Its AI feature turns informal rider notes into structured guide drafts, which a dispatcher reviews before publication. Veylo aims to make field knowledge reusable and daily coordination clearer; these benefits are project goals, not measured results.
 
-Current stage: **PA1 preparation**. The technology stack remains undecided, and the application has not been implemented. The team reports completing a two-app survey; add its actual report and screenshots to the survey document linked below.
+Current stage: **PA1 submitted; PA2 preparation**, as reported by the owner. The technology stack remains undecided, and the application has not been implemented. The team reports completing a two-app survey; add its actual report and screenshots to the survey document linked below.
 
 Veylo was previously named SmartRoute. Published PA1 documents now live under `docs/`. Old root drafts, research, course bundles, and PDF exports remain local references excluded from the current Git tree. Pending information is explicitly left for the team to complete.
 
 ## Team
 
-**GroupID:** _To be filled in_
+**GroupID:** 09
 
 Fill in each member's StudentID, FullName, and Handle (for example, their GitHub username).
 
@@ -36,7 +36,7 @@ Fill in each member's StudentID, FullName, and Handle (for example, their GitHub
 - [PA1 submission checklist](docs/management/submission-checklist.md)
 - [Documentation index](docs/README.md)
 - [Contribution guidance](CONTRIBUTING.md)
-- [Agent instructions](AGENTS.md), [Claude instructions](CLAUDE.md), and [AI assistance log](AI_LOG.md)
+- [AI log guide](docs/ai-logs/README.md), [agent instructions](AGENTS.md), [Claude instructions](CLAUDE.md), and [AI assistance log](AI_LOG.md)
 - [Tools and process](docs/management/tools-and-process.md), [weekly report](docs/management/weekly-report.md), and [AI usage declaration](docs/management/ai-usage.md)
 
 ## Repository Layout
@@ -68,9 +68,9 @@ Root research/course material, old draft exports, and temporary renders are igno
 
 ## Deferred Team Decisions
 
-The private GitHub repository is owned by `DankDaPancake`. The application stack, task board, member access/responsibilities, sprint dates, hosting, AI provider, budget, and team branching/merge policy remain pending. No application scaffold or framework-specific CI has been created.
+The private GitHub repository is owned by `DankDaPancake`. The team has selected `main` for stable releases and `dev` for sprint integration; `dev` exists and protection for both branches was verified on October 25, 2026. The application stack and remaining tooling, schedule, hosting, budget, and deployment details remain to be confirmed. The approved workflow uses squash PRs from task branches into `dev` and milestone merge PRs from `dev` into `main`. No application scaffold or framework-specific CI has been created.
 
-[AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. GitHub enforcement will be checked after remote setup; framework-specific CI follows stack selection, and CD follows hosting/release decisions.
+[AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. Main/dev protection is active; framework-specific CI follows stack selection, and CD follows hosting/release decisions.
 
 PA2 will require Spec Kit artifacts inside `src`. Initialization and coding-agent selection are deferred until the course instructions and team integration are agreed. Do not create a nested Git repository under `src`.
 
