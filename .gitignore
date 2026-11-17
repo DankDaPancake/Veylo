@@ -6,7 +6,7 @@
 *.pem
 *.key
 
-# Dependencies and generated application output (stack is not selected yet).
+# Dependencies and generated application output.
 node_modules/
 .venv/
 venv/
@@ -19,6 +19,7 @@ __pycache__/
 dist/
 build/
 coverage/
+*.tsbuildinfo
 *.log
 
 # Local render checks, exports, packaging, and agent scratch space.

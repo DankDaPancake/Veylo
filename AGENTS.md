@@ -8,15 +8,15 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 
 - The project is named **Veylo (Velocity Flow)**, formerly SmartRoute. Existing SmartRoute filenames and historical records remain valid references; do not interpret the rename as a change in functional requirements.
 - [AGENTS.md](AGENTS.md) is the shared instruction source. [CLAUDE.md](CLAUDE.md) imports it so Claude follows the same rules; maintain shared rules here instead of creating divergent copies.
-- The user reports PA1 finalized and submitted. Current work is repository governance and PA2 preparation; do not infer a stack or implementation status from submission alone.
+- The user reports PA1 finalized and submitted. Current work is the BOOYAH-12 PA3 application foundation, approved by Kiệt on 17 November 2026; full business features remain separate.
 - Read [README.md](README.md), [the documentation index](docs/README.md), and the relevant course assignment before changing project material.
-- The current product-scope draft is [docs/requirements/project-proposal.md](docs/requirements/project-proposal.md). Older root preparation/research files are ignored local references, not published requirements or approval to implement additional ideas.
+- The PA3 requirements revision is handled separately by BOOYAH-26 against supplied Vision v1.6. PA1 history remains in [the proposal](docs/requirements/project-proposal.md). Older root preparation/research files are ignored local references, not published requirements or approval to implement additional ideas.
 - Follow the user's current task scope. When the user says to skip team decisions, record those decisions as pending and continue independent work.
 - Do not choose a stack, AI provider, hosting, budget, external board, team responsibilities, or team policies on the team's behalf. Recommendations must remain explicitly proposed.
 
 ## Project Boundaries
 
-- The proposed actors are Hub Dispatcher and Delivery Rider.
+- The current Vision roles are Administrator, Hub Dispatcher and Delivery Rider. Administrator does not implicitly inherit dispatcher permissions.
 - Preserve the distinction between orders and individual delivery attempts.
 - The proposed recommendation logic is rule-based. The proposed AI feature normalizes rider notes into drafts for dispatcher review before publication.
 - Preserve raw notes and uncertainty. Do not invent location facts, provider capabilities, measurements, or research findings.
@@ -25,7 +25,7 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 ## Files and Documentation
 
 - Use one Git repository at the root. Keep application work in `src`; do not create `src/.git`.
-- Spec Kit becomes required from PA2; its artifacts must be under `src`. Do not create fake generated artifacts or claim initialization/training before it happens.
+- Kiệt confirmed instructor/TA approval to use OpenSpec instead of GitHub Spec Kit on 17 November 2026; artifacts stay under `src`. Do not create fake generated artifacts or claim initialization/training before it happens.
 - Formal submitted documents must be English Markdown. Communicate with the user in Vietnamese unless requested otherwise; preserve original-language quotations and research sources.
 - Use Mermaid for course diagrams where appropriate. Keep Markdown as the editable source and regenerate PDF exports after material changes.
 - In submitted report sections, place actual performer, reviewer, and editor information immediately after the heading. Leave unknown attribution pending.
@@ -41,8 +41,8 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 - Read available nested `AGENTS.md` files before working in their directories.
 - Use UTF-8 text and the repository's `.editorconfig` and `.gitattributes` settings.
 - Run checks relevant to the change and report the actual command/results. Do not invent successful tests, builds, deployment, or human review.
-- There is currently no application test suite or build command. For document/configuration work, inspect new files directly, check relative links, and use Git whitespace/diff checks. `git diff` alone does not inspect untracked files.
-- Do not install frameworks or add application scaffolding while the stack remains a pending team decision.
+- For application work run the documented test, lint, typecheck and build commands in `src/README.md`; relevant database checks use a dedicated local database. For documents inspect new files, relative links and Git whitespace. `git diff` alone does not inspect untracked files.
+- The BOOYAH-12 foundation uses approved Next.js/TypeScript/Tailwind, PostgreSQL and Prisma. It contains no business models. Requirements/schema changes outside the approved scope still require approval.
 
 ## Branch Protection
 

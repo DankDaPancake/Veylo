@@ -1,0 +1,31 @@
+schema: spec-driven
+
+context: |
+  Project: Veylo - Last-Mile Delivery Management & Crowdsourced Location Intelligence.
+  Governance: See src/constitution.md for non-negotiable architectural and quality principles.
+  Subsystems:
+    - Central Administration Subsystem (Admin Web): Hub management, RBAC, audit logs.
+    - Hub Dispatcher Subsystem (Dispatcher Web): Manual/CSV intake, manual assignments and attempt-status monitoring.
+    - Rider Subsystem (Mobile Web): Touch-friendly stop execution, POD, location tips.
+  Stack: TypeScript, Next.js 16.4.6 (App Router), PostgreSQL, Prisma ORM, Tailwind CSS, Leaflet/OSM.
+  Workflow: Spec-Driven Development via OpenSpec (/opsx-propose, /opsx-apply, /opsx-archive).
+
+rules:
+  proposal:
+    - Keep proposals focused on a single capability or functional group
+    - Always explicitly state in-scope and out-of-scope boundaries
+  specs:
+    - Use RFC 2119 keywords (SHALL, MUST, SHOULD, MAY) for requirement statements
+    - Every requirement MUST have at least one testable scenario with WHEN and THEN
+  tasks:
+    - Each task must have a single assignee and explicit verification criteria
+    - Break tasks into chunks of maximum 2 hours
+
+operations:
+  apply:
+    guidance:
+      - Require unit tests for core business logic and AI normalization pipeline
+      - Enforce Conventional Commits (feat, fix, docs, test, chore)
+  archive:
+    guidance:
+      - Verify spec deltas are successfully integrated into src/openspec/specs/

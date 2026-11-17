@@ -17,3 +17,8 @@ This directory contains PA1 documents and places for the team to add missing inf
 Use English Markdown and actual performer/reviewer/editor attribution immediately after report section headings. Add real screenshots with captions beside the relevant report or in an evidence subfolder, and link them using relative paths. Export matching PDFs only after review, rendering Mermaid where appropriate. No final PDFs or invented evidence are supplied by these templates.
 
 Original course handouts, broader research, obsolete exports, and older setup notes stay local and ignored. Published documents do not require those ignored paths. Empty analysis-and-design/test folders retain the course-suggested structure without claiming deliverables.
+
+## PA3 application foundation
+
+- [Application setup and verification](../src/README.md)
+- [Actual AI log for Kiệt](ai-logs/PA3/kiettheis0702.md)

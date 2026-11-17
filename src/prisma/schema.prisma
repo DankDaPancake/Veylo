@@ -1,0 +1,5 @@
+// BOOYAH-12 verifies connectivity only. BOOYAH-13/19 own approved business models.
+// Add a generator when actual models are introduced; do not add a dummy probe table.
+datasource db {
+  provider = "postgresql"
+}
