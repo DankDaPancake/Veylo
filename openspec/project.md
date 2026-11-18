@@ -2,7 +2,7 @@
 
 **Application:** Veylo (Last-Mile Delivery Management & Crowdsourced Location Intelligence)\
 **Organization:** Group 09 — CS300 Introduction to Software Engineering\
-**Primary Governance:** `src/constitution.md`
+**Primary Governance:** `constitution.md`
 
 ## Unified Technology Stack
 - **Language:** **TypeScript** (End-to-End type safety across Frontend & Backend)

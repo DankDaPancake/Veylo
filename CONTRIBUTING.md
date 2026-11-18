@@ -27,7 +27,7 @@ Record what changed, what was checked, and what remains unverified. The pull-req
 
 Commit source documents and necessary reference files. Keep secrets, local environment files, dependency directories, caches, and disposable render output out of Git. Preserve placeholder-only `.env.example` files when application configuration is added.
 
-Use one Git repository at the root. `src` contains application code and the approved OpenSpec workspace. Use the locked foundation stack; do not add business requirements or models without their required approval.
+Use one Git repository at the root. `src` contains application code and the pinned CLI dependency. The working OpenSpec directory, `constitution.md`, and agent configuration live at the repository root. Use the locked foundation stack; do not add business requirements or models without their required approval.
 
 ## Planned Branch Protection and CI/CD
 

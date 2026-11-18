@@ -24,11 +24,11 @@
 2.1. **The SDD Imperative:** From Sprint 3 onward, **no production code shall be authored without an approved specification**. All AI coding assistants (GitHub Copilot, Cursor, Claude Code, Codex, Antigravity) must be guided by approved OpenSpec artifacts rather than freestyle prompt engineering.
 
 2.2. **OpenSpec Lifecycle Pipeline:**
-1. **Constitution (`src/constitution.md` & `src/openspec/config.yaml`):** Non-negotiable architectural, technical, and quality constraints.
-2. **Change Proposal (`src/openspec/changes/<change-name>/proposal.md`):** Problem definition, user stories, and strict scope boundaries initiated via `/opsx-propose`.
+1. **Constitution (`constitution.md` & `openspec/config.yaml`):** Non-negotiable architectural, technical, and quality constraints.
+2. **Change Proposal (`openspec/changes/<change-name>/proposal.md`):** Problem definition, user stories, and strict scope boundaries initiated via `/opsx-propose`.
 3. **Capability Specification (`specs/`):** Behavior-driven contracts using RFC 2119 keywords (`SHALL`, `MUST`) paired with testable scenarios (`WHEN ... THEN ...`).
 4. **Design & Tasks Breakdown (`design.md` & `tasks.md`):** Technical component architecture and granular, single-assignee work items (maximum 2 hours per chunk) with explicit verification criteria.
-5. **Implementation & Archival (`/opsx-apply` & `/opsx-archive`):** Code authoring strictly constrained by the task list, validated with automated tests and human review before delta specs merge into `src/openspec/specs/`.
+5. **Implementation & Archival (`/opsx-apply` & `/opsx-archive`):** Code authoring strictly constrained by the task list, validated with automated tests and human review before delta specs merge into `openspec/specs/`.
 
 2.3. **Scope Discipline:** If an edge case or new requirement arises during implementation, developers must update the OpenSpec delta proposal and obtain approval before altering code.
 
