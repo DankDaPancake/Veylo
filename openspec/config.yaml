@@ -2,7 +2,7 @@ schema: spec-driven
 
 context: |
   Project: Veylo - Last-Mile Delivery Management & Crowdsourced Location Intelligence.
-  Governance: See src/constitution.md for non-negotiable architectural and quality principles.
+  Governance: See constitution.md for non-negotiable architectural and quality principles.
   Subsystems:
     - Central Administration Subsystem (Admin Web): Hub management, RBAC, audit logs.
     - Hub Dispatcher Subsystem (Dispatcher Web): Manual/CSV intake, manual assignments and attempt-status monitoring.
@@ -28,4 +28,4 @@ operations:
       - Enforce Conventional Commits (feat, fix, docs, test, chore)
   archive:
     guidance:
-      - Verify spec deltas are successfully integrated into src/openspec/specs/
+      - Verify spec deltas are successfully integrated into openspec/specs/

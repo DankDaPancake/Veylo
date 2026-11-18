@@ -42,12 +42,17 @@ Fill in each member's StudentID, FullName, and Handle (for example, their GitHub
 ## Repository Layout
 
 ```text
-src/                       Application foundation and OpenSpec artifacts
+src/                       Application foundation and pinned CLI dependency
+openspec/                  OpenSpec configuration, specifications, and changes
+constitution.md            OpenSpec project governance
+.agents/                   Shared agent skills and workflows
+.claude/                   Claude skills and commands
+.cursor/                   Cursor skills and commands
 docs/management/           PA1 contract, tools/process, reports, and checklist
 docs/requirements/         PA1 proposal and survey
 docs/analysis-and-design/  Future architecture, diagrams, and UI design
 docs/test/                 Future test plans, cases, and results
-.github/                   Task and pull-request templates
+.github/                   Task/PR templates and Copilot skills/prompts
 ```
 
 Original preparation/reference files stay locally at their existing paths and are ignored. Published links point to curated repository documents. Existing copies in earlier commits remain in Git history.
@@ -55,6 +60,8 @@ Original preparation/reference files stay locally at their existing paths and ar
 ## Working Locally
 
 Follow [src/README.md](src/README.md) for locked dependency installation, local PostgreSQL, development and verification commands. Hosting/deployment remain pending.
+
+Open the repository root as the coding-agent workspace. OpenSpec configuration and agent commands live there. With the installed OpenSpec CLI, run `openspec list --json` from the root; the pinned CLI can also be invoked after `npm ci` in `src` as described in [the OpenSpec workflow](src/README.md#openspec-workflow-and-handoff).
 
 ```powershell
 git status --short --branch
@@ -72,6 +79,6 @@ The private GitHub repository is owned by `DankDaPancake`. The team has selected
 
 [AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. Main/dev protection was observed in the historical governance check; recheck before relying on current enforcement. CI/CD setup is separate work.
 
-The user confirmed OpenSpec is accepted in place of GitHub Spec Kit. The real `app-foundation` change and pinned CLI live inside `src`. Do not create a nested Git repository under `src`.
+The user confirmed OpenSpec is accepted in place of GitHub Spec Kit. The real `app-foundation` change lives in `openspec/` at the repository root; the pinned CLI dependency remains in `src`. The user requested this working layout so tools can discover OpenSpec from the root. PA2's submitted-artifact placement under `src` remains a separate requirement. Do not create a nested Git repository under `src`.
 
 Keep the repository private and provide instructor/TA access when requested, as PA1 requires. Add team collaborators after their handles are supplied. Preserve the existing Git history when cloning or setting up another machine.

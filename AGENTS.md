@@ -25,7 +25,7 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 ## Files and Documentation
 
 - Use one Git repository at the root. Keep application work in `src`; do not create `src/.git`.
-- Kiệt confirmed instructor/TA approval to use OpenSpec instead of GitHub Spec Kit on 17 November 2026; artifacts stay under `src`. Do not create fake generated artifacts or claim initialization/training before it happens.
+- Kiệt confirmed instructor/TA approval to use OpenSpec instead of GitHub Spec Kit on 17 November 2026. At the user's explicit request, the working OpenSpec directory, `constitution.md`, and agent configuration live at the repository root so tools can discover them there. PA2's submitted-artifact requirement under `src` is separate; no location exception from the instructor is claimed. Do not create fake generated artifacts or claim initialization/training before it happens.
 - Formal submitted documents must be English Markdown. Communicate with the user in Vietnamese unless requested otherwise; preserve original-language quotations and research sources.
 - Use Mermaid for course diagrams where appropriate. Keep Markdown as the editable source and regenerate PDF exports after material changes.
 - In submitted report sections, place actual performer, reviewer, and editor information immediately after the heading. Leave unknown attribution pending.

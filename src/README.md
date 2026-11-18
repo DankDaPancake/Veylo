@@ -59,6 +59,8 @@ The probe opens only an ephemeral localhost test port, performs a read-only quer
 
 Kiệt confirmed instructor/TA approval for OpenSpec instead of GitHub Spec Kit on 17 November 2026. The setup files were carried from `docs/openspec-setup` into this local starter branch. The `app-foundation` change was created by the pinned CLI; its artifacts were AI-authored under the approved design, not fabricated CLI-generated content or five-person training.
 
+Open the repository root as the coding-agent workspace. OpenSpec artifacts are in [../openspec/](../openspec/), governance is in [../constitution.md](../constitution.md), and agent skills/commands are at the repository root. The pinned CLI dependency stays in `src`; the following commands run from `src` after `npm ci` and discover the parent OpenSpec directory. A globally installed `openspec` CLI can also run directly from the repository root. PA2's submitted-artifact placement under `src` remains a separate requirement.
+
 ```powershell
 $env:OPENSPEC_TELEMETRY='0'
 npx --no-install openspec status --change app-foundation
