@@ -5,9 +5,9 @@ context: |
   Governance: See src/constitution.md for non-negotiable architectural and quality principles.
   Subsystems:
     - Central Administration Subsystem (Admin Web): Hub management, RBAC, audit logs.
-    - Hub Dispatcher Subsystem (Dispatcher Web): Ingestion, heuristic clustering, map override, fleet monitor.
+    - Hub Dispatcher Subsystem (Dispatcher Web): Manual/CSV intake, manual assignments and attempt-status monitoring.
     - Rider Subsystem (Mobile Web): Touch-friendly stop execution, POD, location tips.
-  Stack: TypeScript, Next.js 14+ (App Router), PostgreSQL, Prisma ORM, Tailwind CSS, Leaflet/OSM.
+  Stack: TypeScript, Next.js 16.4.6 (App Router), PostgreSQL, Prisma ORM, Tailwind CSS, Leaflet/OSM.
   Workflow: Spec-Driven Development via OpenSpec (/opsx-propose, /opsx-apply, /opsx-archive).
 
 rules:

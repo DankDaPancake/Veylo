@@ -1,0 +1,19 @@
+name: veylo-local
+services:
+  postgres:
+    image: postgres:18.7
+    environment:
+      POSTGRES_USER: veylo
+      POSTGRES_PASSWORD: ${VEYLO_LOCAL_DB_PASSWORD:-veylo_local_only}
+      POSTGRES_DB: veylo
+    ports:
+      - "127.0.0.1:54339:5432"
+    volumes:
+      - veylo_local_pg:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U veylo -d veylo"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  veylo_local_pg:

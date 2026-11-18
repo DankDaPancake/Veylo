@@ -1,6 +1,6 @@
 # Contributing to Veylo
 
-This is initial repository guidance for PA1. Team-owned decisions are still pending; this file does not establish an agreed team contract.
+This guidance covers the PA3 foundation while preserving the historical PA1 workflow. Team-owned policies remain pending unless explicitly approved.
 
 ## Course Requirements
 
@@ -19,7 +19,7 @@ Read the relevant assignment and current proposal before changing requirements. 
 
 Keep edits scoped to the assigned work. Preserve existing user changes and document links. Avoid mass-formatting supplied material. Edit Markdown as the source; a PDF export may become stale when the corresponding Markdown changes.
 
-Before handing work over, inspect the changed files and run the relevant available checks. At present, use `git status --short --branch`, `git diff --check`, and `git diff`; newly created untracked files also need direct inspection because `git diff` does not include them. Check local Markdown links after moves or renames. No application test suite exists yet.
+Before handing work over, inspect the changed files and run the relevant available checks. At present, use `git status --short --branch`, `git diff --check`, and `git diff`; newly created untracked files also need direct inspection because `git diff` does not include them. Check local Markdown links after moves or renames. Application verification commands are documented in [src/README.md](src/README.md).
 
 Record what changed, what was checked, and what remains unverified. The pull-request template is a reporting aid, not evidence that checks or reviews ran.
 
@@ -27,13 +27,13 @@ Record what changed, what was checked, and what remains unverified. The pull-req
 
 Commit source documents and necessary reference files. Keep secrets, local environment files, dependency directories, caches, and disposable render output out of Git. Preserve placeholder-only `.env.example` files when application configuration is added.
 
-Use one Git repository at the root. `src` is reserved for application code and the later Spec Kit workspace. Do not add framework-specific dependencies until the stack is selected.
+Use one Git repository at the root. `src` contains application code and the approved OpenSpec workspace. Use the locked foundation stack; do not add business requirements or models without their required approval.
 
 ## Planned Branch Protection and CI/CD
 
 Follow the [branch protection and CI/CD instructions](AGENTS.md). Use task branches and PRs for the eventual protected integration branch, with a non-author human approval, resolved conversations, and passing required checks. Do not bypass protection or force-push to a protected branch. Remote enforcement is not configured by this document.
 
-Framework-specific CI is deferred until stack selection; deployment automation additionally depends on agreed hosting and release authorization. The planned checks cover lint/format, types where relevant, tests, build, and relevant documentation/database checks. `main` is selected for stable releases and `dev` for sprint integration; both branches exist and protection was verified on October 25, 2026. Squash task PRs into `dev`; use merge commits for milestone PRs from `dev` into `main`. Exact CI jobs and deployment environments remain pending.
+The foundation has local verification commands; framework-specific CI remains separate backlog work. Deployment automation depends on agreed hosting and release authorization. The planned checks cover lint/format, types where relevant, tests, build, and relevant documentation/database checks. `main` is selected for stable releases and `dev` for sprint integration; both branches exist and protection was verified on October 25, 2026. Squash task PRs into `dev`; use merge commits for milestone PRs from `dev` into `main`. Exact CI jobs and deployment environments remain pending.
 
 ## Pending Team Agreement
 

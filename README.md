@@ -10,7 +10,7 @@ Veylo is a proposed responsive web application that helps small delivery hubs co
 
 The proposed system suggests the next delivery using explicit priority rules. Its AI feature turns informal rider notes into structured guide drafts, which a dispatcher reviews before publication. Veylo aims to make field knowledge reusable and daily coordination clearer; these benefits are project goals, not measured results.
 
-Current stage: **PA1 submitted; PA2 preparation**, as reported by the owner. The technology stack remains undecided, and the application has not been implemented. The team reports completing a two-app survey; add its actual report and screenshots to the survey document linked below.
+Current stage: **PA3 application foundation**. The local foundation uses Next.js, TypeScript, Tailwind, PostgreSQL and Prisma; order/auth workflows and business schema are not implemented by BOOYAH-12. See [application setup](src/README.md). Requirements, use-case and prototype deliverables are maintained in their separate tasks.
 
 Veylo was previously named SmartRoute. Published PA1 documents now live under `docs/`. Old root drafts, research, course bundles, and PDF exports remain local references excluded from the current Git tree. Pending information is explicitly left for the team to complete.
 
@@ -42,7 +42,7 @@ Fill in each member's StudentID, FullName, and Handle (for example, their GitHub
 ## Repository Layout
 
 ```text
-src/                       Future application source; no stack selected
+src/                       Application foundation and OpenSpec artifacts
 docs/management/           PA1 contract, tools/process, reports, and checklist
 docs/requirements/         PA1 proposal and survey
 docs/analysis-and-design/  Future architecture, diagrams, and UI design
@@ -54,7 +54,7 @@ Original preparation/reference files stay locally at their existing paths and ar
 
 ## Working Locally
 
-Only Git and a Markdown editor are needed at this stage. There are no application dependencies, startup commands, automated tests, or deployment yet.
+Follow [src/README.md](src/README.md) for locked dependency installation, local PostgreSQL, development and verification commands. Hosting/deployment remain pending.
 
 ```powershell
 git status --short --branch
@@ -68,10 +68,10 @@ Root research/course material, old draft exports, and temporary renders are igno
 
 ## Deferred Team Decisions
 
-The private GitHub repository is owned by `DankDaPancake`. The team has selected `main` for stable releases and `dev` for sprint integration; `dev` exists and protection for both branches was verified on October 25, 2026. The application stack and remaining tooling, schedule, hosting, budget, and deployment details remain to be confirmed. The approved workflow uses squash PRs from task branches into `dev` and milestone merge PRs from `dev` into `main`. No application scaffold or framework-specific CI has been created.
+The private GitHub repository is owned by `DankDaPancake`. The team has selected `main` for stable releases and `dev` for sprint integration; `dev` exists and protection for both branches was verified on October 25, 2026. The foundation stack is selected for BOOYAH-12; budget is 0 VND. Hosting, deployment and remaining team policies need their owners to confirm them. The approved workflow uses squash PRs from task branches into `dev` and milestone merge PRs from `dev` into `main`. The local foundation is present; shared-branch integration and hosted CI are not claimed.
 
-[AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. Main/dev protection is active; framework-specific CI follows stack selection, and CD follows hosting/release decisions.
+[AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. Main/dev protection was observed in the historical governance check; recheck before relying on current enforcement. CI/CD setup is separate work.
 
-PA2 will require Spec Kit artifacts inside `src`. Initialization and coding-agent selection are deferred until the course instructions and team integration are agreed. Do not create a nested Git repository under `src`.
+The user confirmed OpenSpec is accepted in place of GitHub Spec Kit. The real `app-foundation` change and pinned CLI live inside `src`. Do not create a nested Git repository under `src`.
 
 Keep the repository private and provide instructor/TA access when requested, as PA1 requires. Add team collaborators after their handles are supplied. Preserve the existing Git history when cloning or setting up another machine.

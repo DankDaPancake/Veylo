@@ -1,10 +1,10 @@
 # Veylo Engineering Constitution
 
-**Project Identifier:** Group 09 — CS300 Introduction to Software Engineering  
-**Application Name:** Veylo (Last-Mile Delivery Management & Crowdsourced Location Intelligence)  
-**Target Milestone:** PA2 to PA5 (Spring 2026)  
-**Spec Framework:** OpenSpec (`@fission-ai/openspec`)  
-**Status:** Active & Enforced  
+**Project Identifier:** Group 09 — CS300 Introduction to Software Engineering\
+**Application Name:** Veylo (Last-Mile Delivery Management & Crowdsourced Location Intelligence)\
+**Target Milestone:** PA2 to PA5 (PA3 foundation, November 2026)\
+**Spec Framework:** OpenSpec (`@fission-ai/openspec`)\
+**Status:** Foundation scope approved by Kiệt; independent peer review pending
 
 ---
 
@@ -12,7 +12,7 @@
 
 1.1. **System Definition:** Veylo is a responsive web application designed for last-mile delivery hubs in dense urban environments (Vietnam). It connects three primary actors across three distinct subsystems:
 - **Central Administration Subsystem (Admin Web):** System configuration, hub provisioning, role-based access control (RBAC), and global audit logging.
-- **Delivery Hub & Dispatcher Subsystem (Dispatcher Web):** Bulk order ingestion (Excel/JSON), cluster assignment, interactive map routing override, real-time fleet tracking, and crowdsourced guide review.
+- **Delivery Hub & Dispatcher Subsystem (Dispatcher Web):** Manual/CSV order intake, dispatcher-controlled shift assignment, route overview, delivery-event monitoring without continuous GPS, and crowdsourced guide review.
 - **Mobile Field Delivery Subsystem (Rider Mobile Web):** Touch-friendly sequential stop execution, turn-by-turn navigation link-out, digital proof-of-delivery (POD) capture, and in-field location note contribution.
 
 1.2. **Architectural Gating:** Any feature or code contribution outside these three operational subsystems is strictly out-of-scope and prohibited.
@@ -38,7 +38,7 @@
 
 3.1. **Core Architecture & Language:**
 - Language: **TypeScript** across the entire codebase (Frontend and Backend) ensuring end-to-end type safety.
-- Framework: **Next.js 14+ (App Router)** with **React** for server-side rendering, responsive web UI, and Route Handlers / Server Actions.
+- Framework: **Next.js 16.4.6 (App Router)** with **React** for server-side rendering, responsive web UI, and Route Handlers / Server Actions.
 - Styling: **Tailwind CSS** for responsive, mobile-first utility styling.
 - Mapping & Geolocation: **Leaflet.js** with **OpenStreetMap (OSM)** tiles for hub dispatch and rider route previews.
 
@@ -49,8 +49,8 @@
 - Data Exchange: Standardized JSON payloads adhering to OpenAPI 3.0 conventions.
 
 3.3. **AI Pipeline Integration:**
-- LLM Integration: OpenAI / Gemini API for unstructured delivery-note normalization (extracting parking tips, access codes, entry gates, and building caveats).
-- Guardrails: Strict JSON schema enforcement, sanitization against prompt injection, and deterministic fallback for ambiguous notes.
+- LLM Integration: A verified free/local provider, still to be selected, for unstructured delivery-note normalization (extracting parking tips, access codes, entry gates, and building caveats).
+- Guardrails: Strict JSON schema enforcement, sanitization against prompt injection, and manual fallback preserving source notes and uncertainty.
 
 ---
 
@@ -75,12 +75,12 @@
 ## 5. MVP Boundaries & Risk Mitigation
 
 5.1. **Explicit In-Scope Boundaries for Course MVP:**
-- Deterministic heuristic clustering and single-hub route sequencing.
+- Deterministic next-stop suggestions and dispatcher-controlled stop sequencing.
 - Single-device touch-optimized web UI for field riders (no native mobile app store deployment required).
-- Proof-of-delivery (photo upload and customer confirmation status).
+- Proof-of-delivery by photo; detailed limits remain in the owner specification.
 - AI-powered normalization of rider notes into structured hub knowledge.
 
 5.2. **Explicit Out-of-Scope Exclusions (Mitigating Scope Creep):**
-- Complex real-time multi-vehicle dynamic Vehicle Routing Problem (VRP) optimization (relies on Leaflet routing heuristics instead).
+- Complex real-time multi-vehicle dynamic Vehicle Routing Problem (VRP) optimization (no fleet-wide optimizer).
 - Telephony VoIP calling integration (direct tel-link URL scheme used instead).
-- In-app payment gateway processing / COD banking integration (recorded as numerical ledger values).
+- In-app payment gateway processing / COD banking integration (no banking or payment ledger added by this foundation).

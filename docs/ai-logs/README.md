@@ -12,5 +12,6 @@ Copy [the template](TEMPLATE.md) for each new task. Record the actual date, tool
 
 - [Historical and setup records](../../AI_LOG.md)
 - [PA2 — DankDaPancake](PA2/DankDaPancake.md)
+- [PA3 — kiettheis0702 (BOOYAH-12 publication)](PA3/kiettheis0702.md)
 
 Add links here when new member/phase logs are created. A log file or template is not proof of completed work or human review.
