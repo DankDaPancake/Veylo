@@ -1,15 +1,13 @@
 # Repository Instructions
 
-@RTK.md
-
-Read [RTK.md](RTK.md) for command-output guidance. These instructions apply throughout this repository unless a more specific instruction applies.
+These instructions apply throughout this repository unless a more specific instruction applies.
 
 ## Current Stage and Authority
 
 - The project is named **Veylo (Velocity Flow)**, formerly SmartRoute. Existing SmartRoute filenames and historical records remain valid references; do not interpret the rename as a change in functional requirements.
-- [AGENTS.md](AGENTS.md) is the shared instruction source. [CLAUDE.md](CLAUDE.md) imports it so Claude follows the same rules; maintain shared rules here instead of creating divergent copies.
+- Maintain shared agent instructions in this file.
 - The user reports PA1 finalized and submitted. Current work is the BOOYAH-12 PA3 application foundation, approved by Kiệt on 17 November 2026; full business features remain separate.
-- Read [README.md](README.md), [the documentation index](docs/README.md), and the relevant course assignment before changing project material.
+- Read [the documentation index](docs/README.md), and the relevant course assignment before changing project material.
 - The PA3 requirements revision is handled separately by BOOYAH-26 against supplied Vision v1.6. PA1 history remains in [the proposal](docs/requirements/project-proposal.md). Older root preparation/research files are ignored local references, not published requirements or approval to implement additional ideas.
 - Follow the user's current task scope. When the user says to skip team decisions, record those decisions as pending and continue independent work.
 - Do not choose a stack, AI provider, hosting, budget, external board, team responsibilities, or team policies on the team's behalf. Recommendations must remain explicitly proposed.
@@ -74,11 +72,11 @@ Read [RTK.md](RTK.md) for command-output guidance. These instructions apply thro
 
 ## Mandatory AI Usage Logging
 
-- Keep [AI_LOG.md](AI_LOG.md) at the root as the historical record and entry point. Record every new AI-assisted task in `docs/ai-logs/<phase>/<github-handle>.md`, following [the log guide](docs/ai-logs/README.md). Use the requesting member's actual handle; use `unassigned.md` when unknown. Add new log links to the guide index. One entry may group related calls; never invent other members' activity.
+- Keep the historical PA1 record in [AI_LOG.md](docs/ai-log/PA1/AI_LOG.md) and use the log guide as the index. Record every new AI-assisted task in `docs/ai-log/<phase>/<github-handle>.md`, following [the log guide](docs/ai-log/README.md). Use the requesting member's actual handle; use `unassigned.md` when unknown. Add new log links to the guide index. One entry may group related calls; never invent other members' activity.
 - Before handing a task back or committing its changes, record the actual date, AI tool/model when known, the user's request or faithful prompt reference, purpose, work performed, affected files, commands/checks and results, and remaining limitations or approvals.
 - Logging is mandatory for every AI-assisted task, including questions, read-only reviews, research, planning, documentation, and tasks with no code changes. Do not skip logging because the task is small.
 - Before the final response, commit, or PR handoff, verify that this task has an actual entry in the correct phase/member file and that the file is linked from the log index. Read the entry back and confirm it records only actions and checks that actually occurred. Do not claim completion before this check.
-- If the phase is not established, use `docs/ai-logs/general/<github-handle>.md`; if ownership is unknown, use `unassigned.md`. Do not guess identities from commit authorship. If writing is unavailable, disclose that logging could not be completed and provide the entry for the user to save; never claim it was recorded.
+- If the phase is not established, use `docs/ai-log/general/<github-handle>.md`; if ownership is unknown, use `unassigned.md`. Do not guess identities from commit authorship. If writing is unavailable, disclose that logging could not be completed and provide the entry for the user to save; never claim it was recorded.
 - Distinguish AI-generated work, AI review, and human work/validation. Record human validation only when it actually happens. Mark unavailable metadata or evidence as unavailable rather than inventing it.
 - Include the outcome of requirements/database approval requests when relevant; a proposal awaiting approval is not completed implementation.
 - Keep history append-only. Add a correction/amendment when an entry is wrong; do not rewrite prior entries to fabricate a cleaner history. Task status and verification may be updated while that task's entry is still in progress.

@@ -11,7 +11,7 @@ This guidance covers the PA3 foundation while preserving the historical PA1 work
 - Immediately after each submitted report section heading, record who performed, reviewed, and edited that section. Unknown names stay explicitly pending.
 - From PA2, each task needs a different member to review it; do not imply a human review has happened when it has not.
 - Preserve AI prompts/history and record affected work and human validation. PA2 explicitly requires an AI usage report; no completed declaration is supplied by this setup.
-- Update the root [AI_LOG.md](AI_LOG.md) for each AI-assisted task, following [AGENTS.md](AGENTS.md). Keep actual human validation separate from AI output/review.
+- Record each AI-assisted task in the [phase/member logs](docs/ai-log/README.md), following [AGENTS.md](AGENTS.md). Keep actual human validation separate from AI output/review.
 
 ## Editing and Verification
 
@@ -39,4 +39,4 @@ The foundation has local verification commands; framework-specific CI remains se
 
 Remaining access/tooling, reviewer rotation, meeting dates, and application tooling must be confirmed by the team. Templates intentionally leave unavailable fields open; the user's confirmed `main`/`dev` workflow is recorded above.
 
-Record each AI-assisted task using the [phase/member log guide](docs/ai-logs/README.md) before commit or handoff.
+Record each AI-assisted task using the [phase/member log guide](docs/ai-log/README.md) before commit or handoff.

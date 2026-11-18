@@ -1,7 +1,7 @@
 # PA1 — Team Contract
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.
 
-**Status:** Blank agreement template, not an accepted contract. Use the [root README](../../README.md) for GroupID and member identities.
+**Status:** Blank agreement template, not an accepted contract. Record Group 09 and the confirmed member identities in the submitted contract.
 
 ## Roles and Responsibilities
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.

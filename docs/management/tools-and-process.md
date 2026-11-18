@@ -1,16 +1,16 @@
 # PA1 — Tools and Process
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.
 
-**Status:** Repository facts below come from actual setup. Other tool choices and evidence are left for the team.
+**Status:** Historical PA1 setup record with placeholders for evidence. For the current application and OpenSpec workflow, see [application setup](../../src/README.md).
 
 ## Repository Setup
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.
 
 Project: Veylo (Velocity Flow), formerly SmartRoute. Repository: [DankDaPancake/Veylo](https://github.com/DankDaPancake/Veylo), created private and verified during publication.
 
-Present: Git history, README/team placeholders, shared AGENTS/CLAUDE rules, AI_LOG, ignore/editor settings, task/PR templates, and source/documentation folders. Setup was AI-assisted at the user's request; actual human review attribution is pending.
+The PA1 setup established Git history, a README, agent guidance, an [AI usage record](../ai-log/PA1/AI_LOG.md), ignore/editor settings, task/PR templates, and source/documentation folders. Setup was AI-assisted at the user's request; actual human review attribution is pending.
 
-_Complete with actual collaborator access, current branch-protection settings, and setup screenshots. Stack/application/database/CI/CD are not implemented. Spec Kit starts from PA2 and is not initialized._
+_For PA1 evidence, include collaborator access and screenshots from that assignment. See the [branch governance record](branch-governance-proposal.md) for subsequent changes._
 
 ## Communication and Course Channels
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.
