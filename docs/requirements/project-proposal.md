@@ -3,7 +3,7 @@ Performed by: to be filled in. Reviewed by: pending team review. Edited by: AI-a
 
 **Status:** Existing product-scope draft, reorganized for PA1. Team acceptance and actual section attribution remain to be completed. Moving this text does not approve new functional requirements.
 
-**Project name:** Veylo (Velocity Flow). **Group information:** complete the [root README](../../README.md).
+**Project name:** Veylo (Velocity Flow). **Group information:** Group 09. Record confirmed member identities in the submitted proposal.
 
 This file carries the proposal section from the earlier SmartRoute draft, with the approved project-name change. No functional-group paragraph or workflow has been added or removed. Technical suggestions and undecided details in the source remain proposals, not selected technologies or commitments.
 

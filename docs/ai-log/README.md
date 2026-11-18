@@ -1,6 +1,6 @@
 # AI Usage Logs
 
-Keep the existing [root AI_LOG.md](../../AI_LOG.md) as the historical record and entry point. Do not move or rewrite old entries.
+This index collects AI usage logs by assignment. [PA1/AI_LOG.md](PA1/AI_LOG.md) preserves the historical root log.
 
 New task records belong in `<phase>/<github-handle>.md`, for example `PA2/DankDaPancake.md`. Use the actual phase (PA2, PA3, or a named milestone) and the requesting member's handle. The handle identifies the task owner, not a claim that the member independently authored AI output. Do not create activity for other members. If ownership is unknown, use `<phase>/unassigned.md` and state the limitation.
 
@@ -10,8 +10,10 @@ Copy [the template](TEMPLATE.md) for each new task. Record the actual date, tool
 
 ## Index
 
-- [Historical and setup records](../../AI_LOG.md)
+- [PA1 — Historical and setup records](PA1/AI_LOG.md)
 - [PA2 — DankDaPancake](PA2/DankDaPancake.md)
 - [PA3 — kiettheis0702 (BOOYAH-12 publication)](PA3/kiettheis0702.md)
+- [PA3 — Cee-Ka](PA3/Cee-Ka.md)
+- [PA3 — Unassigned](PA3/unassigned.md)
 
 Add links here when new member/phase logs are created. A log file or template is not proof of completed work or human review.

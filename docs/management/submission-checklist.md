@@ -6,7 +6,7 @@ Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be fi
 ## Group Registration
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.
 
-- [ ] Fill GroupID and identities in the [root README](../../README.md).
+- [ ] Confirm Group 09 and member identities in the submission.
 - [ ] Verify registration, leader, student IDs, names, emails, and project name in the actual course form.
 
 ## Project Proposal — 10 Points

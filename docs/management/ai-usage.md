@@ -11,7 +11,7 @@ _To be filled in: the declaration required by the applicable course guidance, af
 ## Usage Details and Evidence
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.
 
-Use the factual [root AI_LOG.md](../../AI_LOG.md) as a starting point. _Add missing team usage: tool/model/platform, actual access date/time when known, prompts/history, purpose, generated content, independent work, and human checks/edits. Attach available real chat evidence, redacting credentials and personal data._
+Use the factual [PA1 AI_LOG.md](../ai-log/PA1/AI_LOG.md) as a starting point. _Add missing team usage: tool/model/platform, actual access date/time when known, prompts/history, purpose, generated content, independent work, and human checks/edits. Attach available real chat evidence, redacting credentials and personal data._
 
 ## Human Validation
 Performed by: to be filled in. Reviewed by: to be filled in. Edited by: to be filled in.

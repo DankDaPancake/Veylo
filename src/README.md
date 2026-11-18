@@ -57,7 +57,7 @@ The probe opens only an ephemeral localhost test port, performs a read-only quer
 
 ## OpenSpec workflow and handoff
 
-Kiệt confirmed instructor/TA approval for OpenSpec instead of GitHub Spec Kit on 17 November 2026. The setup files were carried from `docs/openspec-setup` into this local starter branch. The `app-foundation` change was created by the pinned CLI; its artifacts were AI-authored under the approved design, not fabricated CLI-generated content or five-person training.
+Kiệt confirmed instructor/TA approval for OpenSpec instead of GitHub Spec Kit on 17 November 2026. The application foundation and the root OpenSpec setup were merged into `dev` in PRs #6 and #7. The `app-foundation` change was created by the pinned CLI; its artifacts were AI-authored under the approved design, not fabricated CLI-generated content or five-person training.
 
 Open the repository root as the coding-agent workspace. OpenSpec artifacts are in [../openspec/](../openspec/), governance is in [../constitution.md](../constitution.md), and agent skills/commands are at the repository root. The pinned CLI dependency stays in `src`; the following commands run from `src` after `npm ci` and discover the parent OpenSpec directory. A globally installed `openspec` CLI can also run directly from the repository root. PA2's submitted-artifact placement under `src` remains a separate requirement.
 
@@ -68,4 +68,4 @@ npm run spec:validate
 npx --no-install openspec new change <your-change-name>
 ```
 
-Write the proposal, specs with WHEN/THEN scenarios, design and owner tasks before implementation. New requirements/business schema still need concrete approval. Keep the foundation change unarchived until peer acceptance. No shared Git merge, CI run, deployment or five-member walkthrough is claimed. The Figma kit belongs to BOOYAH-25; it is not an implemented order UI.
+Write the proposal, specs with WHEN/THEN scenarios, design and owner tasks before implementation. New requirements/business schema still need concrete approval. Keep the foundation change unarchived until peer acceptance. The Figma kit belongs to BOOYAH-25; it is not an implemented order UI.
