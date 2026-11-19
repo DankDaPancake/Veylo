@@ -1,0 +1,1497 @@
+{
+  "sourceRoot": "docs/draft/IntroSe/Trần Lê Hải - PA3 (20) - audited -20261119T083853Z-1-001",
+  "contentRootWithinSource": "Trần Lê Hải - PA3 (20) - audited ",
+  "sourceFileCount": 72,
+  "gitHeadBefore": "04ec211eb8d9835ed6190bd602d3c5e1c10f9711",
+  "openSpecReferenceCommit": "851f324b67bedb6b23f094aa5faebad6c73f197d",
+  "sourceRuleStatus": "Preserved from audited source; independent human review remains pending.",
+  "files": [
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /F02-Business-Rules-Proposal.md",
+      "destination": "docs/analysis-and-design/use-cases/F02-Business-Rules-Proposal.md",
+      "sourceSHA256": "cc44dd4c942bcccef622149dbe87eed32a45d3d9612eb2ed5f741012e3b67581",
+      "destinationSHA256": "bfb2043e675dac34164117abcfc80cfb58f756167b5d803108f554c5a5951a06",
+      "integrationOperation": "trailing_whitespace_normalization_only"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /F02-Business-Rules-Proposal.pdf",
+      "destination": "docs/analysis-and-design/use-cases/F02-Business-Rules-Proposal.pdf",
+      "sourceSHA256": "69278fdf9442d8dd6df90d69c0a1777ef7a0dbd7ddc3845ca2040139141dd747",
+      "destinationSHA256": "ec0d2f383aaab9cf66ba9c348c03f275cf4dcb628e19d402558a2a9f546aa0fb",
+      "integrationOperation": "regenerated_from_integrated_markdown"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /UC-F02-Orders.md",
+      "destination": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "sourceSHA256": "a36caaa9af1529581d9cdf8f62fe7b0c696d762f813dfacbf46026a73a3d7d9f",
+      "destinationSHA256": "d358336c3dca14805192804e1684fc26ab47ac5943f1dbffe8b6d7bb369d888e",
+      "integrationOperation": "relocated_links_path_context_and_EOF_normalization",
+      "beforePublicationDestinationSHA256": "cf9c432e5dda1df385c4ebf9d44af37e9df18a2505041876c8ec7250cd22d36e",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/invalid-orders.csv",
+      "destination": "docs/test/f02-order-intake/csv/invalid-orders.csv",
+      "sourceSHA256": "3ffbc0eabe0aeb66b3a2091938ba16e7a426ce2085f2737e5cf7fc39fb8b4846",
+      "destinationSHA256": "3ffbc0eabe0aeb66b3a2091938ba16e7a426ce2085f2737e5cf7fc39fb8b4846",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/link-export-audit.json",
+      "destination": "docs/test/f02-order-intake/csv/link-export-audit.json",
+      "sourceSHA256": "102a7e06b2336d7ee3010c8e21928d30fd3ffd79f6c926ec0abb3c2e7914b5a7",
+      "destinationSHA256": "102a7e06b2336d7ee3010c8e21928d30fd3ffd79f6c926ec0abb3c2e7914b5a7",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/valid-orders.csv",
+      "destination": "docs/test/f02-order-intake/csv/valid-orders.csv",
+      "sourceSHA256": "34a82849dc31a3b8f6c38be9e379882d62d5529722ef2cc9fcba34ca66a1d6cb",
+      "destinationSHA256": "34a82849dc31a3b8f6c38be9e379882d62d5529722ef2cc9fcba34ca66a1d6cb",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/validate_samples.py",
+      "destination": "docs/test/f02-order-intake/csv/validate_samples.py",
+      "sourceSHA256": "328ebd32fcb5f9b3eeec213d7ece0c3408fe9cdfb1cca65d18b1e8fb895c9d6c",
+      "destinationSHA256": "328ebd32fcb5f9b3eeec213d7ece0c3408fe9cdfb1cca65d18b1e8fb895c9d6c",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/validation-results.json",
+      "destination": "docs/test/f02-order-intake/csv/validation-results.json",
+      "sourceSHA256": "7cd9fdd6fc11cdeff9c8dfb3045237a2709ff81a5159f8edd8c4a35dee0748f2",
+      "destinationSHA256": "7cd9fdd6fc11cdeff9c8dfb3045237a2709ff81a5159f8edd8c4a35dee0748f2",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-Figma-Structure-Verification.json",
+      "destination": "docs/test/f02-order-intake/prototype/F02-Figma-Structure-Verification.json",
+      "sourceSHA256": "335e692a47ea6a1195ed38831f145824701448833f922699f3acb6883478d708",
+      "destinationSHA256": "335e692a47ea6a1195ed38831f145824701448833f922699f3acb6883478d708",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-PDF-Verification.json",
+      "destination": "docs/test/f02-order-intake/prototype/F02-PDF-Verification.json",
+      "sourceSHA256": "5174815ac9d52501602cf4809d021da522e2c30cc6cc0fd15e2381fa7d40602e",
+      "destinationSHA256": "213efe12099b92e8b2b996c8b7282932db783d5269e428c8bcc0b735b5694d2a",
+      "integrationOperation": "verified_regenerated_exports",
+      "beforePublicationDestinationSHA256": "19270ca1b5f9033cfd382452643148f40170f78fb0a0dd371f54f52a7a9e0742",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-PNG-Verification.json",
+      "destination": "docs/test/f02-order-intake/prototype/F02-PNG-Verification.json",
+      "sourceSHA256": "b1957b93853da7ba68380460580bca75f0d96d23a71412702ea165d46b713c50",
+      "destinationSHA256": "94a22c7f958ae8e47a73fcf910a093f1552a5a5f6f6d1ebc0e23e94863fed9a3",
+      "integrationOperation": "rebased_resource_paths"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-Prototype-Handoff.md",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "sourceSHA256": "b0ad4a9ec3145461f006510a6f81aced2506b65388300cd7e4a81327782af8f2",
+      "destinationSHA256": "390d96f4702c10b1a8d44e58934080ced5c4bb4ed016725c175c8cbd08c3fd22",
+      "integrationOperation": "relocated_links_path_context_and_EOF_normalization",
+      "beforePublicationDestinationSHA256": "a597bbce6414fef8ce2bfc7d48ea43a02b8e8efd6b8ea151dde43ce4031ef29f",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-Prototype-Handoff.pdf",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.pdf",
+      "sourceSHA256": "cae2a35697c54dd73cf032866ffd729e135126e5858713c2f1a8ba16fe569f4c",
+      "destinationSHA256": "bcc3cfa174591d7163ecbe54af4e75ae5aec35546eb10182c4ec0c83a7a3fd8a",
+      "integrationOperation": "regenerated_from_integrated_markdown",
+      "beforePublicationDestinationSHA256": "fb7a4a8043e00e5f4c986c21ffa6fd9c3d2fdedd0cdf3446eaa62c1c3b9bfe16",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-Prototype-Links-Verification.json",
+      "destination": "docs/test/f02-order-intake/prototype/F02-Prototype-Links-Verification.json",
+      "sourceSHA256": "6661ebdc7cce72b5191f109344c3ec2da5e91264f196ca4707bd99e167c157b2",
+      "destinationSHA256": "6661ebdc7cce72b5191f109344c3ec2da5e91264f196ca4707bd99e167c157b2",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/F02-Screen-Manifest.json",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Screen-Manifest.json",
+      "sourceSHA256": "b28473afac245e072b0d25b68d6e6b4f8904d44e0171f2600b873787a168e348",
+      "destinationSHA256": "59f3e80d674be5537fc9c6704249716154948bb944984cb07355ba503a080c7e",
+      "integrationOperation": "rebased_resource_paths"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/UC-F02-Orders.pdf",
+      "destination": "docs/analysis-and-design/use-cases/UC-F02-Orders.pdf",
+      "sourceSHA256": "335c56e3fcb1f6c981eb11bcc9d8c24cfa6316de03f604de761f890507f550fd",
+      "destinationSHA256": "56f6c3e6e5a5d4f6d1b7476ed75fe659de3d9d2e6676a139f1f250eda65b2c87",
+      "integrationOperation": "regenerated_from_integrated_markdown",
+      "beforePublicationDestinationSHA256": "9b2d3f4a836eed6aaf32d703f348dc4211ed8669c8a839d8f5d741716464fe8f",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-auth.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-auth.png",
+      "sourceSHA256": "488f9efb39ae3864e6bd31dcb241db9d48d14dcb10fb95649dacc8196aa2bdb1",
+      "destinationSHA256": "488f9efb39ae3864e6bd31dcb241db9d48d14dcb10fb95649dacc8196aa2bdb1",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-denied.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-denied.png",
+      "sourceSHA256": "a06c0d503da8d4536f931888565bd26898f1469b8265a2c3e57556c6b0a5a089",
+      "destinationSHA256": "a06c0d503da8d4536f931888565bd26898f1469b8265a2c3e57556c6b0a5a089",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-duplicate.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-duplicate.png",
+      "sourceSHA256": "c0bf04a42283feda53b24b4b7a96c2793bb1386bb4575e33622b97a224b92749",
+      "destinationSHA256": "c0bf04a42283feda53b24b4b7a96c2793bb1386bb4575e33622b97a224b92749",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-error.png",
+      "sourceSHA256": "9ffe1f74f551b171186a2919af24eacfdfe476f1c318ea3be8a7b7cdfd8ea03c",
+      "destinationSHA256": "9ffe1f74f551b171186a2919af24eacfdfe476f1c318ea3be8a7b7cdfd8ea03c",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-failure.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-failure.png",
+      "sourceSHA256": "4e4dd257cc844ca640ea4dc206d2a7407e4f265c832925c678edb9691b701771",
+      "destinationSHA256": "4e4dd257cc844ca640ea4dc206d2a7407e4f265c832925c678edb9691b701771",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-filled.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-filled.png",
+      "sourceSHA256": "fa9fa2bd59b60355611c34226b3df2e42307fa6812c85501d6f1fac1b407d2af",
+      "destinationSHA256": "fa9fa2bd59b60355611c34226b3df2e42307fa6812c85501d6f1fac1b407d2af",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01-saving.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01-saving.png",
+      "sourceSHA256": "16ac482ecfa21adddaa2fd6d6ddca7311fd1c33c8a562729da2b6663de4cc835",
+      "destinationSHA256": "16ac482ecfa21adddaa2fd6d6ddca7311fd1c33c8a562729da2b6663de4cc835",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-01.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-01.png",
+      "sourceSHA256": "481e25ef99e4dd068b1ef61b82277da8e2bd8f08834e53c1bfb3a7d3ce1086f5",
+      "destinationSHA256": "481e25ef99e4dd068b1ef61b82277da8e2bd8f08834e53c1bfb3a7d3ce1086f5",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S05-02-success.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC05/S05-02-success.png",
+      "sourceSHA256": "8b11d383f6a7ce1bd634c14c60bd45545a4e51e35ca02ccf69ffd5edcb426f19",
+      "destinationSHA256": "8b11d383f6a7ce1bd634c14c60bd45545a4e51e35ca02ccf69ffd5edcb426f19",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-auth.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-auth.png",
+      "sourceSHA256": "240988964b2e8b9fdd18243cc739661b08fa78a154d4a4a3e7c3cf1956460f04",
+      "destinationSHA256": "240988964b2e8b9fdd18243cc739661b08fa78a154d4a4a3e7c3cf1956460f04",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-denied.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-denied.png",
+      "sourceSHA256": "0a7d4708261566d48e43f29f391fd77ecd28264e9452168a2922e36371a95186",
+      "destinationSHA256": "0a7d4708261566d48e43f29f391fd77ecd28264e9452168a2922e36371a95186",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error-empty.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-empty.png",
+      "sourceSHA256": "94e757549becaf39873d17602d4839a2d577f5b666b4aee46bcf38f556759ebf",
+      "destinationSHA256": "94e757549becaf39873d17602d4839a2d577f5b666b4aee46bcf38f556759ebf",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error-encoding.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-encoding.png",
+      "sourceSHA256": "c8b27df460a952144638ca76493c20002d11125100a9885619bb043cc76c2f6a",
+      "destinationSHA256": "c8b27df460a952144638ca76493c20002d11125100a9885619bb043cc76c2f6a",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error-header.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-header.png",
+      "sourceSHA256": "de1fd196fd3e34af4fae68137dfcd4060fb273609d91339d10b90ea11205e6bb",
+      "destinationSHA256": "de1fd196fd3e34af4fae68137dfcd4060fb273609d91339d10b90ea11205e6bb",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error-limits.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-limits.png",
+      "sourceSHA256": "abefd7635fb1c343f78ea79a69a230a34295efbfca25f34ae0944702e3e64a75",
+      "destinationSHA256": "abefd7635fb1c343f78ea79a69a230a34295efbfca25f34ae0944702e3e64a75",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error-rows.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-rows.png",
+      "sourceSHA256": "c771f8cb1a91a18b3ac5b82ec3aaf299879247c2bf0025afd2710bac8e768e19",
+      "destinationSHA256": "c771f8cb1a91a18b3ac5b82ec3aaf299879247c2bf0025afd2710bac8e768e19",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error-type.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-type.png",
+      "sourceSHA256": "8622f3de6d9371ba94743713c6721cc3b93f8be5ea38b0c568eb73d47f6eebf2",
+      "destinationSHA256": "8622f3de6d9371ba94743713c6721cc3b93f8be5ea38b0c568eb73d47f6eebf2",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-file-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error.png",
+      "sourceSHA256": "46b779a80acc85b94bede068b05682b700d0cbf6d948e0218f6628fd6c46786d",
+      "destinationSHA256": "46b779a80acc85b94bede068b05682b700d0cbf6d948e0218f6628fd6c46786d",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-processing.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-processing.png",
+      "sourceSHA256": "d9d4a584a498b75b2bfe7ed528fa04041e51a8e094d244461a83312a1483e50a",
+      "destinationSHA256": "d9d4a584a498b75b2bfe7ed528fa04041e51a8e094d244461a83312a1483e50a",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01-selected.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01-selected.png",
+      "sourceSHA256": "15fdb91d139ad301d0ef1993c7f64476954bfd6114ed76e1d90f13a5462dfa0a",
+      "destinationSHA256": "15fdb91d139ad301d0ef1993c7f64476954bfd6114ed76e1d90f13a5462dfa0a",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-01.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-01.png",
+      "sourceSHA256": "114ae6672421e840e56c45f1fa0fe2ade47c9296a0ed5826c7a17c20b7e77d60",
+      "destinationSHA256": "114ae6672421e840e56c45f1fa0fe2ade47c9296a0ed5826c7a17c20b7e77d60",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-02-success.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-02-success.png",
+      "sourceSHA256": "2adc050f783eea2b6956a13e5ef62d4b72fa502df529c59355c67fa169fc989b",
+      "destinationSHA256": "2adc050f783eea2b6956a13e5ef62d4b72fa502df529c59355c67fa169fc989b",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-03-errors.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-03-errors.png",
+      "sourceSHA256": "987e7cc3bfbf4e3b0ae28b73f0877690820d94757dce0a8483c4c99805465370",
+      "destinationSHA256": "987e7cc3bfbf4e3b0ae28b73f0877690820d94757dce0a8483c4c99805465370",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S06-04-failure.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC06/S06-04-failure.png",
+      "sourceSHA256": "db718e7c3d865a7b14a277af45a101eb0bb3fc6552bf9ea71f61a945831c2ce3",
+      "destinationSHA256": "db718e7c3d865a7b14a277af45a101eb0bb3fc6552bf9ea71f61a945831c2ce3",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-auth.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-auth.png",
+      "sourceSHA256": "222da8b40870f0403f36dacefae6e531d2c61d20f469ff93786f7ca061aca909",
+      "destinationSHA256": "222da8b40870f0403f36dacefae6e531d2c61d20f469ff93786f7ca061aca909",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-denied.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-denied.png",
+      "sourceSHA256": "83525e96130307b86dfcdc3fc25fd3d6b605544aa7f033a0c286b7f211a80215",
+      "destinationSHA256": "83525e96130307b86dfcdc3fc25fd3d6b605544aa7f033a0c286b7f211a80215",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-empty.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-empty.png",
+      "sourceSHA256": "7c29a9f1746d5b74ce7a27f6c3142a766fa6d4eaff1282ac1308ee117634adeb",
+      "destinationSHA256": "7c29a9f1746d5b74ce7a27f6c3142a766fa6d4eaff1282ac1308ee117634adeb",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-filter-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-filter-error.png",
+      "sourceSHA256": "10e7c9dbc33c1ac9a20c66f7a5b29fa9eb308645d0791171788eb7b7b486137d",
+      "destinationSHA256": "10e7c9dbc33c1ac9a20c66f7a5b29fa9eb308645d0791171788eb7b7b486137d",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-filtered.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-filtered.png",
+      "sourceSHA256": "e6d232ed6e94d4ead1ccba38bd1b9643f86630acc045429d1093e80b62d4ea60",
+      "destinationSHA256": "e6d232ed6e94d4ead1ccba38bd1b9643f86630acc045429d1093e80b62d4ea60",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-load-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-load-error.png",
+      "sourceSHA256": "d48aeeb5c506eb860fc140b8d86ca9990c6216a822fd8d2722eb1de8d610a8c2",
+      "destinationSHA256": "d48aeeb5c506eb860fc140b8d86ca9990c6216a822fd8d2722eb1de8d610a8c2",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-loading.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-loading.png",
+      "sourceSHA256": "91751019068fef14fb791364e55cada33fb918aa9ecbdfe2ee9527b025e10f07",
+      "destinationSHA256": "91751019068fef14fb791364e55cada33fb918aa9ecbdfe2ee9527b025e10f07",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-no-results.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-no-results.png",
+      "sourceSHA256": "061fe22f0ff7c6ed29024cd3b6d06e3587858e6334da0af1d672ef90c88807bc",
+      "destinationSHA256": "061fe22f0ff7c6ed29024cd3b6d06e3587858e6334da0af1d672ef90c88807bc",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01-page-2.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01-page-2.png",
+      "sourceSHA256": "e0f972f00ab2db49a86fe3595ce8173f35f1178cc0acbee689a67c7a26016673",
+      "destinationSHA256": "e0f972f00ab2db49a86fe3595ce8173f35f1178cc0acbee689a67c7a26016673",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-01.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-01.png",
+      "sourceSHA256": "aea185dedebbec47b480a1c7319efb4dd81e3870da74e09d3334c7d5ad899c53",
+      "destinationSHA256": "aea185dedebbec47b480a1c7319efb4dd81e3870da74e09d3334c7d5ad899c53",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-02-detail.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-02-detail.png",
+      "sourceSHA256": "819cab494351c5c4a1ed3fb42041b05937adda92532eaf6467eeef6c552aeec6",
+      "destinationSHA256": "819cab494351c5c4a1ed3fb42041b05937adda92532eaf6467eeef6c552aeec6",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-02-load-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-02-load-error.png",
+      "sourceSHA256": "713af073b3e4c241784a56da1ae281e9111a0b92c6a08543d0f6fa9317e65f14",
+      "destinationSHA256": "713af073b3e4c241784a56da1ae281e9111a0b92c6a08543d0f6fa9317e65f14",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-02-loading.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-02-loading.png",
+      "sourceSHA256": "7741e52db6d2c42db5561c6944d603b95b011cb7e185f41b3c75e75ca7013a39",
+      "destinationSHA256": "7741e52db6d2c42db5561c6944d603b95b011cb7e185f41b3c75e75ca7013a39",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S07-02-not-found.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC07/S07-02-not-found.png",
+      "sourceSHA256": "90dc6ab356e96566c60c9a80f38b9792e28b492943ccfa6270b7efb739b0ccfc",
+      "destinationSHA256": "90dc6ab356e96566c60c9a80f38b9792e28b492943ccfa6270b7efb739b0ccfc",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-auth.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-auth.png",
+      "sourceSHA256": "9089c4b7761330fd64f56bfb33657e52aff41b1322a64dd6135ca12a6dc75d77",
+      "destinationSHA256": "9089c4b7761330fd64f56bfb33657e52aff41b1322a64dd6135ca12a6dc75d77",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-denied.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-denied.png",
+      "sourceSHA256": "8183c1719c2d53db4a7e54df51de32da90a8d4213e197f3f160e7e5f5c1b1844",
+      "destinationSHA256": "8183c1719c2d53db4a7e54df51de32da90a8d4213e197f3f160e7e5f5c1b1844",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-edit-changed.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-edit-changed.png",
+      "sourceSHA256": "5d5de29b1d54da7da413f1fd2dbee060dd3204ee3b0b1e51ac4589c91929a724",
+      "destinationSHA256": "5d5de29b1d54da7da413f1fd2dbee060dd3204ee3b0b1e51ac4589c91929a724",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-edit.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-edit.png",
+      "sourceSHA256": "d2e0dc277f302b72d434876f7b0fc75621cf3facf626cb941efcd7c8b4060a99",
+      "destinationSHA256": "d2e0dc277f302b72d434876f7b0fc75621cf3facf626cb941efcd7c8b4060a99",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-error.png",
+      "sourceSHA256": "759a8f2f9e335ae1c27fc64965beb27e5accca94b1313c3ffa0465931ac7020b",
+      "destinationSHA256": "759a8f2f9e335ae1c27fc64965beb27e5accca94b1313c3ffa0465931ac7020b",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-identity-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-identity-error.png",
+      "sourceSHA256": "f1a1389f840021cb6ba7e2e0bf8c6aa7dd326d22e54bf92632c9f73196658dba",
+      "destinationSHA256": "f1a1389f840021cb6ba7e2e0bf8c6aa7dd326d22e54bf92632c9f73196658dba",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-01-saving.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-01-saving.png",
+      "sourceSHA256": "62fa7340e05885fafa02a1b607a57bc497a5a0ffac7b420119d83036ded2eb77",
+      "destinationSHA256": "62fa7340e05885fafa02a1b607a57bc497a5a0ffac7b420119d83036ded2eb77",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-02-updated.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-02-updated.png",
+      "sourceSHA256": "3efb2fff002ddabf5a406555ebcf7922c313114293016884868965f784bea051",
+      "destinationSHA256": "3efb2fff002ddabf5a406555ebcf7922c313114293016884868965f784bea051",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-03-cancel-confirm-filled.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-03-cancel-confirm-filled.png",
+      "sourceSHA256": "ac150a8015835c3ec36fb89d7d25360e7a7fca76ccd284dea9fffab9c23d2e91",
+      "destinationSHA256": "ac150a8015835c3ec36fb89d7d25360e7a7fca76ccd284dea9fffab9c23d2e91",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-03-cancel-confirm.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-03-cancel-confirm.png",
+      "sourceSHA256": "0029ec7e5ed7b1db44fb2ea752e87ffe05e7ed90916a94b267496dbbfcb93704",
+      "destinationSHA256": "0029ec7e5ed7b1db44fb2ea752e87ffe05e7ed90916a94b267496dbbfcb93704",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-03-reason-error.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-03-reason-error.png",
+      "sourceSHA256": "7772308c30957bdf531b07ee0bd41afdc17ecf9e3ce2ec7645bb540b98b62c16",
+      "destinationSHA256": "7772308c30957bdf531b07ee0bd41afdc17ecf9e3ce2ec7645bb540b98b62c16",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-04-cancelled.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-04-cancelled.png",
+      "sourceSHA256": "e0bb9f41ed4dab4c6c752a15e4be665532791fda88a419f0e51034f6b31ece40",
+      "destinationSHA256": "e0bb9f41ed4dab4c6c752a15e4be665532791fda88a419f0e51034f6b31ece40",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-05-status-blocked.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-05-status-blocked.png",
+      "sourceSHA256": "fe5b91e0e0c5be3e0bfe3a411f7b33c6e23d2cbd2581b068df8e96ebc080fed0",
+      "destinationSHA256": "fe5b91e0e0c5be3e0bfe3a411f7b33c6e23d2cbd2581b068df8e96ebc080fed0",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-06-conflict.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-06-conflict.png",
+      "sourceSHA256": "fb0b53ab5dd95076c7afd842bcb70dc10bf8b99a77ffff69e9df12e470883c42",
+      "destinationSHA256": "fb0b53ab5dd95076c7afd842bcb70dc10bf8b99a77ffff69e9df12e470883c42",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-07-not-found.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-07-not-found.png",
+      "sourceSHA256": "93693e8250c97cfe3a6a9d7e859ad8b8d65d933bdafe2f81d514b6907474f610",
+      "destinationSHA256": "93693e8250c97cfe3a6a9d7e859ad8b8d65d933bdafe2f81d514b6907474f610",
+      "integrationOperation": "copied_byte_for_byte"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /prototype/screens/S08-08-failure.png",
+      "destination": "docs/analysis-and-design/use-cases/prototypes/UC08/S08-08-failure.png",
+      "sourceSHA256": "252bb7115538ec5e608554b4f74403700e806c15722de8e2fdaeb2d88a3a0e7a",
+      "destinationSHA256": "252bb7115538ec5e608554b4f74403700e806c15722de8e2fdaeb2d88a3a0e7a",
+      "integrationOperation": "copied_byte_for_byte"
+    }
+  ],
+  "markdownLinkChanges": [
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/F02-Prototype-Handoff.md",
+      "after": "prototypes/F02/F02-Prototype-Handoff.md"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01.png",
+      "after": "prototypes/UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01.png",
+      "after": "prototypes/UC05/S05-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-saving.png",
+      "after": "prototypes/UC05/S05-01-saving.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-error.png",
+      "after": "prototypes/UC05/S05-01-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-duplicate.png",
+      "after": "prototypes/UC05/S05-01-duplicate.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-auth.png",
+      "after": "prototypes/UC05/S05-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-denied.png",
+      "after": "prototypes/UC05/S05-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-failure.png",
+      "after": "prototypes/UC05/S05-01-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-02-success.png",
+      "after": "prototypes/UC05/S05-02-success.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-filled.png",
+      "after": "prototypes/UC05/S05-01-filled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01.png",
+      "after": "prototypes/UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01.png",
+      "after": "prototypes/UC05/S05-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-saving.png",
+      "after": "prototypes/UC05/S05-01-saving.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-error.png",
+      "after": "prototypes/UC05/S05-01-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-duplicate.png",
+      "after": "prototypes/UC05/S05-01-duplicate.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-auth.png",
+      "after": "prototypes/UC05/S05-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-denied.png",
+      "after": "prototypes/UC05/S05-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-failure.png",
+      "after": "prototypes/UC05/S05-01-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-02-success.png",
+      "after": "prototypes/UC05/S05-02-success.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S05-01-filled.png",
+      "after": "prototypes/UC05/S05-01-filled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "csv/valid-orders.csv",
+      "after": "../../test/f02-order-intake/csv/valid-orders.csv"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "csv/invalid-orders.csv",
+      "after": "../../test/f02-order-intake/csv/invalid-orders.csv"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "csv/README.md",
+      "after": "../../test/f02-order-intake/csv/README.md"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "csv/validation-results.json",
+      "after": "../../test/f02-order-intake/csv/validation-results.json"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01.png",
+      "after": "prototypes/UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01.png",
+      "after": "prototypes/UC06/S06-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-processing.png",
+      "after": "prototypes/UC06/S06-01-processing.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error.png",
+      "after": "prototypes/UC06/S06-01-file-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-03-errors.png",
+      "after": "prototypes/UC06/S06-03-errors.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-04-failure.png",
+      "after": "prototypes/UC06/S06-04-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-auth.png",
+      "after": "prototypes/UC06/S06-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-denied.png",
+      "after": "prototypes/UC06/S06-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-02-success.png",
+      "after": "prototypes/UC06/S06-02-success.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-selected.png",
+      "after": "prototypes/UC06/S06-01-selected.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-type.png",
+      "after": "prototypes/UC06/S06-01-file-error-type.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-empty.png",
+      "after": "prototypes/UC06/S06-01-file-error-empty.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-limits.png",
+      "after": "prototypes/UC06/S06-01-file-error-limits.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-header.png",
+      "after": "prototypes/UC06/S06-01-file-error-header.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-encoding.png",
+      "after": "prototypes/UC06/S06-01-file-error-encoding.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-rows.png",
+      "after": "prototypes/UC06/S06-01-file-error-rows.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01.png",
+      "after": "prototypes/UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01.png",
+      "after": "prototypes/UC06/S06-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-processing.png",
+      "after": "prototypes/UC06/S06-01-processing.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error.png",
+      "after": "prototypes/UC06/S06-01-file-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-03-errors.png",
+      "after": "prototypes/UC06/S06-03-errors.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-04-failure.png",
+      "after": "prototypes/UC06/S06-04-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-auth.png",
+      "after": "prototypes/UC06/S06-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-denied.png",
+      "after": "prototypes/UC06/S06-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-02-success.png",
+      "after": "prototypes/UC06/S06-02-success.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-selected.png",
+      "after": "prototypes/UC06/S06-01-selected.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-type.png",
+      "after": "prototypes/UC06/S06-01-file-error-type.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-empty.png",
+      "after": "prototypes/UC06/S06-01-file-error-empty.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-limits.png",
+      "after": "prototypes/UC06/S06-01-file-error-limits.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-header.png",
+      "after": "prototypes/UC06/S06-01-file-error-header.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-encoding.png",
+      "after": "prototypes/UC06/S06-01-file-error-encoding.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S06-01-file-error-rows.png",
+      "after": "prototypes/UC06/S06-01-file-error-rows.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01.png",
+      "after": "prototypes/UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-filtered.png",
+      "after": "prototypes/UC07/S07-01-filtered.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-empty.png",
+      "after": "prototypes/UC07/S07-01-empty.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-no-results.png",
+      "after": "prototypes/UC07/S07-01-no-results.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-filter-error.png",
+      "after": "prototypes/UC07/S07-01-filter-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-detail.png",
+      "after": "prototypes/UC07/S07-02-detail.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-not-found.png",
+      "after": "prototypes/UC07/S07-02-not-found.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-auth.png",
+      "after": "prototypes/UC07/S07-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-denied.png",
+      "after": "prototypes/UC07/S07-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-load-error.png",
+      "after": "prototypes/UC07/S07-01-load-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-load-error.png",
+      "after": "prototypes/UC07/S07-02-load-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-loading.png",
+      "after": "prototypes/UC07/S07-01-loading.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-loading.png",
+      "after": "prototypes/UC07/S07-02-loading.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-page-2.png",
+      "after": "prototypes/UC07/S07-01-page-2.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01.png",
+      "after": "prototypes/UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-filtered.png",
+      "after": "prototypes/UC07/S07-01-filtered.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-empty.png",
+      "after": "prototypes/UC07/S07-01-empty.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-no-results.png",
+      "after": "prototypes/UC07/S07-01-no-results.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-filter-error.png",
+      "after": "prototypes/UC07/S07-01-filter-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-detail.png",
+      "after": "prototypes/UC07/S07-02-detail.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-not-found.png",
+      "after": "prototypes/UC07/S07-02-not-found.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-auth.png",
+      "after": "prototypes/UC07/S07-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-denied.png",
+      "after": "prototypes/UC07/S07-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-load-error.png",
+      "after": "prototypes/UC07/S07-01-load-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-load-error.png",
+      "after": "prototypes/UC07/S07-02-load-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-loading.png",
+      "after": "prototypes/UC07/S07-01-loading.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-loading.png",
+      "after": "prototypes/UC07/S07-02-loading.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-01-page-2.png",
+      "after": "prototypes/UC07/S07-01-page-2.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-detail.png",
+      "after": "prototypes/UC07/S07-02-detail.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-edit.png",
+      "after": "prototypes/UC08/S08-01-edit.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-saving.png",
+      "after": "prototypes/UC08/S08-01-saving.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-02-updated.png",
+      "after": "prototypes/UC08/S08-02-updated.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-03-cancel-confirm.png",
+      "after": "prototypes/UC08/S08-03-cancel-confirm.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-04-cancelled.png",
+      "after": "prototypes/UC08/S08-04-cancelled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-error.png",
+      "after": "prototypes/UC08/S08-01-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-03-reason-error.png",
+      "after": "prototypes/UC08/S08-03-reason-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-05-status-blocked.png",
+      "after": "prototypes/UC08/S08-05-status-blocked.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-06-conflict.png",
+      "after": "prototypes/UC08/S08-06-conflict.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-07-not-found.png",
+      "after": "prototypes/UC08/S08-07-not-found.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-auth.png",
+      "after": "prototypes/UC08/S08-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-denied.png",
+      "after": "prototypes/UC08/S08-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-08-failure.png",
+      "after": "prototypes/UC08/S08-08-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-edit-changed.png",
+      "after": "prototypes/UC08/S08-01-edit-changed.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-03-cancel-confirm-filled.png",
+      "after": "prototypes/UC08/S08-03-cancel-confirm-filled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-identity-error.png",
+      "after": "prototypes/UC08/S08-01-identity-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S07-02-detail.png",
+      "after": "prototypes/UC07/S07-02-detail.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-edit.png",
+      "after": "prototypes/UC08/S08-01-edit.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-saving.png",
+      "after": "prototypes/UC08/S08-01-saving.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-02-updated.png",
+      "after": "prototypes/UC08/S08-02-updated.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-03-cancel-confirm.png",
+      "after": "prototypes/UC08/S08-03-cancel-confirm.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-04-cancelled.png",
+      "after": "prototypes/UC08/S08-04-cancelled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-error.png",
+      "after": "prototypes/UC08/S08-01-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-03-reason-error.png",
+      "after": "prototypes/UC08/S08-03-reason-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-05-status-blocked.png",
+      "after": "prototypes/UC08/S08-05-status-blocked.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-06-conflict.png",
+      "after": "prototypes/UC08/S08-06-conflict.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-07-not-found.png",
+      "after": "prototypes/UC08/S08-07-not-found.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-auth.png",
+      "after": "prototypes/UC08/S08-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-denied.png",
+      "after": "prototypes/UC08/S08-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-08-failure.png",
+      "after": "prototypes/UC08/S08-08-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-edit-changed.png",
+      "after": "prototypes/UC08/S08-01-edit-changed.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-03-cancel-confirm-filled.png",
+      "after": "prototypes/UC08/S08-03-cancel-confirm-filled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/UC-F02-Orders.md",
+      "before": "prototype/screens/S08-01-identity-error.png",
+      "after": "prototypes/UC08/S08-01-identity-error.png"
+    },
+    {
+      "document": "docs/test/f02-order-intake/csv/README.md",
+      "before": "../F02-Business-Rules-Proposal.md",
+      "after": "../../../analysis-and-design/use-cases/F02-Business-Rules-Proposal.md"
+    },
+    {
+      "document": "docs/test/f02-order-intake/csv/README.md",
+      "before": "../UC-F02-Orders.md",
+      "after": "../../../analysis-and-design/use-cases/UC-F02-Orders.md"
+    },
+    {
+      "document": "docs/test/f02-order-intake/csv/README.md",
+      "before": "../../../../Veylo/openspec/changes/f02-order-intake/design.md",
+      "after": "https://github.com/DankDaPancake/Veylo/blob/851f324b67bedb6b23f094aa5faebad6c73f197d/openspec/changes/f02-order-intake/design.md"
+    },
+    {
+      "document": "docs/test/f02-order-intake/csv/README.md",
+      "before": "../../../../Veylo/openspec/changes/f02-order-intake/specs/order-intake/spec.md",
+      "after": "https://github.com/DankDaPancake/Veylo/blob/851f324b67bedb6b23f094aa5faebad6c73f197d/openspec/changes/f02-order-intake/specs/order-intake/spec.md"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "../F02-Business-Rules-Proposal.md",
+      "after": "../../F02-Business-Rules-Proposal.md"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "../UC-F02-Orders.md",
+      "after": "../../UC-F02-Orders.md"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "UC-F02-Orders.pdf",
+      "after": "../../UC-F02-Orders.pdf"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "F02-Prototype-Links-Verification.json",
+      "after": "../../../../test/f02-order-intake/prototype/F02-Prototype-Links-Verification.json"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "F02-Figma-Structure-Verification.json",
+      "after": "../../../../test/f02-order-intake/prototype/F02-Figma-Structure-Verification.json"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "F02-PNG-Verification.json",
+      "after": "../../../../test/f02-order-intake/prototype/F02-PNG-Verification.json"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "../csv/valid-orders.csv",
+      "after": "../../../../test/f02-order-intake/csv/valid-orders.csv"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "../csv/invalid-orders.csv",
+      "after": "../../../../test/f02-order-intake/csv/invalid-orders.csv"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "../csv/README.md",
+      "after": "../../../../test/f02-order-intake/csv/README.md"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01.png",
+      "after": "../UC05/S05-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-filled.png",
+      "after": "../UC05/S05-01-filled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-saving.png",
+      "after": "../UC05/S05-01-saving.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-02-success.png",
+      "after": "../UC05/S05-02-success.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-error.png",
+      "after": "../UC05/S05-01-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-duplicate.png",
+      "after": "../UC05/S05-01-duplicate.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-auth.png",
+      "after": "../UC05/S05-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-denied.png",
+      "after": "../UC05/S05-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S05-01-failure.png",
+      "after": "../UC05/S05-01-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01.png",
+      "after": "../UC06/S06-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-selected.png",
+      "after": "../UC06/S06-01-selected.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-processing.png",
+      "after": "../UC06/S06-01-processing.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error.png",
+      "after": "../UC06/S06-01-file-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error-type.png",
+      "after": "../UC06/S06-01-file-error-type.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error-empty.png",
+      "after": "../UC06/S06-01-file-error-empty.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error-limits.png",
+      "after": "../UC06/S06-01-file-error-limits.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error-header.png",
+      "after": "../UC06/S06-01-file-error-header.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error-encoding.png",
+      "after": "../UC06/S06-01-file-error-encoding.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-file-error-rows.png",
+      "after": "../UC06/S06-01-file-error-rows.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-03-errors.png",
+      "after": "../UC06/S06-03-errors.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-04-failure.png",
+      "after": "../UC06/S06-04-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-auth.png",
+      "after": "../UC06/S06-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-01-denied.png",
+      "after": "../UC06/S06-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S06-02-success.png",
+      "after": "../UC06/S06-02-success.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01.png",
+      "after": "../UC07/S07-01.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-filtered.png",
+      "after": "../UC07/S07-01-filtered.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-page-2.png",
+      "after": "../UC07/S07-01-page-2.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-empty.png",
+      "after": "../UC07/S07-01-empty.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-no-results.png",
+      "after": "../UC07/S07-01-no-results.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-filter-error.png",
+      "after": "../UC07/S07-01-filter-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-02-detail.png",
+      "after": "../UC07/S07-02-detail.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-02-not-found.png",
+      "after": "../UC07/S07-02-not-found.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-auth.png",
+      "after": "../UC07/S07-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-denied.png",
+      "after": "../UC07/S07-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-loading.png",
+      "after": "../UC07/S07-01-loading.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-02-loading.png",
+      "after": "../UC07/S07-02-loading.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-01-load-error.png",
+      "after": "../UC07/S07-01-load-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S07-02-load-error.png",
+      "after": "../UC07/S07-02-load-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-edit.png",
+      "after": "../UC08/S08-01-edit.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-saving.png",
+      "after": "../UC08/S08-01-saving.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-02-updated.png",
+      "after": "../UC08/S08-02-updated.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-03-cancel-confirm.png",
+      "after": "../UC08/S08-03-cancel-confirm.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-03-cancel-confirm-filled.png",
+      "after": "../UC08/S08-03-cancel-confirm-filled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-04-cancelled.png",
+      "after": "../UC08/S08-04-cancelled.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-error.png",
+      "after": "../UC08/S08-01-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-identity-error.png",
+      "after": "../UC08/S08-01-identity-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-03-reason-error.png",
+      "after": "../UC08/S08-03-reason-error.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-05-status-blocked.png",
+      "after": "../UC08/S08-05-status-blocked.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-06-conflict.png",
+      "after": "../UC08/S08-06-conflict.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-07-not-found.png",
+      "after": "../UC08/S08-07-not-found.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-auth.png",
+      "after": "../UC08/S08-01-auth.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-denied.png",
+      "after": "../UC08/S08-01-denied.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-08-failure.png",
+      "after": "../UC08/S08-08-failure.png"
+    },
+    {
+      "document": "docs/analysis-and-design/use-cases/prototypes/F02/F02-Prototype-Handoff.md",
+      "before": "screens/S08-01-edit-changed.png",
+      "after": "../UC08/S08-01-edit-changed.png"
+    }
+  ],
+  "notes": [
+    "No older handoff, working draft or ZIP used as an integration source.",
+    "Figma verification files are supplied historical evidence; no live Figma verification was run.",
+    "Packaged CSV link-export-audit.json retained unchanged as historical evidence."
+  ],
+  "sourceIntegrity": {
+    "files": 72,
+    "unchanged": true
+  },
+  "operationCounts": {
+    "trailing_whitespace_normalization_only": 1,
+    "regenerated_from_integrated_markdown": 4,
+    "relocated_links_path_context_and_EOF_normalization": 3,
+    "copied_byte_for_byte": 61,
+    "verified_regenerated_exports": 1,
+    "rebased_resource_paths": 2
+  },
+  "generatedIntegrationRecords": [
+    "docs/test/f02-order-intake/integration-manifest.json",
+    "docs/test/f02-order-intake/integration-verification.json"
+  ],
+  "publicationBase": "851f324b67bedb6b23f094aa5faebad6c73f197d",
+  "publicationNote": "Original audited source and classification remain historical. Current destination hashes include documented publication repairs; no source draft is included or required for normal repository verification.",
+  "excludedSourceFiles": [
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/CSV-Samples-Validation.pdf",
+      "historicalDestination": "docs/test/f02-order-intake/csv/CSV-Samples-Validation.pdf",
+      "sourceSHA256": "0893f04bb994f999767ca524efc7f8653546174b2f3149c49920290ba4913757",
+      "destinationSHA256": "9316f7b5dfe10c8e2851650b77d6d61636c54afedb7a8e9597e4410ffd63838d",
+      "integrationOperation": "regenerated_from_integrated_markdown",
+      "beforePublicationDestinationSHA256": "5859a6386f986249d752cfa911b3e3ea1722eec03ffa6a5aa3e677608606a8a2",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained",
+      "publicationDisposition": "Not included: README report and paired PDF excluded by user"
+    },
+    {
+      "source": "Trần Lê Hải - PA3 (20) - audited /csv/README.md",
+      "historicalDestination": "docs/test/f02-order-intake/csv/README.md",
+      "sourceSHA256": "ca3234c18109607bd8e52e3c09b192994807214ad39311a8eb3233e6b7837d9d",
+      "destinationSHA256": "173e9f1d329f3f65111ac0237290daf3b8a8f605b6c745f7b2409303fa856e09",
+      "integrationOperation": "relocated_links_path_context_and_EOF_normalization",
+      "beforePublicationDestinationSHA256": "969d76774327d6ee67e4dd4c6d534807ffe19dd83d3be530089670812c29b027",
+      "publicationRepair": "Corrected documentation paths/PDF navigation and associated metadata; source hash and original classification operation retained",
+      "publicationDisposition": "Not included: README report and paired PDF excluded by user"
+    }
+  ],
+  "excludedGeneratedReports": [
+    "docs/test/f02-order-intake/README.md",
+    "docs/test/f02-order-intake/README.pdf"
+  ],
+  "publicationExclusions": [
+    "docs/test/f02-order-intake/README.md",
+    "docs/test/f02-order-intake/README.pdf",
+    "docs/test/f02-order-intake/csv/README.md",
+    "docs/test/f02-order-intake/csv/CSV-Samples-Validation.pdf"
+  ]
+}

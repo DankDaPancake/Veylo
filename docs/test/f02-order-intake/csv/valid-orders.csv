@@ -1,0 +1,6 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg,priority,note,latitude,longitude
+CSV-DEMO-001,Nguyễn Minh An,0900000001,"12 Đường Giả Lập A, Khu Giao Hàng Mẫu",2026-11-20 09:00,2026-11-20 11:00,2.5,NORMAL,"Synthetic books order, ring before arrival",,
+CSV-DEMO-002,Trần Thảo Vy,0900000002,"28 Đường Giả Lập B, Khu Giao Hàng Mẫu",2026-11-20 10:30,2026-11-20 12:00,0.75,HIGH,Synthetic document parcel,,
+CSV-DEMO-003,Lê Hoàng Nam,0900000003,"6 Ngõ Mô Phỏng C, Khu Giao Hàng Mẫu",2026-11-20 13:00,2026-11-20 15:30,4.2,NORMAL,Synthetic household supplies,,
+CSV-DEMO-004,Phạm Ngọc Linh,0900000004,"45 Đường Giả Lập D, Khu Giao Hàng Mẫu",2026-11-20 15:00,2026-11-20 17:00,1,HIGH,Synthetic clothing parcel,,
+CSV-DEMO-005,Đặng Gia Bảo,0900000005,"9 Ngõ Mô Phỏng E, Khu Giao Hàng Mẫu",2026-11-21 08:00,2026-11-21 10:00,8.0,NORMAL,Synthetic packaged goods,,

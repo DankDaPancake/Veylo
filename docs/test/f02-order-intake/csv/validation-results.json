@@ -1,0 +1,160 @@
+{
+  "basis": "D-F02-1 through D-F02-4 in the local BOOYAH-13 OpenSpec handoff",
+  "headers": [
+    "order_code",
+    "recipient_name",
+    "recipient_phone",
+    "delivery_address",
+    "window_start",
+    "window_end",
+    "weight_kg",
+    "priority",
+    "note",
+    "latitude",
+    "longitude"
+  ],
+  "encoding": "UTF-8 without BOM",
+  "dateTimeFormat": "YYYY-MM-DD HH:mm",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "rowNumbering": "CSV record number; header is row 1",
+  "scope": "Synthetic single-hub store; no real database, authorization or commit-time race tested",
+  "files": {
+    "valid-orders.csv": {
+      "path": "valid-orders.csv",
+      "dataRows": 5,
+      "errors": [],
+      "bytes": 956,
+      "sha256": "34a82849dc31a3b8f6c38be9e379882d62d5529722ef2cc9fcba34ca66a1d6cb",
+      "rowsWithErrors": [],
+      "individuallyValidRows": 5
+    },
+    "invalid-orders.csv": {
+      "path": "invalid-orders.csv",
+      "dataRows": 8,
+      "errors": [
+        {
+          "row": 2,
+          "field": "recipient_phone",
+          "code": "PHONE_FORMAT",
+          "reason": "Use exactly 10 digits starting with 0.",
+          "value": "09AB456789"
+        },
+        {
+          "row": 3,
+          "field": "weight_kg",
+          "code": "WEIGHT_POSITIVE",
+          "reason": "Weight must be a finite number greater than zero.",
+          "value": "0"
+        },
+        {
+          "row": 4,
+          "field": "weight_kg",
+          "code": "WEIGHT_POSITIVE",
+          "reason": "Weight must be a finite number greater than zero.",
+          "value": "-1.2"
+        },
+        {
+          "row": 5,
+          "field": "window_end",
+          "code": "WINDOW_ORDER",
+          "reason": "Window end must be strictly later than start.",
+          "value": "2026-11-20 13:00"
+        },
+        {
+          "row": 6,
+          "field": "recipient_name",
+          "code": "REQUIRED",
+          "reason": "Required value is blank.",
+          "value": ""
+        },
+        {
+          "row": 7,
+          "field": "order_code",
+          "code": "DUPLICATE_IN_FILE",
+          "reason": "Normalized code is duplicated on CSV rows 7, 8.",
+          "value": "CSV-DUP-001"
+        },
+        {
+          "row": 8,
+          "field": "order_code",
+          "code": "DUPLICATE_IN_FILE",
+          "reason": "Normalized code is duplicated on CSV rows 7, 8.",
+          "value": " csv-dup-001 "
+        }
+      ],
+      "bytes": 1490,
+      "sha256": "3ffbc0eabe0aeb66b3a2091938ba16e7a426ce2085f2737e5cf7fc39fb8b4846",
+      "rowsWithErrors": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "individuallyValidRows": 1
+    }
+  },
+  "atomicDemonstrations": {
+    "valid": {
+      "mode": "in_memory_demonstration_only",
+      "inserted": 5,
+      "rejected": 0,
+      "storeUnchanged": false,
+      "existingRecordPreserved": true,
+      "validControlInserted": false,
+      "storeCountBefore": 1,
+      "storeCountAfter": 6
+    },
+    "invalid": {
+      "mode": "in_memory_demonstration_only",
+      "inserted": 0,
+      "rejected": 8,
+      "storeUnchanged": true,
+      "existingRecordPreserved": true,
+      "validControlInserted": false,
+      "storeCountBefore": 1,
+      "storeCountAfter": 1
+    }
+  },
+  "regressionChecks": {
+    "unicode-order-code": {
+      "error": {
+        "row": 2,
+        "field": "order_code",
+        "code": "ORDER_CODE_FORMAT",
+        "reason": "Use 1–40 ASCII letters, digits, underscores or hyphens.",
+        "value": "ĐH-01"
+      },
+      "atomicDemonstration": {
+        "mode": "in_memory_demonstration_only",
+        "inserted": 0,
+        "rejected": 1,
+        "storeUnchanged": true,
+        "existingRecordPreserved": true,
+        "validControlInserted": false,
+        "storeCountBefore": 1,
+        "storeCountAfter": 1
+      }
+    },
+    "unknown-header": {
+      "error": {
+        "row": 1,
+        "field": "extra",
+        "code": "UNKNOWN_HEADER",
+        "reason": "Header is outside the F02 field contract."
+      },
+      "atomicDemonstration": {
+        "mode": "in_memory_demonstration_only",
+        "inserted": 0,
+        "rejected": 1,
+        "storeUnchanged": true,
+        "existingRecordPreserved": true,
+        "validControlInserted": false,
+        "storeCountBefore": 1,
+        "storeCountAfter": 1
+      }
+    }
+  }
+}

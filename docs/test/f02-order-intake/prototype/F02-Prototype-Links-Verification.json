@@ -1,0 +1,24 @@
+{
+  "reactionNodes": 255,
+  "actionCount": 255,
+  "invalidTargets": [],
+  "sameFrameNavigations": [],
+  "flowStarts": [
+    {
+      "nodeId": "4191:80",
+      "name": "UC05 · Create order"
+    },
+    {
+      "nodeId": "4192:577",
+      "name": "UC06 · Import CSV"
+    },
+    {
+      "nodeId": "4193:937",
+      "name": "UC07 · Search and view"
+    },
+    {
+      "nodeId": "4196:1575",
+      "name": "UC08 · Edit and cancel"
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+  "verified": [
+    {
+      "screenId": "S05-01",
+      "nodeId": "4191:80",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01.png",
+      "bytes": 72133,
+      "width": 1440,
+      "height": 900,
+      "sha256": "481e25ef99e4dd068b1ef61b82277da8e2bd8f08834e53c1bfb3a7d3ce1086f5"
+    },
+    {
+      "screenId": "S05-01-auth",
+      "nodeId": "4191:615",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-auth.png",
+      "bytes": 44408,
+      "width": 1440,
+      "height": 900,
+      "sha256": "488f9efb39ae3864e6bd31dcb241db9d48d14dcb10fb95649dacc8196aa2bdb1"
+    },
+    {
+      "screenId": "S05-01-denied",
+      "nodeId": "4191:642",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-denied.png",
+      "bytes": 40595,
+      "width": 1440,
+      "height": 900,
+      "sha256": "a06c0d503da8d4536f931888565bd26898f1469b8265a2c3e57556c6b0a5a089"
+    },
+    {
+      "screenId": "S05-01-duplicate",
+      "nodeId": "4191:515",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-duplicate.png",
+      "bytes": 83556,
+      "width": 1440,
+      "height": 900,
+      "sha256": "c0bf04a42283feda53b24b4b7a96c2793bb1386bb4575e33622b97a224b92749"
+    },
+    {
+      "screenId": "S05-01-error",
+      "nodeId": "4191:415",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-error.png",
+      "bytes": 87182,
+      "width": 1440,
+      "height": 900,
+      "sha256": "9ffe1f74f551b171186a2919af24eacfdfe476f1c318ea3be8a7b7cdfd8ea03c"
+    },
+    {
+      "screenId": "S05-01-failure",
+      "nodeId": "4191:669",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-failure.png",
+      "bytes": 85236,
+      "width": 1440,
+      "height": 900,
+      "sha256": "4e4dd257cc844ca640ea4dc206d2a7407e4f265c832925c678edb9691b701771"
+    },
+    {
+      "screenId": "S05-01-filled",
+      "nodeId": "4191:179",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-filled.png",
+      "bytes": 72007,
+      "width": 1440,
+      "height": 900,
+      "sha256": "fa9fa2bd59b60355611c34226b3df2e42307fa6812c85501d6f1fac1b407d2af"
+    },
+    {
+      "screenId": "S05-01-saving",
+      "nodeId": "4191:278",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-01-saving.png",
+      "bytes": 79910,
+      "width": 1440,
+      "height": 900,
+      "sha256": "16ac482ecfa21adddaa2fd6d6ddca7311fd1c33c8a562729da2b6663de4cc835"
+    },
+    {
+      "screenId": "S05-02-success",
+      "nodeId": "4191:376",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC05/S05-02-success.png",
+      "bytes": 44396,
+      "width": 1440,
+      "height": 900,
+      "sha256": "8b11d383f6a7ce1bd634c14c60bd45545a4e51e35ca02ccf69ffd5edcb426f19"
+    },
+    {
+      "screenId": "S06-01",
+      "nodeId": "4192:577",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01.png",
+      "bytes": 77380,
+      "width": 1440,
+      "height": 900,
+      "sha256": "114ae6672421e840e56c45f1fa0fe2ade47c9296a0ed5826c7a17c20b7e77d60"
+    },
+    {
+      "screenId": "S06-01-auth",
+      "nodeId": "4192:1090",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-auth.png",
+      "bytes": 42923,
+      "width": 1440,
+      "height": 900,
+      "sha256": "240988964b2e8b9fdd18243cc739661b08fa78a154d4a4a3e7c3cf1956460f04"
+    },
+    {
+      "screenId": "S06-01-denied",
+      "nodeId": "4192:1117",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-denied.png",
+      "bytes": 41102,
+      "width": 1440,
+      "height": 900,
+      "sha256": "0a7d4708261566d48e43f29f391fd77ecd28264e9452168a2922e36371a95186"
+    },
+    {
+      "screenId": "S06-01-file-error",
+      "nodeId": "4192:700",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error.png",
+      "bytes": 80021,
+      "width": 1440,
+      "height": 900,
+      "sha256": "46b779a80acc85b94bede068b05682b700d0cbf6d948e0218f6628fd6c46786d"
+    },
+    {
+      "screenId": "S06-01-file-error-empty",
+      "nodeId": "4192:782",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-empty.png",
+      "bytes": 79386,
+      "width": 1440,
+      "height": 900,
+      "sha256": "94e757549becaf39873d17602d4839a2d577f5b666b4aee46bcf38f556759ebf"
+    },
+    {
+      "screenId": "S06-01-file-error-encoding",
+      "nodeId": "4192:905",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-encoding.png",
+      "bytes": 80776,
+      "width": 1440,
+      "height": 900,
+      "sha256": "c8b27df460a952144638ca76493c20002d11125100a9885619bb043cc76c2f6a"
+    },
+    {
+      "screenId": "S06-01-file-error-header",
+      "nodeId": "4192:864",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-header.png",
+      "bytes": 79848,
+      "width": 1440,
+      "height": 900,
+      "sha256": "de1fd196fd3e34af4fae68137dfcd4060fb273609d91339d10b90ea11205e6bb"
+    },
+    {
+      "screenId": "S06-01-file-error-limits",
+      "nodeId": "4192:823",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-limits.png",
+      "bytes": 80099,
+      "width": 1440,
+      "height": 900,
+      "sha256": "abefd7635fb1c343f78ea79a69a230a34295efbfca25f34ae0944702e3e64a75"
+    },
+    {
+      "screenId": "S06-01-file-error-rows",
+      "nodeId": "4192:946",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-rows.png",
+      "bytes": 79955,
+      "width": 1440,
+      "height": 900,
+      "sha256": "c771f8cb1a91a18b3ac5b82ec3aaf299879247c2bf0025afd2710bac8e768e19"
+    },
+    {
+      "screenId": "S06-01-file-error-type",
+      "nodeId": "4192:741",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-file-error-type.png",
+      "bytes": 79288,
+      "width": 1440,
+      "height": 900,
+      "sha256": "8622f3de6d9371ba94743713c6721cc3b93f8be5ea38b0c568eb73d47f6eebf2"
+    },
+    {
+      "screenId": "S06-01-processing",
+      "nodeId": "4192:667",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-processing.png",
+      "bytes": 62622,
+      "width": 1440,
+      "height": 900,
+      "sha256": "d9d4a584a498b75b2bfe7ed528fa04041e51a8e094d244461a83312a1483e50a"
+    },
+    {
+      "screenId": "S06-01-selected",
+      "nodeId": "4192:622",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-01-selected.png",
+      "bytes": 77284,
+      "width": 1440,
+      "height": 900,
+      "sha256": "15fdb91d139ad301d0ef1993c7f64476954bfd6114ed76e1d90f13a5462dfa0a"
+    },
+    {
+      "screenId": "S06-02-success",
+      "nodeId": "4192:1144",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-02-success.png",
+      "bytes": 59709,
+      "width": 1440,
+      "height": 900,
+      "sha256": "2adc050f783eea2b6956a13e5ef62d4b72fa502df529c59355c67fa169fc989b"
+    },
+    {
+      "screenId": "S06-03-errors",
+      "nodeId": "4192:987",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-03-errors.png",
+      "bytes": 76883,
+      "width": 1440,
+      "height": 900,
+      "sha256": "987e7cc3bfbf4e3b0ae28b73f0877690820d94757dce0a8483c4c99805465370"
+    },
+    {
+      "screenId": "S06-04-failure",
+      "nodeId": "4192:1054",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC06/S06-04-failure.png",
+      "bytes": 67304,
+      "width": 1440,
+      "height": 900,
+      "sha256": "db718e7c3d865a7b14a277af45a101eb0bb3fc6552bf9ea71f61a945831c2ce3"
+    },
+    {
+      "screenId": "S07-01",
+      "nodeId": "4193:937",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01.png",
+      "bytes": 90779,
+      "width": 1440,
+      "height": 900,
+      "sha256": "aea185dedebbec47b480a1c7319efb4dd81e3870da74e09d3334c7d5ad899c53"
+    },
+    {
+      "screenId": "S07-01-auth",
+      "nodeId": "4193:1689",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-auth.png",
+      "bytes": 41862,
+      "width": 1440,
+      "height": 900,
+      "sha256": "222da8b40870f0403f36dacefae6e531d2c61d20f469ff93786f7ca061aca909"
+    },
+    {
+      "screenId": "S07-01-denied",
+      "nodeId": "4193:1720",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-denied.png",
+      "bytes": 41087,
+      "width": 1440,
+      "height": 900,
+      "sha256": "83525e96130307b86dfcdc3fc25fd3d6b605544aa7f033a0c286b7f211a80215"
+    },
+    {
+      "screenId": "S07-01-empty",
+      "nodeId": "4193:1341",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-empty.png",
+      "bytes": 39719,
+      "width": 1440,
+      "height": 900,
+      "sha256": "7c29a9f1746d5b74ce7a27f6c3142a766fa6d4eaff1282ac1308ee117634adeb"
+    },
+    {
+      "screenId": "S07-01-filter-error",
+      "nodeId": "4193:1430",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-filter-error.png",
+      "bytes": 91020,
+      "width": 1440,
+      "height": 900,
+      "sha256": "10e7c9dbc33c1ac9a20c66f7a5b29fa9eb308645d0791171788eb7b7b486137d"
+    },
+    {
+      "screenId": "S07-01-filtered",
+      "nodeId": "4193:1097",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-filtered.png",
+      "bytes": 90223,
+      "width": 1440,
+      "height": 900,
+      "sha256": "e6d232ed6e94d4ead1ccba38bd1b9643f86630acc045429d1093e80b62d4ea60"
+    },
+    {
+      "screenId": "S07-01-load-error",
+      "nodeId": "4193:1801",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-load-error.png",
+      "bytes": 44893,
+      "width": 1440,
+      "height": 900,
+      "sha256": "d48aeeb5c506eb860fc140b8d86ca9990c6216a822fd8d2722eb1de8d610a8c2"
+    },
+    {
+      "screenId": "S07-01-loading",
+      "nodeId": "4193:1747",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-loading.png",
+      "bytes": 39421,
+      "width": 1440,
+      "height": 900,
+      "sha256": "91751019068fef14fb791364e55cada33fb918aa9ecbdfe2ee9527b025e10f07"
+    },
+    {
+      "screenId": "S07-01-no-results",
+      "nodeId": "4193:1373",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-no-results.png",
+      "bytes": 48995,
+      "width": 1440,
+      "height": 900,
+      "sha256": "061fe22f0ff7c6ed29024cd3b6d06e3587858e6334da0af1d672ef90c88807bc"
+    },
+    {
+      "screenId": "S07-01-page-2",
+      "nodeId": "4193:1257",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-01-page-2.png",
+      "bytes": 67315,
+      "width": 1440,
+      "height": 900,
+      "sha256": "e0f972f00ab2db49a86fe3595ce8173f35f1178cc0acbee689a67c7a26016673"
+    },
+    {
+      "screenId": "S07-02-detail",
+      "nodeId": "4193:1581",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-02-detail.png",
+      "bytes": 70968,
+      "width": 1440,
+      "height": 900,
+      "sha256": "819cab494351c5c4a1ed3fb42041b05937adda92532eaf6467eeef6c552aeec6"
+    },
+    {
+      "screenId": "S07-02-load-error",
+      "nodeId": "4193:1833",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-02-load-error.png",
+      "bytes": 43926,
+      "width": 1440,
+      "height": 900,
+      "sha256": "713af073b3e4c241784a56da1ae281e9111a0b92c6a08543d0f6fa9317e65f14"
+    },
+    {
+      "screenId": "S07-02-loading",
+      "nodeId": "4193:1774",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-02-loading.png",
+      "bytes": 42316,
+      "width": 1440,
+      "height": 900,
+      "sha256": "7741e52db6d2c42db5561c6944d603b95b011cb7e185f41b3c75e75ca7013a39"
+    },
+    {
+      "screenId": "S07-02-not-found",
+      "nodeId": "4193:1662",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC07/S07-02-not-found.png",
+      "bytes": 39555,
+      "width": 1440,
+      "height": 900,
+      "sha256": "90dc6ab356e96566c60c9a80f38b9792e28b492943ccfa6270b7efb739b0ccfc"
+    },
+    {
+      "screenId": "S08-01-auth",
+      "nodeId": "4196:2312",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-auth.png",
+      "bytes": 43650,
+      "width": 1440,
+      "height": 900,
+      "sha256": "9089c4b7761330fd64f56bfb33657e52aff41b1322a64dd6135ca12a6dc75d77"
+    },
+    {
+      "screenId": "S08-01-denied",
+      "nodeId": "4196:2343",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-denied.png",
+      "bytes": 41754,
+      "width": 1440,
+      "height": 900,
+      "sha256": "8183c1719c2d53db4a7e54df51de32da90a8d4213e197f3f160e7e5f5c1b1844"
+    },
+    {
+      "screenId": "S08-01-edit",
+      "nodeId": "4196:1575",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-edit.png",
+      "bytes": 76950,
+      "width": 1440,
+      "height": 900,
+      "sha256": "d2e0dc277f302b72d434876f7b0fc75621cf3facf626cb941efcd7c8b4060a99"
+    },
+    {
+      "screenId": "S08-01-edit-changed",
+      "nodeId": "4197:2132",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-edit-changed.png",
+      "bytes": 77178,
+      "width": 1440,
+      "height": 900,
+      "sha256": "5d5de29b1d54da7da413f1fd2dbee060dd3204ee3b0b1e51ac4589c91929a724"
+    },
+    {
+      "screenId": "S08-01-error",
+      "nodeId": "4196:2014",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-error.png",
+      "bytes": 88228,
+      "width": 1440,
+      "height": 900,
+      "sha256": "759a8f2f9e335ae1c27fc64965beb27e5accca94b1313c3ffa0465931ac7020b"
+    },
+    {
+      "screenId": "S08-01-identity-error",
+      "nodeId": "4196:2122",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-identity-error.png",
+      "bytes": 56126,
+      "width": 1440,
+      "height": 900,
+      "sha256": "f1a1389f840021cb6ba7e2e0bf8c6aa7dd326d22e54bf92632c9f73196658dba"
+    },
+    {
+      "screenId": "S08-01-saving",
+      "nodeId": "4196:1674",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-01-saving.png",
+      "bytes": 81485,
+      "width": 1440,
+      "height": 900,
+      "sha256": "62fa7340e05885fafa02a1b607a57bc497a5a0ffac7b420119d83036ded2eb77"
+    },
+    {
+      "screenId": "S08-02-updated",
+      "nodeId": "4196:1771",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-02-updated.png",
+      "bytes": 78850,
+      "width": 1440,
+      "height": 900,
+      "sha256": "3efb2fff002ddabf5a406555ebcf7922c313114293016884868965f784bea051"
+    },
+    {
+      "screenId": "S08-03-cancel-confirm",
+      "nodeId": "4196:1851",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-03-cancel-confirm.png",
+      "bytes": 60527,
+      "width": 1440,
+      "height": 900,
+      "sha256": "0029ec7e5ed7b1db44fb2ea752e87ffe05e7ed90916a94b267496dbbfcb93704"
+    },
+    {
+      "screenId": "S08-03-cancel-confirm-filled",
+      "nodeId": "4196:1891",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-03-cancel-confirm-filled.png",
+      "bytes": 61206,
+      "width": 1440,
+      "height": 900,
+      "sha256": "ac150a8015835c3ec36fb89d7d25360e7a7fca76ccd284dea9fffab9c23d2e91"
+    },
+    {
+      "screenId": "S08-03-reason-error",
+      "nodeId": "4196:2164",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-03-reason-error.png",
+      "bytes": 65174,
+      "width": 1440,
+      "height": 900,
+      "sha256": "7772308c30957bdf531b07ee0bd41afdc17ecf9e3ce2ec7645bb540b98b62c16"
+    },
+    {
+      "screenId": "S08-04-cancelled",
+      "nodeId": "4196:1931",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-04-cancelled.png",
+      "bytes": 82719,
+      "width": 1440,
+      "height": 900,
+      "sha256": "e0bb9f41ed4dab4c6c752a15e4be665532791fda88a419f0e51034f6b31ece40"
+    },
+    {
+      "screenId": "S08-05-status-blocked",
+      "nodeId": "4196:2204",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-05-status-blocked.png",
+      "bytes": 59003,
+      "width": 1440,
+      "height": 900,
+      "sha256": "fe5b91e0e0c5be3e0bfe3a411f7b33c6e23d2cbd2581b068df8e96ebc080fed0"
+    },
+    {
+      "screenId": "S08-06-conflict",
+      "nodeId": "4196:2250",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-06-conflict.png",
+      "bytes": 58063,
+      "width": 1440,
+      "height": 900,
+      "sha256": "fb0b53ab5dd95076c7afd842bcb70dc10bf8b99a77ffff69e9df12e470883c42"
+    },
+    {
+      "screenId": "S08-07-not-found",
+      "nodeId": "4196:2285",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-07-not-found.png",
+      "bytes": 39554,
+      "width": 1440,
+      "height": 900,
+      "sha256": "93693e8250c97cfe3a6a9d7e859ad8b8d65d933bdafe2f81d514b6907474f610"
+    },
+    {
+      "screenId": "S08-08-failure",
+      "nodeId": "4196:2370",
+      "png": "../../../analysis-and-design/use-cases/prototypes/UC08/S08-08-failure.png",
+      "bytes": 59447,
+      "width": 1440,
+      "height": 900,
+      "sha256": "252bb7115538ec5e608554b4f74403700e806c15722de8e2fdaeb2d88a3a0e7a"
+    }
+  ],
+  "failures": []
+}

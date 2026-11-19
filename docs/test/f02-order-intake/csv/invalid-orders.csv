@@ -1,0 +1,9 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg,priority,note,latitude,longitude
+CSV-ERR-PHONE,Nguyễn Minh An,09AB456789,"12 Đường Giả Lập A, Khu Giao Hàng Mẫu",2026-11-20 09:00,2026-11-20 11:00,2.5,NORMAL,Synthetic invalid phone,,
+CSV-ERR-ZERO,Trần Thảo Vy,0900000002,"28 Đường Giả Lập B, Khu Giao Hàng Mẫu",2026-11-20 10:30,2026-11-20 12:00,0,HIGH,Synthetic zero weight,,
+CSV-ERR-NEGATIVE,Lê Hoàng Nam,0900000003,"6 Ngõ Mô Phỏng C, Khu Giao Hàng Mẫu",2026-11-20 13:00,2026-11-20 15:30,-1.2,NORMAL,Synthetic negative weight,,
+CSV-ERR-WINDOW,Phạm Ngọc Linh,0900000004,"45 Đường Giả Lập D, Khu Giao Hàng Mẫu",2026-11-20 14:00,2026-11-20 13:00,1,HIGH,Synthetic reversed delivery window,,
+CSV-ERR-REQUIRED,,0900000005,"9 Ngõ Mô Phỏng E, Khu Giao Hàng Mẫu",2026-11-21 08:00,2026-11-21 10:00,8.0,NORMAL,Synthetic missing recipient name,,
+CSV-DUP-001,Võ Minh Khoa,0900000006,"18 Đường Giả Lập F, Khu Giao Hàng Mẫu",2026-11-21 09:00,2026-11-21 11:00,1.5,NORMAL,Synthetic duplicate first occurrence,,
+ csv-dup-001 ,Bùi Thanh Mai,0900000007,"32 Đường Giả Lập G, Khu Giao Hàng Mẫu",2026-11-21 11:00,2026-11-21 13:00,3,NORMAL,Synthetic duplicate with case and whitespace differences,,
+CSV-VALID-CONTROL,Đỗ Quang Huy,0900000008,"7 Ngõ Mô Phỏng H, Khu Giao Hàng Mẫu",2026-11-21 13:00,2026-11-21 15:00,2,NORMAL,Synthetic valid row that must also remain unimported,,

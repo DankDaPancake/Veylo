@@ -1,0 +1,175 @@
+{
+  "scope": "All Markdown in docs/draft/IntroSe/3; supplied Kiet references audited but unchanged",
+  "documents": [
+    {
+      "document": "docs/draft/IntroSe/3/F02-Business-Rules-Proposal.md",
+      "imageReferences": 0,
+      "missing": [],
+      "scope": "current_deliverable"
+    },
+    {
+      "document": "docs/draft/IntroSe/3/UC-F02-Orders.md",
+      "imageReferences": 57,
+      "missing": [],
+      "scope": "current_deliverable"
+    },
+    {
+      "document": "docs/draft/IntroSe/3/csv/README.md",
+      "imageReferences": 0,
+      "missing": [],
+      "scope": "current_deliverable"
+    },
+    {
+      "document": "docs/draft/IntroSe/3/prototype/F02-Prototype-Handoff.md",
+      "imageReferences": 0,
+      "missing": [],
+      "scope": "current_deliverable"
+    },
+    {
+      "document": "docs/draft/IntroSe/3/Kiet/Thái Kiệt - PA3 (BOOYAH-24-25-26)/BOOYAH-24 - Mô hình use case/UseCaseModel.md",
+      "imageReferences": 0,
+      "missing": [
+        {
+          "type": "Link",
+          "target": "Handoff.md"
+        },
+        {
+          "type": "Link",
+          "target": "Handoff.md"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D1-access.png"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D1-access.mmd"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D1-access.svg"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D2-planning.png"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D2-planning.mmd"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D2-planning.svg"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D3-rider.png"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D3-rider.mmd"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D3-rider.svg"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D4-monitoring.png"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D4-monitoring.mmd"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D4-monitoring.svg"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D5-knowledge.png"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D5-knowledge.mmd"
+        },
+        {
+          "type": "Link",
+          "target": "diagrams/D5-knowledge.svg"
+        },
+        {
+          "type": "Link",
+          "target": "../../requirements/requirements.json"
+        },
+        {
+          "type": "Link",
+          "target": "../../requirements/Changes.md"
+        },
+        {
+          "type": "Link",
+          "target": "traceability.json"
+        },
+        {
+          "type": "Link",
+          "target": "prototypes/README.md"
+        }
+      ],
+      "scope": "supplied_reference_unchanged"
+    },
+    {
+      "document": "docs/draft/IntroSe/3/Kiet/Thái Kiệt - PA3 (BOOYAH-24-25-26)/BOOYAH-26 - Vision và yêu cầu FR-NFR/Changes.md",
+      "imageReferences": 0,
+      "missing": [
+        {
+          "type": "Link",
+          "target": "requirements.json"
+        },
+        {
+          "type": "Link",
+          "target": "../analysis-and-design/use-cases/UseCaseModel.md"
+        }
+      ],
+      "scope": "supplied_reference_unchanged"
+    },
+    {
+      "document": "docs/draft/IntroSe/3/Kiet/Thái Kiệt - PA3 (BOOYAH-24-25-26)/BOOYAH-26 - Vision và yêu cầu FR-NFR/VisionDocument.md",
+      "imageReferences": 0,
+      "missing": [
+        {
+          "type": "Link",
+          "target": "requirements.json"
+        },
+        {
+          "type": "Link",
+          "target": "../analysis-and-design/use-cases/UseCaseModel.md"
+        }
+      ],
+      "scope": "supplied_reference_unchanged"
+    }
+  ],
+  "imageReferences": 57,
+  "missingImageReferences": 0,
+  "currentDeliverableMissingLinks": 0,
+  "suppliedReferenceMissingLinks": 25,
+  "prototypePNGCount": 54,
+  "prototypePNGHashesUnchanged": true,
+  "PDFs": {
+    "prototype/UC-F02-Orders.pdf": {
+      "pages": 74,
+      "bytes": 3953605
+    },
+    "prototype/F02-Prototype-Handoff.pdf": {
+      "pages": 3,
+      "bytes": 32831
+    },
+    "csv/CSV-Samples-Validation.pdf": {
+      "pages": 3,
+      "bytes": 29280
+    }
+  },
+  "businessRuleSourceUnchanged": true,
+  "UCBehaviorSectionsUnchanged": true,
+  "independentValidControlCheck": "passed",
+  "BOMAndCRLFCheck": "passed",
+  "PDFUniqueImages": 54
+}

@@ -1,0 +1,474 @@
+{
+  "date": "2026-11-19",
+  "fileKey": "RBd5qiERPNz1yXRgkYVcwP",
+  "pageId": "4189:80",
+  "pageName": "F02 · UC05–UC08 · BOOYAH-20",
+  "reviewIndexId": "4198:2211",
+  "sourceDocuments": [
+    "docs/analysis-and-design/use-cases/F02-Business-Rules-Proposal.md",
+    "docs/analysis-and-design/use-cases/UC-F02-Orders.md"
+  ],
+  "draftRules": "D-F02-1…8 remain pending; prototypes do not record approval.",
+  "screens": [
+    {
+      "screenId": "S05-01",
+      "title": "Create order",
+      "nodeId": "4191:80",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-80",
+      "png": "../UC05/S05-01.png"
+    },
+    {
+      "screenId": "S05-01-filled",
+      "title": "Create order",
+      "nodeId": "4191:179",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-179",
+      "png": "../UC05/S05-01-filled.png"
+    },
+    {
+      "screenId": "S05-01-saving",
+      "title": "Saving order",
+      "nodeId": "4191:278",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-278",
+      "png": "../UC05/S05-01-saving.png"
+    },
+    {
+      "screenId": "S05-02-success",
+      "title": "Order created",
+      "nodeId": "4191:376",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-376",
+      "png": "../UC05/S05-02-success.png"
+    },
+    {
+      "screenId": "S05-01-error",
+      "title": "Create order",
+      "nodeId": "4191:415",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-415",
+      "png": "../UC05/S05-01-error.png"
+    },
+    {
+      "screenId": "S05-01-duplicate",
+      "title": "Create order",
+      "nodeId": "4191:515",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-515",
+      "png": "../UC05/S05-01-duplicate.png"
+    },
+    {
+      "screenId": "S05-01-auth",
+      "title": "Sign in required",
+      "nodeId": "4191:615",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-615",
+      "png": "../UC05/S05-01-auth.png"
+    },
+    {
+      "screenId": "S05-01-denied",
+      "title": "Access restricted",
+      "nodeId": "4191:642",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-642",
+      "png": "../UC05/S05-01-denied.png"
+    },
+    {
+      "screenId": "S05-01-failure",
+      "title": "Could not confirm creation",
+      "nodeId": "4191:669",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4191-669",
+      "png": "../UC05/S05-01-failure.png"
+    },
+    {
+      "screenId": "S06-01",
+      "title": "Import orders from CSV",
+      "nodeId": "4192:577",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-577",
+      "png": "../UC06/S06-01.png"
+    },
+    {
+      "screenId": "S06-01-selected",
+      "title": "Import orders from CSV",
+      "nodeId": "4192:622",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-622",
+      "png": "../UC06/S06-01-selected.png"
+    },
+    {
+      "screenId": "S06-01-processing",
+      "title": "Validating and importing",
+      "nodeId": "4192:667",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-667",
+      "png": "../UC06/S06-01-processing.png"
+    },
+    {
+      "screenId": "S06-01-file-error",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:700",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-700",
+      "png": "../UC06/S06-01-file-error.png"
+    },
+    {
+      "screenId": "S06-01-file-error-type",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:741",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-741",
+      "png": "../UC06/S06-01-file-error-type.png"
+    },
+    {
+      "screenId": "S06-01-file-error-empty",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:782",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-782",
+      "png": "../UC06/S06-01-file-error-empty.png"
+    },
+    {
+      "screenId": "S06-01-file-error-limits",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:823",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-823",
+      "png": "../UC06/S06-01-file-error-limits.png"
+    },
+    {
+      "screenId": "S06-01-file-error-header",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:864",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-864",
+      "png": "../UC06/S06-01-file-error-header.png"
+    },
+    {
+      "screenId": "S06-01-file-error-encoding",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:905",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-905",
+      "png": "../UC06/S06-01-file-error-encoding.png"
+    },
+    {
+      "screenId": "S06-01-file-error-rows",
+      "title": "CSV file needs correction",
+      "nodeId": "4192:946",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-946",
+      "png": "../UC06/S06-01-file-error-rows.png"
+    },
+    {
+      "screenId": "S06-03-errors",
+      "title": "CSV validation errors",
+      "nodeId": "4192:987",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-987",
+      "png": "../UC06/S06-03-errors.png"
+    },
+    {
+      "screenId": "S06-04-failure",
+      "title": "Import could not complete",
+      "nodeId": "4192:1054",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-1054",
+      "png": "../UC06/S06-04-failure.png"
+    },
+    {
+      "screenId": "S06-01-auth",
+      "title": "Sign in required",
+      "nodeId": "4192:1090",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-1090",
+      "png": "../UC06/S06-01-auth.png"
+    },
+    {
+      "screenId": "S06-01-denied",
+      "title": "Access restricted",
+      "nodeId": "4192:1117",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-1117",
+      "png": "../UC06/S06-01-denied.png"
+    },
+    {
+      "screenId": "S06-02-success",
+      "title": "CSV import completed",
+      "nodeId": "4192:1144",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4192-1144",
+      "png": "../UC06/S06-02-success.png"
+    },
+    {
+      "screenId": "S07-01",
+      "title": "Orders",
+      "nodeId": "4193:937",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-937",
+      "png": "../UC07/S07-01.png"
+    },
+    {
+      "screenId": "S07-01-filtered",
+      "title": "Orders",
+      "nodeId": "4193:1097",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1097",
+      "png": "../UC07/S07-01-filtered.png"
+    },
+    {
+      "screenId": "S07-01-page-2",
+      "title": "Orders",
+      "nodeId": "4193:1257",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1257",
+      "png": "../UC07/S07-01-page-2.png"
+    },
+    {
+      "screenId": "S07-01-empty",
+      "title": "Orders",
+      "nodeId": "4193:1341",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1341",
+      "png": "../UC07/S07-01-empty.png"
+    },
+    {
+      "screenId": "S07-01-no-results",
+      "title": "Orders",
+      "nodeId": "4193:1373",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1373",
+      "png": "../UC07/S07-01-no-results.png"
+    },
+    {
+      "screenId": "S07-01-filter-error",
+      "title": "Orders",
+      "nodeId": "4193:1430",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1430",
+      "png": "../UC07/S07-01-filter-error.png"
+    },
+    {
+      "screenId": "S07-02-detail",
+      "title": "Order VL-0101",
+      "nodeId": "4193:1581",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1581",
+      "png": "../UC07/S07-02-detail.png"
+    },
+    {
+      "screenId": "S07-02-not-found",
+      "title": "Order not found",
+      "nodeId": "4193:1662",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1662",
+      "png": "../UC07/S07-02-not-found.png"
+    },
+    {
+      "screenId": "S07-01-auth",
+      "title": "Sign in required",
+      "nodeId": "4193:1689",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1689",
+      "png": "../UC07/S07-01-auth.png"
+    },
+    {
+      "screenId": "S07-01-denied",
+      "title": "Access restricted",
+      "nodeId": "4193:1720",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1720",
+      "png": "../UC07/S07-01-denied.png"
+    },
+    {
+      "screenId": "S07-01-loading",
+      "title": "Loading orders",
+      "nodeId": "4193:1747",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1747",
+      "png": "../UC07/S07-01-loading.png"
+    },
+    {
+      "screenId": "S07-02-loading",
+      "title": "Loading order details",
+      "nodeId": "4193:1774",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1774",
+      "png": "../UC07/S07-02-loading.png"
+    },
+    {
+      "screenId": "S07-01-load-error",
+      "title": "Orders could not load",
+      "nodeId": "4193:1801",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1801",
+      "png": "../UC07/S07-01-load-error.png"
+    },
+    {
+      "screenId": "S07-02-load-error",
+      "title": "Order details could not load",
+      "nodeId": "4193:1833",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4193-1833",
+      "png": "../UC07/S07-02-load-error.png"
+    },
+    {
+      "screenId": "S08-01-edit",
+      "title": "Edit order VL-0101",
+      "nodeId": "4196:1575",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-1575",
+      "png": "../UC08/S08-01-edit.png"
+    },
+    {
+      "screenId": "S08-01-saving",
+      "title": "Saving changes",
+      "nodeId": "4196:1674",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-1674",
+      "png": "../UC08/S08-01-saving.png"
+    },
+    {
+      "screenId": "S08-02-updated",
+      "title": "Order updated",
+      "nodeId": "4196:1771",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-1771",
+      "png": "../UC08/S08-02-updated.png"
+    },
+    {
+      "screenId": "S08-03-cancel-confirm",
+      "title": "Cancel order VL-0101",
+      "nodeId": "4196:1851",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-1851",
+      "png": "../UC08/S08-03-cancel-confirm.png"
+    },
+    {
+      "screenId": "S08-03-cancel-confirm-filled",
+      "title": "Cancel order VL-0101",
+      "nodeId": "4196:1891",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-1891",
+      "png": "../UC08/S08-03-cancel-confirm-filled.png"
+    },
+    {
+      "screenId": "S08-04-cancelled",
+      "title": "Order cancelled",
+      "nodeId": "4196:1931",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-1931",
+      "png": "../UC08/S08-04-cancelled.png"
+    },
+    {
+      "screenId": "S08-01-error",
+      "title": "Edit order VL-0101",
+      "nodeId": "4196:2014",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2014",
+      "png": "../UC08/S08-01-error.png"
+    },
+    {
+      "screenId": "S08-01-identity-error",
+      "title": "Edit request rejected",
+      "nodeId": "4196:2122",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2122",
+      "png": "../UC08/S08-01-identity-error.png"
+    },
+    {
+      "screenId": "S08-03-reason-error",
+      "title": "Cancel order VL-0101",
+      "nodeId": "4196:2164",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2164",
+      "png": "../UC08/S08-03-reason-error.png"
+    },
+    {
+      "screenId": "S08-05-status-blocked",
+      "title": "This action is unavailable",
+      "nodeId": "4196:2204",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2204",
+      "png": "../UC08/S08-05-status-blocked.png"
+    },
+    {
+      "screenId": "S08-06-conflict",
+      "title": "The order changed",
+      "nodeId": "4196:2250",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2250",
+      "png": "../UC08/S08-06-conflict.png"
+    },
+    {
+      "screenId": "S08-07-not-found",
+      "title": "Order not found",
+      "nodeId": "4196:2285",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2285",
+      "png": "../UC08/S08-07-not-found.png"
+    },
+    {
+      "screenId": "S08-01-auth",
+      "title": "Sign in required",
+      "nodeId": "4196:2312",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2312",
+      "png": "../UC08/S08-01-auth.png"
+    },
+    {
+      "screenId": "S08-01-denied",
+      "title": "Access restricted",
+      "nodeId": "4196:2343",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2343",
+      "png": "../UC08/S08-01-denied.png"
+    },
+    {
+      "screenId": "S08-08-failure",
+      "title": "Could not confirm the change",
+      "nodeId": "4196:2370",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4196-2370",
+      "png": "../UC08/S08-08-failure.png"
+    },
+    {
+      "screenId": "S08-01-edit-changed",
+      "title": "Edit order VL-0101",
+      "nodeId": "4197:2132",
+      "figmaUrl": "https://www.figma.com/design/RBd5qiERPNz1yXRgkYVcwP/?node-id=4197-2132",
+      "png": "../UC08/S08-01-edit-changed.png"
+    }
+  ],
+  "prototype": {
+    "screenCount": 54,
+    "reactionNodeCount": 255,
+    "missingTargets": [],
+    "skippedSameFrameLinks": 8,
+    "flowStarts": [
+      {
+        "nodeId": "4191:80",
+        "name": "UC05 · Create order"
+      },
+      {
+        "nodeId": "4192:577",
+        "name": "UC06 · Import CSV"
+      },
+      {
+        "nodeId": "4193:937",
+        "name": "UC07 · Search and view"
+      },
+      {
+        "nodeId": "4196:1575",
+        "name": "UC08 · Edit and cancel"
+      }
+    ]
+  },
+  "originalScreenIds": [
+    "S05-01",
+    "S05-01-auth",
+    "S05-01-denied",
+    "S05-01-duplicate",
+    "S05-01-error",
+    "S05-01-failure",
+    "S05-01-saving",
+    "S05-02-success",
+    "S06-01",
+    "S06-01-auth",
+    "S06-01-denied",
+    "S06-01-file-error",
+    "S06-01-processing",
+    "S06-02-success",
+    "S06-03-errors",
+    "S06-04-failure",
+    "S07-01",
+    "S07-01-auth",
+    "S07-01-denied",
+    "S07-01-empty",
+    "S07-01-filter-error",
+    "S07-01-filtered",
+    "S07-01-load-error",
+    "S07-01-no-results",
+    "S07-02-detail",
+    "S07-02-load-error",
+    "S07-02-not-found",
+    "S08-01-auth",
+    "S08-01-denied",
+    "S08-01-edit",
+    "S08-01-error",
+    "S08-01-saving",
+    "S08-02-updated",
+    "S08-03-cancel-confirm",
+    "S08-03-reason-error",
+    "S08-04-cancelled",
+    "S08-05-status-blocked",
+    "S08-06-conflict",
+    "S08-07-not-found",
+    "S08-08-failure"
+  ],
+  "extraPresentationIds": [
+    "S05-01-filled",
+    "S06-01-file-error-empty",
+    "S06-01-file-error-encoding",
+    "S06-01-file-error-header",
+    "S06-01-file-error-limits",
+    "S06-01-file-error-rows",
+    "S06-01-file-error-type",
+    "S06-01-selected",
+    "S07-01-loading",
+    "S07-01-page-2",
+    "S07-02-loading",
+    "S08-01-edit-changed",
+    "S08-01-identity-error",
+    "S08-03-cancel-confirm-filled"
+  ]
+}

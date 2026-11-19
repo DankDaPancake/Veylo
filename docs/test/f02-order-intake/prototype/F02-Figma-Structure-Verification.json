@@ -1,0 +1,836 @@
+{
+  "originalKitNodesChecked": 26,
+  "originalKitChanges": [],
+  "originalPageChildCount": 26,
+  "screenCount": 54,
+  "screenEvidence": [
+    {
+      "screenId": "S05-01",
+      "nodeId": "4191:80",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 72,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 35,
+        "FRAME": 23
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-filled",
+      "nodeId": "4191:179",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 72,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 35,
+        "FRAME": 23
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-saving",
+      "nodeId": "4191:278",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 73,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 36,
+        "FRAME": 23
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-02-success",
+      "nodeId": "4191:376",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 6,
+        "TEXT": 19,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-error",
+      "nodeId": "4191:415",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 81,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 40,
+        "FRAME": 27
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-duplicate",
+      "nodeId": "4191:515",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 75,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 37,
+        "FRAME": 24
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-auth",
+      "nodeId": "4191:615",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 26,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-denied",
+      "nodeId": "4191:642",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S05-01-failure",
+      "nodeId": "4191:669",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 75,
+      "nodeTypes": {
+        "INSTANCE": 15,
+        "TEXT": 37,
+        "FRAME": 23
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01",
+      "nodeId": "4192:577",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 36,
+      "nodeTypes": {
+        "INSTANCE": 6,
+        "TEXT": 21,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-selected",
+      "nodeId": "4192:622",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 36,
+      "nodeTypes": {
+        "INSTANCE": 6,
+        "TEXT": 21,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-processing",
+      "nodeId": "4192:667",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 30,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 18,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error",
+      "nodeId": "4192:700",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error-type",
+      "nodeId": "4192:741",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error-empty",
+      "nodeId": "4192:782",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error-limits",
+      "nodeId": "4192:823",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error-header",
+      "nodeId": "4192:864",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error-encoding",
+      "nodeId": "4192:905",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-file-error-rows",
+      "nodeId": "4192:946",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 34,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 20,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-03-errors",
+      "nodeId": "4192:987",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 60,
+      "nodeTypes": {
+        "INSTANCE": 11,
+        "TEXT": 40,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-04-failure",
+      "nodeId": "4192:1054",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 31,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 18,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-auth",
+      "nodeId": "4192:1090",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 26,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-01-denied",
+      "nodeId": "4192:1117",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S06-02-success",
+      "nodeId": "4192:1144",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 40,
+      "nodeTypes": {
+        "INSTANCE": 7,
+        "TEXT": 24,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01",
+      "nodeId": "4193:937",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 139,
+      "nodeTypes": {
+        "INSTANCE": 32,
+        "TEXT": 90,
+        "FRAME": 17
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-filtered",
+      "nodeId": "4193:1097",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 139,
+      "nodeTypes": {
+        "INSTANCE": 32,
+        "TEXT": 90,
+        "FRAME": 17
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-page-2",
+      "nodeId": "4193:1257",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 63,
+      "nodeTypes": {
+        "INSTANCE": 13,
+        "TEXT": 33,
+        "FRAME": 17
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-empty",
+      "nodeId": "4193:1341",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 27,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 8
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-no-results",
+      "nodeId": "4193:1373",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 44,
+      "nodeTypes": {
+        "INSTANCE": 8,
+        "TEXT": 23,
+        "FRAME": 13
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-filter-error",
+      "nodeId": "4193:1430",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 136,
+      "nodeTypes": {
+        "INSTANCE": 30,
+        "TEXT": 89,
+        "FRAME": 17
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-02-detail",
+      "nodeId": "4193:1581",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 72,
+      "nodeTypes": {
+        "INSTANCE": 18,
+        "TEXT": 41,
+        "FRAME": 13
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-02-not-found",
+      "nodeId": "4193:1662",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-auth",
+      "nodeId": "4193:1689",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 26,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-denied",
+      "nodeId": "4193:1720",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-loading",
+      "nodeId": "4193:1747",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-02-loading",
+      "nodeId": "4193:1774",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-01-load-error",
+      "nodeId": "4193:1801",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 27,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 8
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S07-02-load-error",
+      "nodeId": "4193:1833",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 27,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 8
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-edit",
+      "nodeId": "4196:1575",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 72,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 35,
+        "FRAME": 23
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-saving",
+      "nodeId": "4196:1674",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 72,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 36,
+        "FRAME": 22
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-02-updated",
+      "nodeId": "4196:1771",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 73,
+      "nodeTypes": {
+        "INSTANCE": 18,
+        "TEXT": 42,
+        "FRAME": 13
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-03-cancel-confirm",
+      "nodeId": "4196:1851",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 32,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 18,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-03-cancel-confirm-filled",
+      "nodeId": "4196:1891",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 32,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 18,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-04-cancelled",
+      "nodeId": "4196:1931",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 76,
+      "nodeTypes": {
+        "INSTANCE": 19,
+        "TEXT": 44,
+        "FRAME": 13
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-error",
+      "nodeId": "4196:2014",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 81,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 40,
+        "FRAME": 27
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-identity-error",
+      "nodeId": "4196:2122",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 37,
+      "nodeTypes": {
+        "INSTANCE": 7,
+        "TEXT": 21,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-03-reason-error",
+      "nodeId": "4196:2164",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 33,
+      "nodeTypes": {
+        "INSTANCE": 5,
+        "TEXT": 19,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-05-status-blocked",
+      "nodeId": "4196:2204",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 39,
+      "nodeTypes": {
+        "INSTANCE": 8,
+        "TEXT": 22,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-06-conflict",
+      "nodeId": "4196:2250",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 30,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 17,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-07-not-found",
+      "nodeId": "4196:2285",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-auth",
+      "nodeId": "4196:2312",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 26,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 15,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-denied",
+      "nodeId": "4196:2343",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 24,
+      "nodeTypes": {
+        "INSTANCE": 3,
+        "TEXT": 14,
+        "FRAME": 7
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-08-failure",
+      "nodeId": "4196:2370",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 30,
+      "nodeTypes": {
+        "INSTANCE": 4,
+        "TEXT": 17,
+        "FRAME": 9
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    },
+    {
+      "screenId": "S08-01-edit-changed",
+      "nodeId": "4197:2132",
+      "width": 1440,
+      "height": 900,
+      "totalDescendants": 72,
+      "nodeTypes": {
+        "INSTANCE": 14,
+        "TEXT": 35,
+        "FRAME": 23
+      },
+      "imageFilledNodes": [],
+      "wrongFonts": [],
+      "overflow": []
+    }
+  ],
+  "flowStarts": [
+    {
+      "nodeId": "4191:80",
+      "name": "UC05 · Create order"
+    },
+    {
+      "nodeId": "4192:577",
+      "name": "UC06 · Import CSV"
+    },
+    {
+      "nodeId": "4193:937",
+      "name": "UC07 · Search and view"
+    },
+    {
+      "nodeId": "4196:1575",
+      "name": "UC08 · Edit and cancel"
+    }
+  ]
+}
