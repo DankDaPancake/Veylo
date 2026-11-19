@@ -75,3 +75,12 @@ Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is 
 - **Work performed** — Checked out `docs/pa3-booyah-13-21` in a separate worktree based on the locally available `origin/dev`. Included the F02 OpenSpec handoff, the 23 BOOYAH-21 prototype screens and their editable kit and exports, the PDF export utility and the relevant member log entries. Included the redistribution notices for the kit's bundled fonts and icons.
 - **Checks and results** — Strict OpenSpec validation passed. Design and delta cover D-F02-1 through D-F02-8, and apply remains 0 of 10 tasks complete. The source IDs, Markdown references and 23 PNG paths agree. PDF image extraction matched all 23 original PNGs pixel for pixel. Node syntax, the existing application environment test and Git whitespace checks passed.
 - **Limitations** — The worker's browser render remains the source of the PNGs. The local Chrome re-export is blocked by the sandbox's socket restriction. Git and GitHub CLI could not reach GitHub from this session during the base-branch check. Independent human approval of the F02 model, the BOOYAH-21 walkthrough and team approval of the new shared kit are pending.
+
+## 2026-11-19 — Clarify immutable order codes after PR #9 review
+
+Performed by Codex for Phạm Công Khánh. Review feedback from Thái Kiệt. Edited by Codex.
+
+- **Tool and request** — OpenAI Codex (GPT-6). Khánh supplied Kiệt's PR #9 review comment about requiring the same fields for new orders and edits while rejecting an order code in an edit request.
+- **Work performed** — Clarified D-F02-1 in the order-intake delta and design. Manual creation and CSV records require an order code. Edits validate the editable fields, reject a submitted order code and preserve the stored code.
+- **Verification** — `openspec validate f02-order-intake --strict` and `git diff --check` passed. Checked acceptance scenarios for a missing code during creation, a valid edit without a code and a rejected edit that supplies a code.
+- **Limitations** — The change affects the specification and design. The existing business rule is unchanged. No API implementation or runtime test was performed.

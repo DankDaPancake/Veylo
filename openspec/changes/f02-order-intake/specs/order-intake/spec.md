@@ -1,12 +1,12 @@
 ## ADDED Requirements
 
-### Requirement: Validate order data
+### Requirement: Validate new order data
 
-The system SHALL validate the same order fields for manual creation, import and edits (D-F02-1, UC05/UC06/UC08). Require `order_code`, `recipient_name`, `recipient_phone`, `delivery_address`, `window_start`, `window_end` and `weight_kg`. A trimmed code uses 1–40 ASCII letters/digits, underscores or hyphens. Trimmed names use 1–100 Unicode characters and addresses 5–255. A phone is 10 digits starting with 0. Weight is finite and greater than zero.
+The system SHALL require the following fields for manual creation and every CSV record (D-F02-1, UC05/UC06): `order_code`, `recipient_name`, `recipient_phone`, `delivery_address`, `window_start`, `window_end` and `weight_kg`. A trimmed code uses 1–40 ASCII letters/digits, underscores or hyphens. Trimmed names use 1–100 Unicode characters and addresses 5–255. A phone is 10 digits starting with 0. Weight is finite and greater than zero.
 
-#### Scenario: Invalid order
+#### Scenario: Invalid new order
 
-- **WHEN** an eligible dispatcher submits a missing destination, invalid phone or non-positive weight
+- **WHEN** a manual create request or CSV record omits `order_code` or the destination, contains an invalid phone, or has a non-positive weight
 - **THEN** the operation reports field errors and leaves the saved data unchanged
 
 ### Requirement: Validate delivery windows and optional order metadata
@@ -47,7 +47,12 @@ The system SHALL validate the file before writing orders and make the accepted t
 
 ### Requirement: Restrict edits and cancellation by state
 
-The system SHALL permit edits and cancellation only on NEW orders with a matching version (D-F02-5, UC08). Ordinary edits cannot set code, hub, status or audit fields. Cancellation requires a trimmed reason of 5–300 characters.
+The system SHALL permit edits and cancellation only on NEW orders with a matching version (D-F02-5, UC08). Validate the editable fields using the D-F02-1 rules for those fields. Reject any edit that includes `order_code`, `hub_id`, status or audit fields. Cancellation requires a trimmed reason of 5–300 characters.
+
+#### Scenario: Valid edit preserves order code
+
+- **WHEN** a dispatcher submits valid editable fields and the current version for a NEW order without `order_code`
+- **THEN** the system saves the edit and preserves the existing order code
 
 #### Scenario: Cancellation is saved
 
