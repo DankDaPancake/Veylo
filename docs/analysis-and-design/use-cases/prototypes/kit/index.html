@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veylo — BOOYAH-21 Prototype Screens (BOOYAH-25 Apple Liquid Glass)</title>
+  <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="./tokens.css" />
+  <link rel="stylesheet" href="./kit.css" />
+</head>
+<body class="gallery-mode">
+  <header class="preview-toolbar" aria-label="BOOYAH-21 Prototype Gallery Controls">
+    <div class="preview-brand">
+      <span class="preview-brand-mark" aria-hidden="true">V</span>
+      <div>
+        <div class="preview-brand-title">Veylo · BOOYAH-21 Shifts &amp; Recommendation (23 Screens)</div>
+        <div class="preview-brand-sub">BOOYAH-25 Apple Liquid Glass Kit · Synthetic examples · Review pending</div>
+      </div>
+    </div>
+
+    <nav class="screen-tabs" id="screen-tabs" aria-label="Screens"></nav>
+
+    <div class="preview-controls">
+      <span class="viewport-pill" id="viewport-badge">1440 × 900</span>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+        <span id="theme-icon" aria-hidden="true"></span>
+        <span id="theme-label">Theme: Light Glass</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage-wrapper">
+    <div class="stage-meta">
+      <span id="screen-caption">S09-01 · Select orders and a rider</span>
+      <span>Standalone URL: <code>?screen=S09-01&amp;theme=light&amp;standalone=1</code></span>
+    </div>
+    <div class="stage-frame" id="stage-frame"></div>
+  </main>
+
+  <script>
+    const ICONS = {
+      truck: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>`,
+      package: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
+      calendar: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>`,
+      route: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>`,
+      mapPin: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>`,
+      barChart: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+      clock: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+      check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`,
+      alert: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>`,
+      lock: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+      refresh: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>`,
+      arrowRight: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+      arrowLeft: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+      arrowUp: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>`,
+      arrowDown: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`,
+      sparkles: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>`,
+      user: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+      sun: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
+      moon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`
+    };
+
+    const MAP_BACKDROP_SVG = `
+      <svg class="map-backdrop" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+        <path d="M-40 240 C 260 205, 510 340, 810 270 S 1220 150, 1500 225" stroke="rgba(56, 189, 248, 0.30)" stroke-width="34" stroke-linecap="round"/>
+        <path d="M140 -40 L 250 940 M 490 -40 L 430 940 M 880 -40 L 940 940 M 1210 -40 L 1140 940" stroke="rgba(100, 116, 139, 0.14)" stroke-width="10"/>
+        <path d="M-40 430 L 1480 390 M -40 620 L 1480 590 M -40 120 L 1480 150 M -40 790 L 1480 760" stroke="rgba(100, 116, 139, 0.12)" stroke-width="8"/>
+        <rect x="530" y="455" width="210" height="105" rx="22" fill="rgba(16, 185, 129, 0.10)" />
+        <rect x="975" y="190" width="160" height="145" rx="24" fill="rgba(99, 102, 241, 0.10)" />
+        <rect x="65" y="460" width="150" height="125" rx="22" fill="rgba(245, 158, 11, 0.10)" />
+        <path d="M210 310 C 420 385, 650 475, 865 415 S 1160 515, 1310 435" stroke="rgba(14, 165, 233, 0.45)" stroke-width="3.5" stroke-dasharray="10 8"/>
+        <circle cx="210" cy="310" r="10" fill="rgba(16, 185, 129, 0.60)"/>
+        <circle cx="865" cy="415" r="10" fill="rgba(245, 158, 11, 0.62)"/>
+        <circle cx="1310" cy="435" r="11" fill="rgba(14, 165, 233, 0.62)"/>
+      </svg>
+    `;
+
+    function renderSidebar() {
+      const items = [
+        { label: "Orders", icon: ICONS.package },
+        { label: "Shifts", icon: ICONS.calendar, active: true },
+        { label: "Delivery attempts", icon: ICONS.route },
+        { label: "Location guides", icon: ICONS.mapPin },
+        { label: "Reports", icon: ICONS.barChart }
+      ];
+      return `
+        <div class="sidebar-wrap">
+          <aside class="sidebar glass-chrome" aria-label="Dispatcher navigation">
+            <div class="sidebar-brand">
+              <div class="brand-lockup">
+                <span class="brand-logo">${ICONS.truck}</span>
+                <div>
+                  <div class="brand-name">Veylo</div>
+                  <div class="brand-role">Dispatcher</div>
+                </div>
+              </div>
+            </div>
+            <div class="hub-chip">
+              <span class="hub-dot" aria-hidden="true"></span>
+              <span>Hub East · Synthetic</span>
+            </div>
+            <ul class="nav-list">
+              ${items
+                .map(
+                  (item) => `
+                <li>
+                  <a href="#${item.label.toLowerCase().replace(/\s+/g, "-")}" class="nav-item ${
+                    item.active ? "nav-item--active" : ""
+                  }" ${item.active ? 'aria-current="page"' : ""}>
+                    ${item.icon}
+                    <span>${item.label}</span>
+                  </a>
+                </li>`
+                )
+                .join("")}
+            </ul>
+            <div class="sidebar-footer">
+              <span class="avatar-glass" aria-hidden="true">DP</span>
+              <div>
+                <div style="font-weight:700;color:var(--text-primary);">Dispatcher Demo</div>
+                <div>Role: Hub Dispatcher</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      `;
+    }
+
+    function desktopShell(innerHtml) {
+      return `
+        <section class="veylo-canvas veylo-canvas--desktop">
+          ${MAP_BACKDROP_SVG}
+          <div class="app-shell">
+            ${renderSidebar()}
+            <div class="workspace">
+              ${innerHtml}
+              <footer class="workspace-footer">
+                <span>BOOYAH-25 · Apple Liquid Glass Shared Prototype Kit</span>
+                <span>Synthetic examples, not implemented workflows</span>
+              </footer>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function metaCard(label, value, tone = "") {
+      const cls = tone ? `summary-value summary-value--${tone}` : "summary-value";
+      return `
+        <div class="glass-panel summary-card">
+          <div class="summary-label">${label}</div>
+          <div class="${cls}">${value}</div>
+        </div>
+      `;
+    }
+
+    function riderShell({ eyebrow, title, reasonTone, reasonText, bodyHtml, dockButtons }) {
+      const reasonBanner = reasonText
+        ? `<div class="mobile-reason mobile-reason--${reasonTone || "warning"}" role="status">
+             ${ICONS.alert}
+             <span>${reasonText}</span>
+           </div>`
+        : "";
+      return `
+        <section class="veylo-canvas veylo-canvas--mobile">
+          ${MAP_BACKDROP_SVG}
+          <div class="mobile-shell">
+            <header class="mobile-topbar glass-chrome">
+              <div class="brand-lockup" style="gap:8px;">
+                <span class="brand-logo" style="width:28px;height:28px;border-radius:9px;">${ICONS.truck}</span>
+                <span style="font-weight:700;font-size:15px;">Veylo · Rider</span>
+              </div>
+              <span class="badge badge--success tabular">SH-034</span>
+            </header>
+
+            <div class="mobile-body">
+              <div style="padding:2px 4px;">
+                <p class="eyebrow" style="margin-bottom:3px;">${eyebrow}</p>
+                <h1 class="mobile-title">${title}</h1>
+              </div>
+
+              ${reasonBanner}
+              ${bodyHtml}
+
+              <div class="glass-chrome mobile-dock" aria-label="Rider actions">
+                ${dockButtons}
+                <p class="mobile-footer-note">Only your assigned work appears here · Synthetic example</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function suggestedStopCard(stopId = "VL-0124", badgeHtml = `<span class="badge badge--success">${ICONS.sparkles} Recommended</span>`, detailLines = `<div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Window closes 10:30</span></div>`) {
+      return `
+        <article class="glass-elevated mobile-stop-card" aria-label="Suggested stop">
+          <div class="mobile-stop-header">
+            <div>
+              <div class="mobile-stop-index">SUGGESTED STOP</div>
+              <h2 class="mobile-stop-name tabular">${stopId}</h2>
+            </div>
+            ${badgeHtml}
+          </div>
+          ${detailLines}
+        </article>
+      `;
+    }
+
+    const SCREENS = {
+      /* ======================== UC09 — PLAN DELIVERY SHIFT (1440×900) ======================== */
+      "S09-01": {
+        file: "UC09/S09-01-plan-shift.png",
+        viewport: "1440 × 900",
+        caption: "S09-01 · Select eligible orders and an available rider (UC09 basic flow)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / NEW DRAFT</p>
+              <h1 class="page-title">Plan delivery shift</h1>
+              <p class="page-subtitle">Choose validated unassigned NEW orders and an active rider in Hub East.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--info">${ICONS.clock} Draft</span>
+            </div>
+          </header>
+
+          <div class="summary-grid-4">
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+            ${metaCard("Assigned rider", "Rider 07 · Available")}
+            ${metaCard("Service area", "East District")}
+            ${metaCard("Selected workload", `<span class="tabular">8 kg of 12 kg</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Delivery window &amp; weight</th>
+                  <th scope="col">Selection</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30 · 4 kg</td>
+                  <td><span class="badge badge--success">${ICONS.check} Selected</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30 · 4 kg</td>
+                  <td><span class="badge badge--success">${ICONS.check} Selected</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0175</span></td>
+                  <td class="tabular">10:30–12:00 · 3 kg</td>
+                  <td><span class="badge badge--info">Available</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">Preview route ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass">Cancel draft</button>
+          </div>
+        `)
+      },
+
+      "S09-02": {
+        file: "UC09/S09-02-review-route.png",
+        viewport: "1440 × 900",
+        caption: "S09-02 · Order stops with keyboard controls and inspect route overview (UC09 steps 3–4)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / ROUTE REVIEW</p>
+              <h1 class="page-title">Review route</h1>
+              <p class="page-subtitle">Verify stop sequence, workload capacity, and route overview before publishing.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--info">${ICONS.clock} Draft</span>
+            </div>
+          </header>
+
+          <div class="glass-panel route-ribbon">
+            <span class="badge badge--success">${ICONS.route} Route overview</span>
+            <span>Hub East</span>
+            ${ICONS.arrowRight}
+            <span>1 · Cedar Way</span>
+            ${ICONS.arrowRight}
+            <span>2 · River Lane</span>
+          </div>
+
+          <div class="summary-grid-4">
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+            ${metaCard("Assigned rider", "Rider 07")}
+            ${metaCard("Selected workload", `<span class="tabular">8 kg of 12 kg</span>`)}
+            ${metaCard("Service area", "East District")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Sequence &amp; stop</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Reorder (keyboard supported)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">1 · VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><button type="button" class="row-action-btn">${ICONS.arrowDown} Move down</button></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">2 · VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><button type="button" class="row-action-btn">${ICONS.arrowUp} Move up</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.check} Publish shift</button>
+            <button type="button" class="btn btn--glass">${ICONS.arrowLeft} Back to selection</button>
+          </div>
+        `)
+      },
+
+      "S09-03": {
+        file: "UC09/S09-03-published.png",
+        viewport: "1440 × 900",
+        caption: "S09-03 · Published shift visible to assigned rider via UC11 (UC09 step 5)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Shift SH-034</h1>
+              <p class="page-subtitle">Single published version active for East District deliveries.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--success" role="status">
+            ${ICONS.check}
+            <div>
+              <h2 class="alert-banner-title">Shift published</h2>
+              <p class="alert-banner-body">Rider 07 can now open Shift SH-034 and see these two ordered stops.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+            ${metaCard("Assigned rider", "Rider 07")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Ordered stop</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Assignment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">1 · VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">2 · VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.arrowLeft} Return to shifts</button>
+          </div>
+        `)
+      },
+
+      "S09-04": {
+        file: "UC09/S09-04-empty.png",
+        viewport: "1440 × 900",
+        caption: "S09-04 · Branch 2a: No eligible orders available in the signed-in hub",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / NEW DRAFT</p>
+              <h1 class="page-title">Plan delivery shift</h1>
+              <p class="page-subtitle">Check eligible unassigned NEW orders in Hub East before scheduling.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--pending">${ICONS.clock} Draft</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="status">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">No eligible orders for this shift</h2>
+              <p class="alert-banner-body">There are 0 validated unassigned NEW orders in Hub East. Return to shifts or wait for order intake.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+            ${metaCard("Eligible orders", `<span class="tabular">0 available</span>`, "warn")}
+          </div>
+
+          <div class="glass-elevated state-card">
+            <div class="state-icon-badge state-icon-badge--info">${ICONS.package}</div>
+            <div>
+              <h2 class="state-card-title">Empty eligible order pool</h2>
+              <p class="state-card-body">Cancelled orders and stops already assigned to another shift are excluded automatically.</p>
+            </div>
+            <div class="action-row" style="margin-top:4px;">
+              <button type="button" class="btn btn--primary">${ICONS.arrowLeft} Return to shifts</button>
+            </div>
+          </div>
+        `)
+      },
+
+      "S09-05": {
+        file: "UC09/S09-05-rider-capacity.png",
+        viewport: "1440 × 900",
+        caption: "S09-05 · Branches 2b & 3a: Unavailable rider & workload over rider capacity",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / CAPACITY CHECK</p>
+              <h1 class="page-title">Review workload</h1>
+              <p class="page-subtitle">Reduce planned parcel weight or choose an eligible rider with sufficient capacity.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--pending">${ICONS.alert} Draft · Blocked</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="alert">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Rider unavailable or over configured weight capacity</h2>
+              <p class="alert-banner-body">Rider 06 is unavailable during 09:00–12:00. Rider 07 is available, but selected parcel weight is 2 kg above their 12 kg limit.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+            ${metaCard("Selected rider", "Rider 07 · Available")}
+            ${metaCard("Selected workload", `<span class="tabular">14 kg of 12 kg</span>`, "warn")}
+            ${metaCard("Over capacity", `<span class="tabular">+2 kg</span>`, "error")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Selected stop</th>
+                  <th scope="col">Window &amp; weight</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">1 · VL-0124</span></td>
+                  <td class="tabular">09:00–10:30 · 7 kg</td>
+                  <td><button type="button" class="row-action-btn">Remove</button></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">2 · VL-0152</span></td>
+                  <td class="tabular">10:00–11:30 · 7 kg</td>
+                  <td><button type="button" class="row-action-btn">Remove</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">Edit selection</button>
+            <button type="button" class="btn btn--disabled" disabled>${ICONS.lock} Publish shift (Blocked)</button>
+          </div>
+        `)
+      },
+
+      "S09-06": {
+        file: "UC09/S09-06-stale.png",
+        viewport: "1440 × 900",
+        caption: "S09-06 · Branch 4b: Concurrent update rejected stale shift publication",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Review route</h1>
+              <p class="page-subtitle">Draft version check prevented overwriting a concurrent dispatcher change.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--error">${ICONS.alert} Stale version</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="alert">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Another dispatcher updated this shift</h2>
+              <p class="alert-banner-body">Your changes have not been published. Reload the latest shift state, rider availability, and order eligibility before retrying.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Shift", `<span class="tabular">SH-034</span>`)}
+            ${metaCard("Version status", "Version needs refresh", "warn")}
+          </div>
+
+          <div class="glass-elevated state-card">
+            <div class="state-icon-badge state-icon-badge--info">${ICONS.refresh}</div>
+            <div>
+              <h2 class="state-card-title">Reload latest state to review</h2>
+              <p class="state-card-body">No previously saved shift or rider work was changed by this rejected publication attempt.</p>
+            </div>
+            <div class="action-row" style="margin-top:4px;">
+              <button type="button" class="btn btn--primary">${ICONS.refresh} Reload latest shift</button>
+            </div>
+          </div>
+        `)
+      },
+
+      "S09-07": {
+        file: "UC09/S09-07-no-orders-selected.png",
+        viewport: "1440 × 900",
+        caption: "S09-07 · Branch 4a: Eligible orders exist, 0 selected, Publish shift blocked",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / NEW DRAFT</p>
+              <h1 class="page-title">Plan delivery shift</h1>
+              <p class="page-subtitle">Draft remains editable while waiting for at least one eligible order selection.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--pending">${ICONS.alert} 0 Selected</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="alert">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">No orders selected — publication blocked</h2>
+              <p class="alert-banner-body">0 orders are currently selected. Select at least one eligible order from the list below to enable Publish shift.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-4">
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+            ${metaCard("Assigned rider", "Rider 07 · Available")}
+            ${metaCard("Selected orders", `<span class="tabular">0 of 3 eligible</span>`, "warn")}
+            ${metaCard("Selected workload", `<span class="tabular">0 kg of 12 kg</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Eligible order</th>
+                  <th scope="col">Window &amp; weight</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30 · 4 kg</td>
+                  <td><button type="button" class="row-action-btn row-action-btn--primary">Unselected · Select order</button></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30 · 4 kg</td>
+                  <td><button type="button" class="row-action-btn row-action-btn--primary">Unselected · Select order</button></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0175</span></td>
+                  <td class="tabular">10:30–12:00 · 3 kg</td>
+                  <td><button type="button" class="row-action-btn row-action-btn--primary">Unselected · Select order</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--disabled" disabled>${ICONS.lock} Publish shift (Blocked)</button>
+            <button type="button" class="btn btn--primary">Select eligible orders</button>
+          </div>
+        `)
+      },
+
+      /* ======================== UC10 — ADJUST SHIFT ASSIGNMENT (1440×900) ======================== */
+      "S10-01": {
+        file: "UC10/S10-01-adjust.png",
+        viewport: "1440 × 900",
+        caption: "S10-01 · Inspect published shift, active locks, and select adjustments (UC10 steps 1–2)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Adjust shift SH-034</h1>
+              <p class="page-subtitle">Inspect current rider, stop locks, and preview replacement or stop transfer.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+
+          <div class="summary-grid-4">
+            ${metaCard("Current rider", "Rider 07")}
+            ${metaCard("Replacement rider", "Rider 09")}
+            ${metaCard("Move selected stop to", `<span class="tabular">Shift SH-038</span>`)}
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Planned action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--info">Move to SH-038 or remove</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">Keep on SH-034</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">Preview changes ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass">${ICONS.arrowLeft} Return to shifts</button>
+          </div>
+        `)
+      },
+
+      "S10-02": {
+        file: "UC10/S10-02-confirm.png",
+        viewport: "1440 × 900",
+        caption: "S10-02 · Preview & confirm published reassignment (UC10 step 3 & branch 3b dismiss)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / CONFIRM REVISION</p>
+              <h1 class="page-title">Confirm published changes</h1>
+              <p class="page-subtitle">Both shifts update in one atomic operation when confirmed; dismissing preserves current assignments.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="status">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Review cross-shift impact before saving</h2>
+              <p class="alert-banner-body">VL-0124 will move to shift SH-038. Rider 09 will take the remaining work in SH-034.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+            ${metaCard("From", "SH-034 · Rider 07")}
+            ${metaCard("To", "SH-038 · Rider 11")}
+            ${metaCard("Remaining rider", "Rider 09")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Resulting assignment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--info">Move to SH-038</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">Assign to Rider 09</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.check} Confirm changes</button>
+            <button type="button" class="btn btn--glass">Back to preview</button>
+          </div>
+        `)
+      },
+
+      "S10-03": {
+        file: "UC10/S10-03-updated.png",
+        viewport: "1440 × 900",
+        caption: "S10-03 · Updated published assignment applied atomically (UC10 step 4)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Shift SH-034</h1>
+              <p class="page-subtitle">Revision committed. Previous rider loses access to transferred work immediately.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--success" role="status">
+            ${ICONS.check}
+            <div>
+              <h2 class="alert-banner-title">Assignments updated</h2>
+              <p class="alert-banner-body">VL-0124 is now in SH-038. Rider 09 sees updated SH-034 work on refresh.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Assigned rider", "Rider 09")}
+            ${metaCard("Remaining stops", `<span class="tabular">1</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.arrowLeft} Back to shifts</button>
+          </div>
+        `)
+      },
+
+      "S10-04": {
+        file: "UC10/S10-04-completed.png",
+        viewport: "1440 × 900",
+        caption: "S10-04 · Branch 1a: Completed shift displayed in read-only mode",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Shift SH-034</h1>
+              <p class="page-subtitle">Historical shift record with preserved attempt outcomes.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--info">${ICONS.lock} Completed · Read-only</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--info" role="status">
+            ${ICONS.lock}
+            <div>
+              <h2 class="alert-banner-title">This shift is read-only</h2>
+              <p class="alert-banner-body">Completed shifts cannot change riders, transfer stops, or alter delivery attempts.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Assigned rider", "Rider 07")}
+            ${metaCard("Completed stops", `<span class="tabular">2</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Completed</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.arrowLeft} Back to shifts</button>
+          </div>
+        `)
+      },
+
+      "S10-05": {
+        file: "UC10/S10-05-blocked.png",
+        viewport: "1440 × 900",
+        caption: "S10-05 · Branches 2a & 2b: Active attempt lock and destination shift capacity exceeded",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Adjust shift SH-034</h1>
+              <p class="page-subtitle">Active attempt locks and destination capacity limits protect ongoing deliveries.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--error">${ICONS.lock} Changes Blocked</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="alert">
+            ${ICONS.lock}
+            <div>
+              <h2 class="alert-banner-title">Active attempt lock &amp; destination capacity reached</h2>
+              <p class="alert-banner-body">VL-0124 has an active delivery attempt and cannot be moved, removed, or transferred to another rider. Destination shift SH-038 has reached its configured capacity.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Current rider (locked on active stop)", "Rider 07")}
+            ${metaCard("Destination shift", "SH-038 Over capacity · Choose another shift", "warn")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Constraint</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--error">${ICONS.lock} Locked · active attempt</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--pending">${ICONS.alert} Choose eligible destination</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">Edit selection</button>
+            <button type="button" class="btn btn--disabled" disabled>${ICONS.lock} Confirm changes (Blocked)</button>
+          </div>
+        `)
+      },
+
+      "S10-06": {
+        file: "UC10/S10-06-stale.png",
+        viewport: "1440 × 900",
+        caption: "S10-06 · Branch 3a: Concurrent change or new active attempt after preview",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Adjust shift SH-034</h1>
+              <p class="page-subtitle">Optimistic version guard prevented partial or conflicting reassignment.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--error">${ICONS.alert} Stale version</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="alert">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Assignments changed during this review</h2>
+              <p class="alert-banner-body">No changes were applied. Reload the shift to see its current stops and any started delivery attempt locks before retrying.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Shift", `<span class="tabular">SH-034</span>`)}
+            ${metaCard("Change state", "Version needs refresh", "warn")}
+          </div>
+
+          <div class="glass-elevated state-card">
+            <div class="state-icon-badge state-icon-badge--info">${ICONS.refresh}</div>
+            <div>
+              <h2 class="state-card-title">Reload latest shift data</h2>
+              <p class="state-card-body">Existing assignments and attempt history remain untouched.</p>
+            </div>
+            <div class="action-row" style="margin-top:4px;">
+              <button type="button" class="btn btn--primary">${ICONS.refresh} Reload latest shift</button>
+            </div>
+          </div>
+        `)
+      },
+
+      "S10-07": {
+        file: "UC10/S10-07-rider-unavailable.png",
+        viewport: "1440 × 900",
+        caption: "S10-07 · Branch 2b: Replacement rider unavailable, current assignment preserved",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Adjust shift SH-034</h1>
+              <p class="page-subtitle">Verify replacement rider availability and capacity before transferring published stops.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--pending">${ICONS.alert} Rider Unavailable</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="alert">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Selected replacement Rider 09 is unavailable</h2>
+              <p class="alert-banner-body">Rider 09 is already assigned to overlapping shift SH-036 (09:00–12:00). Current assignment to Rider 07 is preserved. Choose another eligible rider below.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-4">
+            ${metaCard("Current rider (preserved)", "Rider 07")}
+            ${metaCard("Selected replacement rider", "Rider 09 · Unavailable (overlap)", "warn")}
+            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
+            ${metaCard("How to select another rider", "Available: Rider 11 (15 kg) · Rider 12 (12 kg)")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Preserved assignment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--success">${ICONS.user} Current assignee: Rider 07</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">${ICONS.user} Current assignee: Rider 07</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.user} Choose another rider</button>
+            <button type="button" class="btn btn--glass">Keep Rider 07</button>
+          </div>
+        `)
+      },
+
+      /* ======================== UC14 — NEXT-ORDER RECOMMENDATION (360×800) ======================== */
+      "S14-01": {
+        file: "UC14/S14-01-stops.png",
+        viewport: "360 × 800",
+        caption: "S14-01 · Assigned stops list before requesting suggestion (UC14 step 1)",
+        render: () => riderShell({
+          eyebrow: "PUBLISHED SHIFT · 2 STOPS",
+          title: "Assigned stops",
+          bodyHtml: `
+            <div class="mobile-stop-list">
+              <article class="glass-elevated mobile-compact-card">
+                <div>
+                  <div class="mobile-stop-index">STOP 01 · VL-0124</div>
+                  <div style="font-size:15px;font-weight:700;">12 Cedar Way</div>
+                  <div class="mobile-meta-row" style="margin-top:3px;font-size:13px;">${ICONS.clock}<span class="tabular">Closes at 10:30</span></div>
+                </div>
+                <span class="badge badge--pending">Pending</span>
+              </article>
+              <article class="glass-panel mobile-compact-card">
+                <div>
+                  <div class="mobile-stop-index" style="color:var(--text-muted);">STOP 02 · VL-0152</div>
+                  <div style="font-size:15px;font-weight:700;">48 River Lane</div>
+                  <div class="mobile-meta-row" style="margin-top:3px;font-size:13px;">${ICONS.clock}<span class="tabular">Closes at 11:30</span></div>
+                </div>
+                <span class="badge badge--info">Queued</span>
+              </article>
+            </div>
+          `,
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch">
+              ${ICONS.sparkles} <span>Suggest next stop</span>
+            </button>
+          `
+        })
+      },
+
+      "S14-02": {
+        file: "UC14/S14-02-reasons.png",
+        viewport: "360 × 800",
+        caption: "S14-02 · Next suggested stop decided by delivery-window urgency (UC14 steps 2–3)",
+        render: () => riderShell({
+          eyebrow: "SIGNAL · DELIVERY-WINDOW URGENCY",
+          title: "Next suggested stop",
+          reasonTone: "warning",
+          reasonText: `<strong>Deciding reason:</strong> Earliest closing window at 10:30.`,
+          bodyHtml: suggestedStopCard("VL-0124", `<span class="badge badge--success">${ICONS.sparkles} Urgency #1</span>`),
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+          `
+        })
+      },
+
+      "S14-03": {
+        file: "UC14/S14-03-empty.png",
+        viewport: "360 × 800",
+        caption: "S14-03 · Branch 2a: No eligible stops remain in shift",
+        render: () => riderShell({
+          eyebrow: "RECOMMENDATION · 0 ELIGIBLE",
+          title: "Next suggested stop",
+          reasonTone: "warning",
+          reasonText: `No eligible stops remain in this shift.`,
+          bodyHtml: `
+            <div class="glass-elevated mobile-stop-card" style="align-items:flex-start;">
+              <div class="state-icon-badge state-icon-badge--info">${ICONS.check}</div>
+              <h2 class="mobile-stop-name">No eligible work remaining</h2>
+              <p style="margin:0;font-size:13.5px;color:var(--text-secondary);">All stops in SH-034 are already completed or locked in terminal states.</p>
+            </div>
+          `,
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch">${ICONS.arrowLeft} <span>Back to assigned work</span></button>
+          `
+        })
+      },
+
+      "S14-04": {
+        file: "UC14/S14-04-fallback.png",
+        viewport: "360 × 800",
+        caption: "S14-04 · Branch 2b: Missing window/distance fallback explanation",
+        render: () => riderShell({
+          eyebrow: "SIGNAL · MISSING FIELDS FALLBACK",
+          title: "Next suggested stop",
+          reasonTone: "warning",
+          reasonText: `No delivery window or distance available. Ranked by the remaining known signals and planned order.`,
+          bodyHtml: suggestedStopCard(
+            "VL-0124",
+            `<span class="badge badge--pending">${ICONS.alert} Fallback</span>`,
+            `<div class="mobile-meta-row">${ICONS.clock}<span>Window: unavailable</span></div>
+             <div class="mobile-meta-row">${ICONS.mapPin}<span>Distance: unavailable</span></div>`
+          ),
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+          `
+        })
+      },
+
+      "S14-05": {
+        file: "UC14/S14-05-overdue.png",
+        viewport: "360 × 800",
+        caption: "S14-05 · Branch 2c: All eligible known windows passed (overdue)",
+        render: () => riderShell({
+          eyebrow: "SIGNAL · OVERDUE WINDOWS",
+          title: "Next suggested stop",
+          reasonTone: "error",
+          reasonText: `All eligible windows have passed. Earliest missed window closed at 09:15.`,
+          bodyHtml: suggestedStopCard(
+            "VL-0124 · Overdue",
+            `<span class="badge badge--error">${ICONS.clock} Overdue</span>`,
+            `<div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Missed window: 09:15</span></div>`
+          ),
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+          `
+        })
+      },
+
+      "S14-06": {
+        file: "UC14/S14-06-tie.png",
+        viewport: "360 × 800",
+        caption: "S14-06 · Branch 2d: Stable tie-break using planned order & ID",
+        render: () => riderShell({
+          eyebrow: "SIGNAL · STABLE FINAL TIE-BREAK",
+          title: "Next suggested stop",
+          reasonTone: "info",
+          reasonText: `Equal urgency, priority and distance. This stop comes first in the planned order.`,
+          bodyHtml: suggestedStopCard(
+            "VL-0124",
+            `<span class="badge badge--info">Sequence #1</span>`,
+            `<div class="mobile-meta-row">${ICONS.route}<span>Tie-break: published sequence #1</span></div>`
+          ),
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+          `
+        })
+      },
+
+      "S14-07": {
+        file: "UC14/S14-07-choice.png",
+        viewport: "360 × 800",
+        caption: "S14-07 · Branch 3a: Rider chooses another eligible stop without altering shift sequence",
+        render: () => riderShell({
+          eyebrow: "RIDER OVERRIDE · SEQUENCE PRESERVED",
+          title: "Stop details",
+          reasonTone: "info",
+          reasonText: `You chose VL-0152 from your assigned stops. Shift sequence remains unchanged.`,
+          bodyHtml: `
+            <article class="glass-elevated mobile-stop-card">
+              <div class="mobile-stop-header">
+                <div>
+                  <div class="mobile-stop-index">SELECTED STOP</div>
+                  <h2 class="mobile-stop-name tabular">VL-0152</h2>
+                </div>
+                <span class="badge badge--success">Manual choice</span>
+              </div>
+              <div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Window closes: 11:30</span></div>
+              <div class="mobile-meta-row">${ICONS.route}<span>Published sequence stays #2</span></div>
+            </article>
+          `,
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch">${ICONS.arrowLeft} <span>Back to assigned work</span></button>
+          `
+        })
+      },
+
+      "S14-08": {
+        file: "UC14/S14-08-priority.png",
+        viewport: "360 × 800",
+        caption: "S14-08 · Priority decides the suggestion among equal closing windows",
+        render: () => riderShell({
+          eyebrow: "SIGNAL · PRIORITY TIE-BREAK",
+          title: "Next suggested stop",
+          reasonTone: "warning",
+          reasonText: `Higher priority among stops with the same closing time.`,
+          bodyHtml: suggestedStopCard(
+            "VL-0124",
+            `<span class="badge badge--success">${ICONS.sparkles} High Priority</span>`,
+            `<div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Shared closing window: 10:30</span></div>`
+          ),
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+          `
+        })
+      },
+
+      "S14-09": {
+        file: "UC14/S14-09-distance.png",
+        viewport: "360 × 800",
+        caption: "S14-09 · Straight-line distance decides the suggestion among tied stops",
+        render: () => riderShell({
+          eyebrow: "SIGNAL · DISTANCE TIE-BREAK",
+          title: "Next suggested stop",
+          reasonTone: "info",
+          reasonText: `Closest of the tied stops with known distance.`,
+          bodyHtml: suggestedStopCard(
+            "VL-0124",
+            `<span class="badge badge--info">${ICONS.mapPin} Closest stop</span>`,
+            `<div class="mobile-meta-row">${ICONS.mapPin}<span>Shortest distance from last reference point</span></div>`
+          ),
+          dockButtons: `
+            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+          `
+        })
+      }
+    };
+
+    const tabsEl = document.getElementById("screen-tabs");
+    Object.keys(SCREENS).forEach((id) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "screen-tab";
+      btn.dataset.screen = id;
+      btn.textContent = id;
+      btn.setAttribute("aria-selected", "false");
+      tabsEl.appendChild(btn);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    let currentScreen = SCREENS[params.get("screen")] ? params.get("screen") : "S09-01";
+    let currentTheme = params.get("theme") === "dark" ? "dark" : "light";
+    if (params.get("standalone") === "1") {
+      document.body.classList.remove("gallery-mode");
+      document.body.classList.add("standalone-mode");
+    }
+
+    const stageFrame = document.getElementById("stage-frame");
+    const viewportBadge = document.getElementById("viewport-badge");
+    const screenCaption = document.getElementById("screen-caption");
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeLabel = document.getElementById("theme-label");
+    const themeIcon = document.getElementById("theme-icon");
+
+    function render() {
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      const spec = SCREENS[currentScreen];
+      stageFrame.innerHTML = spec.render();
+      viewportBadge.textContent = spec.viewport;
+      screenCaption.textContent = spec.caption;
+
+      const isDark = currentTheme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeLabel.textContent = isDark ? "Theme: Dark Glass" : "Theme: Light Glass";
+      themeIcon.innerHTML = isDark ? ICONS.moon : ICONS.sun;
+
+      document.querySelectorAll(".screen-tab").forEach((btn) => {
+        btn.setAttribute("aria-selected", String(btn.dataset.screen === currentScreen));
+      });
+    }
+
+    document.querySelectorAll(".screen-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentScreen = btn.dataset.screen;
+        render();
+      });
+    });
+
+    themeToggle.addEventListener("click", () => {
+      currentTheme = currentTheme === "light" ? "dark" : "light";
+      render();
+    });
+
+    window.__BOOYAH21_SCREENS = Object.entries(SCREENS).map(([id, v]) => ({
+      id,
+      file: v.file,
+      viewport: v.viewport
+    }));
+
+    function checkLayoutBounds() {
+      const spec = SCREENS[currentScreen];
+      const [maxW, maxH] = spec.viewport.split("×").map((n) => parseInt(n.trim(), 10));
+      const canvas = document.querySelector(".veylo-canvas");
+      const issues = [];
+      if (!canvas) {
+        issues.push("missing .veylo-canvas");
+      } else {
+        const cr = canvas.getBoundingClientRect();
+        if (Math.ceil(canvas.scrollWidth) > maxW) issues.push(`canvas scrollWidth ${canvas.scrollWidth} > ${maxW}`);
+        if (Math.ceil(canvas.scrollHeight) > maxH) issues.push(`canvas scrollHeight ${canvas.scrollHeight} > ${maxH}`);
+        canvas.querySelectorAll(".btn, .row-action-btn, .badge, h1, h2, .alert-banner, .mobile-reason, .summary-card, .table-card").forEach((el) => {
+          const r = el.getBoundingClientRect();
+          if (r.right > cr.right + 1 || r.bottom > cr.bottom + 1 || r.left < cr.left - 1 || r.top < cr.top - 1) {
+            issues.push(`out-of-bounds ${el.className}: ${JSON.stringify({ l: r.left, t: r.top, r: r.right, b: r.bottom })}`);
+          }
+          if ((el.classList.contains("btn") || el.classList.contains("badge") || el.classList.contains("row-action-btn")) && el.scrollWidth > el.clientWidth + 2) {
+            issues.push(`clipped ${el.className} "${el.textContent.trim()}"`);
+          }
+        });
+      }
+      document.documentElement.dataset.layoutOk = String(issues.length === 0);
+      document.documentElement.dataset.layoutIssues = issues.join("; ");
+    }
+
+    render();
+    checkLayoutBounds();
+  </script>
+</body>
+</html>
