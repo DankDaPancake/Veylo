@@ -1,12 +1,12 @@
 # Veylo — Project Plan & Build Plan
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 
 **CS300 — Introduction to Software Engineering | Group 09**
 **Project Assignment 3 (PA3-2026) — Revised Deliverable A**
 **Version 2.0-review | Updated: 19 November 2026 | Baseline: v1.6**
 
-**Revision status:** Working review draft. Document checks are recorded in the Section A handoff; human acceptance remains pending; baseline human sign-off does not certify this revision. Trung is the task owner. The requesting member confirmed PA2 full marks and no feedback; all listed corrections are internal-review/current-information updates, not invented TA comments.
+**Revision status:** Reviewed content at revision 853244c. Đăng's AC1–AC4 review was relayed and confirmed by the requesting member; see the Section A handoff for findings and sample results. Subsequent edits update review metadata only; baseline human sign-off is not used as certification of this revision. Trung is the task owner. The requesting member confirmed PA2 full marks and no feedback; all listed corrections are internal-review/current-information updates, not invented TA comments.
 
 **Source record (verified 19 November 2026):** [submitted plan v1.6, 7 November](https://drive.google.com/file/d/1UIfF7g3XSgpKKJu6k9VisnWEKIj4hjvh/view), [PA3 handout](https://drive.google.com/file/d/1vpm_jCN9Q08evz_063eq3wLSnvbNkKul/view), [Weekly Reports guideline](https://drive.google.com/file/d/1Hh3bkvcX13Lj_XMCrESMrtxLb-5Lqw36/view), [Vision v2.2-review, 19 November](https://drive.google.com/file/d/1FGJ7CS2HvPsV1oz2lmePL8cSHBYwjGKH/view) and [its change record](https://drive.google.com/file/d/1XEPEiGuyVp5pO64I4s3JhaNHUiyusWI0/view). The plan/Vision/change record were downloaded again during this revision. The requesting member selected Vision v2.2-review for this plan and confirmed alignment to it on 19 November 2026. Accordingly F05 implementation and N02 measurement move to PA4. Independent Vision review remains pending; this selection does not certify BOOYAH-26/27 as accepted. Handout copies were previously retrieved from the supplied course folder. PA3 p.1 requires one shared Changes.md; p.4 requires English Markdown/PDF and section attribution. Weekly Reports p.1 specifies four meetings per sprint, including two Weekly Scrums.
 
@@ -15,18 +15,18 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 ---
 
 ## 1. Introduction
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 Veylo is a planned responsive web application for last-mile operations at one operating delivery hub in Vietnam. It aims to combine order intake, shift coordination, separate delivery-attempt histories and reusable location guidance. The intended AI contribution normalizes raw Vietnamese rider notes into drafts for Hub Dispatcher review before publication; it does not publish autonomously or invent missing location facts.
 
 This revision retains the submitted v1.6 structure and five-sprint roadmap, corrects current PA3 scheduling and implementation evidence, and aligns later scope with the member-selected Vision v2.2-review. The repository currently provides the application foundation; the business workflows below are planned, not delivered.
 
 ## 2. Project Overview
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 
 ### 2.1 Project Purpose & Goals
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 1. Support manual/CSV order intake, shift planning, rider assignment, attempt recording and operational reporting.
 2. Preserve raw field observations and uncertainty while preparing structured draft guides for dispatcher review.
@@ -34,11 +34,11 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 4. Deliver verified increments across five course milestones. The course cadence is 2–3 weeks; exact local sprint boundaries and capacity need confirmation. No test, meeting or validation is claimed merely by listing a goal.
 
 ### 2.2 Project Scope
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 
 #### In Scope (Core MVP)
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 The intended MVP comprises eight planned Functional Groups (FGs), compared with Vision v2.2-review §5. These are scope references, not evidence of implemented functionality:
 
@@ -59,7 +59,7 @@ Scope boundaries from the selected Vision: one operating hub; other hubs are aut
 `Order Creation (F02) → Shift Planning & Assignment (F03) → Delivery Attempt (F04) → Outcome Recording (F04) → In-Field Note Submission (F06) → AI Normalization (F07) → Dispatcher Review & Publication (F06) → Rider Guide Access (F06) → Shift Reporting (F08).`
 
 #### Out of Scope (Explicit Exclusions)
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 To ensure reliable delivery within semester constraints, the following features are strictly excluded from the MVP:
 - Native iOS/Android app store deployment and background continuous GPS telemetry.
@@ -70,7 +70,7 @@ To ensure reliable delivery within semester constraints, the following features 
 - Autonomous AI publishing without human dispatcher verification.
 
 ### 2.3 Deliverables Across Course Milestones
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 | Assignment | Deliverables | Target date / provenance | Observed delivery state |
 | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 PA3 handout Sections A–F govern deliverables; BOOYAH-29 owns final shared Changes.md, PDF exports and package. A submission deadline does not establish the actual sprint-end date.
 
 ### 2.4 Assumptions & Constraints
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 - Approved foundation: Next.js/TypeScript/Tailwind, PostgreSQL and Prisma. Mapping through Leaflet/OSM and external AI remain planned integration work; no new provider/hosting decision is made here. Vision retains a 0 VND budget; provider/free-tier feasibility remains to be checked by the owning task.
 - The v1.6 five-member capacity estimate of 8–10 hours per member/week is an inherited planning assumption, not a newly verified commitment.
@@ -91,11 +91,11 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 - Demonstrations and tests use synthetic data, without real recipient information or secrets. Preserving raw notes/uncertainty and dispatcher publication control remains required by the selected Vision.
 
 ## 3. Project Organization
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 
 ### 3.1 Team Structure and Roles
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 The table below preserves v1.6 role/SID planning for reference; it is not a new assignment or confirmation of current responsibilities. Actual PA3 assignees and reviewers are listed from Jira in §4.3. No team role or policy is reassigned by this revision.
 
@@ -108,7 +108,7 @@ The table below preserves v1.6 role/SID planning for reference; it is not a new 
 | **Thái Kiệt** | 24127069 | QA & Testing Lead | Test planning, acceptance verification, Jira traceability, automated test fixtures, and F04/F08 Delivery & Reporting. |
 
 ### 3.2 Risk Management
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 R01–R07 and their owner names are inherited v1.6 planning assignments; mitigation actions below are planned unless separately evidenced. They do not establish current team agreements or completed implementation.
 
@@ -126,11 +126,11 @@ R01–R07 and their owner names are inherited v1.6 planning assignments; mitigat
 | R10 | OpenSpec eligibility and submission placement | Pending assessment | High | Eligibility confirmed through Kiệt on 17 Nov; retain evidence and verify submitted-artifact placement separately without claiming an exception | Pending team allocation |
 
 ## 4. Project Plan
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 
 ### 4.1 Scrum Process & Agile Governance
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 - Course cadence: five milestones, 2–3 weeks per sprint. Weekly Reports requires four meetings per sprint: planning, two Weekly Scrums, review/retrospective. Dates, attendance and reports must come from actual evidence; the old twice-weekly Tuesday/Friday schedule is not retained as an agreed policy.
 - Jira records assignees and independent reviewers; actual acceptance requires their review, not an AI check or status inference.
@@ -138,7 +138,7 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 - Reuse root OpenSpec/constitution and the approved stack; do not infer completed training, business features or runtime tests from setup artifacts.
 
 ### 4.2 Five-Sprint Roadmap Aligned with Jira
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 | Sprint | Timeline basis | Focus and planned milestone output | Actual task references |
 | --- | --- | --- | --- |
@@ -151,7 +151,7 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 The windows are not new team commitments. Unsupported BOOYAH-EPIC-* identifiers are removed. On 19 November the requesting member explicitly selected Vision v2.2-review, resolving the inherited F05 PA5 / N02 PA4 conflict by aligning both to PA4, without weakening N02 or assigning another member's work. Independent Vision review and future Jira allocation remain pending.
 
 ### 4.3 Detailed Upcoming Sprint Tasks (Sprint 3 — PA3)
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 Snapshot: **19 November 2026, 02:49 Asia/Ho_Chi_Minh** (18 November 19:49 UTC; minute precision). Refreshed all six table fields from Jira during integration checking; all 19 rows remained unchanged. Query: `project = BOOYAH AND labels = PA3 ORDER BY key ASC`; one complete page (`isLast: true`); task descriptions were also read individually during the initial snapshot. The final refresh included descriptions for reviewer verification. Assignees are actual Jira account display names; designated reviewers retain their description wording. Due dates are date-only values, not cutoff hours. Refresh the full table at review time; Đăng must check three randomly selected rows before AC2 human acceptance.
 
@@ -182,7 +182,7 @@ Snapshot: **19 November 2026, 02:49 Asia/Ho_Chi_Minh** (18 November 19:49 UTC; m
 The main implementation handoffs are foundation/tooling (12) and early F02 rules (20) -> spec/design (13) -> auth/API/UI work (18/19/16) against approved contracts -> integrated QA (17) -> demo (30) -> packaging (29). A source task does not necessarily have to be Done before an agreed intermediate handoff; final integration/acceptance must still use actual combined behavior. All task states above are observations, not declarations that prerequisites or human reviews passed.
 
 ### 4.4 Planned Tasks for Later Sprints (Sprints 4 & 5)
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 - PA4 (provisional window in §4.2): architecture diagrams; F03 shift/assignment and F04 individual attempt execution; deterministic F05 with the unchanged Vision N02 PA4 benchmark. Plan rider viewport checks, attempt-history verification and workflow video. Leaflet/OSM preview is a planned integration, not an installed feature or evidence of continuous GPS.
 - PA5 (provisional window in §4.2): complete F01 administration beyond PA3 minimum sign-in/Dispatcher-hub guard; F06 published-guide access and dispatcher review; F07 raw-note normalization with uncertainty/manual fallback; F08 reporting that separates orders from attempts. Integrate all F01–F08 and perform final demo/acceptance checks.
@@ -190,7 +190,7 @@ Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human revi
 - The v1.6 target of 50+ tests is inherited planning guidance, not a course-mandated PA3 count or completed suite. Owners and exact test allocation remain to be agreed. This task does not implement later functionality or revise the Vision.
 
 ### 4.5 Build Plan & Testing Schedule Across 5 Sprints
-Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Human review: pending (designated reviewer: Lý Huỳnh Minh Đăng); human editing: pending.
+Performed/edited by: Codex (AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng (revision 853244c; review relayed and confirmed by the requesting member); human editing: pending.
 
 Build labels are retained from v1.6 for traceability. Targets are planning goals; a row is not a passed build, tag, release or deployment.
 
