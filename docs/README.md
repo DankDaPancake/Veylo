@@ -24,3 +24,8 @@ Original course handouts, broader research, obsolete exports, and older setup no
 
 - [Application setup and verification](../src/README.md)
 - [Actual AI log for Kiệt](ai-log/PA3/kiettheis0702.md)
+
+## PA3 revised planning
+
+- [Project Plan v2.0-review](management/ProjectPlan.md)
+- [Section A Changes handoff and review evidence](management/pa3/ProjectPlan-Changes.md)
