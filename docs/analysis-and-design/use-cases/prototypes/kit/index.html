@@ -13,7 +13,7 @@
     <div class="preview-brand">
       <span class="preview-brand-mark" aria-hidden="true">V</span>
       <div>
-        <div class="preview-brand-title">Veylo · BOOYAH-21 Shifts &amp; Recommendation (23 Screens)</div>
+        <div class="preview-brand-title">Veylo · BOOYAH-21 Shifts &amp; Recommendation (26 Screens)</div>
         <div class="preview-brand-sub">BOOYAH-25 Apple Liquid Glass Kit · Synthetic examples · Review pending</div>
       </div>
     </div>
@@ -182,10 +182,10 @@
               ${reasonBanner}
               ${bodyHtml}
 
-              <div class="glass-chrome mobile-dock" aria-label="Rider actions">
+              ${dockButtons ? `<div class="glass-chrome mobile-dock" aria-label="Rider actions">
                 ${dockButtons}
                 <p class="mobile-footer-note">Only your assigned work appears here · Synthetic example</p>
-              </div>
+              </div>` : `<p class="mobile-footer-note" style="margin-top:auto;">Only your assigned work appears here · Synthetic example</p>`}
             </div>
           </div>
         </section>
@@ -207,12 +207,36 @@
       `;
     }
 
+    const assignedStops = {
+      "VL-0124": { address: "12 Cedar Way", sequence: "01", closes: "10:30" },
+      "VL-0152": { address: "48 River Lane", sequence: "02", closes: "11:30" }
+    };
+    let selectedStop = "VL-0152";
+    let assignedListScreen = "S14-01";
+    let adjustment = { transfer: true, replacement: true };
+    const riderAfterAdjustment = () => adjustment.replacement ? "Rider 09" : "Rider 07";
+
+    function assignedStopList(suggestedId) {
+      return `<div class="mobile-stop-list">
+        ${Object.entries(assignedStops).map(([id, stop]) => `
+          <button type="button" class="glass-panel mobile-compact-card assigned-stop" data-stop="${id}">
+            <span>
+              <span class="mobile-stop-index">Stop ${stop.sequence} · ${id}</span>
+              <strong class="assigned-stop-address">${stop.address}</strong>
+              <span class="mobile-meta-row">${ICONS.clock}<span class="tabular">Closes at ${stop.closes}</span></span>
+            </span>
+            ${id === suggestedId ? `<span class="badge badge--success">Suggested</span>` : ""}
+          </button>
+        `).join("")}
+      </div>`;
+    }
+
     const SCREENS = {
       /* ======================== UC09 — PLAN DELIVERY SHIFT (1440×900) ======================== */
       "S09-01": {
         file: "UC09/S09-01-plan-shift.png",
         viewport: "1440 × 900",
-        caption: "S09-01 · Select eligible orders and an available rider (UC09 basic flow)",
+        caption: "S09-01 · Enter shift times, pick an available rider and compare selected weight with capacity (UC09 basic flow)",
         render: () => desktopShell(`
           <header class="page-header">
             <div>
@@ -226,10 +250,20 @@
           </header>
 
           <div class="summary-grid-4">
-            ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
-            ${metaCard("Assigned rider", "Rider 07 · Available")}
-            ${metaCard("Service area", "East District")}
-            ${metaCard("Selected workload", `<span class="tabular">8 kg of 12 kg</span>`)}
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="shift-start">Start time</label>
+              <input class="input-glass tabular" id="shift-start" type="time" value="09:00" required>
+            </div>
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="shift-end">End time</label>
+              <input class="input-glass tabular" id="shift-end" type="time" value="12:00" required>
+            </div>
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="available-rider">Available rider</label>
+              <select class="input-glass" id="available-rider" aria-describedby="rider-availability"></select>
+              <p class="field-helper" id="rider-availability" role="status"></p>
+            </div>
+            ${metaCard("Selected workload / rider capacity", `<span class="tabular" id="selected-workload" role="status"></span>`)}
           </div>
 
           <div class="glass-panel table-card">
@@ -245,24 +279,24 @@
                 <tr>
                   <td><span class="order-id">VL-0124</span></td>
                   <td class="tabular">09:00–10:30 · 4 kg</td>
-                  <td><span class="badge badge--success">${ICONS.check} Selected</span></td>
+                  <td><label class="order-choice"><input type="checkbox" data-weight="4" checked> Select VL-0124</label></td>
                 </tr>
                 <tr>
                   <td><span class="order-id">VL-0152</span></td>
                   <td class="tabular">10:00–11:30 · 4 kg</td>
-                  <td><span class="badge badge--success">${ICONS.check} Selected</span></td>
+                  <td><label class="order-choice"><input type="checkbox" data-weight="4" checked> Select VL-0152</label></td>
                 </tr>
                 <tr>
                   <td><span class="order-id">VL-0175</span></td>
                   <td class="tabular">10:30–12:00 · 3 kg</td>
-                  <td><span class="badge badge--info">Available</span></td>
+                  <td><label class="order-choice"><input type="checkbox" data-weight="3"> Select VL-0175</label></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div class="action-row" style="margin-top:18px;">
-            <button type="button" class="btn btn--primary">Preview route ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--primary" id="preview-route">Preview route ${ICONS.arrowRight}</button>
             <button type="button" class="btn btn--glass">Cancel draft</button>
           </div>
         `)
@@ -612,7 +646,7 @@
             <div>
               <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
               <h1 class="page-title">Adjust shift SH-034</h1>
-              <p class="page-subtitle">Inspect current rider, stop locks, and preview replacement or stop transfer.</p>
+              <p class="page-subtitle">Inspect the current rider and stop locks before adjusting the shift.</p>
             </div>
             <div class="action-row">
               <span class="badge badge--success">${ICONS.check} Published</span>
@@ -621,8 +655,22 @@
 
           <div class="summary-grid-4">
             ${metaCard("Current rider", "Rider 07")}
-            ${metaCard("Replacement rider", "Rider 09")}
-            ${metaCard("Move selected stop to", `<span class="tabular">Shift SH-038</span>`)}
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="replacement-rider">Replacement rider</label>
+              <select class="input-glass" id="replacement-rider">
+                <option value="">Keep Rider 07</option>
+                <option value="rider-09">Rider 09 · Available</option>
+              </select>
+              <p class="field-helper">Used only when changing the shift rider.</p>
+            </div>
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="destination-shift">Destination shift</label>
+              <select class="input-glass" id="destination-shift">
+                <option value="">Choose a shift</option>
+                <option value="SH-038">SH-038 · Rider 11</option>
+              </select>
+              <p class="field-helper">Used only when moving an order.</p>
+            </div>
             ${metaCard("Shift window", `<span class="tabular">09:00–12:00</span>`)}
           </div>
 
@@ -639,7 +687,12 @@
                 <tr>
                   <td><span class="order-id">VL-0124</span></td>
                   <td class="tabular">09:00–10:30</td>
-                  <td><span class="badge badge--info">Move to SH-038 or remove</span></td>
+                  <td>
+                    <div class="action-row">
+                      <button type="button" class="btn btn--glass" id="move-stop" disabled>Move to another shift</button>
+                      <button type="button" class="btn btn--glass" data-target-screen="S10-08">Remove from shift</button>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td><span class="order-id">VL-0152</span></td>
@@ -651,7 +704,7 @@
           </div>
 
           <div class="action-row" style="margin-top:18px;">
-            <button type="button" class="btn btn--primary">Preview changes ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--primary" id="preview-replacement" disabled>Preview rider change ${ICONS.arrowRight}</button>
             <button type="button" class="btn btn--glass">${ICONS.arrowLeft} Return to shifts</button>
           </div>
         `)
@@ -666,7 +719,7 @@
             <div>
               <p class="eyebrow">HUB OPERATIONS / SHIFTS / CONFIRM REVISION</p>
               <h1 class="page-title">Confirm published changes</h1>
-              <p class="page-subtitle">Both shifts update in one atomic operation when confirmed; dismissing preserves current assignments.</p>
+              <p class="page-subtitle">${adjustment.transfer ? "Both shifts update together after confirmation." : "The selected rider takes over the remaining stops after confirmation."} Dismissing preserves the current assignment.</p>
             </div>
             <div class="action-row">
               <span class="badge badge--success">${ICONS.check} Published</span>
@@ -676,15 +729,15 @@
           <div class="alert-banner alert-banner--warning" role="status">
             ${ICONS.alert}
             <div>
-              <h2 class="alert-banner-title">Review cross-shift impact before saving</h2>
-              <p class="alert-banner-body">VL-0124 will move to shift SH-038. Rider 09 will take the remaining work in SH-034.</p>
+              <h2 class="alert-banner-title">Review assignment before saving</h2>
+              <p class="alert-banner-body">${adjustment.transfer ? "VL-0124 will move to shift SH-038. " : ""}${riderAfterAdjustment()} will handle the stops that remain in SH-034.</p>
             </div>
           </div>
 
-          <div class="summary-grid-2" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+          <div class="summary-grid-2" style="grid-template-columns: repeat(${adjustment.transfer ? 3 : 2}, minmax(0, 1fr));">
             ${metaCard("From", "SH-034 · Rider 07")}
-            ${metaCard("To", "SH-038 · Rider 11")}
-            ${metaCard("Remaining rider", "Rider 09")}
+            ${adjustment.transfer ? metaCard("To", "SH-038 · Rider 11") : ""}
+            ${metaCard("Assigned rider after change", riderAfterAdjustment())}
           </div>
 
           <div class="glass-panel table-card">
@@ -700,20 +753,20 @@
                 <tr>
                   <td><span class="order-id">VL-0124</span></td>
                   <td class="tabular">09:00–10:30</td>
-                  <td><span class="badge badge--info">Move to SH-038</span></td>
+                  <td><span class="badge badge--info">${adjustment.transfer ? "Move to SH-038" : `Assign to ${riderAfterAdjustment()}`}</span></td>
                 </tr>
                 <tr>
                   <td><span class="order-id">VL-0152</span></td>
                   <td class="tabular">10:00–11:30</td>
-                  <td><span class="badge badge--success">Assign to Rider 09</span></td>
+                  <td><span class="badge badge--success">Assigned to ${riderAfterAdjustment()}</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div class="action-row" style="margin-top:18px;">
-            <button type="button" class="btn btn--primary">${ICONS.check} Confirm changes</button>
-            <button type="button" class="btn btn--glass">Back to preview</button>
+            <button type="button" class="btn btn--primary" data-target-screen="S10-03">${ICONS.check} Confirm changes</button>
+            <button type="button" class="btn btn--glass" data-target-screen="S10-01">Back to adjustments</button>
           </div>
         `)
       },
@@ -727,7 +780,7 @@
             <div>
               <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
               <h1 class="page-title">Shift SH-034</h1>
-              <p class="page-subtitle">Revision committed. Previous rider loses access to transferred work immediately.</p>
+              <p class="page-subtitle">The published shift reflects the confirmed revision.</p>
             </div>
             <div class="action-row">
               <span class="badge badge--success">${ICONS.check} Published</span>
@@ -738,13 +791,13 @@
             ${ICONS.check}
             <div>
               <h2 class="alert-banner-title">Assignments updated</h2>
-              <p class="alert-banner-body">VL-0124 is now in SH-038. Rider 09 sees updated SH-034 work on refresh.</p>
+              <p class="alert-banner-body">${adjustment.transfer ? "VL-0124 is now in SH-038. " : ""}${riderAfterAdjustment()} sees updated SH-034 work on refresh.</p>
             </div>
           </div>
 
           <div class="summary-grid-2">
-            ${metaCard("Assigned rider", "Rider 09")}
-            ${metaCard("Remaining stops", `<span class="tabular">1</span>`)}
+            ${metaCard("Assigned rider", riderAfterAdjustment())}
+            ${metaCard("Remaining stops", `<span class="tabular">${adjustment.transfer ? 1 : 2}</span>`)}
           </div>
 
           <div class="glass-panel table-card">
@@ -757,6 +810,11 @@
                 </tr>
               </thead>
               <tbody>
+                ${adjustment.transfer ? "" : `<tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+                </tr>`}
                 <tr>
                   <td><span class="order-id">VL-0152</span></td>
                   <td class="tabular">10:00–11:30</td>
@@ -995,37 +1053,94 @@
         `)
       },
 
+      "S10-08": {
+        file: "UC10/S10-08-confirm-removal.png",
+        viewport: "1440 × 900",
+        caption: "S10-08 · Confirm removal of VL-0124 from SH-034 (UC10 branch 2c)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Remove VL-0124 from this shift?</h1>
+              <p class="page-subtitle">Confirm the update to the published assignments.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+          <div class="alert-banner alert-banner--warning" role="status">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">VL-0124 will leave SH-034</h2>
+              <p class="alert-banner-body">The order and its attempt history are retained. VL-0152 stays assigned to Rider 07 on SH-034.</p>
+            </div>
+          </div>
+          <div class="summary-grid-2">
+            ${metaCard("Remove from SH-034", "VL-0124")}
+            ${metaCard("Keep on SH-034", "VL-0152 · Rider 07")}
+          </div>
+          <div class="action-row">
+            <button type="button" class="btn btn--primary" data-target-screen="S10-09">Confirm removal</button>
+            <button type="button" class="btn btn--glass" data-target-screen="S10-01">Cancel</button>
+          </div>
+        `)
+      },
+
+      "S10-09": {
+        file: "UC10/S10-09-stop-removed.png",
+        viewport: "1440 × 900",
+        caption: "S10-09 · VL-0124 removed and VL-0152 still assigned (UC10 branch 2c)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Shift SH-034</h1>
+              <p class="page-subtitle">VL-0124 left SH-034; its order record and attempt history are retained.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+          <div class="alert-banner alert-banner--success" role="status">
+            ${ICONS.check}
+            <div>
+              <h2 class="alert-banner-title">VL-0124 removed from SH-034</h2>
+              <p class="alert-banner-body">The order record and delivery attempt history are retained. VL-0152 remains assigned to Rider 07 on SH-034.</p>
+            </div>
+          </div>
+          <div class="summary-grid-2" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+            ${metaCard("Assigned rider", "Rider 07")}
+            ${metaCard("Removed stop", "VL-0124 · Order & history retained")}
+            ${metaCard("Remaining stops", `<span class="tabular">1</span>`)}
+          </div>
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead><tr><th scope="col">Order ID</th><th scope="col">Window</th><th scope="col">Status</th></tr></thead>
+              <tbody><tr>
+                <td><span class="order-id">VL-0152</span></td>
+                <td class="tabular">10:00–11:30</td>
+                <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+              </tr></tbody>
+            </table>
+          </div>
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary" data-target-screen="S10-01">${ICONS.arrowLeft} Back to adjustments</button>
+          </div>
+        `)
+      },
+
       /* ======================== UC14 — NEXT-ORDER RECOMMENDATION (360×800) ======================== */
       "S14-01": {
         file: "UC14/S14-01-stops.png",
         viewport: "360 × 800",
-        caption: "S14-01 · Assigned stops list before requesting suggestion (UC14 step 1)",
+        caption: "S14-01 · UC11 highlights the suggested stop before the rider opens its reason",
         render: () => riderShell({
           eyebrow: "PUBLISHED SHIFT · 2 STOPS",
           title: "Assigned stops",
-          bodyHtml: `
-            <div class="mobile-stop-list">
-              <article class="glass-elevated mobile-compact-card">
-                <div>
-                  <div class="mobile-stop-index">STOP 01 · VL-0124</div>
-                  <div style="font-size:15px;font-weight:700;">12 Cedar Way</div>
-                  <div class="mobile-meta-row" style="margin-top:3px;font-size:13px;">${ICONS.clock}<span class="tabular">Closes at 10:30</span></div>
-                </div>
-                <span class="badge badge--pending">Pending</span>
-              </article>
-              <article class="glass-panel mobile-compact-card">
-                <div>
-                  <div class="mobile-stop-index" style="color:var(--text-muted);">STOP 02 · VL-0152</div>
-                  <div style="font-size:15px;font-weight:700;">48 River Lane</div>
-                  <div class="mobile-meta-row" style="margin-top:3px;font-size:13px;">${ICONS.clock}<span class="tabular">Closes at 11:30</span></div>
-                </div>
-                <span class="badge badge--info">Queued</span>
-              </article>
-            </div>
-          `,
+          bodyHtml: assignedStopList("VL-0124"),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch">
-              ${ICONS.sparkles} <span>Suggest next stop</span>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-target-screen="S14-02">
+              ${ICONS.sparkles} <span>View reason</span>
             </button>
           `
         })
@@ -1034,7 +1149,7 @@
       "S14-02": {
         file: "UC14/S14-02-reasons.png",
         viewport: "360 × 800",
-        caption: "S14-02 · Next suggested stop decided by delivery-window urgency (UC14 steps 2–3)",
+        caption: "S14-02 · UC14 explains the automatically suggested stop",
         render: () => riderShell({
           eyebrow: "SIGNAL · DELIVERY-WINDOW URGENCY",
           title: "Next suggested stop",
@@ -1042,8 +1157,8 @@
           reasonText: `<strong>Deciding reason:</strong> Earliest closing window at 10:30.`,
           bodyHtml: suggestedStopCard("VL-0124", `<span class="badge badge--success">${ICONS.sparkles} Urgency #1</span>`),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
-            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-stop="VL-0124"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch" data-target-screen="S14-01"><span>Choose another stop</span></button>
           `
         })
       },
@@ -1051,10 +1166,10 @@
       "S14-03": {
         file: "UC14/S14-03-empty.png",
         viewport: "360 × 800",
-        caption: "S14-03 · Branch 2a: No eligible stops remain in shift",
+        caption: "S14-03 · UC11 context: No eligible stops remain in shift",
         render: () => riderShell({
-          eyebrow: "RECOMMENDATION · 0 ELIGIBLE",
-          title: "Next suggested stop",
+          eyebrow: "PUBLISHED SHIFT · 0 ELIGIBLE STOPS",
+          title: "Assigned stops",
           reasonTone: "warning",
           reasonText: `No eligible stops remain in this shift.`,
           bodyHtml: `
@@ -1065,7 +1180,7 @@
             </div>
           `,
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch">${ICONS.arrowLeft} <span>Back to assigned work</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-target-screen="S14-01">${ICONS.arrowLeft} <span>Back to assigned work</span></button>
           `
         })
       },
@@ -1086,8 +1201,8 @@
              <div class="mobile-meta-row">${ICONS.mapPin}<span>Distance: unavailable</span></div>`
           ),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
-            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-stop="VL-0124"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch" data-target-screen="S14-01"><span>Choose another stop</span></button>
           `
         })
       },
@@ -1107,8 +1222,8 @@
             `<div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Missed window: 09:15</span></div>`
           ),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
-            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-stop="VL-0124"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch" data-target-screen="S14-01"><span>Choose another stop</span></button>
           `
         })
       },
@@ -1128,8 +1243,8 @@
             `<div class="mobile-meta-row">${ICONS.route}<span>Tie-break: published sequence #1</span></div>`
           ),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
-            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-stop="VL-0124"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch" data-target-screen="S14-01"><span>Choose another stop</span></button>
           `
         })
       },
@@ -1139,25 +1254,25 @@
         viewport: "360 × 800",
         caption: "S14-07 · Branch 3a: Rider chooses another eligible stop without altering shift sequence",
         render: () => riderShell({
-          eyebrow: "RIDER OVERRIDE · SEQUENCE PRESERVED",
+          eyebrow: "ASSIGNED STOP",
           title: "Stop details",
           reasonTone: "info",
-          reasonText: `You chose VL-0152 from your assigned stops. Shift sequence remains unchanged.`,
+          reasonText: `You opened ${selectedStop}. The published sequence is unchanged.`,
           bodyHtml: `
             <article class="glass-elevated mobile-stop-card">
               <div class="mobile-stop-header">
                 <div>
                   <div class="mobile-stop-index">SELECTED STOP</div>
-                  <h2 class="mobile-stop-name tabular">VL-0152</h2>
+                  <h2 class="mobile-stop-name tabular">${selectedStop}</h2>
                 </div>
-                <span class="badge badge--success">Manual choice</span>
+                <span class="badge badge--success">Selected</span>
               </div>
-              <div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Window closes: 11:30</span></div>
-              <div class="mobile-meta-row">${ICONS.route}<span>Published sequence stays #2</span></div>
+              <div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Window closes: ${assignedStops[selectedStop].closes}</span></div>
+              <div class="mobile-meta-row">${ICONS.route}<span>Published sequence stays #${Number(assignedStops[selectedStop].sequence)}</span></div>
             </article>
           `,
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch">${ICONS.arrowLeft} <span>Back to assigned work</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-target-screen="${assignedListScreen}">${ICONS.arrowLeft} <span>Back to assigned work</span></button>
           `
         })
       },
@@ -1177,8 +1292,8 @@
             `<div class="mobile-meta-row">${ICONS.clock}<span class="tabular">Shared closing window: 10:30</span></div>`
           ),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
-            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-stop="VL-0124"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch" data-target-screen="S14-01"><span>Choose another stop</span></button>
           `
         })
       },
@@ -1198,9 +1313,22 @@
             `<div class="mobile-meta-row">${ICONS.mapPin}<span>Shortest distance from last reference point</span></div>`
           ),
           dockButtons: `
-            <button type="button" class="btn btn--primary btn--lg-touch"><span>Open stop</span> ${ICONS.arrowRight}</button>
-            <button type="button" class="btn btn--glass btn--lg-touch"><span>Choose another stop</span></button>
+            <button type="button" class="btn btn--primary btn--lg-touch" data-stop="VL-0124"><span>Open stop</span> ${ICONS.arrowRight}</button>
+            <button type="button" class="btn btn--glass btn--lg-touch" data-target-screen="S14-01"><span>Choose another stop</span></button>
           `
+        })
+      },
+
+      "S14-10": {
+        file: "UC14/S14-10-no-suggestion.png",
+        viewport: "360 × 800",
+        caption: "S14-10 · UC11 context: Assigned stops remain usable without a suggestion",
+        render: () => riderShell({
+          eyebrow: "PUBLISHED SHIFT · 2 STOPS",
+          title: "Assigned stops",
+          reasonTone: "info",
+          reasonText: "No suggestion is available. Open any assigned stop to continue.",
+          bodyHtml: assignedStopList()
         })
       }
     };
@@ -1235,6 +1363,7 @@
       document.documentElement.setAttribute("data-theme", currentTheme);
       const spec = SCREENS[currentScreen];
       stageFrame.innerHTML = spec.render();
+      if (currentScreen === "S09-01") updateDraftRiders();
       viewportBadge.textContent = spec.viewport;
       screenCaption.textContent = spec.caption;
 
@@ -1248,8 +1377,78 @@
       });
     }
 
+    function updateDraftRiders() {
+      const start = stageFrame.querySelector("#shift-start").value;
+      const end = stageFrame.querySelector("#shift-end").value;
+      const select = stageFrame.querySelector("#available-rider");
+      const selectedRider = select.value;
+      const available = start && end && start < end;
+      const activeHubRiders = [
+        { name: "Rider 06", capacity: 10, busyStart: "09:00", busyEnd: "12:00" },
+        { name: "Rider 07", capacity: 12, busyStart: "08:00", busyEnd: "09:00" },
+        { name: "Rider 11", capacity: 15, busyStart: "12:00", busyEnd: "15:00" }
+      ];
+      const riders = available ? activeHubRiders.filter(({ busyStart, busyEnd }) => start >= busyEnd || end <= busyStart) : [];
+      select.replaceChildren(...riders.map(({ name, capacity }) => new Option(`${name} · ${capacity} kg`, name)));
+      if (riders.some(({ name }) => name === selectedRider)) select.value = selectedRider;
+      select.disabled = riders.length === 0;
+      const weight = Array.from(stageFrame.querySelectorAll("[data-weight]:checked")).reduce((sum, input) => sum + Number(input.dataset.weight), 0);
+      const rider = riders.find(({ name }) => name === select.value);
+      const overCapacity = Boolean(rider && weight > rider.capacity);
+      stageFrame.querySelector("#rider-availability").textContent = riders.length
+        ? `${riders.length} available for ${start}–${end} (overlaps excluded).`
+        : available ? "No riders free for these hours." : "Enter valid start and end times.";
+      const workloadEl = stageFrame.querySelector("#selected-workload");
+      workloadEl.textContent = rider
+        ? (overCapacity ? `${weight} kg of ${rider.capacity} kg (+${weight - rider.capacity} kg over)` : `${weight} kg of ${rider.capacity} kg`)
+        : `${weight} kg selected`;
+      workloadEl.classList.toggle("summary-value--warn", overCapacity);
+      stageFrame.querySelector("#preview-route").disabled = !rider || !weight;
+    }
+
+    function handleDraftInput({ target }) {
+      if (currentScreen === "S09-01") updateDraftRiders();
+      if (currentScreen === "S10-01" && target.id === "destination-shift") {
+        stageFrame.querySelector("#move-stop").disabled = !target.value;
+      }
+      if (currentScreen === "S10-01" && target.id === "replacement-rider") {
+        stageFrame.querySelector("#preview-replacement").disabled = !target.value;
+      }
+    }
+
+    stageFrame.addEventListener("change", handleDraftInput);
+    stageFrame.addEventListener("input", handleDraftInput);
+
+    stageFrame.addEventListener("click", ({ target }) => {
+      const action = target.closest("button");
+      if (!action || action.disabled) return;
+      if (action.dataset.stop) {
+        if (currentScreen === "S14-01" || currentScreen === "S14-10") assignedListScreen = currentScreen;
+        selectedStop = action.dataset.stop;
+        currentScreen = "S14-07";
+      } else if (action.id === "move-stop" || action.id === "preview-replacement") {
+        adjustment = {
+          transfer: action.id === "move-stop",
+          replacement: action.id === "preview-replacement"
+        };
+        currentScreen = "S10-02";
+      } else if (action.dataset.targetScreen) {
+        currentScreen = action.dataset.targetScreen;
+      } else {
+        return;
+      }
+      render();
+    });
+
     document.querySelectorAll(".screen-tab").forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (btn.dataset.screen === "S14-07") {
+          selectedStop = "VL-0152";
+          assignedListScreen = "S14-01";
+        }
+        if (btn.dataset.screen === "S10-02" || btn.dataset.screen === "S10-03") {
+          adjustment = { transfer: true, replacement: true };
+        }
         currentScreen = btn.dataset.screen;
         render();
       });
@@ -1277,7 +1476,7 @@
         const cr = canvas.getBoundingClientRect();
         if (Math.ceil(canvas.scrollWidth) > maxW) issues.push(`canvas scrollWidth ${canvas.scrollWidth} > ${maxW}`);
         if (Math.ceil(canvas.scrollHeight) > maxH) issues.push(`canvas scrollHeight ${canvas.scrollHeight} > ${maxH}`);
-        canvas.querySelectorAll(".btn, .row-action-btn, .badge, h1, h2, .alert-banner, .mobile-reason, .summary-card, .table-card").forEach((el) => {
+        canvas.querySelectorAll(".btn, .row-action-btn, .badge, h1, h2, .alert-banner, .mobile-reason, .summary-card, .table-card, .input-glass, .assigned-stop").forEach((el) => {
           const r = el.getBoundingClientRect();
           if (r.right > cr.right + 1 || r.bottom > cr.bottom + 1 || r.left < cr.left - 1 || r.top < cr.top - 1) {
             issues.push(`out-of-bounds ${el.className}: ${JSON.stringify({ l: r.left, t: r.top, r: r.right, b: r.bottom })}`);

@@ -39,6 +39,7 @@ body {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
+select:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
@@ -1163,6 +1164,14 @@ body.standalone-mode .stage-frame {
   color: var(--status-error-fg);
 }
 
+.order-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
 .route-ribbon {
   display: flex;
   flex-wrap: wrap;
@@ -1249,4 +1258,18 @@ body.standalone-mode .stage-frame {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+}
+
+.assigned-stop {
+  width: 100%;
+  min-height: 48px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.assigned-stop-address {
+  display: block;
+  font-size: 15px;
 }
