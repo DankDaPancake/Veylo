@@ -249,3 +249,18 @@ Performed by Codex for Phạm Công Khánh. Human acceptance is pending. Edited 
 - Human validation (pending unless performed): Hải’s walkthrough and acceptance remain pending.
 - Requirements/database or other approvals (if applicable): No new requirements or database change. Team approval of the shared kit remains pending.
 - Outcome, limitations, and remaining work: Prepared a commit on the existing feedback branch. Remote preflight failed because github.com and api.github.com were unreachable. Remote delivery must be confirmed after a successful push.
+
+## 2026-11-19 — Clarify the invalid-time rider-selection sequence
+
+Performed by Codex for Phạm Công Khánh. Human acceptance is pending. Edited by Codex.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): OpenAI Codex (GPT-6.1), CodeGraph, Node.js and Git.
+- Request/prompt reference and purpose: Khánh reported that an invalid shift window still appeared to allow rider selection. Make the requirement to fix times first clear.
+- AI-generated work / AI review: Hid the rider dropdown whenever time inputs are missing or invalid and kept it disabled with an explicit instruction to correct the times. S09-08 now reuses the editable draft form with an invalid initial interval and the same recovery behavior.
+- Affected files: `prototypes/kit/index.html`, `prototypes/kit/kit.css` and this log.
+- Commands/checks and actual results: A Node harness passed reversed, equal and missing time cases. The rider select stays hidden, disabled and empty until the hours are valid. Restoring a valid interval shows two eligible riders and the correct weight/capacity. Input values are preserved. JavaScript syntax and Git whitespace checks passed. The headless export failed when Chrome exited with SIGTRAP in the sandbox.
+  A subsequent report identified the normal S09-01 PNG showing an invalid-time banner despite valid 09:00–12:00 inputs. The cause was the banner’s authored display:flex overriding the hidden attribute. Added .alert-banner[hidden] with display:none. A WeasyPrint CSS regression check confirmed the hidden banner is absent and an active error remains visible. The S09-01 PNG and PDF require a fresh export.
+- Human validation (pending unless performed): Pending.
+- Requirements/database or other approvals (if applicable): Clarifies the existing UC09 branch 1a without changing its business rule.
+- Outcome, limitations, and remaining work: Prototype source is corrected locally. S09-01 and S09-08 PNGs and their PDF pages need a fresh browser export before handoff. No commit, push or Jira update was performed.

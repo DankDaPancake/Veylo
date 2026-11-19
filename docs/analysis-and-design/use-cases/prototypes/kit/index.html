@@ -647,82 +647,10 @@
       "S09-08": {
         file: "UC09/S09-08-invalid-time.png",
         viewport: "1440 × 900",
-        caption: "S09-08 · Branch 1a: Missing or invalid shift times keep inputs and lock rider selection",
-        render: () => desktopShell(`
-          <header class="page-header">
-            <div>
-              <p class="eyebrow">HUB OPERATIONS / SHIFTS / NEW DRAFT</p>
-              <h1 class="page-title">Plan delivery shift</h1>
-              <p class="page-subtitle">Enter valid start and end times in Hub East before choosing an active rider.</p>
-            </div>
-            <div class="action-row">
-              <span class="badge badge--error">${ICONS.alert} Invalid shift window</span>
-            </div>
-          </header>
-
-          <div class="alert-banner alert-banner--error" role="alert">
-            ${ICONS.alert}
-            <div>
-              <h2 class="alert-banner-title">Valid start and end times required before selecting a rider</h2>
-              <p class="alert-banner-body">Missing time (blank Start or End time) and invalid intervals where End time is equal to or before Start time (e.g. 12:00–12:00 or 12:00–09:00) lock rider selection. Entered times and checked orders stay preserved until corrected.</p>
-            </div>
-          </div>
-
-          <div class="summary-grid-4 summary-grid-4--draft">
-            <div class="glass-panel summary-card">
-              <label class="field-label" for="s0908-start">Start time</label>
-              <input class="input-glass tabular" id="s0908-start" type="time" value="12:00" readonly>
-              <p class="field-helper">Entered 12:00 preserved</p>
-            </div>
-            <div class="glass-panel summary-card">
-              <label class="field-label" for="s0908-end">End time</label>
-              <input class="input-glass input-glass--error tabular" id="s0908-end" type="time" value="09:00" readonly>
-              <p class="field-error">End time ≤ start time (12:00)</p>
-            </div>
-            <div class="glass-panel summary-card">
-              <label class="field-label" for="s0908-rider">Available rider</label>
-              <select class="input-glass" id="s0908-rider" disabled>
-                <option>Locked · Fix times first</option>
-              </select>
-              <p class="field-helper">Locked until start and end times are filled and end &gt; start.</p>
-            </div>
-            ${metaCard("Selected workload (kept)", `<span class="tabular">8 kg selected</span>`)}
-          </div>
-
-          <div class="glass-panel table-card">
-            <table class="orders-table">
-              <thead>
-                <tr>
-                  <th scope="col">Order ID</th>
-                  <th scope="col">Delivery window &amp; weight</th>
-                  <th scope="col">Selection (preserved)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span class="order-id">VL-0124</span></td>
-                  <td class="tabular">09:00–10:30 · 4 kg</td>
-                  <td><label class="order-choice"><input type="checkbox" checked disabled> Select VL-0124</label></td>
-                </tr>
-                <tr>
-                  <td><span class="order-id">VL-0152</span></td>
-                  <td class="tabular">10:00–11:30 · 4 kg</td>
-                  <td><label class="order-choice"><input type="checkbox" checked disabled> Select VL-0152</label></td>
-                </tr>
-                <tr>
-                  <td><span class="order-id">VL-0175</span></td>
-                  <td class="tabular">10:30–12:00 · 3 kg</td>
-                  <td><label class="order-choice"><input type="checkbox" disabled> Select VL-0175</label></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="action-row" style="margin-top:18px;">
-            <button type="button" class="btn btn--disabled" disabled>${ICONS.lock} Preview route (Blocked)</button>
-            <button type="button" class="btn btn--glass">Cancel draft</button>
-          </div>
-        `)
+        caption: "S09-08 · Correct invalid shift times before selecting a rider",
+        render: () => SCREENS["S09-01"].render()
+          .replace('id="shift-start" type="time" value="09:00"', 'id="shift-start" type="time" value="12:00"')
+          .replace('id="shift-end" type="time" value="12:00"', 'id="shift-end" type="time" value="09:00"')
       },
 
       /* ======================== UC10 — ADJUST SHIFT ASSIGNMENT (1440×900) ======================== */
@@ -1571,7 +1499,7 @@
       document.documentElement.setAttribute("data-theme", currentTheme);
       const spec = SCREENS[currentScreen];
       stageFrame.innerHTML = spec.render();
-      if (currentScreen === "S09-01") updateDraftRiders();
+      if (currentScreen === "S09-01" || currentScreen === "S09-08") updateDraftRiders();
       viewportBadge.textContent = spec.viewport;
       screenCaption.textContent = spec.caption;
 
@@ -1615,13 +1543,14 @@
         ? riders.map(({ name, capacity, area }) => new Option(`${name} · ${capacity} kg · ${area}`, name))
         : [new Option("Locked · Fix times first", "")]));
       if (riders.some(({ name }) => name === selectedRider)) select.value = selectedRider;
+      select.hidden = !available;
       select.disabled = riders.length === 0;
       const weight = Array.from(stageFrame.querySelectorAll("[data-weight]:checked")).reduce((sum, input) => sum + Number(input.dataset.weight), 0);
       const rider = riders.find(({ name }) => name === select.value);
       const overCapacity = Boolean(rider && weight > rider.capacity);
       stageFrame.querySelector("#rider-availability").textContent = rider
         ? `Service area: ${rider.area} · ${riders.length} available for ${start}–${end} (overlaps excluded).`
-        : available ? "No riders free for these hours." : "Locked until start and end times form a valid window (end > start).";
+        : available ? "No riders free for these hours." : "Fix the shift start and end times above to choose a rider.";
       const workloadEl = stageFrame.querySelector("#selected-workload");
       workloadEl.textContent = rider
         ? (overCapacity ? `${weight} kg of ${rider.capacity} kg (+${weight - rider.capacity} kg over)` : `${weight} kg of ${rider.capacity} kg`)
@@ -1631,7 +1560,7 @@
     }
 
     function handleDraftInput({ target }) {
-      if (currentScreen === "S09-01") updateDraftRiders();
+      if (currentScreen === "S09-01" || currentScreen === "S09-08") updateDraftRiders();
       if (currentScreen === "S10-01" && target.id === "destination-shift") {
         stageFrame.querySelector("#move-stop").disabled = !target.value;
       }
