@@ -13,7 +13,7 @@
     <div class="preview-brand">
       <span class="preview-brand-mark" aria-hidden="true">V</span>
       <div>
-        <div class="preview-brand-title">Veylo · BOOYAH-21 Shifts &amp; Recommendation (26 Screens)</div>
+        <div class="preview-brand-title">Veylo · BOOYAH-21 Shifts &amp; Recommendation (29 Screens)</div>
         <div class="preview-brand-sub">BOOYAH-25 Apple Liquid Glass Kit · Synthetic examples · Review pending</div>
       </div>
     </div>
@@ -213,7 +213,7 @@
     };
     let selectedStop = "VL-0152";
     let assignedListScreen = "S14-01";
-    let adjustment = { transfer: true, replacement: true };
+    let adjustment = { transfer: true, replacement: false };
     const riderAfterAdjustment = () => adjustment.replacement ? "Rider 09" : "Rider 07";
 
     function assignedStopList(suggestedId) {
@@ -249,7 +249,15 @@
             </div>
           </header>
 
-          <div class="summary-grid-4">
+          <div class="alert-banner alert-banner--error" id="shift-time-banner" role="alert" hidden>
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title" id="shift-time-title">Invalid shift time window</h2>
+              <p class="alert-banner-body" id="shift-time-body"></p>
+            </div>
+          </div>
+
+          <div class="summary-grid-4 summary-grid-4--draft">
             <div class="glass-panel summary-card">
               <label class="field-label" for="shift-start">Start time</label>
               <input class="input-glass tabular" id="shift-start" type="time" value="09:00" required>
@@ -636,6 +644,87 @@
         `)
       },
 
+      "S09-08": {
+        file: "UC09/S09-08-invalid-time.png",
+        viewport: "1440 × 900",
+        caption: "S09-08 · Branch 1a: Missing or invalid shift times keep inputs and lock rider selection",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / NEW DRAFT</p>
+              <h1 class="page-title">Plan delivery shift</h1>
+              <p class="page-subtitle">Enter valid start and end times in Hub East before choosing an active rider.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--error">${ICONS.alert} Invalid shift window</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--error" role="alert">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Valid start and end times required before selecting a rider</h2>
+              <p class="alert-banner-body">Missing time (blank Start or End time) and invalid intervals where End time is equal to or before Start time (e.g. 12:00–12:00 or 12:00–09:00) lock rider selection. Entered times and checked orders stay preserved until corrected.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-4 summary-grid-4--draft">
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="s0908-start">Start time</label>
+              <input class="input-glass tabular" id="s0908-start" type="time" value="12:00" readonly>
+              <p class="field-helper">Entered 12:00 preserved</p>
+            </div>
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="s0908-end">End time</label>
+              <input class="input-glass input-glass--error tabular" id="s0908-end" type="time" value="09:00" readonly>
+              <p class="field-error">End time ≤ start time (12:00)</p>
+            </div>
+            <div class="glass-panel summary-card">
+              <label class="field-label" for="s0908-rider">Available rider</label>
+              <select class="input-glass" id="s0908-rider" disabled>
+                <option>Locked · Fix times first</option>
+              </select>
+              <p class="field-helper">Locked until start and end times are filled and end &gt; start.</p>
+            </div>
+            ${metaCard("Selected workload (kept)", `<span class="tabular">8 kg selected</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Delivery window &amp; weight</th>
+                  <th scope="col">Selection (preserved)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30 · 4 kg</td>
+                  <td><label class="order-choice"><input type="checkbox" checked disabled> Select VL-0124</label></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30 · 4 kg</td>
+                  <td><label class="order-choice"><input type="checkbox" checked disabled> Select VL-0152</label></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0175</span></td>
+                  <td class="tabular">10:30–12:00 · 3 kg</td>
+                  <td><label class="order-choice"><input type="checkbox" disabled> Select VL-0175</label></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--disabled" disabled>${ICONS.lock} Preview route (Blocked)</button>
+            <button type="button" class="btn btn--glass">Cancel draft</button>
+          </div>
+        `)
+      },
+
       /* ======================== UC10 — ADJUST SHIFT ASSIGNMENT (1440×900) ======================== */
       "S10-01": {
         file: "UC10/S10-01-adjust.png",
@@ -730,14 +819,14 @@
             ${ICONS.alert}
             <div>
               <h2 class="alert-banner-title">Review assignment before saving</h2>
-              <p class="alert-banner-body">${adjustment.transfer ? "VL-0124 will move to shift SH-038. " : ""}${riderAfterAdjustment()} will handle the stops that remain in SH-034.</p>
+              <p class="alert-banner-body">${adjustment.transfer ? "VL-0124 will move to shift SH-038. " : ""}${adjustment.replacement ? `${riderAfterAdjustment()} will handle the stops in SH-034.` : "VL-0152 remains on SH-034 with Rider 07."}</p>
             </div>
           </div>
 
-          <div class="summary-grid-2" style="grid-template-columns: repeat(${adjustment.transfer ? 3 : 2}, minmax(0, 1fr));">
+          <div class="summary-grid-2" style="grid-template-columns: repeat(${1 + Number(adjustment.transfer) + Number(adjustment.replacement)}, minmax(0, 1fr));">
             ${metaCard("From", "SH-034 · Rider 07")}
             ${adjustment.transfer ? metaCard("To", "SH-038 · Rider 11") : ""}
-            ${metaCard("Assigned rider after change", riderAfterAdjustment())}
+            ${adjustment.replacement ? metaCard("Assigned rider after change", riderAfterAdjustment()) : ""}
           </div>
 
           <div class="glass-panel table-card">
@@ -758,7 +847,7 @@
                 <tr>
                   <td><span class="order-id">VL-0152</span></td>
                   <td class="tabular">10:00–11:30</td>
-                  <td><span class="badge badge--success">Assigned to ${riderAfterAdjustment()}</span></td>
+                  <td><span class="badge badge--success">${adjustment.replacement ? `Assign to ${riderAfterAdjustment()}` : "Keep on SH-034 · Rider 07"}</span></td>
                 </tr>
               </tbody>
             </table>
@@ -813,12 +902,12 @@
                 ${adjustment.transfer ? "" : `<tr>
                   <td><span class="order-id">VL-0124</span></td>
                   <td class="tabular">09:00–10:30</td>
-                  <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned · ${riderAfterAdjustment()}</span></td>
                 </tr>`}
                 <tr>
                   <td><span class="order-id">VL-0152</span></td>
                   <td class="tabular">10:00–11:30</td>
-                  <td><span class="badge badge--success">${ICONS.check} Assigned</span></td>
+                  <td><span class="badge badge--success">${ICONS.check} ${adjustment.transfer && !adjustment.replacement ? "Assigned on SH-034 · Rider 07" : `Assigned · ${riderAfterAdjustment()}`}</span></td>
                 </tr>
               </tbody>
             </table>
@@ -1129,6 +1218,125 @@
         `)
       },
 
+      "S10-10": {
+        file: "UC10/S10-10-confirm-rider-change.png",
+        viewport: "1440 × 900",
+        caption: "S10-10 · Confirm replacing Rider 07 with Rider 09 while keeping both stops on SH-034 (UC10 step 3)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / CONFIRM RIDER CHANGE</p>
+              <h1 class="page-title">Confirm rider replacement</h1>
+              <p class="page-subtitle">Rider 09 takes over all stops in SH-034 after confirmation. Dismissing preserves Rider 07.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--warning" role="status">
+            ${ICONS.alert}
+            <div>
+              <h2 class="alert-banner-title">Review rider replacement before saving</h2>
+              <p class="alert-banner-body">Rider 09 will replace Rider 07 on SH-034. Both VL-0124 and VL-0152 remain assigned to SH-034 with no transfer to another shift.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("From", "SH-034 · Rider 07")}
+            ${metaCard("Assigned rider after change", "Rider 09")}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Resulting assignment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--success">Keep on SH-034 · Assign to Rider 09</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">Keep on SH-034 · Assign to Rider 09</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary" data-target-screen="S10-11">${ICONS.check} Confirm rider change</button>
+            <button type="button" class="btn btn--glass" data-target-screen="S10-01">Back to adjustments</button>
+          </div>
+        `)
+      },
+
+      "S10-11": {
+        file: "UC10/S10-11-rider-updated.png",
+        viewport: "1440 × 900",
+        caption: "S10-11 · Updated SH-034 with Rider 09 assigned to both VL-0124 and VL-0152 (UC10 step 4)",
+        render: () => desktopShell(`
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">HUB OPERATIONS / SHIFTS / SH-034</p>
+              <h1 class="page-title">Shift SH-034</h1>
+              <p class="page-subtitle">The published shift reflects the confirmed rider replacement.</p>
+            </div>
+            <div class="action-row">
+              <span class="badge badge--success">${ICONS.check} Published</span>
+            </div>
+          </header>
+
+          <div class="alert-banner alert-banner--success" role="status">
+            ${ICONS.check}
+            <div>
+              <h2 class="alert-banner-title">Rider updated on SH-034</h2>
+              <p class="alert-banner-body">Rider 09 now handles both VL-0124 and VL-0152 on SH-034 and sees the updated shift on refresh. Rider 07 no longer holds access.</p>
+            </div>
+          </div>
+
+          <div class="summary-grid-2">
+            ${metaCard("Assigned rider", "Rider 09")}
+            ${metaCard("Remaining stops", `<span class="tabular">2</span>`)}
+          </div>
+
+          <div class="glass-panel table-card">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Window</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="order-id">VL-0124</span></td>
+                  <td class="tabular">09:00–10:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned on SH-034 · Rider 09</span></td>
+                </tr>
+                <tr>
+                  <td><span class="order-id">VL-0152</span></td>
+                  <td class="tabular">10:00–11:30</td>
+                  <td><span class="badge badge--success">${ICONS.check} Assigned on SH-034 · Rider 09</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="action-row" style="margin-top:18px;">
+            <button type="button" class="btn btn--primary">${ICONS.arrowLeft} Back to shifts</button>
+          </div>
+        `)
+      },
+
       /* ======================== UC14 — NEXT-ORDER RECOMMENDATION (360×800) ======================== */
       "S14-01": {
         file: "UC14/S14-01-stops.png",
@@ -1378,26 +1586,42 @@
     }
 
     function updateDraftRiders() {
-      const start = stageFrame.querySelector("#shift-start").value;
-      const end = stageFrame.querySelector("#shift-end").value;
+      const startInput = stageFrame.querySelector("#shift-start");
+      const endInput = stageFrame.querySelector("#shift-end");
+      const start = startInput.value;
+      const end = endInput.value;
       const select = stageFrame.querySelector("#available-rider");
       const selectedRider = select.value;
-      const available = start && end && start < end;
+      const missingTime = !start || !end;
+      const reversedTime = Boolean(start && end && start >= end);
+      const available = !missingTime && !reversedTime;
+      const banner = stageFrame.querySelector("#shift-time-banner");
+      const bannerBody = stageFrame.querySelector("#shift-time-body");
+      banner.hidden = available;
+      if (!available) {
+        bannerBody.textContent = missingTime
+          ? "Start and end times are both required before selecting a rider. Entered values and checked orders remain intact."
+          : `End time (${end}) must be after start time (${start}); equal or earlier end times lock rider selection while keeping entered values and checked orders.`;
+      }
+      startInput.classList.toggle("input-glass--error", !start || reversedTime);
+      endInput.classList.toggle("input-glass--error", !end || reversedTime);
       const activeHubRiders = [
-        { name: "Rider 06", capacity: 10, busyStart: "09:00", busyEnd: "12:00" },
-        { name: "Rider 07", capacity: 12, busyStart: "08:00", busyEnd: "09:00" },
-        { name: "Rider 11", capacity: 15, busyStart: "12:00", busyEnd: "15:00" }
+        { name: "Rider 06", capacity: 10, area: "East District", busyStart: "09:00", busyEnd: "12:00" },
+        { name: "Rider 07", capacity: 12, area: "East District", busyStart: "08:00", busyEnd: "09:00" },
+        { name: "Rider 11", capacity: 15, area: "East District", busyStart: "12:00", busyEnd: "15:00" }
       ];
       const riders = available ? activeHubRiders.filter(({ busyStart, busyEnd }) => start >= busyEnd || end <= busyStart) : [];
-      select.replaceChildren(...riders.map(({ name, capacity }) => new Option(`${name} · ${capacity} kg`, name)));
+      select.replaceChildren(...(available
+        ? riders.map(({ name, capacity, area }) => new Option(`${name} · ${capacity} kg · ${area}`, name))
+        : [new Option("Locked · Fix times first", "")]));
       if (riders.some(({ name }) => name === selectedRider)) select.value = selectedRider;
       select.disabled = riders.length === 0;
       const weight = Array.from(stageFrame.querySelectorAll("[data-weight]:checked")).reduce((sum, input) => sum + Number(input.dataset.weight), 0);
       const rider = riders.find(({ name }) => name === select.value);
       const overCapacity = Boolean(rider && weight > rider.capacity);
-      stageFrame.querySelector("#rider-availability").textContent = riders.length
-        ? `${riders.length} available for ${start}–${end} (overlaps excluded).`
-        : available ? "No riders free for these hours." : "Enter valid start and end times.";
+      stageFrame.querySelector("#rider-availability").textContent = rider
+        ? `Service area: ${rider.area} · ${riders.length} available for ${start}–${end} (overlaps excluded).`
+        : available ? "No riders free for these hours." : "Locked until start and end times form a valid window (end > start).";
       const workloadEl = stageFrame.querySelector("#selected-workload");
       workloadEl.textContent = rider
         ? (overCapacity ? `${weight} kg of ${rider.capacity} kg (+${weight - rider.capacity} kg over)` : `${weight} kg of ${rider.capacity} kg`)
@@ -1431,7 +1655,7 @@
           transfer: action.id === "move-stop",
           replacement: action.id === "preview-replacement"
         };
-        currentScreen = "S10-02";
+        currentScreen = action.id === "preview-replacement" ? "S10-10" : "S10-02";
       } else if (action.dataset.targetScreen) {
         currentScreen = action.dataset.targetScreen;
       } else {
@@ -1447,7 +1671,7 @@
           assignedListScreen = "S14-01";
         }
         if (btn.dataset.screen === "S10-02" || btn.dataset.screen === "S10-03") {
-          adjustment = { transfer: true, replacement: true };
+          adjustment = { transfer: true, replacement: false };
         }
         currentScreen = btn.dataset.screen;
         render();

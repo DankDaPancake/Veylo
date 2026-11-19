@@ -866,6 +866,14 @@ body.standalone-mode .stage-frame {
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.14);
 }
 
+.input-glass[disabled] {
+  background: var(--glass-subtle);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.78;
+}
+
 .field-helper {
   font-size: 12px;
   color: var(--text-muted);
@@ -1133,6 +1141,10 @@ body.standalone-mode .stage-frame {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 16px;
+}
+
+.summary-grid-4--draft {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.78fr) minmax(0, 1.44fr) minmax(0, 1fr);
 }
 
 .summary-card {

@@ -148,3 +148,104 @@ Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is 
 - Human validation (pending unless performed): Independent walkthrough and acceptance by Trần Lê Hải remain pending.
 - Requirements/database or other approvals (if applicable): Team approval of the BOOYAH-25 kit remains pending. No new requirements or database change was introduced in this verification.
 - Outcome, limitations, and remaining work: Prepared the local feedback branch for review. Prior Antigravity browser exports supply the visual artifacts. GitHub access failed during the preflight, so live base-branch state and PR creation depend on restoring connectivity.
+
+## 2026-11-19 — Refine S09-01 rider service area and S10-02/S10-03 transfer-only state
+
+Performed by Antigravity for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Antigravity.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): Antigravity (Gemini 4 Hydrogen High), OpenAI Codex (GPT-6.1) for independent verification, Node.js v24.21.0, Google Chrome 154.0.8037.57, Python 3 with Pillow, `docs/management/pa3/export-pdf.py` (markdown-it-py and WeasyPrint 69.0), Poppler (`pdfinfo`, `pdfimages`, `pdftoppm`), and Git.
+- Request/prompt reference and purpose: Follow-up UI/UX adjustment on the `docs/pa3-booyah-21-feedback` branch in `Veylo/.worktrees/booyah-21-feedback` to display each available rider's synthetic service area in `S09-01`, switch the default `S10-02`/`S10-03` export state to an order-transfer-only action (`VL-0124` from `SH-034` to `SH-038`, `VL-0152` remaining on `SH-034` with `Rider 07`) while keeping the separate rider-replacement flow intact, and re-export the affected PNGs and `UC-F03-F05-Shifts.pdf`.
+- AI-generated work / AI review: Updated `docs/analysis-and-design/use-cases/prototypes/kit/kit.css` (added `.summary-grid-4--draft` widening the `Available rider` column to `1.44fr` so full option labels do not clip) and `docs/analysis-and-design/use-cases/prototypes/kit/index.html`: added `area: "East District"` (reusing the existing synthetic service area in the prototype) to `activeHubRiders`, rendered `${name} · ${capacity} kg · ${area}` in `#available-rider` options and `Service area: ${rider.area}` in `#rider-availability`, changed default `adjustment` and gallery tab `S10-02`/`S10-03` presets to `{ transfer: true, replacement: false }`, and aligned `S10-02` and `S10-03` summary cards, alert banners, and `VL-0152` status badges with `Rider 07` for transfer-only while preserving `Rider 09` behavior when `replacement: true`. Left `UC-F03-F05-Shifts.md` unchanged because its preconditions and UC10 flows already matched both adjustments. Re-exported `S09-01-plan-shift.png`, `S10-02-confirm.png`, `S10-03-updated.png`, and `UC-F03-F05-Shifts.pdf`.
+- Affected files: `docs/analysis-and-design/use-cases/prototypes/kit/kit.css`, `docs/analysis-and-design/use-cases/prototypes/kit/index.html`, `docs/analysis-and-design/use-cases/prototypes/UC09/S09-01-plan-shift.png`, `docs/analysis-and-design/use-cases/prototypes/UC10/S10-02-confirm.png`, `docs/analysis-and-design/use-cases/prototypes/UC10/S10-03-updated.png`, `docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.pdf`, and `docs/ai-log/PA3/Cee-Ka.md`.
+- Commands/checks and actual results: `node docs/analysis-and-design/use-cases/prototypes/kit/export.mjs` exported all 26 screens with zero overflow or clipping, updating only the 3 target PNGs. Headless Chrome CDP interactive and direct-URL checks passed: `S09-01` rendered `Rider 07 · 12 kg · East District` (`textWidth` 198px inside 346px `<select>`) and `Service area: East District` and updated workload to `8 kg of 15 kg` on switching to `Rider 11`; direct URLs `?screen=S10-02&theme=light&standalone=1` and `?screen=S10-03&theme=light&standalone=1` opened with `adjustment = { transfer: true, replacement: false }` and `Rider 07` without `Rider 09`; `S10-01` -> `Move to another shift` (`SH-038`) -> `Confirm changes` stayed transfer-only; `S10-01` -> `Preview rider change` (`rider-09`) -> `Confirm changes` preserved the separate `Rider 09` replacement flow. `python3 docs/management/pa3/export-pdf.py docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.md` regenerated the 24-page PDF; `pdfimages -list` and Pillow verified all 26 Markdown image links resolve and all 26 extracted PDF images match their source PNGs pixel-for-pixel; visually inspected the 3 PNGs and rendered PDF pages 3, 8, and 9 (`pdftoppm`); `git diff --check` passed after the final edit.
+  Codex independently inspected the three PNGs, checked the service-area update and both transfer/replacement render states using a Node harness, and matched all 26 PDF images to the source PNGs pixel for pixel. Browser CDP interaction was not rerun in the independent check.
+- Human validation (pending unless performed): Independent review and walkthrough by Trần Lê Hải remain pending.
+- Requirements/database or other approvals (if applicable): Preserved all confirmed UC09/UC10/UC14 rules; no new requirements or database changes were introduced. Team acceptance of the BOOYAH-25 kit remains pending.
+- Outcome, limitations, and remaining work: Updated prototype screens, PDF, and verification checks are ready locally on `docs/pa3-booyah-21-feedback`. No commit, push, or Jira update was performed.
+
+## 2026-11-19 — Review transfer-screen clarity against PA3 and UC10
+
+Performed by Codex for Phạm Công Khánh. Human acceptance is pending. Edited by Codex.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): OpenAI Codex (GPT-6.1), Jira connector, local image viewer, Poppler and Git. Applied the UI/UX Pro Max review guidance.
+- Request/prompt reference and purpose: Check S10-02 and S10-03 for redundant components and agreement with Kiệt’s feedback, UC10 and PA3.
+- AI-generated work / AI review: Read Jira comments 10033 and 10034, UC10 steps 3–4 and PA3 section D. Visually inspected both revised PNGs. The transfer and remaining Rider 07 assignment match the feedback. Identified repeated summary information as optional interface simplification.
+- Affected files: This log.
+- Commands/checks and actual results: Inspected the current worktree diff, the two PNGs, the relevant HTML labels and the locally supplied PA3 text. No further export was needed for this review.
+- Human validation (pending unless performed): Independent acceptance by Trần Lê Hải is pending.
+- Requirements/database or other approvals (if applicable): No requirement or database change proposed.
+- Outcome, limitations, and remaining work: Suggested removing the duplicate unchanged-rider summary from S10-02 and reducing repeated moved-stop information on S10-03. These are presentation refinements. This review covers the two transfer screens, without establishing acceptance of all BOOYAH-21 flows.
+
+## 2026-11-19 — Simplify S10-02 and S10-03 summary cards
+
+Performed by Antigravity for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Antigravity.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): Antigravity (Gemini 4 Hydrogen High), OpenAI Codex (GPT-6.1) for independent verification, Node.js v24.21.0, Google Chrome 154.0.8037.57, Python 3 with Pillow, `docs/management/pa3/export-pdf.py` (markdown-it-py and WeasyPrint 69.0), Poppler (`pdfimages`, `pdftoppm`), and Git.
+- Request/prompt reference and purpose: Simplify the `S10-02` and `S10-03` summary cards in `Veylo/.worktrees/booyah-21-feedback` on `docs/pa3-booyah-21-feedback`: remove the `SH-034 rider (unchanged)` card in `S10-02` during transfer-only while keeping `From`, `To`, the assignment table, and the separate rider-replacement card (`Assigned rider after change`) when replacing the rider, adjusting grid columns to match the actual card count; remove the `Moved stop` card in `S10-03` while keeping `Assigned rider`, `Remaining stops`, and the remaining orders table; re-export `S10-02-confirm.png`, `S10-03-updated.png`, and `UC-F03-F05-Shifts.pdf`.
+- AI-generated work / AI review: Verified the prior partial edit in `docs/analysis-and-design/use-cases/prototypes/kit/index.html` (which had already removed `SH-034 rider (unchanged)` in `S10-02` for `!adjustment.replacement` and `Moved stop` in `S10-03`) and updated `S10-02`'s summary grid to dynamically match the rendered card count (`repeat(${1 + Number(adjustment.transfer) + Number(adjustment.replacement)}, minmax(0, 1fr))`) without altering other screens. Re-exported `S10-02-confirm.png`, `S10-03-updated.png`, and `UC-F03-F05-Shifts.pdf`.
+- Affected files: `docs/analysis-and-design/use-cases/prototypes/kit/index.html`, `docs/analysis-and-design/use-cases/prototypes/UC10/S10-02-confirm.png`, `docs/analysis-and-design/use-cases/prototypes/UC10/S10-03-updated.png`, `docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.pdf`, and `docs/ai-log/PA3/Cee-Ka.md` (alongside the earlier `kit.css` and `S09-01-plan-shift.png` edits already in the working tree).
+- Commands/checks and actual results: `node --check` passed on `export.mjs` and the inline `<script>` extracted from `index.html`. `node docs/analysis-and-design/use-cases/prototypes/kit/export.mjs` exported all 26 screens with zero overflow or clipping. Headless Chrome CDP direct-URL and interactive flow checks passed for `S10-02` and `S10-03` (2-card, 2-column summaries; transfer-only keeps `VL-0152` on `SH-034` with `Rider 07`; separate `Rider 09` replacement flow preserves `From` and `Assigned rider after change`). `python3 docs/management/pa3/export-pdf.py docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.md` regenerated the PDF; Pillow and `pdfimages` verified all 26 Markdown links resolve and all 26 embedded PDF images match their source PNGs pixel-for-pixel; visually inspected `S10-02-confirm.png`, `S10-03-updated.png`, and rendered PDF pages 8 and 9 (`pdftoppm`); `git diff --check` passed after the final edit.
+  Codex independently inspected both PNGs, verified two-card rendering for transfer and replacement through a Node harness, and matched all 26 PDF images to their PNG sources pixel for pixel. The parent did not repeat the worker’s CDP checks.
+- Human validation (pending unless performed): Independent review and walkthrough by Trần Lê Hải remain pending.
+- Requirements/database or other approvals (if applicable): Preserved all confirmed UC09/UC10/UC14 rules; no new requirements or database changes were introduced. Team acceptance of the BOOYAH-25 kit remains pending.
+- Outcome, limitations, and remaining work: Simplified `S10-02` and `S10-03` screens and PDF are ready locally on `docs/pa3-booyah-21-feedback`. No commit, push, or Jira update was performed.
+
+## 2026-11-19 — Compare BOOYAH-21 with PA3 and both review comments
+
+Performed by Codex for Phạm Công Khánh. Human acceptance is pending. Edited by Codex.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): OpenAI Codex (GPT-6.1), Jira connector, Poppler and Git.
+- Request/prompt reference and purpose: Compare the current BOOYAH-21 handoff with PA3 and Kiệt’s feedback.
+- AI-generated work / AI review: Read PA3 section D and submission instructions, Jira comments 10033/10034 and the updated UC09/UC10/UC14 flow maps. The requested transfer correction and summary simplification preserve the intended assignment result.
+- Affected files: This log.
+- Commands/checks and actual results: Checked the supplied course PDF text, current Jira comments and specification. Existing visual and PDF checks confirm the revised transfer screens and 26 matching embedded images. Git whitespace check passed.
+- Human validation (pending unless performed): Hải’s independent walkthrough remains pending.
+- Requirements/database or other approvals (if applicable): No new requirement or database decision. Kit approval remains pending.
+- Outcome, limitations, and remaining work: Both feedback comments are covered. The specification has the required sections and matching Markdown/PDF. PA3’s alternative-flow screenshot coverage still warrants explicit images for invalid shift times and the separate rider-replacement confirmation/result. The current mapped images show valid shift times and a transfer-only confirmation/result. No prototype changes were made during this review.
+
+## 2026-11-19 — Add missing BOOYAH-21 prototype evidence (S09-08, S10-10, S10-11)
+
+Performed by Antigravity for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Antigravity.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): Antigravity (Gemini 4 Hydrogen High), OpenAI Codex (GPT-6.1) for independent verification, Node.js v24.21.0, Google Chrome 154.0.8037.57, Python 3 with Pillow, `docs/management/pa3/export-pdf.py` (markdown-it-py and WeasyPrint 69.0), Poppler (`pdfimages`, `pdftoppm`, `pdftotext`), and Git.
+- Request/prompt reference and purpose: Add the remaining BOOYAH-21 prototype evidence required under PA3 section D on `docs/pa3-booyah-21-feedback` in `Veylo/.worktrees/booyah-21-feedback` while preserving Kiệt's feedback fixes (`S09-01` service area and `S10-02`/`S10-03` transfer-only state): create `S09-08` for UC09 branch 1a (missing start/end time or end time equal to/before start time, preserving entered data and locking rider selection), create `S10-10` and `S10-11` for separate `Rider 07` → `Rider 09` replacement keeping both `VL-0124` and `VL-0152` on `SH-034` without transferring to `SH-038`, update `export.mjs` and `UC-F03-F05-Shifts.md`, export the new `1440×900` PNGs, and regenerate `UC-F03-F05-Shifts.pdf`.
+- AI-generated work / AI review: Updated `docs/analysis-and-design/use-cases/prototypes/kit/kit.css` (styled `.input-glass[disabled]` for locked inputs), `docs/analysis-and-design/use-cases/prototypes/kit/index.html` (updated header count to 29 screens; added live invalid-time banner, `.input-glass--error`, and rider-select locking/restoration in `updateDraftRiders()`; added `S09-08`, `S10-10`, and `S10-11`; routed `#preview-replacement` from `S10-01` to `S10-10` while keeping `S10-02`/`S10-03` transfer-only), `docs/analysis-and-design/use-cases/prototypes/kit/export.mjs` (added `S09-08`, `S10-10`, `S10-11` at `1440×900`), and `docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.md` (updated screen counts to 29, mapped branch 1a to `S09-08`, mapped UC10 steps 3–4 and branch 3b to include `S10-10`/`S10-11`, clarified `S10-02`/`S10-03` captions, and embedded the three new PNGs). Exported all PNGs and regenerated `UC-F03-F05-Shifts.pdf`.
+- Affected files: `docs/analysis-and-design/use-cases/prototypes/kit/kit.css`, `docs/analysis-and-design/use-cases/prototypes/kit/index.html`, `docs/analysis-and-design/use-cases/prototypes/kit/export.mjs`, `docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.md`, `docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.pdf`, `docs/analysis-and-design/use-cases/prototypes/UC09/S09-08-invalid-time.png`, `docs/analysis-and-design/use-cases/prototypes/UC10/S10-10-confirm-rider-change.png`, `docs/analysis-and-design/use-cases/prototypes/UC10/S10-11-rider-updated.png`, and `docs/ai-log/PA3/Cee-Ka.md` (alongside the uncommitted working-tree changes in `S09-01-plan-shift.png`, `S10-02-confirm.png`, and `S10-03-updated.png`).
+- Commands/checks and actual results: `node --check` passed on `export.mjs` and the inline `<script>` extracted from `index.html`. `node docs/analysis-and-design/use-cases/prototypes/kit/export.mjs` exported all 29 screens cleanly with zero overflow or clipping. Headless Chrome CDP checks passed: on `S09-01`, missing end time, equal times (`12:00`–`12:00`), and reversed times (`12:00`–`09:00`) locked `#available-rider`, showed the error banner, and kept entered times and checked orders, while restoring `09:00`–`12:00` re-enabled `Rider 07 · 12 kg · East District` and `Rider 11 · 15 kg · East District`; direct URLs `S09-08`, `S10-10`, `S10-11`, `S10-02`, and `S10-03` passed layout and content checks (`S10-10`/`S10-11` assign both `VL-0124` and `VL-0152` on `SH-034` to `Rider 09` with no `SH-038`; `S10-02`/`S10-03` keep `VL-0152` with `Rider 07` and move `VL-0124` to `SH-038`); `S10-01` → `Preview rider change` navigated to `S10-10` → `S10-11`. `python3 docs/management/pa3/export-pdf.py docs/analysis-and-design/use-cases/UC-F03-F05-Shifts.md` regenerated the PDF; `pdfimages` and Pillow confirmed 29 Markdown links, 29 manifest entries, and 29 embedded PDF images match pixel-for-pixel; visually inspected `S09-08-invalid-time.png`, `S10-10-confirm-rider-change.png`, `S10-11-rider-updated.png`, and rendered PDF pages 6, 12, and 13 (`pdftoppm`); `git diff --check` passed after the final edit.
+  Codex independently inspected the three new PNGs, verified invalid-time lock and recovery plus the separate transfer/replacement states through a Node harness, and confirmed 29 image paths and all PDF images match the PNG sources pixel for pixel. Chrome CDP was not rerun by the parent.
+- Human validation (pending unless performed): Independent review and walkthrough by Trần Lê Hải remain pending.
+- Requirements/database or other approvals (if applicable): Preserved all confirmed UC09/UC10/UC14 rules; no new requirements or database changes were introduced. Team acceptance of the BOOYAH-25 kit remains pending.
+- Outcome, limitations, and remaining work: Missing PA3 section D prototype evidence (`S09-08`, `S10-10`, `S10-11`), updated specification, and PDF are ready locally on `docs/pa3-booyah-21-feedback`. No commit, push, or Jira update was performed.
+
+## 2026-11-19 — Reconcile the 29-screen handoff with PA3 and Kiệt’s feedback
+
+Performed by Codex for Phạm Công Khánh. Human acceptance is pending. Edited by Codex.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): OpenAI Codex (GPT-6.1), Jira connector, Python, Poppler and Git.
+- Request/prompt reference and purpose: Compare the updated 29-screen BOOYAH-21 handoff with PA3 and Kiệt’s feedback.
+- AI-generated work / AI review: Read the course rubric and current Jira comments 10033 and 10034. Rechecked the three UC structures, branch mappings and the added invalid-time and rider-replacement evidence.
+- Affected files: This log.
+- Commands/checks and actual results: Verified the required sections for UC09, UC10 and UC14 and all 29 local image references. Poppler reports 29 embedded PDF images. Prior independent pixel and source checks still apply to these artifacts. Git whitespace check passed.
+- Human validation (pending unless performed): Hải’s walkthrough and independent acceptance remain pending.
+- Requirements/database or other approvals (if applicable): Kit approval remains pending. No new requirement or database decision.
+- Outcome, limitations, and remaining work: Both comments are reflected in the current source and exports. The previously identified invalid-time and rider-replacement evidence gaps are covered. This confirms the documented BOOYAH-21 handoff scope. It does not establish completion of the whole PA3 submission.
+
+## 2026-11-19 — Commit the updated BOOYAH-21 review artifacts
+
+Performed by Codex for Phạm Công Khánh. Human acceptance is pending. Edited by Codex.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): OpenAI Codex (GPT-6.1), Git, GitHub CLI, Node.js, Python and Poppler.
+- Request/prompt reference and purpose: Commit the latest reviewed BOOYAH-21 handoff and push it to the existing PR branch.
+- AI-generated work / AI review: Prepared the service-area fix, transfer-only screens, summary simplification and invalid-time/rider-replacement evidence for commit.
+- Affected files: The BOOYAH-21 specification, PDF, affected PNGs, kit sources and this log.
+- Commands/checks and actual results: Git whitespace and exporter syntax checks passed. Markdown, manifest and PDF each contain 29 images. All log entries follow the nine-field template. Earlier independent source, pixel and visual checks apply to these artifacts.
+- Human validation (pending unless performed): Hải’s walkthrough and acceptance remain pending.
+- Requirements/database or other approvals (if applicable): No new requirements or database change. Team approval of the shared kit remains pending.
+- Outcome, limitations, and remaining work: Prepared a commit on the existing feedback branch. Remote preflight failed because github.com and api.github.com were unreachable. Remote delivery must be confirmed after a successful push.
