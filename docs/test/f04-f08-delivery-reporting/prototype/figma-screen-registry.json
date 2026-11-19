@@ -1,0 +1,723 @@
+[
+  {
+    "screen_id": "S11-01",
+    "node_id": "4:2",
+    "name": "S11-01 · Today’s deliveries",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-02",
+    "node_id": "4:39",
+    "name": "S11-02 · Delivery details",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-explanation",
+    "node_id": "4:76",
+    "name": "S11-01-explanation · Why this stop?",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-02-other",
+    "node_id": "4:109",
+    "name": "S11-02-other · Another eligible stop",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-02-guide-handoff",
+    "node_id": "4:142",
+    "name": "S11-02-guide-handoff · Full guide unavailable",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-active",
+    "node_id": "4:175",
+    "name": "S11-01-active · Resume current attempt",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-scheduled",
+    "node_id": "4:210",
+    "name": "S11-01-scheduled · Scheduled work",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-03-pending",
+    "node_id": "4:239",
+    "name": "S11-03-pending · No executable stops",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-03-finished",
+    "node_id": "4:272",
+    "name": "S11-03-finished · Work completed",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-next",
+    "node_id": "4:301",
+    "name": "S11-01-next · Next assigned stop",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-after-failure",
+    "node_id": "4:332",
+    "name": "S11-01-after-failure · Continue assigned work",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-loading",
+    "node_id": "4:367",
+    "name": "S11-01-loading · Loading assigned work",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-preview-loading",
+    "node_id": "4:390",
+    "name": "S11-01-preview-loading · Today’s deliveries",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-empty",
+    "node_id": "4:423",
+    "name": "S11-01-empty · No published shift",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-unavailable",
+    "node_id": "4:446",
+    "name": "S11-01-unavailable · Work unavailable",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-auth",
+    "node_id": "4:469",
+    "name": "S11-01-auth · Sign in to continue",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-forbidden",
+    "node_id": "4:494",
+    "name": "S11-01-forbidden · Access restricted",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-error",
+    "node_id": "4:519",
+    "name": "S11-01-error · Could not load work",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-offline",
+    "node_id": "4:544",
+    "name": "S11-01-offline · Connection lost",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-02-stale",
+    "node_id": "4:569",
+    "name": "S11-02-stale · Work changed",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-conflict",
+    "node_id": "4:594",
+    "name": "S11-01-conflict · Overlapping shifts",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-no-suggestion",
+    "node_id": "4:621",
+    "name": "S11-01-no-suggestion · Choose your next stop",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-02-no-guide",
+    "node_id": "4:654",
+    "name": "S11-02-no-guide · Delivery details",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-previews-unavailable",
+    "node_id": "4:687",
+    "name": "S11-01-previews-unavailable · Today’s deliveries",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-01",
+    "node_id": "5:452",
+    "name": "S12-01 · Ready to start",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-01-starting",
+    "node_id": "5:485",
+    "name": "S12-01-starting · Starting attempt",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-02-started",
+    "node_id": "5:512",
+    "name": "S12-02-started · On the way",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-02-arriving",
+    "node_id": "5:541",
+    "name": "S12-02-arriving · Recording arrival",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-03-arrived",
+    "node_id": "5:568",
+    "name": "S12-03-arrived · Record delivery outcome",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-success",
+    "node_id": "5:597",
+    "name": "S12-04-success · Photo proof of delivery",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-uploading",
+    "node_id": "5:626",
+    "name": "S12-04-uploading · Uploading photo",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-ready",
+    "node_id": "5:653",
+    "name": "S12-04-ready · Review successful outcome",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-saving",
+    "node_id": "5:693",
+    "name": "S12-04-saving · Saving outcome",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-05-success",
+    "node_id": "5:720",
+    "name": "S12-05-success · Delivery saved",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-05-replayed",
+    "node_id": "5:755",
+    "name": "S12-05-replayed · Already saved",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-06-failure",
+    "node_id": "5:784",
+    "name": "S12-06-failure · Record failed attempt",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-06-invalid",
+    "node_id": "5:821",
+    "name": "S12-06-invalid · Correct failed outcome",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-invalid",
+    "node_id": "5:858",
+    "name": "S12-04-invalid · Success needs evidence",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-06-saving",
+    "node_id": "5:895",
+    "name": "S12-06-saving · Saving failed attempt",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-07-failed",
+    "node_id": "5:922",
+    "name": "S12-07-failed · Failed attempt saved",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-photo-invalid",
+    "node_id": "5:955",
+    "name": "S12-04-photo-invalid · Photo cannot be used",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-04-upload-error",
+    "node_id": "5:980",
+    "name": "S12-04-upload-error · Photo upload failed",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-01-resume",
+    "node_id": "5:1007",
+    "name": "S12-01-resume · Resume this attempt",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-01-leave",
+    "node_id": "5:1034",
+    "name": "S12-01-leave · Leave this form?",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-08-conflict",
+    "node_id": "5:1061",
+    "name": "S12-08-conflict · Action could not be applied",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-08-unconfirmed",
+    "node_id": "5:1088",
+    "name": "S12-08-unconfirmed · Result not confirmed",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-08-error",
+    "node_id": "5:1115",
+    "name": "S12-08-error · Save did not complete",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-01-retry-blocked",
+    "node_id": "5:1142",
+    "name": "S12-01-retry-blocked · Start blocked",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-01-next",
+    "node_id": "5:1167",
+    "name": "S12-01-next · Start remaining delivery",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-02-next",
+    "node_id": "5:1198",
+    "name": "S12-02-next · On the way",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-03-next",
+    "node_id": "5:1227",
+    "name": "S12-03-next · Record remaining outcome",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-06-next",
+    "node_id": "5:1254",
+    "name": "S12-06-next · Record failed attempt",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-07-next",
+    "node_id": "5:1291",
+    "name": "S12-07-next · Failed attempt saved",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S13-01",
+    "node_id": "5:1324",
+    "name": "S13-01 · Delivery monitoring",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-02",
+    "node_id": "5:1404",
+    "name": "S13-02 · Order and attempt history",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-03",
+    "node_id": "5:1484",
+    "name": "S13-03 · Resolve failed Order",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-04-retry",
+    "node_id": "5:1535",
+    "name": "S13-04-retry · Confirm re-dispatch",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-04-saving",
+    "node_id": "5:1586",
+    "name": "S13-04-saving · Saving resolution",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-05-retry-authorized",
+    "node_id": "5:1629",
+    "name": "S13-05-retry-authorized · Re-dispatch authorized",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-05-planning",
+    "node_id": "5:1682",
+    "name": "S13-05-planning · Plan authorized opportunity",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-05-awaiting-planning",
+    "node_id": "5:1740",
+    "name": "S13-05-awaiting-planning · Awaiting planning",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-06-terminal",
+    "node_id": "5:1793",
+    "name": "S13-06-terminal · Close terminal unsuccessful",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-06-saving",
+    "node_id": "5:1848",
+    "name": "S13-06-saving · Saving terminal decision",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-07-terminal-saved",
+    "node_id": "5:1891",
+    "name": "S13-07-terminal-saved · Terminal decision saved",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-06-invalid",
+    "node_id": "5:1944",
+    "name": "S13-06-invalid · Reason needs correction",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-loading",
+    "node_id": "5:1995",
+    "name": "S13-01-loading · Loading recorded progress",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-empty",
+    "node_id": "5:2036",
+    "name": "S13-01-empty · No published work",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-03-empty",
+    "node_id": "5:2079",
+    "name": "S13-03-empty · No unresolved failures",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-03-waiting",
+    "node_id": "5:2124",
+    "name": "S13-03-waiting · Remaining work must finish",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-03-limit",
+    "node_id": "5:2169",
+    "name": "S13-03-limit · Retry limit reached",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-02-readonly",
+    "node_id": "5:2214",
+    "name": "S13-02-readonly · Delivered Order · read-only",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-08-conflict",
+    "node_id": "5:2259",
+    "name": "S13-08-conflict · Decision changed meanwhile",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-error",
+    "node_id": "5:2304",
+    "name": "S13-01-error · Monitoring could not load",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-stale",
+    "node_id": "5:2347",
+    "name": "S13-01-stale · Progress is stale",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-08-unconfirmed",
+    "node_id": "5:2390",
+    "name": "S13-08-unconfirmed · Decision not confirmed",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-auth",
+    "node_id": "5:2435",
+    "name": "S13-01-auth · Sign in to continue",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-forbidden",
+    "node_id": "5:2478",
+    "name": "S13-01-forbidden · Dispatcher access required",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-01-unavailable",
+    "node_id": "5:2521",
+    "name": "S13-01-unavailable · Record unavailable",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S13-02-quality",
+    "node_id": "5:2564",
+    "name": "S13-02-quality · Resolution context is invalid",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-01",
+    "node_id": "5:2609",
+    "name": "S19-01 · Shift and Rider reports",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-01-historical",
+    "node_id": "5:2669",
+    "name": "S19-01-historical · Include historical retry work",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-01-loading",
+    "node_id": "5:2719",
+    "name": "S19-01-loading · Generating one snapshot",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02",
+    "node_id": "5:2759",
+    "name": "S19-02 · Shift and Rider performance",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-today",
+    "node_id": "5:2839",
+    "name": "S19-02-today · Today’s selected work",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-03",
+    "node_id": "5:2904",
+    "name": "S19-03 · Shift and Rider breakdown",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-04",
+    "node_id": "5:2992",
+    "name": "S19-04 · Contributions and exclusions",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-04-outside-scope",
+    "node_id": "5:3084",
+    "name": "S19-04-outside-scope · Success outside selection",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-01-invalid",
+    "node_id": "5:3149",
+    "name": "S19-01-invalid · Check date range",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-empty",
+    "node_id": "5:3206",
+    "name": "S19-02-empty · No eligible data",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-partial",
+    "node_id": "5:3261",
+    "name": "S19-02-partial · Work is still in progress",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-quality",
+    "node_id": "5:3322",
+    "name": "S19-02-quality · Data-quality exclusions",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-04-quality",
+    "node_id": "5:3389",
+    "name": "S19-04-quality · Quality exclusion details",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-01-error",
+    "node_id": "5:3479",
+    "name": "S19-01-error · Report could not load",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-stale",
+    "node_id": "5:3525",
+    "name": "S19-02-stale · Stale · refresh failed",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-definitions-orders",
+    "node_id": "5:3588",
+    "name": "S19-02-definitions-orders · How these metrics are calculated",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S19-02-definitions-attempts",
+    "node_id": "5:3656",
+    "name": "S19-02-definitions-attempts · How these metrics are calculated",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "B14-INDEX",
+    "node_id": "5:3724",
+    "name": "B14-INDEX · BOOYAH-14 · Prototype review",
+    "width": 1440,
+    "height": 2300
+  },
+  {
+    "screen_id": "S11-01-refresh",
+    "node_id": "8:2818",
+    "name": "S11-01-refresh · Shared refresh acknowledgement",
+    "width": 320,
+    "height": 200
+  },
+  {
+    "screen_id": "S19-04-today",
+    "node_id": "9:2703",
+    "name": "S19-04-today · Today’s contributions",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "screen_id": "S12-07-next-after-failure",
+    "node_id": "10:2740",
+    "name": "S12-07-next-after-failure · Failed attempt saved",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-03-pending-two",
+    "node_id": "10:2773",
+    "name": "S11-03-pending-two · No executable stops",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S12-07-selected-first",
+    "node_id": "16:2785",
+    "name": "S12-07-selected-first · Selected stop outcome saved",
+    "width": 360,
+    "height": 800
+  },
+  {
+    "screen_id": "S11-01-selected-next",
+    "node_id": "16:2818",
+    "name": "S11-01-selected-next · Continue remaining work",
+    "width": 360,
+    "height": 800
+  }
+]
