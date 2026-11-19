@@ -19,9 +19,14 @@
     "spec:validate": "openspec validate app-foundation --strict"
   },
   "dependencies": {
+    "@better-auth/prisma-adapter": "1.7.26",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "better-auth": "1.7.26",
     "next": "16.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@fission-ai/openspec": "1.16.0",

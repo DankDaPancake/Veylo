@@ -14,6 +14,6 @@ Copy [the template](TEMPLATE.md) for each new task. Record the actual date, tool
 - [PA2 — DankDaPancake](PA2/DankDaPancake.md)
 - [PA3 — kiettheis0702 (BOOYAH-12 publication)](PA3/kiettheis0702.md)
 - [PA3 — Cee-Ka](PA3/Cee-Ka.md)
-- [PA3 — Trung (GitHub handle pending)](PA3/unassigned.md)
+- [PA3 — Contributors with GitHub handles pending](PA3/unassigned.md)
 
 Add links here when new member/phase logs are created. A log file or template is not proof of completed work or human review.

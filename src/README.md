@@ -69,3 +69,17 @@ npx --no-install openspec new change <your-change-name>
 ```
 
 Write the proposal, specs with WHEN/THEN scenarios, design and owner tasks before implementation. New requirements/business schema still need concrete approval. Keep the foundation change unarchived until peer acceptance. The Figma kit belongs to BOOYAH-25; it is not an implemented order UI.
+## BOOYAH-18 local demo accounts
+
+Generate Prisma Client with `npx --no-install prisma generate` after configuring a local `DATABASE_URL`. Set `BETTER_AUTH_URL` to the browser origin and supply a generated `BETTER_AUTH_SECRET` in local environment configuration. Use `/sign-in` to sign in and the home page to sign out.
+
+The shared BOOYAH-19 seed should call `seedDemoAccounts` after resolving the two hub skeleton references. Use the same Prisma connection as the validated local URL. The seed requires `VEYLO_ENABLE_DEMO_SEED=1` and disposable database `veylo_demo`.
+
+| Demo login | Role |
+| --- | --- |
+| `admin@example.test` | Admin |
+| `dispatcher-a@example.test` | Dispatcher, hub A |
+| `dispatcher-b@example.test` | Dispatcher, hub B |
+| `rider@example.test` | Rider |
+
+The local demo password for these accounts is `Veylo-PA3-demo-only!`. Each credential account receives an independently salted scrypt hash. The migration and shared seed entry point are coordinated through BOOYAH-19.
