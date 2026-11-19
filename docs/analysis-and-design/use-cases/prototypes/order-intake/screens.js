@@ -1,0 +1,193 @@
+// Generated for file-based preview from screens.json.
+const SCREENS = [
+  {
+    "id": "S05-01",
+    "title": "Create order",
+    "group": "UC05"
+  },
+  {
+    "id": "S05-01-error",
+    "title": "Create · invalid fields",
+    "group": "UC05"
+  },
+  {
+    "id": "S05-01-duplicate",
+    "title": "Create · duplicate code",
+    "group": "UC05"
+  },
+  {
+    "id": "S07-02-created",
+    "title": "Order created",
+    "group": "UC05"
+  },
+  {
+    "id": "S06-01",
+    "title": "Import CSV",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-02",
+    "title": "Import preview",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-03",
+    "title": "Import complete",
+    "group": "UC06"
+  },
+  {
+    "id": "S07-01-import-cancelled",
+    "title": "Orders · import cancelled",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-type",
+    "title": "Import · wrong file type",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-empty",
+    "title": "Import · empty file",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-empty-header",
+    "title": "Import · header only",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-header",
+    "title": "Import · invalid header",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-limit",
+    "title": "Import · too many records",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-limit-bytes",
+    "title": "Import · file too large",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-format",
+    "title": "Import · malformed CSV",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-format-encoding",
+    "title": "Import · invalid UTF-8",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-01-file-format-width",
+    "title": "Import · incorrect row width",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-02-row-errors",
+    "title": "Import · record errors",
+    "group": "UC06"
+  },
+  {
+    "id": "S06-02-conflict",
+    "title": "Import · confirmation conflict",
+    "group": "UC06"
+  },
+  {
+    "id": "S07-01",
+    "title": "Orders",
+    "group": "UC07"
+  },
+  {
+    "id": "S07-01-filtered",
+    "title": "Orders · filtered results",
+    "group": "UC07"
+  },
+  {
+    "id": "S07-01-page-2",
+    "title": "Orders · page two",
+    "group": "UC07"
+  },
+  {
+    "id": "S07-02",
+    "title": "Order detail",
+    "group": "UC07"
+  },
+  {
+    "id": "S07-01-empty",
+    "title": "Orders · empty hub",
+    "group": "UC07"
+  },
+  {
+    "id": "S07-01-no-results",
+    "title": "Orders · no results",
+    "group": "UC07"
+  },
+  {
+    "id": "S07-01-filter-error",
+    "title": "Orders · invalid date range",
+    "group": "UC07"
+  },
+  {
+    "id": "S08-01",
+    "title": "Edit order",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-02",
+    "title": "Cancel order",
+    "group": "UC08"
+  },
+  {
+    "id": "S07-02-updated",
+    "title": "Order updated",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-03",
+    "title": "Order cancelled",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-01-blocked",
+    "title": "Edit unavailable",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-01-error",
+    "title": "Edit · invalid fields",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-02-error",
+    "title": "Cancellation · invalid reason",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-01-conflict",
+    "title": "Order changed",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-01-conflict-cancel",
+    "title": "Cancellation · order changed",
+    "group": "UC08"
+  },
+  {
+    "id": "S08-03-already-cancelled",
+    "title": "Order already cancelled",
+    "group": "UC08"
+  },
+  {
+    "id": "S07-01-denied",
+    "title": "Access restricted",
+    "group": "Access"
+  },
+  {
+    "id": "S07-01-session-expired",
+    "title": "Session expired",
+    "group": "Access"
+  }
+];

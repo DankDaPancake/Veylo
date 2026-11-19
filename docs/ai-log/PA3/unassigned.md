@@ -35,3 +35,19 @@
 - Check corrections: Initial download validation assumed a leading H1 and rejected valid Vision front matter/title metadata; corrected the checker and verified all source files/hashes. An initial ledger checker expected six columns instead of five; corrected it and reran successfully. These were checker assumptions, not claimed initial successful checks.
 - Human validation / approvals: The member selected Vision v2.2 and authorized alignment, resolving the inherited F05 PA5 versus N02 PA4 discrepancy for this plan. This does not certify BOOYAH-26/27 acceptance. No other functional requirements, database structure, provider, hosting, team role or resource allocation was changed. PA2 full marks/no feedback remains member-supplied provenance. Đăng's independent review and three random Jira-row comparisons have not occurred.
 - Outcome/limitations: 7/8 implementation tasks complete locally; task 3.3 remains unchecked until actual peer acceptance. Plan SHA-256 in the handoff identifies the review input; any changes require rechecking. Actual sprint end/cutoff, later allocation and new risk owners remain unconfirmed. BOOYAH-29 still owns canonical shared-ledger integration, PDF/render/export and ZIP packaging. No runtime tests/build, DB probe, PDF checks, remote-protection audit, external message/upload, Jira mutation, commit, push, merge or archive performed. Document checks are not final human acceptance.
+
+## 2026-11-20 — BOOYAH-20 clean-remake exploration
+
+- Task owner — Jira lists Trần Lê Hải as assignee. The requesting member's GitHub handle was unavailable.
+- AI tool/model — Codex (GPT-6).
+- Request and purpose — Explore the clean remake of PA3 Section D, F02 Order Intake (UC05–UC08), against the live Jira issue, Kiệt's BOOYAH-24/26 drafts and Phạm Công Khánh's original PrototypeKit.
+- AI work — Mapped AC1–AC5 and FR-01-2/FR-02-1–5 to numbered flows and proposed screen states. Drafted review proposals for D-F02-1–8, CSV fixtures and the BOOYAH-13/19 handoff in the conversation.
+- Affected files — This log and the AI log index. Source drafts were read in place. The tracked prototype working copy, Section D Markdown, PNGs and PDF are planned for implementation after exploration.
+- Commands and actual results — Atlassian MCP returned the live BOOYAH-20, BOOYAH-13 and BOOYAH-19 issue descriptions. Read PA3 with `pdftotext -layout`; read the BOOYAH-24/26 Markdown and Khánh's kit README, HTML, CSS and exporter. Read-only OpenSpec inventory confirmed the local root and counted its changes/specs without inspecting F02 artifacts. A Python in-memory CSV check parsed 20 valid records and found six expected issues across two invalid records. The exporter was inspected only: Brave and Pandoc are present, `google-chrome` was absent from PATH and WeasyPrint was absent from the probed Python environment.
+- Human validation and approvals — Pending for the clean remake. Jira's existing `Done` status was observed. Kiệt's BOOYAH-26 changes record confirms numbering/source alignment and leaves detailed F02 decisions open.
+- Outcome and remaining work — Exploration delivered in Vietnamese. Proposed F02 values are Pending PR Review. Compatibility was checked at Jira contract level. Deliverable exports, implementation parity and Khánh's walkthrough remain pending. No OpenSpec artifacts, production changes, commits, pushes or PRs were created.
+- Log verification — Read back the new entry and its index link. Scoped `git diff --check` exited successfully.
+
+### 2026-11-20 — BOOYAH-20 clean-remake exploration attribution amendment
+
+The requester later identified `thepenguinguy123` as the GitHub handle for this BOOYAH-20 work. The original exploration entry above preserves its attribution as known at the time. The [named PA3 log](thepenguinguy123.md) links this exploration and continues with the proposal record.

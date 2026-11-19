@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veylo · Order intake</title>
+  <link rel="stylesheet" href="../kit/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="../kit/tokens.css">
+  <link rel="stylesheet" href="kit.css">
+  <link rel="stylesheet" href="order-intake.css">
+  <script defer src="kit-graphics.js"></script>
+  <script defer src="screens.js"></script>
+  <script defer src="contract.js"></script>
+  <script defer src="order-intake.js"></script>
+</head>
+<body>
+  <header class="preview-toolbar" id="gallery">
+    <div class="preview-brand">
+      <span class="preview-brand-mark" aria-hidden="true">V</span>
+      <div><div class="preview-brand-title">Veylo · Order intake prototype</div><div class="preview-brand-sub">PA3 Section D · Synthetic data</div></div>
+    </div>
+    <div class="action-row">
+      <label for="gallery-screen">Screen</label>
+      <select id="gallery-screen" class="input-glass"></select>
+      <button id="toggle-theme" class="btn btn--glass" type="button" aria-pressed="false">Dark theme</button>
+      <label for="simulate">Next action</label>
+      <select id="simulate" class="input-glass">
+        <option value="">Normal</option>
+        <option value="role">Disallowed role</option>
+        <option value="hub">Other hub</option>
+        <option value="expired">Expired session</option>
+        <option value="stale">Order changed</option>
+        <option value="cancelled">Order already cancelled</option>
+        <option value="duplicate">Import code claimed</option>
+      </select>
+    </div>
+  </header>
+  <main id="stage" aria-label="Order intake prototype"></main>
+</body>
+</html>
