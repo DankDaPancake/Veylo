@@ -1,0 +1,3599 @@
+{
+  "file_key": "LBEaZQ3zEjnjBLhLoPb5pD",
+  "page_id": "3:2",
+  "theme": "Light",
+  "original_screen_map_ids": [
+    "S11-01",
+    "S11-01-active",
+    "S11-01-auth",
+    "S11-01-conflict",
+    "S11-01-empty",
+    "S11-01-error",
+    "S11-01-forbidden",
+    "S11-01-loading",
+    "S11-01-no-suggestion",
+    "S11-01-offline",
+    "S11-01-preview-loading",
+    "S11-01-previews-unavailable",
+    "S11-01-scheduled",
+    "S11-01-unavailable",
+    "S11-02",
+    "S11-02-no-guide",
+    "S11-02-stale",
+    "S11-03-finished",
+    "S11-03-pending",
+    "S12-01",
+    "S12-01-leave",
+    "S12-01-resume",
+    "S12-01-retry-blocked",
+    "S12-01-starting",
+    "S12-02-arriving",
+    "S12-02-started",
+    "S12-03-arrived",
+    "S12-04-invalid",
+    "S12-04-photo-invalid",
+    "S12-04-ready",
+    "S12-04-saving",
+    "S12-04-success",
+    "S12-04-upload-error",
+    "S12-04-uploading",
+    "S12-05-replayed",
+    "S12-05-success",
+    "S12-06-failure",
+    "S12-06-invalid",
+    "S12-06-saving",
+    "S12-07-failed",
+    "S12-08-conflict",
+    "S12-08-error",
+    "S12-08-unconfirmed",
+    "S13-01",
+    "S13-01-auth",
+    "S13-01-empty",
+    "S13-01-error",
+    "S13-01-forbidden",
+    "S13-01-loading",
+    "S13-01-stale",
+    "S13-01-unavailable",
+    "S13-02",
+    "S13-02-quality",
+    "S13-02-readonly",
+    "S13-03",
+    "S13-03-empty",
+    "S13-03-limit",
+    "S13-03-waiting",
+    "S13-04-retry",
+    "S13-04-saving",
+    "S13-05-awaiting-planning",
+    "S13-05-retry-authorized",
+    "S13-06-invalid",
+    "S13-06-saving",
+    "S13-06-terminal",
+    "S13-07-terminal-saved",
+    "S13-08-conflict",
+    "S13-08-unconfirmed",
+    "S19-01",
+    "S19-01-error",
+    "S19-01-invalid",
+    "S19-01-loading",
+    "S19-02",
+    "S19-02-empty",
+    "S19-02-partial",
+    "S19-02-quality",
+    "S19-02-stale",
+    "S19-03",
+    "S19-04"
+  ],
+  "screens": [
+    {
+      "screen_id": "B14-INDEX",
+      "title": "BOOYAH-14 · Prototype review",
+      "body": "Editable native Figma · official BOOYAH-25 kit · synthetic examples",
+      "uc": "REVIEW",
+      "viewport": [
+        1440,
+        2300
+      ],
+      "kind": "index",
+      "cards": [],
+      "fields": [],
+      "actions": [],
+      "original_screen_map": false,
+      "canvas_x": 0,
+      "canvas_y": 0
+    },
+    {
+      "screen_id": "S11-01",
+      "title": "Today’s deliveries",
+      "body": "SH-034 · 19 Nov 2026 · 09:00–12:00\nRider Demo A · 2 assigned stops",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Next suggested stop · VL-0001",
+          "body": "Window closes at 10:00. You may choose another eligible stop.",
+          "eyebrow": "AUTOMATIC NEXT-STOP SUGGESTION"
+        },
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "View suggested delivery",
+          "target": "S11-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Why this stop?",
+          "target": "S11-01-explanation",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 2600
+    },
+    {
+      "screen_id": "S11-02",
+      "title": "Delivery details",
+      "body": "VL-0001 · SH-034 · Rider Demo A",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "Recipient contact",
+          "body": "Sample recipient 1 · 0900000014\nSynthetic contact only",
+          "eyebrow": ""
+        },
+        {
+          "title": "Demo Lotus Court · Guide",
+          "body": "Entrance B beside reception. Use the marked visitor parking area.\nDemonstration content only; verify instructions on arrival.",
+          "eyebrow": "PROPOSED SYNTHETIC · HUB Q1 · PUBLISHED"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start delivery attempt",
+          "target": "S12-01",
+          "kind": "primary"
+        },
+        {
+          "label": "View Full Guide",
+          "target": "S11-02-guide-handoff",
+          "kind": "glass"
+        }
+      ],
+      "fixture": "PROPOSED-BOOYAH14-GUIDE-001",
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 2600
+    },
+    {
+      "screen_id": "S11-01-explanation",
+      "title": "Why this stop?",
+      "body": "Recommendation explanation · EP11-A",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Earlier closing window",
+          "body": "VL-0001 closes at 10:00; VL-0002 closes at 11:00.\nBoth priorities: NORMAL. Distance is unavailable and is not invented.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Your choice remains yours",
+          "body": "Choosing another eligible stop leaves the published sequence unchanged.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Open suggested stop",
+          "target": "S11-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Choose another stop",
+          "target": "S11-02-other",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 920,
+      "canvas_y": 2600
+    },
+    {
+      "screen_id": "S11-02-other",
+      "title": "Another eligible stop",
+      "body": "Manual selection · published order unchanged",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        },
+        {
+          "title": "No published guide",
+          "body": "Delivery can continue without a guide.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start selected stop",
+          "target": "S12-01-next",
+          "kind": "primary"
+        },
+        {
+          "label": "View suggested stop",
+          "target": "S11-02",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1380,
+      "canvas_y": 2600
+    },
+    {
+      "screen_id": "S11-02-guide-handoff",
+      "title": "Full guide unavailable",
+      "body": "EP11-B · guide entry point",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "Temporary preview only",
+          "body": "This preview uses clearly labelled synthetic demonstration content. The shared full guide is not connected.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Delivery remains available",
+          "body": "Return to the stop details to continue delivery.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Back to delivery",
+          "target": "S11-02",
+          "kind": "primary"
+        }
+      ],
+      "limitation": "Actual BOOYAH-15 fixture and UC15 Full Guide destination are pending integration; no actual UC15 content or navigation is verified.",
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1840,
+      "canvas_y": 2600
+    },
+    {
+      "screen_id": "S11-01-active",
+      "title": "Resume current attempt",
+      "body": "One active attempt · no second start",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "Started at 09:00",
+          "body": "Arrival not yet recorded. Other starts remain blocked.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Resume attempt",
+          "target": "S12-01-resume",
+          "kind": "primary"
+        },
+        {
+          "label": "Refresh work",
+          "target": "S11-01-active",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 3540
+    },
+    {
+      "screen_id": "S11-01-scheduled",
+      "title": "Scheduled work",
+      "body": "Tomorrow · 20 Nov 2026 · 09:00–12:00",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Viewable before start",
+          "body": "Start becomes available at the planned shift start. No attempt exists.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh schedule",
+          "target": "S11-01-scheduled",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to current work",
+          "target": "S11-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 3540
+    },
+    {
+      "screen_id": "S11-03-pending",
+      "title": "No executable stops",
+      "body": "SH-034 · no active attempt",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "VL-0001 · Delivered",
+          "body": "Successful attempt saved at 09:20. No failed-order decision is needed.",
+          "eyebrow": ""
+        },
+        {
+          "title": "VL-0002 · Resolution pending",
+          "body": "Failed attempt saved at 09:45. Only the Dispatcher can authorize retry or a terminal decision.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh work",
+          "target": "S11-03-pending",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 3540
+    },
+    {
+      "screen_id": "S11-03-finished",
+      "title": "Work completed",
+      "body": "Assigned stops are read-only",
+      "tone": "success",
+      "cards": [
+        {
+          "title": "No remaining executable stops",
+          "body": "All work in this demonstration branch has recorded outcomes. Shift completion is controlled by the Dispatcher workflow.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh work",
+          "target": "S11-03-finished",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 3540
+    },
+    {
+      "screen_id": "S11-01-next",
+      "title": "Next assigned stop",
+      "body": "VL-0001 delivered · 1 executable stop remains",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        },
+        {
+          "title": "Previous outcome retained",
+          "body": "VL-0001: successful. Its earlier failed attempt remains in history.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start VL-0002",
+          "target": "S12-01-next",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1840,
+      "canvas_y": 3540
+    },
+    {
+      "screen_id": "S11-01-after-failure",
+      "title": "Continue assigned work",
+      "body": "VL-0001 awaits Dispatcher resolution",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        },
+        {
+          "title": "Failed stop excluded",
+          "body": "VL-0001 is not startable again without UC13 authorization. Continue the other assigned stop.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start remaining stop",
+          "target": "S12-01-next",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to saved failure",
+          "target": "S12-07-failed",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 0,
+      "canvas_y": 4480
+    },
+    {
+      "screen_id": "S11-01-loading",
+      "title": "Loading assigned work",
+      "body": "Checking your session and published assignments.",
+      "tone": "info",
+      "cards": [],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S11-01",
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 4480
+    },
+    {
+      "screen_id": "S11-01-preview-loading",
+      "title": "Today’s deliveries",
+      "body": "Assignments are usable while the previews load.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S11-01",
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 4480
+    },
+    {
+      "screen_id": "S11-01-empty",
+      "title": "No published shift",
+      "body": "No published assignment is available for this Rider.",
+      "tone": "info",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh",
+          "target": "S11-01-empty",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 4480
+    },
+    {
+      "screen_id": "S11-01-unavailable",
+      "title": "Work unavailable",
+      "body": "This link is unpublished, no longer available or outside your assignment. No delivery data is shown.",
+      "tone": "info",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Back to My Shift",
+          "target": "S11-01",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1840,
+      "canvas_y": 4480
+    },
+    {
+      "screen_id": "S11-01-auth",
+      "title": "Sign in to continue",
+      "body": "Your session expired. Protected delivery details have been cleared.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Sign in",
+          "target": "S11-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 5420
+    },
+    {
+      "screen_id": "S11-01-forbidden",
+      "title": "Access restricted",
+      "body": "This account cannot use Rider deliveries. No protected data is shown.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to sign in",
+          "target": "S11-01-auth",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 5420
+    },
+    {
+      "screen_id": "S11-01-error",
+      "title": "Could not load work",
+      "body": "Loading failed. This is not an empty assignment list.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Retry loading",
+          "target": "S11-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 5420
+    },
+    {
+      "screen_id": "S11-01-offline",
+      "title": "Connection lost",
+      "body": "Shown work is stale. Start is disabled until refreshed; no offline start is queued.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh connection",
+          "target": "S11-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 5420
+    },
+    {
+      "screen_id": "S11-02-stale",
+      "title": "Work changed",
+      "body": "Assignment or ownership changed. Stale actionable and private details have been removed.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Reload assigned work",
+          "target": "S11-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1840,
+      "canvas_y": 5420
+    },
+    {
+      "screen_id": "S11-01-conflict",
+      "title": "Overlapping shifts",
+      "body": "More than one ongoing shift was found. New starts are blocked. Contact the Dispatcher; an existing attempt may resume.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Resume known attempt",
+          "target": "S12-01-resume",
+          "kind": "primary"
+        },
+        {
+          "label": "Refresh",
+          "target": "S11-01-loading",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 6360
+    },
+    {
+      "screen_id": "S11-01-no-suggestion",
+      "title": "Choose your next stop",
+      "body": "No suggestion available. Assigned work remains usable.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "View VL-0001",
+          "target": "S11-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Choose VL-0002",
+          "target": "S11-02-other",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 6360
+    },
+    {
+      "screen_id": "S11-02-no-guide",
+      "title": "Delivery details",
+      "body": "No published guide is available for this location.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "Continue without a guide",
+          "body": "A guide is optional. Your assignment and delivery actions remain available.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start attempt",
+          "target": "S12-01",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to My Shift",
+          "target": "S11-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 6360
+    },
+    {
+      "screen_id": "S11-01-previews-unavailable",
+      "title": "Today’s deliveries",
+      "body": "Both previews are unavailable. Choose a stop from the published list.",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "View delivery",
+          "target": "S11-02-no-guide",
+          "kind": "primary"
+        },
+        {
+          "label": "Retry previews",
+          "target": "S11-01-preview-loading",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 6360
+    },
+    {
+      "screen_id": "S12-01",
+      "title": "Ready to start",
+      "body": "No active attempt · ownership checked",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        },
+        {
+          "title": "One delivery at a time",
+          "body": "Start records the attempt time. Viewing a stop does not create an attempt.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start attempt",
+          "target": "S12-01-starting",
+          "kind": "primary"
+        },
+        {
+          "label": "Back without starting",
+          "target": "S11-02",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 8200
+    },
+    {
+      "screen_id": "S12-01-starting",
+      "title": "Starting attempt",
+      "body": "Start is not confirmed yet. Repeated taps cannot create another attempt.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "STOP 01 · SH-034"
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S12-02-started",
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 8200
+    },
+    {
+      "screen_id": "S12-02-started",
+      "title": "On the way",
+      "body": "VL-0001 · active attempt",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Started · 09:00",
+          "body": "Arrival: not recorded\nOnly this attempt can be resumed.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "I have arrived",
+          "target": "S12-02-arriving",
+          "kind": "primary"
+        },
+        {
+          "label": "Cannot deliver",
+          "target": "S12-06-failure",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 8200
+    },
+    {
+      "screen_id": "S12-02-arriving",
+      "title": "Recording arrival",
+      "body": "Arrival acknowledgement pending",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Started · 09:00",
+          "body": "Arrival is not confirmed until acknowledged.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S12-03-arrived",
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 8200
+    },
+    {
+      "screen_id": "S12-03-arrived",
+      "title": "Record delivery outcome",
+      "body": "VL-0001 · started 09:00 · arrived 09:12",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Arrival recorded",
+          "body": "Choose a truthful outcome. Success requires a validated photo.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Delivered successfully",
+          "target": "S12-04-success",
+          "kind": "primary"
+        },
+        {
+          "label": "Delivery failed",
+          "target": "S12-06-failure",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1840,
+      "canvas_y": 8200
+    },
+    {
+      "screen_id": "S12-04-success",
+      "title": "Photo proof of delivery",
+      "body": "Successful outcome is not saved yet.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Add one photo",
+          "body": "JPEG or PNG · maximum 5,000,000 bytes\nUse a synthetic sample; no real recipient photo.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Choose synthetic sample",
+          "target": "S12-04-uploading",
+          "kind": "primary"
+        },
+        {
+          "label": "Change to failed",
+          "target": "S12-06-failure",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 9140
+    },
+    {
+      "screen_id": "S12-04-uploading",
+      "title": "Uploading photo",
+      "body": "Attempt remains active until outcome is saved.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "synthetic-pod.png",
+          "body": "Upload in progress. A staged upload alone does not complete delivery.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S12-04-ready",
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 9140
+    },
+    {
+      "screen_id": "S12-04-ready",
+      "title": "Review successful outcome",
+      "body": "VL-0001 · photo ready for confirmation",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Synthetic POD preview",
+          "body": "Illustrative parcel image · synthetic-pod.png\nPrivately linked to the current attempt on save.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Recorded events",
+          "body": "Start 09:00 · Arrival 09:12\nOutcome will be acknowledged at 09:20.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Confirm successful delivery",
+          "target": "S12-04-saving",
+          "kind": "primary"
+        },
+        {
+          "label": "Replace photo",
+          "target": "S12-04-success",
+          "kind": "glass"
+        }
+      ],
+      "pod": true,
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 9140
+    },
+    {
+      "screen_id": "S12-04-saving",
+      "title": "Saving outcome",
+      "body": "Please wait. Repeated confirmation is ignored.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · not confirmed",
+          "body": "Photo link, attempt outcome and delivered business outcome are one operation.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S12-05-success",
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 9140
+    },
+    {
+      "screen_id": "S12-05-success",
+      "title": "Delivery saved",
+      "body": "VL-0001 · Successful",
+      "tone": "success",
+      "cards": [
+        {
+          "title": "20.00 min · completed attempt",
+          "body": "Start 09:00 · Arrival 09:12 · Finish 09:20",
+          "eyebrow": ""
+        },
+        {
+          "title": "Order delivered",
+          "body": "Earlier attempt history is retained. This Order bypasses failed-order resolution.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Continue to next stop",
+          "target": "S11-01-next",
+          "kind": "primary"
+        },
+        {
+          "label": "Replay same confirmation",
+          "target": "S12-05-replayed",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1840,
+      "canvas_y": 9140
+    },
+    {
+      "screen_id": "S12-05-replayed",
+      "title": "Already saved",
+      "body": "Original completion returned · no duplicate",
+      "tone": "success",
+      "cards": [
+        {
+          "title": "VL-0001 · Successful",
+          "body": "Same saved outcome and finish 09:20. No second attempt or completion was created.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Continue assigned work",
+          "target": "S11-01-next",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 10080
+    },
+    {
+      "screen_id": "S12-06-failure",
+      "title": "Record failed attempt",
+      "body": "VL-0001 · failure before arrival permitted",
+      "tone": "pending",
+      "cards": [],
+      "fields": [
+        [
+          "Failure reason",
+          "RECIPIENT_UNREACHABLE",
+          "Choose one structured reason."
+        ],
+        [
+          "Comment",
+          "Recipient did not answer the synthetic contact attempt.",
+          "1–500 characters after trimming."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Confirm failed attempt",
+          "target": "S12-06-saving",
+          "kind": "primary"
+        },
+        {
+          "label": "Leave without outcome",
+          "target": "S12-01-leave",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 10080
+    },
+    {
+      "screen_id": "S12-06-invalid",
+      "title": "Correct failed outcome",
+      "body": "No outcome saved. Attempt remains active.",
+      "tone": "error",
+      "cards": [],
+      "fields": [
+        [
+          "Failure reason",
+          "Choose a reason",
+          "Required: one of the five allowed reasons."
+        ],
+        [
+          "Comment",
+          "",
+          "Required: 1–500 characters."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Use valid synthetic values",
+          "target": "S12-06-failure",
+          "kind": "primary"
+        },
+        {
+          "label": "Keep editing",
+          "target": "S12-06-failure",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 10080
+    },
+    {
+      "screen_id": "S12-04-invalid",
+      "title": "Success needs evidence",
+      "body": "No outcome saved. Recorded start is retained.",
+      "tone": "error",
+      "cards": [],
+      "fields": [
+        [
+          "Arrival",
+          "Not recorded",
+          "Record arrival before a successful outcome."
+        ],
+        [
+          "Photo",
+          "No validated photo",
+          "One JPEG/PNG photo is required."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Record arrival",
+          "target": "S12-02-arriving",
+          "kind": "primary"
+        },
+        {
+          "label": "Return to outcome",
+          "target": "S12-03-arrived",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 10080
+    },
+    {
+      "screen_id": "S12-06-saving",
+      "title": "Saving failed attempt",
+      "body": "No terminal Order failure is created.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · RECIPIENT_UNREACHABLE",
+          "body": "Arrival not recorded. The comment and original start are retained.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S12-07-failed",
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1840,
+      "canvas_y": 10080
+    },
+    {
+      "screen_id": "S12-07-failed",
+      "title": "Failed attempt saved",
+      "body": "VL-0001 · awaiting Dispatcher resolution",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "Attempt failed; Order unresolved",
+          "body": "Start 09:00 · Finish 09:10\nArrival not recorded · 10.00 min",
+          "eyebrow": ""
+        },
+        {
+          "title": "Continue remaining work",
+          "body": "The failed stop is not immediately startable again. No terminal Order status was set.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Continue assigned work",
+          "target": "S11-01-after-failure",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 11020
+    },
+    {
+      "screen_id": "S12-04-photo-invalid",
+      "title": "Photo cannot be used",
+      "body": "File is empty, corrupt, unsupported or larger than 5,000,000 bytes. No outcome saved.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Choose another photo",
+          "target": "S12-04-success",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 11020
+    },
+    {
+      "screen_id": "S12-04-upload-error",
+      "title": "Photo upload failed",
+      "body": "The attempt is still active. Retry/reselect without creating a failed delivery outcome.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Retry upload",
+          "target": "S12-04-uploading",
+          "kind": "primary"
+        },
+        {
+          "label": "Choose another photo",
+          "target": "S12-04-success",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 11020
+    },
+    {
+      "screen_id": "S12-01-resume",
+      "title": "Resume this attempt",
+      "body": "VL-0001 · started 09:00 · no arrival yet. A second start is blocked.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Continue active attempt",
+          "target": "S12-02-started",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to work",
+          "target": "S11-01-active",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 11020
+    },
+    {
+      "screen_id": "S12-01-leave",
+      "title": "Leave this form?",
+      "body": "The acknowledged attempt stays active. Unsaved comment/photo selection may be lost on reload; the Order is not cancelled.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Stay and continue",
+          "target": "S12-02-started",
+          "kind": "primary"
+        },
+        {
+          "label": "Leave · keep attempt active",
+          "target": "S11-01-active",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1840,
+      "canvas_y": 11020
+    },
+    {
+      "screen_id": "S12-08-conflict",
+      "title": "Action could not be applied",
+      "body": "Ownership, event order or saved outcome changed. No stale write or transfer was accepted.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Reload authoritative work",
+          "target": "S11-01-loading",
+          "kind": "primary"
+        },
+        {
+          "label": "View recorded outcome",
+          "target": "S12-05-success",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 11960
+    },
+    {
+      "screen_id": "S12-08-unconfirmed",
+      "title": "Result not confirmed",
+      "body": "Connection was lost. Reconcile the same operation before retrying or advancing. Another start stays blocked.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Check saved operation",
+          "target": "S12-05-replayed",
+          "kind": "primary"
+        },
+        {
+          "label": "Show definitely failed save",
+          "target": "S12-08-error",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 460,
+      "canvas_y": 11960
+    },
+    {
+      "screen_id": "S12-08-error",
+      "title": "Save did not complete",
+      "body": "No final outcome was stored. Active attempt and authorized form values are retained in this open view.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Retry same operation",
+          "target": "S12-04-saving",
+          "kind": "primary"
+        },
+        {
+          "label": "Resume attempt",
+          "target": "S12-01-resume",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 920,
+      "canvas_y": 11960
+    },
+    {
+      "screen_id": "S12-01-retry-blocked",
+      "title": "Start blocked",
+      "body": "Failure resolution is pending or the three-failure limit is reached. Only UC13 can resolve the Order; no fourth attempt or terminal failure is created.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to assigned work",
+          "target": "S11-03-pending",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1380,
+      "canvas_y": 11960
+    },
+    {
+      "screen_id": "S12-01-next",
+      "title": "Start remaining delivery",
+      "body": "VL-0002 · SH-034 · Rider Demo A",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        },
+        {
+          "title": "Current assignment checked",
+          "body": "Only this selected eligible stop will start. Existing attempt history is retained; any failed stop still requires Dispatcher resolution.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start VL-0002",
+          "target": "S12-02-next",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1840,
+      "canvas_y": 11960
+    },
+    {
+      "screen_id": "S12-02-next",
+      "title": "On the way",
+      "body": "VL-0002 · start acknowledged at 09:30",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0002 · Sample recipient 2",
+          "body": "48 Sample Alley · Synthetic\nWindow 09:30–11:00 · 1.8 kg · NORMAL",
+          "eyebrow": "STOP 02 · SH-034"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Record arrival · 09:38",
+          "target": "S12-03-next",
+          "kind": "primary"
+        },
+        {
+          "label": "Fail before arrival",
+          "target": "S12-06-next",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 0,
+      "canvas_y": 12900
+    },
+    {
+      "screen_id": "S12-03-next",
+      "title": "Record remaining outcome",
+      "body": "VL-0002 · start 09:30 · arrival 09:38",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Delivery could not be completed",
+          "body": "The synthetic recipient is unavailable. Record the actual obstacle.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Record failed delivery",
+          "target": "S12-06-next",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 460,
+      "canvas_y": 12900
+    },
+    {
+      "screen_id": "S12-06-next",
+      "title": "Record failed attempt",
+      "body": "VL-0002 · arrival recorded at 09:38",
+      "tone": "pending",
+      "cards": [],
+      "fields": [
+        [
+          "Failure reason",
+          "ACCESS_BLOCKED",
+          "Structured reason selected."
+        ],
+        [
+          "Comment",
+          "Synthetic reception is closed; entry could not be obtained.",
+          "1–500 characters."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Confirm failed attempt",
+          "target": "S12-07-next",
+          "kind": "primary"
+        },
+        {
+          "label": "Cancel confirmation",
+          "target": "S12-03-next",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 920,
+      "canvas_y": 12900
+    },
+    {
+      "screen_id": "S12-07-next",
+      "title": "Failed attempt saved",
+      "body": "VL-0002 · start 09:30 · finish 09:45",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "15.00 min · ACCESS_BLOCKED",
+          "body": "The Order awaits Dispatcher resolution; it is not terminal unsuccessful.",
+          "eyebrow": ""
+        },
+        {
+          "title": "No other executable stops",
+          "body": "No active attempt or executable stop remains in SH-034. Earlier failures continue to await Dispatcher resolution.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to assigned work",
+          "target": "S11-03-pending",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1380,
+      "canvas_y": 12900
+    },
+    {
+      "screen_id": "S13-01",
+      "title": "Delivery monitoring",
+      "body": "Hub Q1 · As of 19 Nov 2026 09:45 · Asia/Ho_Chi_Minh",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "SH-034 · Rider Demo A",
+          "body": "No active attempt and no executable stop remains. Failed Orders may be reviewed.",
+          "eyebrow": ""
+        },
+        {
+          "title": "SH-035 · Rider Demo B",
+          "body": "VL-0003 has an active attempt. It is outside Rider Demo A’s assignment.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Inspect failed VL-0002",
+          "target": "S13-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Refresh progress",
+          "target": "S13-01-loading",
+          "kind": "glass"
+        }
+      ],
+      "kind": "monitor",
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 15000
+    },
+    {
+      "screen_id": "S13-02",
+      "title": "Order and attempt history",
+      "body": "VL-0002 · overall outcome unresolved",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Failed attempt · SH-034",
+          "body": "Rider Demo A · start 09:30 · arrival 09:38 · finish 09:45\nACCESS_BLOCKED · Synthetic reception is closed; entry could not be obtained.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Separate business result",
+          "body": "A failed DeliveryAttempt did not set terminal Order failure. Originating shift is exhausted.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Review failed Order",
+          "target": "S13-03",
+          "kind": "primary"
+        },
+        {
+          "label": "View delivered Order",
+          "target": "S13-02-readonly",
+          "kind": "glass"
+        }
+      ],
+      "kind": "history",
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 15000
+    },
+    {
+      "screen_id": "S13-03",
+      "title": "Resolve failed Order",
+      "body": "VL-0002 · latest failure unresolved",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Eligible for a decision",
+          "body": "1 completed failure across all shifts. SH-034 has no active attempt or executable stop.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Choose an explicit resolution",
+          "body": "Authorize one new opportunity, or close terminal unsuccessful with a reason. No automatic Order failure.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Authorize re-dispatch",
+          "target": "S13-04-retry",
+          "kind": "primary"
+        },
+        {
+          "label": "Close terminal unsuccessful",
+          "target": "S13-06-terminal",
+          "kind": "danger"
+        }
+      ],
+      "kind": "resolution",
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 15000
+    },
+    {
+      "screen_id": "S13-04-retry",
+      "title": "Confirm re-dispatch",
+      "body": "VL-0002 · one new opportunity",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "History stays unchanged",
+          "body": "Record one retry authorization. The failed assignment stops being executable.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Planning comes next",
+          "body": "UC09/UC10 still check Rider availability, capacity and publication. No new attempt exists yet.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Confirm authorization",
+          "target": "S13-04-saving",
+          "kind": "primary"
+        },
+        {
+          "label": "Cancel · keep unresolved",
+          "target": "S13-03",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 15000
+    },
+    {
+      "screen_id": "S13-04-saving",
+      "title": "Saving resolution",
+      "body": "VL-0002 · no duplicate authorization",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Rechecking current eligibility",
+          "body": "The failure, versions, originating shift and lifetime failure count are checked together.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S13-05-retry-authorized",
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 16040
+    },
+    {
+      "screen_id": "S13-05-retry-authorized",
+      "title": "Re-dispatch authorized",
+      "body": "VL-0002 · awaiting planning",
+      "tone": "success",
+      "cards": [
+        {
+          "title": "One durable authorization",
+          "body": "Failure resolved for one later opportunity. Original attempt remains failed.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Not yet published",
+          "body": "No attempt was created. The Rider cannot see new work until UC09/UC10 publish it.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Open planning handoff",
+          "target": "S13-05-planning",
+          "kind": "primary"
+        },
+        {
+          "label": "Return to monitoring",
+          "target": "S13-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 16040
+    },
+    {
+      "screen_id": "S13-05-planning",
+      "title": "Plan authorized opportunity",
+      "body": "Local UC09/UC10 handoff representation",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Publication not committed",
+          "body": "This review prototype does not silently publish work or create an attempt.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [
+        [
+          "Order",
+          "VL-0002 · one authorized opportunity",
+          "The old failed attempt remains in history."
+        ],
+        [
+          "Eligible Rider / Shift",
+          "No eligible selection yet",
+          "Availability, capacity and publication must be checked."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Leave planning for later",
+          "target": "S13-05-awaiting-planning",
+          "kind": "primary"
+        },
+        {
+          "label": "Return to authorization",
+          "target": "S13-05-retry-authorized",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 3120,
+      "canvas_y": 16040
+    },
+    {
+      "screen_id": "S13-05-awaiting-planning",
+      "title": "Awaiting planning",
+      "body": "Authorization is retained",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "No eligible planning selection",
+          "body": "Rider availability or capacity can block publication. Dismissing planning does not undo the saved authorization.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Re-entry reuses the opportunity",
+          "body": "No duplicate authorization or attempt is created.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Reopen planning",
+          "target": "S13-05-planning",
+          "kind": "primary"
+        },
+        {
+          "label": "View saved authorization",
+          "target": "S13-05-retry-authorized",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 16040
+    },
+    {
+      "screen_id": "S13-06-terminal",
+      "title": "Close terminal unsuccessful",
+      "body": "VL-0002 · explicit Dispatcher decision",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "Confirm business outcome",
+          "body": "The attempt history is retained. This is not Order deletion or automatic failure.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [
+        [
+          "Reason",
+          "No further access opportunity is available in this synthetic case.",
+          "Required · 5–300 characters after trimming."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Confirm terminal decision",
+          "target": "S13-06-saving",
+          "kind": "primary"
+        },
+        {
+          "label": "Cancel · keep unresolved",
+          "target": "S13-03",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 17080
+    },
+    {
+      "screen_id": "S13-06-saving",
+      "title": "Saving terminal decision",
+      "body": "No terminal outcome is shown before acknowledgement.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0002 · explicit decision",
+          "body": "Reason, actor and timestamp are recorded once with the linked failure.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S13-07-terminal-saved",
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 17080
+    },
+    {
+      "screen_id": "S13-07-terminal-saved",
+      "title": "Terminal decision saved",
+      "body": "VL-0002 · terminal unsuccessful",
+      "tone": "success",
+      "cards": [
+        {
+          "title": "Dispatcher decision · 09:50",
+          "body": "No further access opportunity is available in this synthetic case.",
+          "eyebrow": ""
+        },
+        {
+          "title": "History retained",
+          "body": "Failed attempt remains ACCESS_BLOCKED, 09:30–09:45. Earlier events were not rewritten.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "View Shift and Rider report",
+          "target": "S19-01",
+          "kind": "primary"
+        },
+        {
+          "label": "Return to monitoring",
+          "target": "S13-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 17080
+    },
+    {
+      "screen_id": "S13-06-invalid",
+      "title": "Reason needs correction",
+      "body": "No decision saved. VL-0002 remains unresolved.",
+      "tone": "error",
+      "cards": [],
+      "fields": [
+        [
+          "Reason",
+          "No",
+          "Enter 5–300 characters after trimming."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Use valid reason",
+          "target": "S13-06-terminal",
+          "kind": "primary"
+        },
+        {
+          "label": "Cancel",
+          "target": "S13-03",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 17080
+    },
+    {
+      "screen_id": "S13-01-loading",
+      "title": "Loading recorded progress",
+      "body": "Reading authorized hub events; this is not continuous GPS.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S13-01",
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 18120
+    },
+    {
+      "screen_id": "S13-01-empty",
+      "title": "No published work",
+      "body": "No matching published shifts exist. No records are invented.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh monitoring",
+          "target": "S13-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 18120
+    },
+    {
+      "screen_id": "S13-03-empty",
+      "title": "No unresolved failures",
+      "body": "Successful and resolved Orders remain read-only.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "View completed Order",
+          "target": "S13-02-readonly",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to monitoring",
+          "target": "S13-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 18120
+    },
+    {
+      "screen_id": "S13-03-waiting",
+      "title": "Remaining work must finish",
+      "body": "SH-034 still has an active attempt or executable stop. Monitor now; both resolution choices stay disabled.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh progress",
+          "target": "S13-01-loading",
+          "kind": "primary"
+        },
+        {
+          "label": "View Rider’s remaining work",
+          "target": "S11-01-next",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 18120
+    },
+    {
+      "screen_id": "S13-03-limit",
+      "title": "Retry limit reached",
+      "body": "VL-0002 has three completed failures across its history. A fourth start is blocked; the Order is not automatically terminal unsuccessful.",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "Three preserved failed attempts",
+          "body": "SH-031 · failed · 16 Nov · 10 min\nSH-032 · failed · 17 Nov · 12 min\nSH-034 · failed · 19 Nov · 15 min\nIndependent cap-history variant; no fourth attempt is created.",
+          "eyebrow": "VL-0002 · LIFETIME FAILURE COUNT = 3"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Review explicit terminal decision",
+          "target": "S13-06-terminal",
+          "kind": "primary"
+        },
+        {
+          "label": "Defer · retain unresolved failure",
+          "target": "S13-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 19160
+    },
+    {
+      "screen_id": "S13-02-readonly",
+      "title": "Delivered Order · read-only",
+      "body": "VL-0001 · historical failure SH-033: 10.00 min; successful retry SH-034: 20.00 min. Delivered Orders bypass failed-order resolution.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Back to monitoring",
+          "target": "S13-01",
+          "kind": "primary"
+        },
+        {
+          "label": "View reports",
+          "target": "S19-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 19160
+    },
+    {
+      "screen_id": "S13-08-conflict",
+      "title": "Decision changed meanwhile",
+      "body": "Another valid operation won. Refresh the latest decision before retry; no duplicate or reversed resolution.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Reload Order history",
+          "target": "S13-02",
+          "kind": "primary"
+        },
+        {
+          "label": "View existing authorization",
+          "target": "S13-05-retry-authorized",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 19160
+    },
+    {
+      "screen_id": "S13-01-error",
+      "title": "Monitoring could not load",
+      "body": "A request failure is not an empty hub. No optimistic data is shown.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Retry load",
+          "target": "S13-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 19160
+    },
+    {
+      "screen_id": "S13-01-stale",
+      "title": "Progress is stale",
+      "body": "Last successful refresh 09:40. A later refresh failed; do not treat this view as current.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh now",
+          "target": "S13-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 20200
+    },
+    {
+      "screen_id": "S13-08-unconfirmed",
+      "title": "Decision not confirmed",
+      "body": "Reconcile the same operation with authoritative state before retry. No new authorization or terminal result is assumed.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Show existing saved authorization",
+          "target": "S13-05-retry-authorized",
+          "kind": "primary"
+        },
+        {
+          "label": "Reload unresolved Order",
+          "target": "S13-02",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 20200
+    },
+    {
+      "screen_id": "S13-01-auth",
+      "title": "Sign in to continue",
+      "body": "Dispatcher session expired. Protected hub content has been cleared.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Sign in",
+          "target": "S13-01-loading",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 20200
+    },
+    {
+      "screen_id": "S13-01-forbidden",
+      "title": "Dispatcher access required",
+      "body": "Administrator and Rider roles do not inherit these permissions.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to sign in",
+          "target": "S13-01-auth",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 20200
+    },
+    {
+      "screen_id": "S13-01-unavailable",
+      "title": "Record unavailable",
+      "body": "No accessible record exists at this address. Cross-hub identifiers disclose no protected data.",
+      "tone": "pending",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to authorized monitoring",
+          "target": "S13-01",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 21240
+    },
+    {
+      "screen_id": "S13-02-quality",
+      "title": "Resolution context is invalid",
+      "body": "Attempt lineage or the latest valid failed outcome cannot be established. Resolution is blocked; history is retained without guessing.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh history",
+          "target": "S13-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Return to monitoring",
+          "target": "S13-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC13",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 21240
+    },
+    {
+      "screen_id": "S19-01",
+      "title": "Shift and Rider reports",
+      "body": "Hub Q1 · dates apply to Shift start, not event finish time",
+      "tone": "info",
+      "cards": [],
+      "fields": [
+        [
+          "Shift start dates · From",
+          "2026-11-19",
+          "Inclusive local date"
+        ],
+        [
+          "Shift start dates · To",
+          "2026-11-19",
+          "Asia/Ho_Chi_Minh"
+        ],
+        [
+          "Shift / Rider",
+          "All permitted shifts / All Riders",
+          "Filters combine with AND."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Apply filters",
+          "target": "S19-01-loading",
+          "kind": "primary"
+        },
+        {
+          "label": "Include historical retry shift",
+          "target": "S19-01-historical",
+          "kind": "glass"
+        }
+      ],
+      "kind": "filters",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 22500
+    },
+    {
+      "screen_id": "S19-01-historical",
+      "title": "Include historical retry work",
+      "body": "Shift start dates · 18–19 Nov 2026",
+      "tone": "info",
+      "cards": [],
+      "fields": [
+        [
+          "From / To",
+          "2026-11-18 / 2026-11-19",
+          "Includes the prior failed attempt in SH-033."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Apply historical cohort",
+          "target": "S19-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Return to today",
+          "target": "S19-01",
+          "kind": "glass"
+        }
+      ],
+      "kind": "filters",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1560,
+      "canvas_y": 22500
+    },
+    {
+      "screen_id": "S19-01-loading",
+      "title": "Generating one snapshot",
+      "body": "All metrics use the same authorized as-of instant.",
+      "tone": "info",
+      "cards": [],
+      "fields": [],
+      "actions": [],
+      "auto_target": "S19-02-today",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 22500
+    },
+    {
+      "screen_id": "S19-02",
+      "title": "Shift and Rider performance",
+      "body": "Shift starts 18–19 Nov 2026 · Hub Q1\nAs of 19 Nov 2026 10:00 · Asia/Ho_Chi_Minh",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Attempts remain separate",
+          "body": "3 completed · 1 successful · 2 failed · 1 active\n0 Orders awaiting failure resolution · Mean duration 15.00 min",
+          "eyebrow": ""
+        },
+        {
+          "title": "Failure causes",
+          "body": "RECIPIENT_UNREACHABLE: 1 (50.00%)\nACCESS_BLOCKED: 1 (50.00%)\n0 duration exclusions · 0 quarantined records",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Inspect breakdown",
+          "target": "S19-03",
+          "kind": "primary"
+        },
+        {
+          "label": "Metric definitions",
+          "target": "S19-02-definitions-orders",
+          "kind": "glass"
+        },
+        {
+          "label": "Refresh snapshot",
+          "target": "S11-01-refresh",
+          "kind": "glass"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Orders in selected work",
+          "3",
+          "Distinct Order IDs"
+        ],
+        [
+          "Orders delivered",
+          "1",
+          "Successful selected attempt"
+        ],
+        [
+          "Terminal unsuccessful",
+          "1",
+          "Explicit UC13 decision"
+        ],
+        [
+          "Orders delivered",
+          "33.33%",
+          "1 / 3 Orders"
+        ],
+        [
+          "Orders resolved",
+          "66.67%",
+          "(1 + 1) / 3 Orders"
+        ],
+        [
+          "Attempt success",
+          "33.33%",
+          "1 / 3 completed attempts"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 22500
+    },
+    {
+      "screen_id": "S19-02-today",
+      "title": "Today’s selected work",
+      "body": "Shift starts 19 Nov 2026 only · As of 10:00",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Selected attempts remain separate",
+          "body": "2 completed · 1 successful · 1 failed · 1 active\n0 Orders awaiting failure resolution · Mean duration 17.50 min",
+          "eyebrow": "TODAY’S SHIFT COHORT"
+        },
+        {
+          "title": "Failure causes and exclusions",
+          "body": "ACCESS_BLOCKED: 1 (100.00%).\nSH-033 from 18 Nov is excluded. 0 duration exclusions and 0 quarantined records.",
+          "eyebrow": "EXPLICIT DATE MEMBERSHIP"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Include both dates",
+          "target": "S19-01-historical",
+          "kind": "primary"
+        },
+        {
+          "label": "Metric definitions",
+          "target": "S19-02-definitions-orders",
+          "kind": "glass"
+        },
+        {
+          "label": "Inspect contributions",
+          "target": "S19-04-today",
+          "kind": "glass"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Orders in selected work",
+          "3",
+          "Distinct Order IDs"
+        ],
+        [
+          "Orders delivered",
+          "1",
+          "Successful selected attempt"
+        ],
+        [
+          "Terminal unsuccessful",
+          "1",
+          "Explicit UC13 decision"
+        ],
+        [
+          "Orders delivered",
+          "33.33%",
+          "1 / 3 Orders"
+        ],
+        [
+          "Orders resolved",
+          "66.67%",
+          "(1 + 1) / 3 Orders"
+        ],
+        [
+          "Attempt success",
+          "50.00%",
+          "1 / 2 completed attempts"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 0,
+      "canvas_y": 23540
+    },
+    {
+      "screen_id": "S19-03",
+      "title": "Shift and Rider breakdown",
+      "body": "Distinct Order rows are not additive; totals are recomputed.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Grand cohort",
+          "body": "3 unique Orders · 3 completed attempts · 1 active\nA retried Order appears once in the grand Order total.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Attribution follows execution",
+          "body": "SH-033 + SH-034: Rider Demo A\nSH-035: Rider Demo B. Current reassignment does not rewrite earlier attempt ownership.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Inspect contributions",
+          "target": "S19-04",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to summary",
+          "target": "S19-02",
+          "kind": "glass"
+        }
+      ],
+      "kind": "breakdown",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 23540
+    },
+    {
+      "screen_id": "S19-04",
+      "title": "Contributions and exclusions",
+      "body": "Selected work and overall Order outcome are separate.",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "VL-0001 · two attempts, one Order",
+          "body": "SH-033: failed, 10.00 min. SH-034: successful, 20.00 min. Overall: delivered.",
+          "eyebrow": ""
+        },
+        {
+          "title": "VL-0002 / VL-0003",
+          "body": "VL-0002: failed, 15.00 min; explicit terminal resolution.\nVL-0003: active; no finish, no failed outcome, no duration.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Audit the quality policy",
+          "body": "Bad timestamps affect duration only. Unknown reason stays in its bucket; conflicting identities are quarantined.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "View current Order history",
+          "target": "S13-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Select first failed shift only",
+          "target": "S19-04-outside-scope",
+          "kind": "glass"
+        }
+      ],
+      "kind": "contributions",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 23540
+    },
+    {
+      "screen_id": "S19-04-outside-scope",
+      "title": "Success outside selection",
+      "body": "Only SH-033 / Rider Demo A selected",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Overall outcome: delivered later",
+          "body": "The successful retry belongs to SH-034 outside this selection. It is context, not credited success for SH-033.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Selected duration and cause",
+          "body": "10.00 min · RECIPIENT_UNREACHABLE: 1 (100.00%)",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Broaden to both shifts",
+          "target": "S19-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to contributions",
+          "target": "S19-04",
+          "kind": "glass"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Orders",
+          "1",
+          "VL-0001 once"
+        ],
+        [
+          "Delivered here",
+          "0",
+          "0.00% in selected work"
+        ],
+        [
+          "Attempt success",
+          "0.00%",
+          "0 / 1 completed attempt"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 4680,
+      "canvas_y": 23540
+    },
+    {
+      "screen_id": "S19-01-invalid",
+      "title": "Check date range",
+      "body": "No new query was submitted. The prior valid snapshot keeps its original filters.",
+      "tone": "error",
+      "cards": [],
+      "fields": [
+        [
+          "From",
+          "2026-11-20",
+          "From must be on or before To."
+        ],
+        [
+          "To",
+          "2026-11-19",
+          "Use valid YYYY-MM-DD calendar dates."
+        ]
+      ],
+      "actions": [
+        {
+          "label": "Correct date range",
+          "target": "S19-01",
+          "kind": "primary"
+        },
+        {
+          "label": "View last valid result",
+          "target": "S19-02-stale",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 0,
+      "canvas_y": 24580
+    },
+    {
+      "screen_id": "S19-02-empty",
+      "title": "No eligible data",
+      "body": "Selected Shift start dates: 20 Nov 2026 · no published work",
+      "tone": "info",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Edit filters",
+          "target": "S19-01",
+          "kind": "primary"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Orders / attempts",
+          "0 / 0",
+          "No invented rows"
+        ],
+        [
+          "Rates",
+          "N/A",
+          "Zero denominator"
+        ],
+        [
+          "Mean duration",
+          "N/A",
+          "No valid completed attempts"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 24580
+    },
+    {
+      "screen_id": "S19-02-partial",
+      "title": "Work is still in progress",
+      "body": "Snapshot before any selected terminal attempt outcome",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Partial results",
+          "body": "1 active attempt · 0 completed failures · mean duration N/A.\nOrders delivered: 0 / 3 = 0.00%. Refresh later; do not infer a failed outcome.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh to later snapshot",
+          "target": "S19-01-loading",
+          "kind": "primary"
+        },
+        {
+          "label": "Inspect contributions",
+          "target": "S19-04",
+          "kind": "glass"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Eligible Orders",
+          "3",
+          "Unattempted work included"
+        ],
+        [
+          "Completed attempts",
+          "0",
+          "Active work is not failed"
+        ],
+        [
+          "Attempt success",
+          "N/A",
+          "No completed denominator"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 24580
+    },
+    {
+      "screen_id": "S19-02-quality",
+      "title": "Data-quality exclusions",
+      "body": "A completed outcome is retained even if its duration is invalid.",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "VL-0001 successful attempt",
+          "body": "Missing start time in this legacy-data variant: still successful, excluded from duration only.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Unknown and conflict policy",
+          "body": "Unrecognized failure reasons remain Unknown. Orphan/cross-hub/conflicting outcomes are visibly quarantined, never silently corrected.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Inspect quality details",
+          "target": "S19-04-quality",
+          "kind": "primary"
+        },
+        {
+          "label": "Back to valid snapshot",
+          "target": "S19-02",
+          "kind": "glass"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Completed outcomes",
+          "3",
+          "Counts/rates retained"
+        ],
+        [
+          "Duration exclusions",
+          "1",
+          "Missing start time"
+        ],
+        [
+          "Valid mean duration",
+          "12.50",
+          "(10 + 15) / 2 minutes"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 4680,
+      "canvas_y": 24580
+    },
+    {
+      "screen_id": "S19-04-quality",
+      "title": "Quality exclusion details",
+      "body": "Legacy-data variant · no inferred event times",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "Duration exclusion · 1 attempt",
+          "body": "VL-0001 successful attempt: start time missing. Excluded from duration; kept in successful/completed counts.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Failure reason classification",
+          "body": "Unknown legacy codes map to Unknown; they remain in the completed-failure denominator.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Integrity quarantine policy",
+          "body": "Conflicting outcome IDs or invalid parent/hub links are excluded and listed here when present. No such extra records are fabricated in this variant.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to quality summary",
+          "target": "S19-02-quality",
+          "kind": "primary"
+        }
+      ],
+      "kind": "contributions",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 0,
+      "canvas_y": 25620
+    },
+    {
+      "screen_id": "S19-01-error",
+      "title": "Report could not load",
+      "body": "A server/network error is not an empty result.",
+      "tone": "error",
+      "cards": [],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Retry report",
+          "target": "S19-01-loading",
+          "kind": "primary"
+        },
+        {
+          "label": "Edit filters",
+          "target": "S19-01",
+          "kind": "glass"
+        }
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 1560,
+      "canvas_y": 25620
+    },
+    {
+      "screen_id": "S19-02-stale",
+      "title": "Stale · refresh failed",
+      "body": "Original filters: Shift starts 18–19 Nov 2026\nOriginal as of 10:00 · no mixed snapshot",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "Last valid result retained",
+          "body": "Newer events and superseded filter responses are not merged into this snapshot.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh one snapshot",
+          "target": "S19-02",
+          "kind": "primary"
+        },
+        {
+          "label": "Edit filters",
+          "target": "S19-01",
+          "kind": "glass"
+        }
+      ],
+      "kind": "report",
+      "metrics": [
+        [
+          "Orders",
+          "3",
+          "Original snapshot"
+        ],
+        [
+          "Order delivery",
+          "33.33%",
+          "Original 1 / 3"
+        ],
+        [
+          "Attempt success",
+          "33.33%",
+          "Original 1 / 3"
+        ]
+      ],
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": true,
+      "canvas_x": 3120,
+      "canvas_y": 25620
+    },
+    {
+      "screen_id": "S19-02-definitions-orders",
+      "title": "How these metrics are calculated",
+      "body": "Definitions · read-only · selected work only",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "M1 · Orders",
+          "body": "Distinct eligible Order IDs; exclude cancelled-before-start and removed-before-attempt work.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M2 · Delivered / terminal unsuccessful",
+          "body": "Separate selected-work Order counts. Terminal unsuccessful requires explicit UC13 resolution.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M3 · Order delivery rate",
+          "body": "100 × delivered Orders / eligible Orders. N/A when the Order denominator is zero.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M4 · Order resolution progress",
+          "body": "100 × (delivered + terminal unsuccessful Orders) / eligible Orders. Not delivery success.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M5 / M6 · Completed attempt counts",
+          "body": "Each acknowledged successful/failed attempt counts once; retries stay separate. Active attempts excluded.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M7 · Attempt success rate",
+          "body": "100 × successful attempts / completed attempts. N/A when no attempt is completed.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "More definitions",
+          "target": "S19-02-definitions-attempts",
+          "kind": "primary"
+        },
+        {
+          "label": "Close definitions",
+          "target": "CLOSE",
+          "kind": "glass"
+        }
+      ],
+      "kind": "definitions",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 4680,
+      "canvas_y": 25620
+    },
+    {
+      "screen_id": "S19-02-definitions-attempts",
+      "title": "How these metrics are calculated",
+      "body": "Definitions · read-only · selected work only",
+      "tone": "info",
+      "cards": [
+        {
+          "title": "M8 / M9 · Active and pending",
+          "body": "Active = valid acknowledged start without outcome. Pending = latest failed Order with no UC13 resolution.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M10 · Average attempt duration",
+          "body": "Mean of (server outcome commit − acknowledged start), in minutes, over valid completed attempts. Includes travel, waiting and upload.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M10 · Valid event sequence",
+          "body": "Start ≤ arrival ≤ finish ≤ snapshot. Permitted early failure may omit arrival; incomplete/invalid/future times are excluded from duration only.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M11 · Failure causes",
+          "body": "Count completed failed attempts by reason, including Unknown. Share = count in reason / all completed failures × 100.",
+          "eyebrow": ""
+        },
+        {
+          "title": "M12 · Quality exclusions",
+          "body": "Show duration exclusions, quarantined attempts and malformed nonterminal records separately; categories can overlap.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Cohort / zero / display rules",
+          "body": "Shift start dates, hub timezone, one snapshot; no cross-scope success credit; percentages/means to two decimals; zero counts and N/A undefined rates.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Order definitions",
+          "target": "S19-02-definitions-orders",
+          "kind": "primary"
+        },
+        {
+          "label": "Close definitions",
+          "target": "CLOSE",
+          "kind": "glass"
+        }
+      ],
+      "kind": "definitions",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "original_screen_map": false,
+      "canvas_x": 0,
+      "canvas_y": 26660
+    },
+    {
+      "screen_id": "S11-01-refresh",
+      "title": "Refreshing confirmed work",
+      "body": "The last acknowledged view stays in place. No new attempt or outcome is created.",
+      "tone": "info",
+      "cards": [],
+      "fields": [],
+      "actions": [],
+      "kind": "refresh-overlay",
+      "uc": "UC11",
+      "viewport": [
+        320,
+        200
+      ],
+      "canvas_x": 2500,
+      "canvas_y": 2600,
+      "original_screen_map": false,
+      "auto_close": true
+    },
+    {
+      "screen_id": "S19-04-today",
+      "title": "Today’s contributions",
+      "body": "Shift starts 19 Nov 2026 · As of 10:00 · Asia/Ho_Chi_Minh",
+      "tone": "info",
+      "kind": "today-contributions",
+      "uc": "UC19",
+      "viewport": [
+        1440,
+        900
+      ],
+      "canvas_x": 3120,
+      "canvas_y": 26660,
+      "original_screen_map": false,
+      "cards": [
+        {
+          "title": "VL-0001 · successful retry",
+          "body": "SH-034 · start 09:00 · arrival 09:12 · finish 09:20 · 20.00 min. The 18 Nov SH-033 failure is outside this selection.",
+          "eyebrow": "SELECTED TODAY"
+        },
+        {
+          "title": "VL-0002 · failed, explicitly resolved",
+          "body": "SH-034 · 09:30–09:45 · 15.00 min · ACCESS_BLOCKED. UC13 terminal decision recorded at 09:50.",
+          "eyebrow": "SELECTED TODAY"
+        },
+        {
+          "title": "VL-0003 · active attempt",
+          "body": "SH-035 · Rider Demo B · started 09:40. No completed outcome or finished duration. No quality exclusions in this snapshot.",
+          "eyebrow": "SELECTED TODAY"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Back to today’s report",
+          "target": "S19-02-today",
+          "kind": "primary"
+        },
+        {
+          "label": "Include historical shift",
+          "target": "S19-01-historical",
+          "kind": "glass"
+        }
+      ]
+    },
+    {
+      "screen_id": "S12-07-next-after-failure",
+      "title": "Failed attempt saved",
+      "body": "VL-0002 · start 09:30 · finish 09:45",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "15.00 min · ACCESS_BLOCKED",
+          "body": "The Order awaits Dispatcher resolution; it is not terminal unsuccessful.",
+          "eyebrow": ""
+        },
+        {
+          "title": "Both stops await resolution",
+          "body": "VL-0001 and VL-0002 each have a saved failed attempt in this branch. Neither Order is automatically terminal unsuccessful.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Return to assigned work",
+          "target": "S11-03-pending-two",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1840,
+      "canvas_y": 13840
+    },
+    {
+      "screen_id": "S11-03-pending-two",
+      "title": "No executable stops",
+      "body": "SH-034 · no active attempt",
+      "tone": "pending",
+      "cards": [
+        {
+          "title": "VL-0001 · Resolution pending",
+          "body": "Failed before arrival at 09:10. Its earlier history is retained; no immediate retry is allowed.",
+          "eyebrow": ""
+        },
+        {
+          "title": "VL-0002 · Resolution pending",
+          "body": "Failed attempt saved at 09:45. Only the Dispatcher can authorize retry or a terminal decision.",
+          "eyebrow": ""
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Refresh work",
+          "target": "S11-03-pending-two",
+          "kind": "primary"
+        }
+      ],
+      "uc": "UC11",
+      "viewport": [
+        360,
+        800
+      ],
+      "original_screen_map": false,
+      "canvas_x": 1840,
+      "canvas_y": 7300
+    },
+    {
+      "screen_id": "S12-07-selected-first",
+      "title": "Selected stop outcome saved",
+      "body": "VL-0002 · failed attempt · 09:30–09:45",
+      "tone": "pending",
+      "kind": "manual-choice",
+      "uc": "UC12",
+      "viewport": [
+        360,
+        800
+      ],
+      "canvas_x": 3000,
+      "canvas_y": 3000,
+      "original_screen_map": false,
+      "cards": [
+        {
+          "title": "VL-0002 awaits resolution",
+          "body": "ACCESS_BLOCKED · 15.00 min. No terminal Order failure was created.",
+          "eyebrow": "MANUAL STOP CHOICE"
+        },
+        {
+          "title": "VL-0001 still remains",
+          "body": "The suggested stop has not been attempted in this shift. Continue that eligible assignment before Dispatcher resolution.",
+          "eyebrow": "PUBLISHED SEQUENCE UNCHANGED"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Continue remaining work",
+          "target": "S11-01-selected-next",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-selected-next",
+      "title": "Continue remaining work",
+      "body": "VL-0002 failed · VL-0001 remains eligible",
+      "tone": "pending",
+      "uc": "UC11",
+      "kind": "manual-choice",
+      "viewport": [
+        360,
+        800
+      ],
+      "canvas_x": 3000,
+      "canvas_y": 3940,
+      "original_screen_map": false,
+      "cards": [
+        {
+          "title": "VL-0001 · Sample recipient 1",
+          "body": "12 Sample Street · Synthetic\nWindow 09:00–10:00 · 2.4 kg · NORMAL",
+          "eyebrow": "REMAINING ASSIGNED STOP"
+        },
+        {
+          "title": "VL-0002 · Resolution pending",
+          "body": "The failed attempt remains separate from Order outcome. No immediate retry is allowed.",
+          "eyebrow": "HISTORY RETAINED"
+        }
+      ],
+      "fields": [],
+      "actions": [
+        {
+          "label": "Start remaining VL-0001",
+          "target": "S12-01",
+          "kind": "primary"
+        }
+      ]
+    }
+  ]
+}

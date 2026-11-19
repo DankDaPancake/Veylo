@@ -1,0 +1,2604 @@
+{
+  "records": [
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3749",
+      "name": "NAV|S11-01|Rider basic flow",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3751",
+      "name": "NAV|S13-01|Dispatcher resolution",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3753",
+      "name": "NAV|S19-01|Reports and metrics",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3757",
+      "name": "NAV|S11-01|S11-01",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3759",
+      "name": "NAV|S11-02|S11-02",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:39",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3761",
+      "name": "NAV|S11-01-explanation|S11-01-explanation",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:76",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3763",
+      "name": "NAV|S11-02-other|S11-02-other",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:109",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3766",
+      "name": "NAV|S11-02-guide-handoff|S11-02-guide-handoff",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:142",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3768",
+      "name": "NAV|S11-01-active|S11-01-active",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:175",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3770",
+      "name": "NAV|S11-01-scheduled|S11-01-scheduled",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:210",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3772",
+      "name": "NAV|S11-03-pending|S11-03-pending",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:239",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3775",
+      "name": "NAV|S11-03-finished|S11-03-finished",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:272",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3777",
+      "name": "NAV|S11-01-next|S11-01-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:301",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3779",
+      "name": "NAV|S11-01-after-failure|S11-01-after-failure",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": true
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:332",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3781",
+      "name": "NAV|S11-01-loading|S11-01-loading",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:367",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3784",
+      "name": "NAV|S11-01-preview-loading|S11-01-preview-loading",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:390",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3786",
+      "name": "NAV|S11-01-empty|S11-01-empty",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:423",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3788",
+      "name": "NAV|S11-01-unavailable|S11-01-unavailable",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:446",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3790",
+      "name": "NAV|S11-01-auth|S11-01-auth",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:469",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3793",
+      "name": "NAV|S11-01-forbidden|S11-01-forbidden",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:494",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3795",
+      "name": "NAV|S11-01-error|S11-01-error",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:519",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3797",
+      "name": "NAV|S11-01-offline|S11-01-offline",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:544",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3799",
+      "name": "NAV|S11-02-stale|S11-02-stale",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:569",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3802",
+      "name": "NAV|S11-01-conflict|S11-01-conflict",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:594",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3804",
+      "name": "NAV|S11-01-no-suggestion|S11-01-no-suggestion",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:621",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3806",
+      "name": "NAV|S11-02-no-guide|S11-02-no-guide",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:654",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3808",
+      "name": "NAV|S11-01-previews-unavailable|S11-01-previews-unavailable",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "4:687",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3812",
+      "name": "NAV|S12-01|S12-01",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:452",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3814",
+      "name": "NAV|S12-01-starting|S12-01-starting",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:485",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3816",
+      "name": "NAV|S12-02-started|S12-02-started",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:512",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3818",
+      "name": "NAV|S12-02-arriving|S12-02-arriving",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:541",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3821",
+      "name": "NAV|S12-03-arrived|S12-03-arrived",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:568",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3823",
+      "name": "NAV|S12-04-success|S12-04-success",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:597",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3825",
+      "name": "NAV|S12-04-uploading|S12-04-uploading",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:626",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3827",
+      "name": "NAV|S12-04-ready|S12-04-ready",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:653",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3830",
+      "name": "NAV|S12-04-saving|S12-04-saving",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:693",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3832",
+      "name": "NAV|S12-05-success|S12-05-success",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:720",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3834",
+      "name": "NAV|S12-05-replayed|S12-05-replayed",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:755",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3836",
+      "name": "NAV|S12-06-failure|S12-06-failure",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:784",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3839",
+      "name": "NAV|S12-06-invalid|S12-06-invalid",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:821",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3841",
+      "name": "NAV|S12-04-invalid|S12-04-invalid",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:858",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3843",
+      "name": "NAV|S12-06-saving|S12-06-saving",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:895",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3845",
+      "name": "NAV|S12-07-failed|S12-07-failed",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:922",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3848",
+      "name": "NAV|S12-04-photo-invalid|S12-04-photo-invalid",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:955",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3850",
+      "name": "NAV|S12-04-upload-error|S12-04-upload-error",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:980",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3852",
+      "name": "NAV|S12-01-resume|S12-01-resume",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1007",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3854",
+      "name": "NAV|S12-01-leave|S12-01-leave",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1034",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3857",
+      "name": "NAV|S12-08-conflict|S12-08-conflict",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1061",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3859",
+      "name": "NAV|S12-08-unconfirmed|S12-08-unconfirmed",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1088",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3861",
+      "name": "NAV|S12-08-error|S12-08-error",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1115",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3863",
+      "name": "NAV|S12-01-retry-blocked|S12-01-retry-blocked",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1142",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3866",
+      "name": "NAV|S12-01-next|S12-01-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1167",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3868",
+      "name": "NAV|S12-02-next|S12-02-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1198",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3870",
+      "name": "NAV|S12-03-next|S12-03-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1227",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3872",
+      "name": "NAV|S12-06-next|S12-06-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1254",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3875",
+      "name": "NAV|S12-07-next|S12-07-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1291",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3879",
+      "name": "NAV|S13-01|S13-01",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3881",
+      "name": "NAV|S13-02|S13-02",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1404",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3883",
+      "name": "NAV|S13-03|S13-03",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1484",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3885",
+      "name": "NAV|S13-04-retry|S13-04-retry",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1535",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3888",
+      "name": "NAV|S13-04-saving|S13-04-saving",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1586",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3890",
+      "name": "NAV|S13-05-retry-authorized|S13-05-retry-authorized",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1629",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3892",
+      "name": "NAV|S13-05-planning|S13-05-planning",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1682",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3894",
+      "name": "NAV|S13-05-awaiting-planning|S13-05-awaiting-planning",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1740",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3897",
+      "name": "NAV|S13-06-terminal|S13-06-terminal",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1793",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3899",
+      "name": "NAV|S13-06-saving|S13-06-saving",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1848",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3901",
+      "name": "NAV|S13-07-terminal-saved|S13-07-terminal-saved",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1891",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3903",
+      "name": "NAV|S13-06-invalid|S13-06-invalid",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1944",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3906",
+      "name": "NAV|S13-01-loading|S13-01-loading",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1995",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3908",
+      "name": "NAV|S13-01-empty|S13-01-empty",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2036",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3910",
+      "name": "NAV|S13-03-empty|S13-03-empty",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2079",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3912",
+      "name": "NAV|S13-03-waiting|S13-03-waiting",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2124",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3915",
+      "name": "NAV|S13-03-limit|S13-03-limit",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2169",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3917",
+      "name": "NAV|S13-02-readonly|S13-02-readonly",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2214",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3919",
+      "name": "NAV|S13-08-conflict|S13-08-conflict",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2259",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3921",
+      "name": "NAV|S13-01-error|S13-01-error",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2304",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3924",
+      "name": "NAV|S13-01-stale|S13-01-stale",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2347",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3926",
+      "name": "NAV|S13-08-unconfirmed|S13-08-unconfirmed",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2390",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3928",
+      "name": "NAV|S13-01-auth|S13-01-auth",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2435",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3930",
+      "name": "NAV|S13-01-forbidden|S13-01-forbidden",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2478",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3933",
+      "name": "NAV|S13-01-unavailable|S13-01-unavailable",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2521",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3935",
+      "name": "NAV|S13-02-quality|S13-02-quality",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2564",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3939",
+      "name": "NAV|S19-01|S19-01",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3941",
+      "name": "NAV|S19-01-historical|S19-01-historical",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2669",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3943",
+      "name": "NAV|S19-01-loading|S19-01-loading",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2719",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3945",
+      "name": "NAV|S19-02|S19-02",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3948",
+      "name": "NAV|S19-02-today|S19-02-today",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2839",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3950",
+      "name": "NAV|S19-03|S19-03",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2904",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3952",
+      "name": "NAV|S19-04|S19-04",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:2992",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3954",
+      "name": "NAV|S19-04-outside-scope|S19-04-outside-scope",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3084",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3957",
+      "name": "NAV|S19-01-invalid|S19-01-invalid",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3149",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3959",
+      "name": "NAV|S19-02-empty|S19-02-empty",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3206",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3961",
+      "name": "NAV|S19-02-partial|S19-02-partial",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3261",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3963",
+      "name": "NAV|S19-02-quality|S19-02-quality",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3322",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3966",
+      "name": "NAV|S19-04-quality|S19-04-quality",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3389",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3968",
+      "name": "NAV|S19-01-error|S19-01-error",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3479",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3970",
+      "name": "NAV|S19-02-stale|S19-02-stale",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3525",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3972",
+      "name": "NAV|S19-02-definitions-orders|S19-02-definitions-orders",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3588",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "5:3975",
+      "name": "NAV|S19-02-definitions-attempts|S19-02-definitions-attempts",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:3656",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "11:3143",
+      "name": "NAV|S19-04-today|S19-04-today",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "9:2703",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "11:3145",
+      "name": "NAV|S12-07-next-after-failure|S12-07-next-after-failure",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": true
+        },
+        {
+          "type": "NODE",
+          "destinationId": "10:2740",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "11:3147",
+      "name": "NAV|S11-03-pending-two|S11-03-pending-two",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": false
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": true
+        },
+        {
+          "type": "NODE",
+          "destinationId": "10:2773",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "17:2942",
+      "name": "NAV|S12-07-selected-first|S12-07-selected-first",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": true
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "16:2785",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "node_id": "17:2944",
+      "name": "NAV|S11-01-selected-next|S11-01-selected-next",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": true
+        },
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:11:3141",
+          "value": false
+        },
+        {
+          "type": "NODE",
+          "destinationId": "16:2818",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    }
+  ]
+}

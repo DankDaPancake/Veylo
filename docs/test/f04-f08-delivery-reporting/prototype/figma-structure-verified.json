@@ -1,0 +1,2233 @@
+{
+  "screens": [
+    {
+      "screen_id": "S11-01",
+      "id": "4:2",
+      "width": 360,
+      "height": 800,
+      "descendants": 36,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 16
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 549,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 24
+    },
+    {
+      "screen_id": "S11-02",
+      "id": "4:39",
+      "width": 360,
+      "height": 800,
+      "descendants": 36,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 16
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 566,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 24
+    },
+    {
+      "screen_id": "S11-01-explanation",
+      "id": "4:76",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 433,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-02-other",
+      "id": "4:109",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 385,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-02-guide-handoff",
+      "id": "4:142",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 438,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-01-active",
+      "id": "4:175",
+      "width": 360,
+      "height": 800,
+      "descendants": 34,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 438,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S11-01-scheduled",
+      "id": "4:210",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S11-03-pending",
+      "id": "4:239",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 454,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-03-finished",
+      "id": "4:272",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 321,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S11-01-next",
+      "id": "4:301",
+      "width": 360,
+      "height": 800,
+      "descendants": 30,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 12
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 401,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 18
+    },
+    {
+      "screen_id": "S11-01-after-failure",
+      "id": "4:332",
+      "width": 360,
+      "height": 800,
+      "descendants": 34,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 454,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S11-01-loading",
+      "id": "4:367",
+      "width": 360,
+      "height": 800,
+      "descendants": 22,
+      "types": {
+        "INSTANCE": 3,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 6
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 135,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 10
+    },
+    {
+      "screen_id": "S11-01-preview-loading",
+      "id": "4:390",
+      "width": 360,
+      "height": 800,
+      "descendants": 30,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 12
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 401,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 18
+    },
+    {
+      "screen_id": "S11-01-empty",
+      "id": "4:423",
+      "width": 360,
+      "height": 800,
+      "descendants": 22,
+      "types": {
+        "INSTANCE": 3,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 6
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 135,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 10
+    },
+    {
+      "screen_id": "S11-01-unavailable",
+      "id": "4:446",
+      "width": 360,
+      "height": 800,
+      "descendants": 22,
+      "types": {
+        "INSTANCE": 3,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 6
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 150,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 10
+    },
+    {
+      "screen_id": "S11-01-auth",
+      "id": "4:469",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S11-01-forbidden",
+      "id": "4:494",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S11-01-error",
+      "id": "4:519",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 172,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S11-01-offline",
+      "id": "4:544",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S11-02-stale",
+      "id": "4:569",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S11-01-conflict",
+      "id": "4:594",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 202,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S11-01-no-suggestion",
+      "id": "4:621",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 401,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-02-no-guide",
+      "id": "4:654",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 401,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-01-previews-unavailable",
+      "id": "4:687",
+      "width": 360,
+      "height": 800,
+      "descendants": 34,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 453,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-01",
+      "id": "5:452",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 401,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S12-01-starting",
+      "id": "5:485",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 9
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 283,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-02-started",
+      "id": "5:512",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S12-02-arriving",
+      "id": "5:541",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 9
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 252,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-03-arrived",
+      "id": "5:568",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S12-04-success",
+      "id": "5:597",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S12-04-uploading",
+      "id": "5:626",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 9
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-04-ready",
+      "id": "5:653",
+      "width": 360,
+      "height": 800,
+      "descendants": 39,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 4,
+        "VECTOR": 14,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 463,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-04-saving",
+      "id": "5:693",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 9
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-05-success",
+      "id": "5:720",
+      "width": 360,
+      "height": 800,
+      "descendants": 34,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 422,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-05-replayed",
+      "id": "5:755",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 305,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S12-06-failure",
+      "id": "5:784",
+      "width": 360,
+      "height": 800,
+      "descendants": 36,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 382,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-06-invalid",
+      "id": "5:821",
+      "width": 360,
+      "height": 800,
+      "descendants": 36,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 364,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-04-invalid",
+      "id": "5:858",
+      "width": 360,
+      "height": 800,
+      "descendants": 36,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 364,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-06-saving",
+      "id": "5:895",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 9
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 291,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-07-failed",
+      "id": "5:922",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 438,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S12-04-photo-invalid",
+      "id": "5:955",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S12-04-upload-error",
+      "id": "5:980",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-01-resume",
+      "id": "5:1007",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-01-leave",
+      "id": "5:1034",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 202,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-08-conflict",
+      "id": "5:1061",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-08-unconfirmed",
+      "id": "5:1088",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-08-error",
+      "id": "5:1115",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 8
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 187,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-01-retry-blocked",
+      "id": "5:1142",
+      "width": 360,
+      "height": 800,
+      "descendants": 24,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 7
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 202,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 12
+    },
+    {
+      "screen_id": "S12-01-next",
+      "id": "5:1167",
+      "width": 360,
+      "height": 800,
+      "descendants": 30,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 12
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 417,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 18
+    },
+    {
+      "screen_id": "S12-02-next",
+      "id": "5:1198",
+      "width": 360,
+      "height": 800,
+      "descendants": 28,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 10
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 16
+    },
+    {
+      "screen_id": "S12-03-next",
+      "id": "5:1227",
+      "width": 360,
+      "height": 800,
+      "descendants": 26,
+      "types": {
+        "INSTANCE": 4,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 9
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 268,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 14
+    },
+    {
+      "screen_id": "S12-06-next",
+      "id": "5:1254",
+      "width": 360,
+      "height": 800,
+      "descendants": 36,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 10,
+        "TEXT": 14
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 382,
+      "bottomLimit": 652,
+      "textOutside": [],
+      "boundNodes": 22
+    },
+    {
+      "screen_id": "S12-07-next",
+      "id": "5:1291",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 454,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S13-01",
+      "id": "5:1324",
+      "width": 1440,
+      "height": 900,
+      "descendants": 79,
+      "types": {
+        "INSTANCE": 13,
+        "FRAME": 6,
+        "VECTOR": 13,
+        "TEXT": 47
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 721,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 59
+    },
+    {
+      "screen_id": "S13-02",
+      "id": "5:1404",
+      "width": 1440,
+      "height": 900,
+      "descendants": 79,
+      "types": {
+        "INSTANCE": 13,
+        "FRAME": 6,
+        "VECTOR": 13,
+        "TEXT": 47
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 737,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 59
+    },
+    {
+      "screen_id": "S13-03",
+      "id": "5:1484",
+      "width": 1440,
+      "height": 900,
+      "descendants": 50,
+      "types": {
+        "INSTANCE": 9,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 23
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 443,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 31
+    },
+    {
+      "screen_id": "S13-04-retry",
+      "id": "5:1535",
+      "width": 1440,
+      "height": 900,
+      "descendants": 50,
+      "types": {
+        "INSTANCE": 9,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 23
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 443,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 31
+    },
+    {
+      "screen_id": "S13-04-saving",
+      "id": "5:1586",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 374,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-05-retry-authorized",
+      "id": "5:1629",
+      "width": 1440,
+      "height": 900,
+      "descendants": 52,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 24
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 484,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 33
+    },
+    {
+      "screen_id": "S13-05-planning",
+      "id": "5:1682",
+      "width": 1440,
+      "height": 900,
+      "descendants": 57,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 8,
+        "VECTOR": 13,
+        "TEXT": 26
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 522,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 35
+    },
+    {
+      "screen_id": "S13-05-awaiting-planning",
+      "id": "5:1740",
+      "width": 1440,
+      "height": 900,
+      "descendants": 52,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 24
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 484,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 33
+    },
+    {
+      "screen_id": "S13-06-terminal",
+      "id": "5:1793",
+      "width": 1440,
+      "height": 900,
+      "descendants": 54,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 7,
+        "VECTOR": 13,
+        "TEXT": 24
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 463,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 33
+    },
+    {
+      "screen_id": "S13-06-saving",
+      "id": "5:1848",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 374,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-07-terminal-saved",
+      "id": "5:1891",
+      "width": 1440,
+      "height": 900,
+      "descendants": 52,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 24
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 484,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 33
+    },
+    {
+      "screen_id": "S13-06-invalid",
+      "id": "5:1944",
+      "width": 1440,
+      "height": 900,
+      "descendants": 50,
+      "types": {
+        "INSTANCE": 9,
+        "FRAME": 7,
+        "VECTOR": 13,
+        "TEXT": 21
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 342,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 29
+    },
+    {
+      "screen_id": "S13-01-loading",
+      "id": "5:1995",
+      "width": 1440,
+      "height": 900,
+      "descendants": 40,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 16
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 294,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 21
+    },
+    {
+      "screen_id": "S13-01-empty",
+      "id": "5:2036",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 17
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-03-empty",
+      "id": "5:2079",
+      "width": 1440,
+      "height": 900,
+      "descendants": 44,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S13-03-waiting",
+      "id": "5:2124",
+      "width": 1440,
+      "height": 900,
+      "descendants": 44,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S13-03-limit",
+      "id": "5:2169",
+      "width": 1440,
+      "height": 900,
+      "descendants": 48,
+      "types": {
+        "INSTANCE": 9,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 21
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 411,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 29
+    },
+    {
+      "screen_id": "S13-02-readonly",
+      "id": "5:2214",
+      "width": 1440,
+      "height": 900,
+      "descendants": 44,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S13-08-conflict",
+      "id": "5:2259",
+      "width": 1440,
+      "height": 900,
+      "descendants": 44,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S13-01-error",
+      "id": "5:2304",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 17
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-01-stale",
+      "id": "5:2347",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 17
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-08-unconfirmed",
+      "id": "5:2390",
+      "width": 1440,
+      "height": 900,
+      "descendants": 44,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S13-01-auth",
+      "id": "5:2435",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 17
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-01-forbidden",
+      "id": "5:2478",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 17
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-01-unavailable",
+      "id": "5:2521",
+      "width": 1440,
+      "height": 900,
+      "descendants": 42,
+      "types": {
+        "INSTANCE": 7,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 17
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 23
+    },
+    {
+      "screen_id": "S13-02-quality",
+      "id": "5:2564",
+      "width": 1440,
+      "height": 900,
+      "descendants": 44,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 13,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S19-01",
+      "id": "5:2609",
+      "width": 1440,
+      "height": 900,
+      "descendants": 59,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 9,
+        "VECTOR": 14,
+        "TEXT": 26
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 301,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 35
+    },
+    {
+      "screen_id": "S19-01-historical",
+      "id": "5:2669",
+      "width": 1440,
+      "height": 900,
+      "descendants": 49,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 7,
+        "VECTOR": 14,
+        "TEXT": 20
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 301,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 27
+    },
+    {
+      "screen_id": "S19-01-loading",
+      "id": "5:2719",
+      "width": 1440,
+      "height": 900,
+      "descendants": 39,
+      "types": {
+        "INSTANCE": 5,
+        "FRAME": 5,
+        "VECTOR": 14,
+        "TEXT": 15
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 253,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 19
+    },
+    {
+      "screen_id": "S19-02",
+      "id": "5:2759",
+      "width": 1440,
+      "height": 900,
+      "descendants": 79,
+      "types": {
+        "INSTANCE": 16,
+        "FRAME": 7,
+        "VECTOR": 14,
+        "TEXT": 42
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 745,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 57
+    },
+    {
+      "screen_id": "S19-02-today",
+      "id": "5:2839",
+      "width": 1440,
+      "height": 900,
+      "descendants": 79,
+      "types": {
+        "INSTANCE": 16,
+        "FRAME": 7,
+        "VECTOR": 14,
+        "TEXT": 42
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 711,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 57
+    },
+    {
+      "screen_id": "S19-03",
+      "id": "5:2904",
+      "width": 1440,
+      "height": 900,
+      "descendants": 87,
+      "types": {
+        "INSTANCE": 14,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 53
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 819,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 66
+    },
+    {
+      "screen_id": "S19-04",
+      "id": "5:2992",
+      "width": 1440,
+      "height": 900,
+      "descendants": 91,
+      "types": {
+        "INSTANCE": 15,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 56
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 836,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 70
+    },
+    {
+      "screen_id": "S19-04-outside-scope",
+      "id": "5:3084",
+      "width": 1440,
+      "height": 900,
+      "descendants": 64,
+      "types": {
+        "INSTANCE": 12,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 32
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 561,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 43
+    },
+    {
+      "screen_id": "S19-01-invalid",
+      "id": "5:3149",
+      "width": 1440,
+      "height": 900,
+      "descendants": 56,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 8,
+        "VECTOR": 14,
+        "TEXT": 24
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 442,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 33
+    },
+    {
+      "screen_id": "S19-02-empty",
+      "id": "5:3206",
+      "width": 1440,
+      "height": 900,
+      "descendants": 54,
+      "types": {
+        "INSTANCE": 9,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 25
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 319,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 33
+    },
+    {
+      "screen_id": "S19-02-partial",
+      "id": "5:3261",
+      "width": 1440,
+      "height": 900,
+      "descendants": 60,
+      "types": {
+        "INSTANCE": 11,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 29
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 456,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 39
+    },
+    {
+      "screen_id": "S19-02-quality",
+      "id": "5:3322",
+      "width": 1440,
+      "height": 900,
+      "descendants": 66,
+      "types": {
+        "INSTANCE": 13,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 33
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 602,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 45
+    },
+    {
+      "screen_id": "S19-04-quality",
+      "id": "5:3389",
+      "width": 1440,
+      "height": 900,
+      "descendants": 89,
+      "types": {
+        "INSTANCE": 14,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 55
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 820,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 68
+    },
+    {
+      "screen_id": "S19-01-error",
+      "id": "5:3479",
+      "width": 1440,
+      "height": 900,
+      "descendants": 45,
+      "types": {
+        "INSTANCE": 8,
+        "FRAME": 5,
+        "VECTOR": 14,
+        "TEXT": 18
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 242,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 25
+    },
+    {
+      "screen_id": "S19-02-stale",
+      "id": "5:3525",
+      "width": 1440,
+      "height": 900,
+      "descendants": 62,
+      "types": {
+        "INSTANCE": 12,
+        "FRAME": 6,
+        "VECTOR": 14,
+        "TEXT": 30
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 499,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 41
+    },
+    {
+      "screen_id": "S19-02-definitions-orders",
+      "id": "5:3588",
+      "width": 1440,
+      "height": 900,
+      "descendants": 67,
+      "types": {
+        "INSTANCE": 13,
+        "FRAME": 5,
+        "VECTOR": 14,
+        "TEXT": 35
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 771,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 47
+    },
+    {
+      "screen_id": "S19-02-definitions-attempts",
+      "id": "5:3656",
+      "width": 1440,
+      "height": 900,
+      "descendants": 67,
+      "types": {
+        "INSTANCE": 13,
+        "FRAME": 5,
+        "VECTOR": 14,
+        "TEXT": 35
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 771,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 47
+    },
+    {
+      "screen_id": "B14-INDEX",
+      "id": "5:3724",
+      "width": 1440,
+      "height": 2300,
+      "descendants": 265,
+      "types": {
+        "INSTANCE": 106,
+        "FRAME": 32,
+        "VECTOR": 15,
+        "TEXT": 112
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 2064,
+      "bottomLimit": 2276,
+      "textOutside": [],
+      "boundNodes": 217
+    },
+    {
+      "screen_id": "S11-01-refresh",
+      "id": "8:2818",
+      "width": 320,
+      "height": 200,
+      "descendants": 2,
+      "types": {
+        "TEXT": 2
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 0,
+      "bottomLimit": 176,
+      "textOutside": [],
+      "boundNodes": 2
+    },
+    {
+      "screen_id": "S19-04-today",
+      "id": "9:2703",
+      "width": 1440,
+      "height": 900,
+      "descendants": 55,
+      "types": {
+        "INSTANCE": 10,
+        "FRAME": 5,
+        "VECTOR": 14,
+        "TEXT": 26
+      },
+      "fonts": [
+        "Plus Jakarta Sans"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 564,
+      "bottomLimit": 860,
+      "textOutside": [],
+      "boundNodes": 35
+    },
+    {
+      "screen_id": "S12-07-next-after-failure",
+      "id": "10:2740",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 454,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-03-pending-two",
+      "id": "10:2773",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 454,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S12-07-selected-first",
+      "id": "16:2785",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 484,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    },
+    {
+      "screen_id": "S11-01-selected-next",
+      "id": "16:2818",
+      "width": 360,
+      "height": 800,
+      "descendants": 32,
+      "types": {
+        "INSTANCE": 6,
+        "FRAME": 3,
+        "VECTOR": 10,
+        "TEXT": 13
+      },
+      "fonts": [
+        "Plus Jakarta Sans",
+        "JetBrains Mono"
+      ],
+      "imageFilled": [],
+      "bodyBottom": 438,
+      "bottomLimit": 708,
+      "textOutside": [],
+      "boundNodes": 20
+    }
+  ],
+  "originalPage": {
+    "id": "0:1",
+    "name": "Page 1",
+    "children": 0
+  }
+}

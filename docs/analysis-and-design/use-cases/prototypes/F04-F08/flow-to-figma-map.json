@@ -1,0 +1,1451 @@
+[
+  {
+    "uc": "UC11",
+    "flow": "B1",
+    "screen_ids": [
+      "S11-01-loading"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-loading",
+        "node_id": "4:367",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-367"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "B2",
+    "screen_ids": [
+      "S11-01"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01",
+        "node_id": "4:2",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-2"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "B3",
+    "screen_ids": [
+      "S11-01",
+      "S11-01-preview-loading"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01",
+        "node_id": "4:2",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-2"
+      },
+      {
+        "screen_id": "S11-01-preview-loading",
+        "node_id": "4:390",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-390"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "B4",
+    "screen_ids": [
+      "S11-02"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-02",
+        "node_id": "4:39",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-39"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "B5",
+    "screen_ids": [
+      "S11-02"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-02",
+        "node_id": "4:39",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-39"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "B6",
+    "screen_ids": [
+      "S11-01"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01",
+        "node_id": "4:2",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-2"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "B7",
+    "screen_ids": [
+      "S11-01-active",
+      "S11-01-scheduled",
+      "S11-03-finished",
+      "S11-03-pending"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-active",
+        "node_id": "4:175",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-175"
+      },
+      {
+        "screen_id": "S11-01-scheduled",
+        "node_id": "4:210",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-210"
+      },
+      {
+        "screen_id": "S11-03-finished",
+        "node_id": "4:272",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-272"
+      },
+      {
+        "screen_id": "S11-03-pending",
+        "node_id": "4:239",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-239"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A1",
+    "screen_ids": [
+      "S11-01-empty"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-empty",
+        "node_id": "4:423",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-423"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A2",
+    "screen_ids": [
+      "S11-01-unavailable"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-unavailable",
+        "node_id": "4:446",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-446"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A3",
+    "screen_ids": [
+      "S11-01-no-suggestion",
+      "S11-01-previews-unavailable",
+      "S11-02-no-guide"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-no-suggestion",
+        "node_id": "4:621",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-621"
+      },
+      {
+        "screen_id": "S11-01-previews-unavailable",
+        "node_id": "4:687",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-687"
+      },
+      {
+        "screen_id": "S11-02-no-guide",
+        "node_id": "4:654",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-654"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A4",
+    "screen_ids": [
+      "S11-01"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01",
+        "node_id": "4:2",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-2"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A5",
+    "screen_ids": [
+      "S11-02"
+    ],
+    "status": "local prototype evidence available; actual UC15 integration pending",
+    "figma": [
+      {
+        "screen_id": "S11-02",
+        "node_id": "4:39",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-39"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A6",
+    "screen_ids": [
+      "S11-02-stale"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-02-stale",
+        "node_id": "4:569",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-569"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A7",
+    "screen_ids": [
+      "S11-01-auth",
+      "S11-01-forbidden",
+      "S11-01-unavailable"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-auth",
+        "node_id": "4:469",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-469"
+      },
+      {
+        "screen_id": "S11-01-forbidden",
+        "node_id": "4:494",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-494"
+      },
+      {
+        "screen_id": "S11-01-unavailable",
+        "node_id": "4:446",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-446"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A8",
+    "screen_ids": [
+      "S11-01-error",
+      "S11-01-offline"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-error",
+        "node_id": "4:519",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-519"
+      },
+      {
+        "screen_id": "S11-01-offline",
+        "node_id": "4:544",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-544"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A9",
+    "screen_ids": [
+      "S11-01-active",
+      "S11-01-scheduled",
+      "S11-03-finished",
+      "S11-03-pending"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-active",
+        "node_id": "4:175",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-175"
+      },
+      {
+        "screen_id": "S11-01-scheduled",
+        "node_id": "4:210",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-210"
+      },
+      {
+        "screen_id": "S11-03-finished",
+        "node_id": "4:272",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-272"
+      },
+      {
+        "screen_id": "S11-03-pending",
+        "node_id": "4:239",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-239"
+      }
+    ]
+  },
+  {
+    "uc": "UC11",
+    "flow": "A10",
+    "screen_ids": [
+      "S11-01-active",
+      "S11-01-conflict"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-active",
+        "node_id": "4:175",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-175"
+      },
+      {
+        "screen_id": "S11-01-conflict",
+        "node_id": "4:594",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-594"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B1",
+    "screen_ids": [
+      "S12-01"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-01",
+        "node_id": "5:452",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-452"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B2",
+    "screen_ids": [
+      "S12-01-starting",
+      "S12-02-started"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-01-starting",
+        "node_id": "5:485",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-485"
+      },
+      {
+        "screen_id": "S12-02-started",
+        "node_id": "5:512",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-512"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B3",
+    "screen_ids": [
+      "S12-02-arriving",
+      "S12-03-arrived"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-02-arriving",
+        "node_id": "5:541",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-541"
+      },
+      {
+        "screen_id": "S12-03-arrived",
+        "node_id": "5:568",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-568"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B4",
+    "screen_ids": [
+      "S12-04-success"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-success",
+        "node_id": "5:597",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-597"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B5",
+    "screen_ids": [
+      "S12-04-ready",
+      "S12-04-uploading"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-ready",
+        "node_id": "5:653",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-653"
+      },
+      {
+        "screen_id": "S12-04-uploading",
+        "node_id": "5:626",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-626"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B6",
+    "screen_ids": [
+      "S12-04-saving"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-saving",
+        "node_id": "5:693",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-693"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B7",
+    "screen_ids": [
+      "S12-05-success"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-05-success",
+        "node_id": "5:720",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-720"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "B8",
+    "screen_ids": [
+      "S11-01",
+      "S11-03-finished",
+      "S11-03-pending"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01",
+        "node_id": "4:2",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-2"
+      },
+      {
+        "screen_id": "S11-03-finished",
+        "node_id": "4:272",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-272"
+      },
+      {
+        "screen_id": "S11-03-pending",
+        "node_id": "4:239",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-239"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A1",
+    "screen_ids": [
+      "S11-01-active",
+      "S12-01-resume"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-active",
+        "node_id": "4:175",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-175"
+      },
+      {
+        "screen_id": "S12-01-resume",
+        "node_id": "5:1007",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1007"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A2",
+    "screen_ids": [
+      "S12-06-failure",
+      "S12-06-saving",
+      "S12-07-failed"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-06-failure",
+        "node_id": "5:784",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-784"
+      },
+      {
+        "screen_id": "S12-06-saving",
+        "node_id": "5:895",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-895"
+      },
+      {
+        "screen_id": "S12-07-failed",
+        "node_id": "5:922",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-922"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A3",
+    "screen_ids": [
+      "S12-04-invalid",
+      "S12-06-invalid"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-invalid",
+        "node_id": "5:858",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-858"
+      },
+      {
+        "screen_id": "S12-06-invalid",
+        "node_id": "5:821",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-821"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A4",
+    "screen_ids": [
+      "S12-04-photo-invalid"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-photo-invalid",
+        "node_id": "5:955",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-955"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A5",
+    "screen_ids": [
+      "S12-04-upload-error"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-upload-error",
+        "node_id": "5:980",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-980"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A6",
+    "screen_ids": [
+      "S12-01-starting",
+      "S12-02-arriving",
+      "S12-04-saving",
+      "S12-05-replayed",
+      "S12-08-conflict"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-01-starting",
+        "node_id": "5:485",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-485"
+      },
+      {
+        "screen_id": "S12-02-arriving",
+        "node_id": "5:541",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-541"
+      },
+      {
+        "screen_id": "S12-04-saving",
+        "node_id": "5:693",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-693"
+      },
+      {
+        "screen_id": "S12-05-replayed",
+        "node_id": "5:755",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-755"
+      },
+      {
+        "screen_id": "S12-08-conflict",
+        "node_id": "5:1061",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1061"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A7",
+    "screen_ids": [
+      "S12-08-error",
+      "S12-08-unconfirmed"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-08-error",
+        "node_id": "5:1115",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1115"
+      },
+      {
+        "screen_id": "S12-08-unconfirmed",
+        "node_id": "5:1088",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1088"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A8",
+    "screen_ids": [
+      "S11-01-active",
+      "S12-01-leave",
+      "S12-01-resume"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-active",
+        "node_id": "4:175",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-175"
+      },
+      {
+        "screen_id": "S12-01-leave",
+        "node_id": "5:1034",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1034"
+      },
+      {
+        "screen_id": "S12-01-resume",
+        "node_id": "5:1007",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1007"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A9",
+    "screen_ids": [
+      "S11-01-scheduled",
+      "S11-02-stale",
+      "S12-08-conflict"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-scheduled",
+        "node_id": "4:210",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-210"
+      },
+      {
+        "screen_id": "S11-02-stale",
+        "node_id": "4:569",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-569"
+      },
+      {
+        "screen_id": "S12-08-conflict",
+        "node_id": "5:1061",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1061"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A10",
+    "screen_ids": [
+      "S11-01-auth",
+      "S11-01-forbidden",
+      "S11-01-unavailable"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-01-auth",
+        "node_id": "4:469",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-469"
+      },
+      {
+        "screen_id": "S11-01-forbidden",
+        "node_id": "4:494",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-494"
+      },
+      {
+        "screen_id": "S11-01-unavailable",
+        "node_id": "4:446",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-446"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A11",
+    "screen_ids": [
+      "S12-04-invalid",
+      "S12-05-success",
+      "S12-07-failed",
+      "S12-08-conflict"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-invalid",
+        "node_id": "5:858",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-858"
+      },
+      {
+        "screen_id": "S12-05-success",
+        "node_id": "5:720",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-720"
+      },
+      {
+        "screen_id": "S12-07-failed",
+        "node_id": "5:922",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-922"
+      },
+      {
+        "screen_id": "S12-08-conflict",
+        "node_id": "5:1061",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1061"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A12",
+    "screen_ids": [
+      "S11-03-pending",
+      "S12-01-retry-blocked"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S11-03-pending",
+        "node_id": "4:239",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=4-239"
+      },
+      {
+        "screen_id": "S12-01-retry-blocked",
+        "node_id": "5:1142",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1142"
+      }
+    ]
+  },
+  {
+    "uc": "UC12",
+    "flow": "A13",
+    "screen_ids": [
+      "S12-04-success",
+      "S12-06-failure",
+      "S12-08-unconfirmed"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S12-04-success",
+        "node_id": "5:597",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-597"
+      },
+      {
+        "screen_id": "S12-06-failure",
+        "node_id": "5:784",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-784"
+      },
+      {
+        "screen_id": "S12-08-unconfirmed",
+        "node_id": "5:1088",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1088"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B1",
+    "screen_ids": [
+      "S13-01",
+      "S13-01-loading"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-01",
+        "node_id": "5:1324",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1324"
+      },
+      {
+        "screen_id": "S13-01-loading",
+        "node_id": "5:1995",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1995"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B2",
+    "screen_ids": [
+      "S13-02"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-02",
+        "node_id": "5:1404",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1404"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B3",
+    "screen_ids": [
+      "S13-03"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-03",
+        "node_id": "5:1484",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1484"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B4",
+    "screen_ids": [
+      "S13-04-retry"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-04-retry",
+        "node_id": "5:1535",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1535"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B5",
+    "screen_ids": [
+      "S13-04-saving"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-04-saving",
+        "node_id": "5:1586",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1586"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B6",
+    "screen_ids": [
+      "S13-05-retry-authorized"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-05-retry-authorized",
+        "node_id": "5:1629",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1629"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "B7",
+    "screen_ids": [
+      "S13-01",
+      "S13-05-retry-authorized"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-01",
+        "node_id": "5:1324",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1324"
+      },
+      {
+        "screen_id": "S13-05-retry-authorized",
+        "node_id": "5:1629",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1629"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A1",
+    "screen_ids": [
+      "S13-01-empty",
+      "S13-03-empty"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-01-empty",
+        "node_id": "5:2036",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2036"
+      },
+      {
+        "screen_id": "S13-03-empty",
+        "node_id": "5:2079",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2079"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A2",
+    "screen_ids": [
+      "S13-03-waiting"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-03-waiting",
+        "node_id": "5:2124",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2124"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A3",
+    "screen_ids": [
+      "S13-03-limit"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-03-limit",
+        "node_id": "5:2169",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2169"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A4",
+    "screen_ids": [
+      "S13-06-saving",
+      "S13-06-terminal",
+      "S13-07-terminal-saved"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-06-saving",
+        "node_id": "5:1848",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1848"
+      },
+      {
+        "screen_id": "S13-06-terminal",
+        "node_id": "5:1793",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1793"
+      },
+      {
+        "screen_id": "S13-07-terminal-saved",
+        "node_id": "5:1891",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1891"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A5",
+    "screen_ids": [
+      "S13-06-invalid"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-06-invalid",
+        "node_id": "5:1944",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1944"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A6",
+    "screen_ids": [
+      "S13-04-retry",
+      "S13-06-terminal",
+      "S13-08-unconfirmed"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-04-retry",
+        "node_id": "5:1535",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1535"
+      },
+      {
+        "screen_id": "S13-06-terminal",
+        "node_id": "5:1793",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1793"
+      },
+      {
+        "screen_id": "S13-08-unconfirmed",
+        "node_id": "5:2390",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2390"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A7",
+    "screen_ids": [
+      "S13-02-readonly",
+      "S13-05-retry-authorized",
+      "S13-08-conflict"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-02-readonly",
+        "node_id": "5:2214",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2214"
+      },
+      {
+        "screen_id": "S13-05-retry-authorized",
+        "node_id": "5:1629",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1629"
+      },
+      {
+        "screen_id": "S13-08-conflict",
+        "node_id": "5:2259",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2259"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A8",
+    "screen_ids": [
+      "S13-05-retry-authorized",
+      "S13-07-terminal-saved",
+      "S13-08-conflict"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-05-retry-authorized",
+        "node_id": "5:1629",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1629"
+      },
+      {
+        "screen_id": "S13-07-terminal-saved",
+        "node_id": "5:1891",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1891"
+      },
+      {
+        "screen_id": "S13-08-conflict",
+        "node_id": "5:2259",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2259"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A9",
+    "screen_ids": [
+      "S13-05-awaiting-planning"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-05-awaiting-planning",
+        "node_id": "5:1740",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-1740"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A10",
+    "screen_ids": [
+      "S13-01-error",
+      "S13-01-stale",
+      "S13-08-unconfirmed"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-01-error",
+        "node_id": "5:2304",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2304"
+      },
+      {
+        "screen_id": "S13-01-stale",
+        "node_id": "5:2347",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2347"
+      },
+      {
+        "screen_id": "S13-08-unconfirmed",
+        "node_id": "5:2390",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2390"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A11",
+    "screen_ids": [
+      "S13-01-auth",
+      "S13-01-forbidden",
+      "S13-01-unavailable"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-01-auth",
+        "node_id": "5:2435",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2435"
+      },
+      {
+        "screen_id": "S13-01-forbidden",
+        "node_id": "5:2478",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2478"
+      },
+      {
+        "screen_id": "S13-01-unavailable",
+        "node_id": "5:2521",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2521"
+      }
+    ]
+  },
+  {
+    "uc": "UC13",
+    "flow": "A12",
+    "screen_ids": [
+      "S13-02-quality"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-02-quality",
+        "node_id": "5:2564",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2564"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "B1",
+    "screen_ids": [
+      "S19-01"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-01",
+        "node_id": "5:2609",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2609"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "B2",
+    "screen_ids": [
+      "S19-01"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-01",
+        "node_id": "5:2609",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2609"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "B3",
+    "screen_ids": [
+      "S19-01-loading"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-01-loading",
+        "node_id": "5:2719",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2719"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "B4",
+    "screen_ids": [
+      "S19-02"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-02",
+        "node_id": "5:2759",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2759"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "B5",
+    "screen_ids": [
+      "S19-03",
+      "S19-04"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-03",
+        "node_id": "5:2904",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2904"
+      },
+      {
+        "screen_id": "S19-04",
+        "node_id": "5:2992",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2992"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "B6",
+    "screen_ids": [
+      "S19-01",
+      "S19-02"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-01",
+        "node_id": "5:2609",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2609"
+      },
+      {
+        "screen_id": "S19-02",
+        "node_id": "5:2759",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2759"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A1",
+    "screen_ids": [
+      "S19-01-invalid",
+      "S19-02-empty"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-01-invalid",
+        "node_id": "5:3149",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3149"
+      },
+      {
+        "screen_id": "S19-02-empty",
+        "node_id": "5:3206",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3206"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A2",
+    "screen_ids": [
+      "S19-02-empty"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-02-empty",
+        "node_id": "5:3206",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3206"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A3",
+    "screen_ids": [
+      "S19-02-partial"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-02-partial",
+        "node_id": "5:3261",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3261"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A4",
+    "screen_ids": [
+      "S19-02-quality",
+      "S19-04"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-02-quality",
+        "node_id": "5:3322",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3322"
+      },
+      {
+        "screen_id": "S19-04",
+        "node_id": "5:2992",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2992"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A5",
+    "screen_ids": [
+      "S19-01-error",
+      "S19-02-stale"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-01-error",
+        "node_id": "5:3479",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3479"
+      },
+      {
+        "screen_id": "S19-02-stale",
+        "node_id": "5:3525",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3525"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A6",
+    "screen_ids": [
+      "S13-01-auth",
+      "S13-01-forbidden",
+      "S13-01-unavailable"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S13-01-auth",
+        "node_id": "5:2435",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2435"
+      },
+      {
+        "screen_id": "S13-01-forbidden",
+        "node_id": "5:2478",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2478"
+      },
+      {
+        "screen_id": "S13-01-unavailable",
+        "node_id": "5:2521",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2521"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A7",
+    "screen_ids": [
+      "S19-02",
+      "S19-02-stale",
+      "S19-03"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-02",
+        "node_id": "5:2759",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2759"
+      },
+      {
+        "screen_id": "S19-02-stale",
+        "node_id": "5:3525",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-3525"
+      },
+      {
+        "screen_id": "S19-03",
+        "node_id": "5:2904",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2904"
+      }
+    ]
+  },
+  {
+    "uc": "UC19",
+    "flow": "A8",
+    "screen_ids": [
+      "S19-03",
+      "S19-04"
+    ],
+    "status": "local UI states and reactions available",
+    "figma": [
+      {
+        "screen_id": "S19-03",
+        "node_id": "5:2904",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2904"
+      },
+      {
+        "screen_id": "S19-04",
+        "node_id": "5:2992",
+        "url": "https://www.figma.com/design/LBEaZQ3zEjnjBLhLoPb5pD/Veylo-%E2%80%93-BOOYAH-14-Prototypes?node-id=5-2992"
+      }
+    ]
+  }
+]

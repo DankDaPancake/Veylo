@@ -1,0 +1,36 @@
+{
+  "fixture_id": "PROPOSED-BOOYAH14-GUIDE-001",
+  "fixture_kind": "PROPOSED_SYNTHETIC_NOT_SHARED",
+  "provenance": "Created for BOOYAH-14 coordination; not an existing BOOYAH-15 fixture.",
+  "synthetic_only": true,
+  "hub": {
+    "fixture_id": "PROPOSED-BOOYAH14-HUB-Q1",
+    "name": "Hub Q1",
+    "operating_scope": "single demonstration hub"
+  },
+  "location": {
+    "fixture_id": "PROPOSED-BOOYAH14-LOCATION-001",
+    "name": "Demo Lotus Court (synthetic)",
+    "address": "12 Sample Street · Synthetic",
+    "order_code_context": "VL-0001"
+  },
+  "publication_status": "PUBLISHED",
+  "publication_note": "Simulated publication test state only; no real dispatcher approval, reviewer or publication history is claimed.",
+  "content": {
+    "entrance": "Entrance B beside reception.",
+    "parking": "Use the marked visitor parking area.",
+    "arrival_caution": "Demonstration content only; verify instructions on arrival."
+  },
+  "rider_audience": "Active Riders in Hub Q1; delivery data remains assignment-bound.",
+  "excluded_content": [
+    "recipient details",
+    "access codes",
+    "raw notes",
+    "drafts",
+    "order records",
+    "POD photos"
+  ],
+  "actual_shared_fixture_id": null,
+  "actual_uc15_destination": null,
+  "integration_status": "Pending Trung BOOYAH-15 reconciliation; do not treat this as approved/shared data."
+}
