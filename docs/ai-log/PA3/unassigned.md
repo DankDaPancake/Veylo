@@ -35,3 +35,29 @@
 - Check corrections: Initial download validation assumed a leading H1 and rejected valid Vision front matter/title metadata; corrected the checker and verified all source files/hashes. An initial ledger checker expected six columns instead of five; corrected it and reran successfully. These were checker assumptions, not claimed initial successful checks.
 - Human validation / approvals: The member selected Vision v2.2 and authorized alignment, resolving the inherited F05 PA5 versus N02 PA4 discrepancy for this plan. This does not certify BOOYAH-26/27 acceptance. No other functional requirements, database structure, provider, hosting, team role or resource allocation was changed. PA2 full marks/no feedback remains member-supplied provenance. Đăng's independent review and three random Jira-row comparisons have not occurred.
 - Outcome/limitations: 7/8 implementation tasks complete locally; task 3.3 remains unchecked until actual peer acceptance. Plan SHA-256 in the handoff identifies the review input; any changes require rechecking. Actual sprint end/cutoff, later allocation and new risk owners remain unconfirmed. BOOYAH-29 still owns canonical shared-ledger integration, PDF/render/export and ZIP packaging. No runtime tests/build, DB probe, PDF checks, remote-protection audit, external message/upload, Jira mutation, commit, push, merge or archive performed. Document checks are not final human acceptance.
+
+## 2026-11-20 — BOOYAH-14 clean remake exploration
+
+- Task owner: BOOYAH-14 assignee Trần Lê Hải per Jira. Requesting member's GitHub handle is unverified.
+- AI tool/model: Codex, gpt-6.2-sol.
+- Request/prompt reference and purpose: Read-only OpenSpec Explore for UC11, UC12, UC13 and UC19 using the allowed clean remake sources.
+- AI-generated work / AI review: Analyzed Vision FR-04/08, branch flows, dependencies, shared prototype kit, and draft business rules P01–P06. Proposed a Section D workflow and separate order and attempt reporting measures in the conversation.
+- Affected files: No files changed in the exploration turn. This entry was added during the subsequent authorized planning turn because the exploration was explicitly read-only.
+- Commands/checks and actual results: Read Jira BOOYAH-14 and dependency issues, local Vision/UseCaseModel, shared kit, F02/F03 contracts, PA3 rubric via `pdftotext`, and OpenSpec config. Git status showed a clean `feature/booyah-14-redo` branch. Both OpenSpec list commands returned command not found in that turn. The two Drive review links could not be opened.
+- Human validation and approvals: Pending. All P01–P06 were proposals.
+- Outcome, limitations, and remaining work: Exploration delivered in Vietnamese. The local sources were Vision 2.0-review and UseCaseModel 0.2. Reconcile the Jira-linked review editions before final acceptance.
+
+## 2026-11-20 — BOOYAH-14 OpenSpec clean remake proposal
+
+- Task owner: BOOYAH-14 assignee Trần Lê Hải per Jira. Requesting member's GitHub handle is unverified.
+- AI tool/model: Codex, gpt-6.2-sol.
+- Request/prompt reference and purpose: Create and validate a new OpenSpec change for PA3 Section D based on the clean remake exploration. Stop after planning.
+- AI-generated work / AI review: Scaffolded the change and authored a proposal, design, delivery and reporting delta specs, and the Apply checklist. Kept P01–P06 Proposed / Pending PR Review with an evidence strategy. Did not use rejected BOOYAH-14 material.
+- Affected files: [OpenSpec change](../../../openspec/changes/booyah-14-delivery-execution-reporting/proposal.md) (CLI metadata, proposal, design, two delta specs, tasks), this log, and the [log index](../README.md).
+- Commands/checks and actual results: `openspec --version` returned 2.1.0. `openspec context --json`, `list --json`, `schemas --json`, and the F02 status and instruction commands resolved the repository root and spec-driven workflow. The new change reported 4/4 planning artifacts. Strict validation first warned about extra traceability sections in the deltas. Moving the summary tables to design and keeping flow/screen references in the scenarios resolved both warnings. `openspec validate booyah-14-delivery-execution-reporting --type change --strict --json` then passed with no issues. Read-only Apply instructions reported ready with 0/16 tasks complete. Direct checks covered the six new files, local Markdown links, whitespace, FR references, 18 requirements and 36 scenarios.
+- Human validation and approvals: Pending. No product-rule approval, production implementation, or database approval claimed.
+- Outcome, limitations, and remaining work: Planning complete. The Jira-linked review editions of Vision and UseCaseModel were not verified. Final use-case Markdown, prototypes, PNGs, PDF, and PR work are future tasks.
+
+## 2026-11-20 — BOOYAH-14 clean remake attribution amendment
+
+The requester confirmed their GitHub handle as `thepenguinguy123`. The BOOYAH-14 clean remake Explore and Propose entries above are indexed with the corrected attribution in [thepenguinguy123.md](thepenguinguy123.md). The original records are preserved for history.
