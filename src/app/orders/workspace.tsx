@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
+import styles from "./workspace.module.css";
 import { AccountControl } from "../account-control";
 import { orderPayload, orderIssues } from "./order-form.mjs";
 
@@ -17,8 +18,8 @@ type OrderList = { orders: Order[]; total: number; page: number; pageSize: numbe
 type Mode = "list" | "detail" | "create" | "edit" | "cancel" | "import";
 const required = Object.keys(fields).slice(0, 7);
 const blankFilters = { q: "", status: "", from: "", to: "" };
-const input = "block min-h-10 w-full rounded border border-slate-400 px-3 py-2";
-const button = "inline-flex min-h-10 items-center rounded border border-emerald-800 px-4 py-2 font-medium hover:bg-emerald-50 disabled:opacity-50";
+const input = styles.input;
+const button = styles.button;
 const successMessages: Partial<Record<Mode, string>> = {
   create: "Order created.", edit: "Order updated.", cancel: "Order cancelled.", import: "Orders imported.",
 };
@@ -155,38 +156,50 @@ export function OrdersWorkspace() {
   const denied = error instanceof RequestError && (error.status === 401 || error.status === 403);
   const page = list?.page ?? 1;
 
-  return <main className="mx-auto min-h-screen max-w-7xl px-6 py-10">
-    <header className="mb-8 border-b border-emerald-900/20 pb-5">
-      <div className="flex items-center justify-between">
-        <Link href="/" className="font-semibold text-emerald-800">Veylo</Link>
-        <AccountControl />
-      </div>
-      <h1 className="mt-2 text-3xl font-semibold">Orders</h1>
-    </header>
+  return <div className={styles.shell}>
+    <aside className={styles.sidebar} aria-label="Workspace navigation">
+      <Link href="/" className={styles.brand}><span className={styles.mark} aria-hidden="true">V</span><span>Veylo<small>Dispatcher</small></span></Link>
+      <p className={styles.hub}><span aria-hidden="true" />Dispatch workspace</p>
+      <nav aria-label="Current workspace">
+        <Link href="/orders" aria-current="page" className={styles.active}>Orders</Link>
+        <ul className={styles.unavailable} aria-label="Other workspaces">
+          <li>Shifts</li><li>Delivery attempts</li><li>Location guides</li><li>Reports</li>
+        </ul>
+      </nav>
+      <div className={styles.account}><strong>Hub Dispatcher</strong><AccountControl /></div>
+    </aside>
+    <main className={styles.workspace}>
+      <header className={styles.header}>
+        <div>
+          <p className={styles.breadcrumb}>Hub operations / Orders</p>
+          <h1>Orders</h1>
+          <p>Search and manage orders for your hub.</p>
+        </div>
+        {mode === "list" && !denied && <div className={styles.actions}>
+          <button className={`${button} ${styles.primary}`} disabled={!list || loading} onClick={() => open("create")}>Create order</button>
+          <button className={button} disabled={!list || loading} onClick={() => open("import")}>Import CSV</button>
+        </div>}
+      </header>
     {notice && <p role="status" className="mb-4 text-emerald-800">{notice}</p>}
     {error && <p role="alert" className="mb-4 rounded border border-red-300 bg-red-50 p-3 text-red-900">{error.message}</p>}
     {denied && error instanceof RequestError && error.status === 401 && <Link className={button} href="/sign-in?next=/orders">Sign in</Link>}
     {mode === "list" && !denied && <section data-screen-id="S07-01">
-      <div className="mb-4 flex flex-wrap gap-2">
-        <button className={button} disabled={!list || loading} onClick={() => open("create")}>New order</button>
-        <button className={button} disabled={!list || loading} onClick={() => open("import")}>Import CSV</button>
-      </div>
-      <form className="mb-5 grid gap-3 sm:grid-cols-5 sm:items-end" onSubmit={event => {
+      <form className={styles.filters} onSubmit={event => {
         event.preventDefault(); setError(undefined); setLoading(true); setQuery({ ...filters, page: 1 });
       }}>
-        <label>Search<input className={input} value={filters.q} onChange={e => setFilters({ ...filters, q: e.target.value })} /></label>
-        <label>Status<select className={input} value={filters.status} onChange={e => setFilters({ ...filters, status: e.target.value })}><option value="">All</option><option>NEW</option><option>CANCELLED</option></select></label>
-        <label>From<input className={input} type="date" value={filters.from} onChange={e => setFilters({ ...filters, from: e.target.value })} /></label>
-        <label>To<input className={input} type="date" value={filters.to} onChange={e => setFilters({ ...filters, to: e.target.value })} /></label>
-        <button className={button} disabled={loading}>Apply filters</button>
+        <label>Search orders<input placeholder="Code, recipient name or phone" className={input} value={filters.q} onChange={e => setFilters({ ...filters, q: e.target.value })} /></label>
+        <label>Status<select className={input} value={filters.status} onChange={e => setFilters({ ...filters, status: e.target.value })}><option value="">All statuses</option><option>NEW</option><option>CANCELLED</option></select></label>
+        <label>Start date from<input className={input} type="date" value={filters.from} onChange={e => setFilters({ ...filters, from: e.target.value })} /></label>
+        <label>Start date to<input className={input} type="date" value={filters.to} onChange={e => setFilters({ ...filters, to: e.target.value })} /></label>
+        <button className={`${button} ${styles.primary}`} disabled={loading}>Apply filters</button>
       </form>
       {loading ? <p role="status">Loading orders…</p> : list && (list.orders.length === 0 ? <p>No orders match these filters.</p> :
-        <div className="overflow-x-auto rounded border border-slate-300 bg-white">
-          <table className="w-full text-left"><thead className="bg-emerald-50"><tr>{["Code", "Recipient", "Delivery window", "Status", "Action"].map(title => <th className="p-3" key={title} scope="col">{title}</th>)}</tr></thead>
+        <div className={styles.table}>
+          <table className="w-full text-left"><thead ><tr>{["Order / Recipient", "Delivery window (UTC+7)", "Weight", "Status"].map(title => <th className="p-3" key={title} scope="col">{title}</th>)}</tr></thead>
             <tbody>{list.orders.map(order => <tr key={order.id} className="border-t border-slate-200">
-              <td className="p-3">{order.order_code}</td><td className="p-3">{order.recipient_name}</td>
+              <td className="p-3"><button type="button" className={styles.orderLink} disabled={saving} aria-label={`Open order ${order.order_code}`} onClick={() => void inspect(order)}>{order.order_code}</button> <strong>{order.recipient_name}</strong><span className={styles.address}>{order.delivery_address}</span></td>
               <td className="p-3">{formValue("window_start", order).replace("T", " ")} – {formValue("window_end", order).replace("T", " ")}</td>
-              <td className="p-3">{order.status}</td><td className="p-3"><button className={button} disabled={saving} aria-label={`Open order ${order.order_code}`} onClick={() => void inspect(order)}>View</button></td>
+              <td className="p-3">{order.weight_kg} kg</td><td className="p-3"><span className={styles.status} data-status={order.status}>{order.status}</span></td>
             </tr>)}</tbody>
           </table>
         </div>)}
@@ -197,14 +210,14 @@ export function OrdersWorkspace() {
       </nav>}
     </section>}
     {mode !== "list" && <button className={`${button} mb-4`} disabled={saving} onClick={() => { open("list"); if (denied) { setLoading(true); void load(); } }}>Back to orders</button>}
-    {!denied && mode === "detail" && selected && <section data-screen-id="S07-02">
+    {!denied && mode === "detail" && selected && <section data-screen-id="S07-02" className={styles.card}>
       <h2 className="text-xl font-semibold">Order {selected.order_code}</h2>
       <p className="mt-2">Status: {selected.status}</p>
       <dl className="my-4 grid gap-3 sm:grid-cols-2">{(Object.keys(fields) as Field[]).map(key => <div key={key}><dt className="font-medium">{fields[key]}</dt><dd>{key.startsWith("window_") ? formValue(key, selected).replace("T", " ") : selected[key] ?? "—"}</dd></div>)}</dl>
       {selected.cancellation_reason && <p>Cancellation reason: {selected.cancellation_reason}</p>}
       {selected.status === "NEW" && <div className="mt-4 flex gap-2"><button className={button} onClick={() => open("edit")}>Edit order</button><button className={button} onClick={() => open("cancel")}>Cancel order</button></div>}
     </section>}
-    {!denied && (mode === "create" || mode === "edit") && <form data-screen-id={mode === "edit" ? "S08-01" : "S05-01"} onSubmit={submit} className="grid max-w-3xl gap-4 sm:grid-cols-2">
+    {!denied && (mode === "create" || mode === "edit") && <form data-screen-id={mode === "edit" ? "S08-01" : "S05-01"} onSubmit={submit} className={`${styles.card} grid max-w-4xl gap-4 sm:grid-cols-2`}>
       <h2 className="text-xl font-semibold sm:col-span-2">{mode === "edit" ? `Edit ${selected?.order_code}` : "New order"}</h2>
       <p className="sm:col-span-2">Delivery windows use Ho Chi Minh City local time.</p>
       {(Object.keys(fields) as Field[]).filter(key => mode !== "edit" || key !== "order_code").map(key => <div key={key}>
@@ -220,14 +233,14 @@ export function OrdersWorkspace() {
         {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && selected && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload details</button>}
       </div>
     </form>}
-    {!denied && mode === "cancel" && selected && <form data-screen-id="S08-03" className="grid max-w-lg gap-3" onSubmit={submit}>
+    {!denied && mode === "cancel" && selected && <form data-screen-id="S08-03" className={`${styles.card} grid max-w-lg gap-3`} onSubmit={submit}>
       <h2 className="text-xl font-semibold">Confirm cancellation of {selected.order_code}</h2>
       <label>Reason<textarea className={input} name="reason" minLength={5} maxLength={300} required /></label>
       {fieldErrors.reason && <p className="text-red-800">{String(fieldErrors.reason)}</p>}
       <button className={button} disabled={saving}>Confirm cancellation</button>
       {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload details</button>}
     </form>}
-    {!denied && mode === "import" && <form data-screen-id="S06-01" className="grid max-w-2xl gap-3" onSubmit={submit}>
+    {!denied && mode === "import" && <form data-screen-id="S06-01" className={`${styles.card} grid max-w-2xl gap-3`} onSubmit={submit}>
       <h2 className="text-xl font-semibold">Import orders from CSV</h2>
       <a href="/api/orders/template" download="order-template.csv" className="underline">Download CSV template</a>
       <label>CSV file<input className={input} type="file" name="file" accept=".csv,text/csv" required /></label>
@@ -237,5 +250,6 @@ export function OrdersWorkspace() {
       </ul>}
       <button className={button} disabled={saving}>{saving ? "Importing…" : "Import orders"}</button>
     </form>}
-  </main>;
+    </main>
+  </div>;
 }

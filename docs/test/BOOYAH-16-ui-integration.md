@@ -37,3 +37,5 @@ Performed by: Codex (source comparison). Reviewed by: pending. Edited by: Codex.
 - Capture actual states and identify any additional differences. Full walkthrough, screenshots, keyboard and console results, and Hải's review remain pending.
 
 The capture build was prepared from dev bb8a3fb with the BOOYAH-16 changes. Clean install, Prisma validate/generate, lint, typecheck, 16 unit tests, production build, OpenSpec strict and 10 integration tests passed. The manual preview uses a separate UTC copy of the original seed. Dispatcher A sees 25 orders, with 20 on the first page.
+
+The capture build now uses the BOOYAH-20 desktop layout for Orders, including the sidebar, map-style background, filter panel, order table, status badges and form cards.

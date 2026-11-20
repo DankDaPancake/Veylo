@@ -219,3 +219,7 @@ Member: Lý Huỳnh Minh Đăng.
 - User requested execution of the handoff plan. Codex backed up and fast-forwarded the task branch to dev bb8a3fb, preserved the published member log and appended the unique local entries. Yelgsef.md and unassigned.md match dev.
 - Compared prototype flows and recorded create confirmation, error focus and CSV preview differences. Added valid and invalid synthetic CSVs and a manual capture guide. Clean install, Prisma validate/generate, migration, seed, lint, typecheck, 16 unit tests, production build, strict OpenSpec and 10 integration tests passed.
 - Started the production preview with a separate clean UTC copy of the seed. HTTP checks confirmed anonymous redirect, Dispatcher access, 25 hub orders and page size 20. Manual screenshots, keyboard/console evidence and Hải review remain pending. Prepared a local commit for capture. No push or Jira write.
+
+## 2026-11-20 — Align BOOYAH-16 styling with the team prototype
+
+- User requested the team UI before manual capture. Codex inspected BOOYAH-20 S07-01 and updated the Orders workspace and its scoped CSS. Lint, typecheck, 16 unit tests, production build and Git whitespace passed. Restarted the manual preview against the same synthetic database. The first HTTP assertion expected a client-loaded table header in the server HTML; the corrected smoke checked the rendered shell and authenticated Orders API data. Visual walkthrough and captures remain pending. CSV preview remains an open prototype difference.
