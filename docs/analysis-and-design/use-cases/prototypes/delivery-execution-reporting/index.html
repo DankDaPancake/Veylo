@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veylo — PA3 Apple Liquid Glass Prototype Kit (BOOYAH-25)</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="kit.css" />
+  <link rel="stylesheet" href="walkthrough.css" />
+</head>
+<body class="gallery-mode">
+  <header class="preview-toolbar" role="banner">
+    <div class="preview-brand">
+      <span class="preview-brand-mark" aria-hidden="true">V</span>
+      <div>
+        <div class="preview-brand-title">Veylo · PA3 Liquid Glass Prototype Kit (BOOYAH-25)</div>
+        <div class="preview-brand-sub">Apple-Inspired Neutral Crystal Glass + Minimal Emerald Accent · Synthetic examples</div>
+      </div>
+    </div>
+
+    <nav class="screen-tabs" aria-label="Prototype screens">
+      <button type="button" class="screen-tab" data-screen="S00-kit" aria-selected="false">S00 · Kit</button>
+      <button type="button" class="screen-tab" data-screen="S07-01" aria-selected="true">S07-01 · Orders</button>
+      <button type="button" class="screen-tab" data-screen="S07-01-min" aria-selected="false">S07-01-min · 1280×720</button>
+      <button type="button" class="screen-tab" data-screen="S05-01-error" aria-selected="false">S05-01-error</button>
+      <button type="button" class="screen-tab" data-screen="S07-01-empty" aria-selected="false">S07-01-empty</button>
+      <button type="button" class="screen-tab" data-screen="S07-01-denied" aria-selected="false">S07-01-denied</button>
+      <button type="button" class="screen-tab" data-screen="S11-01" aria-selected="false">S11-01 · Rider Mobile</button>
+    </nav>
+
+    <div class="preview-controls">
+      <span class="viewport-pill" id="viewport-badge">1440 × 900</span>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+        <span id="theme-icon" aria-hidden="true"></span>
+        <span id="theme-label">Theme: Light Glass</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage-wrapper">
+    <div class="stage-meta">
+      <label for="walkthrough-frame">BOOYAH-14 walkthrough screen</label>
+      <select id="walkthrough-frame" class="input-glass"></select>
+      <span id="screen-caption">S07-01 · Orders / normal — Hub Dispatcher desktop console</span>
+      <span>Frameless export URL: <code>?screen=S07-01&amp;theme=light|dark&amp;standalone=1</code></span>
+    </div>
+    <div class="stage-frame" id="stage-frame"></div>
+  </main>
+
+  <script src="report.js"></script>
+  <script src="frames.js"></script>
+  <script src="walkthrough.js"></script>
+  <script>
+    const ICONS = {
+      truck: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>`,
+      package: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
+      calendar: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>`,
+      route: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>`,
+      mapPin: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>`,
+      barChart: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+      plus: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`,
+      upload: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>`,
+      search: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
+      clock: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+      check: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`,
+      alert: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>`,
+      shieldAlert: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>`,
+      bookOpen: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>`,
+      arrowRight: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+      arrowLeft: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+      sun: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
+      moon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`
+    };
+
+    /* Neutral urban OSM-style vector backdrop with multi-tone landmarks so pure white/graphite glass refracts crisply */
+    const MAP_BACKDROP_SVG = `
+      <svg class="map-backdrop" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+        <path d="M-40 240 C 260 205, 510 340, 810 270 S 1220 150, 1500 225" stroke="rgba(56, 189, 248, 0.30)" stroke-width="34" stroke-linecap="round"/>
+        <path d="M140 -40 L 250 940 M 490 -40 L 430 940 M 880 -40 L 940 940 M 1210 -40 L 1140 940" stroke="rgba(100, 116, 139, 0.14)" stroke-width="10"/>
+        <path d="M-40 430 L 1480 390 M -40 620 L 1480 590 M -40 120 L 1480 150 M -40 790 L 1480 760" stroke="rgba(100, 116, 139, 0.12)" stroke-width="8"/>
+        <rect x="530" y="455" width="210" height="105" rx="22" fill="rgba(16, 185, 129, 0.10)" />
+        <rect x="975" y="190" width="160" height="145" rx="24" fill="rgba(99, 102, 241, 0.10)" />
+        <rect x="65" y="460" width="150" height="125" rx="22" fill="rgba(245, 158, 11, 0.10)" />
+        <path d="M210 310 C 420 385, 650 475, 865 415 S 1160 515, 1310 435" stroke="rgba(14, 165, 233, 0.45)" stroke-width="3.5" stroke-dasharray="10 8"/>
+        <circle cx="210" cy="310" r="10" fill="rgba(16, 185, 129, 0.60)"/>
+        <circle cx="865" cy="415" r="10" fill="rgba(245, 158, 11, 0.62)"/>
+        <circle cx="1310" cy="435" r="11" fill="rgba(14, 165, 233, 0.62)"/>
+      </svg>
+    `;
+
+    function renderSidebar(activeNav = "Orders") {
+      const items = [
+        { label: "Orders", icon: ICONS.package },
+        { label: "Shifts", icon: ICONS.calendar },
+        { label: "Delivery attempts", icon: ICONS.route },
+        { label: "Location guides", icon: ICONS.mapPin },
+        { label: "Reports", icon: ICONS.barChart }
+      ];
+      return `
+        <div class="sidebar-wrap">
+          <aside class="sidebar glass-chrome" aria-label="Dispatcher navigation">
+            <div class="sidebar-brand">
+              <div class="brand-lockup">
+                <span class="brand-logo">${ICONS.truck}</span>
+                <div>
+                  <div class="brand-name">Veylo</div>
+                  <div class="brand-role">Dispatcher</div>
+                </div>
+              </div>
+            </div>
+            <div class="hub-chip">
+              <span class="hub-dot" aria-hidden="true"></span>
+              <span>Hub Q1 · Synthetic</span>
+            </div>
+            <ul class="nav-list">
+              ${items
+                .map(
+                  (item) => `
+                <li>
+                  <a href="#${item.label.toLowerCase().replace(/\s+/g, "-")}" class="nav-item ${
+                    item.label === activeNav ? "nav-item--active" : ""
+                  }" ${item.label === activeNav ? 'aria-current="page"' : ""}>
+                    ${item.icon}
+                    <span>${item.label}</span>
+                  </a>
+                </li>`
+                )
+                .join("")}
+            </ul>
+            <div class="sidebar-footer">
+              <span class="avatar-glass" aria-hidden="true">DP</span>
+              <div>
+                <div style="font-weight:700;color:var(--text-primary);">Dispatcher Demo</div>
+                <div>Role: Hub Dispatcher</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      `;
+    }
+
+    function renderDesktopShell(innerHtml, sizeClass = "veylo-canvas--desktop", activeNav = "Orders") {
+      return `
+        <section class="veylo-canvas ${sizeClass}">
+          ${MAP_BACKDROP_SVG}
+          <div class="app-shell">
+            ${renderSidebar(activeNav)}
+            <div class="workspace">
+              ${innerHtml}
+              <footer class="workspace-footer">
+                <span>BOOYAH-25 · Apple Liquid Glass Shared Prototype Kit</span>
+                <span>Synthetic examples, not implemented workflows</span>
+              </footer>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    const SCREENS = {
+      "S00-kit": {
+        viewport: "1440 × 900",
+        caption: "S00 · Shared Liquid Glass Component Kit — Neutral Crystal Glass + Minimal Emerald Accent",
+        render: () => `
+          <section class="veylo-canvas veylo-canvas--desktop">
+            ${MAP_BACKDROP_SVG}
+            <div class="kit-sheet">
+              <div class="page-header" style="margin-bottom:2px;">
+                <div>
+                  <p class="eyebrow">BOOYAH-25 · APPLE LIQUID GLASS SPECIFICATION</p>
+                  <h1 class="page-title">Veylo Glassmorphism Prototype Kit</h1>
+                  <p class="page-subtitle">Achromatic frosted crystal surfaces with minimal emerald accents for Desktop (≥1280×720) &amp; Mobile (360×800).</p>
+                </div>
+                <div class="action-row">
+                  <span class="badge badge--info">${ICONS.check} WCAG AA ≥ 4.5:1</span>
+                  <span class="badge badge--success">${ICONS.bookOpen} Minimal Emerald Accent</span>
+                </div>
+              </div>
+
+              <div class="kit-grid">
+                <article class="glass-panel kit-card">
+                  <h2 class="kit-card-title">1. Optical Glass Tiers</h2>
+                  <div class="glass-chrome" style="padding:12px 14px;border-radius:14px;">
+                    <div style="font-weight:700;font-size:13px;">Chrome Rail · High Translucency</div>
+                    <div class="tabular" style="font-size:12px;color:var(--text-secondary);">blur(34px) saturate(195%) · 0.44 alpha</div>
+                  </div>
+                  <div class="glass-panel" style="padding:12px 14px;border-radius:14px;">
+                    <div style="font-weight:700;font-size:13px;">Workspace Glass · Data Layer</div>
+                    <div class="tabular" style="font-size:12px;color:var(--text-secondary);">blur(36px) saturate(190%) · 0.56 alpha</div>
+                  </div>
+                  <div class="glass-elevated" style="padding:12px 14px;border-radius:14px;">
+                    <div style="font-weight:700;font-size:13px;">Elevated Sheet · Outdoor / Modal</div>
+                    <div class="tabular" style="font-size:12px;color:var(--text-secondary);">blur(42px) saturate(200%) · 0.68 alpha</div>
+                  </div>
+                </article>
+
+                <article class="glass-panel kit-card">
+                  <h2 class="kit-card-title">2. Neutral Ink + Judicious Color</h2>
+                  <div class="swatch-grid">
+                    <div class="swatch-item">
+                      <div class="swatch-chip" style="background:var(--glass-chrome);"></div>
+                      <strong>Crystal Chrome</strong><br/><span class="tabular">Neutral Glass</span>
+                    </div>
+                    <div class="swatch-item">
+                      <div class="swatch-chip" style="background:var(--brand-primary);"></div>
+                      <strong>Minimal Accent</strong><br/><span class="tabular">Emerald CTA Only</span>
+                    </div>
+                    <div class="swatch-item">
+                      <div class="swatch-chip" style="background:var(--status-pending-fg);"></div>
+                      <strong>Window Amber</strong><br/><span class="tabular">Urgency / Pending</span>
+                    </div>
+                    <div class="swatch-item">
+                      <div class="swatch-chip" style="background:var(--status-error-accent);"></div>
+                      <strong>Danger Coral</strong><br/><span class="tabular">Error / Denied</span>
+                    </div>
+                  </div>
+                  <div class="action-row" style="gap:8px;margin-top:2px;">
+                    <span class="badge badge--pending">${ICONS.clock} Pending</span>
+                    <span class="badge badge--success">${ICONS.check} Verified guide</span>
+                    <span class="badge badge--error">${ICONS.alert} Required</span>
+                  </div>
+                </article>
+
+                <article class="glass-panel kit-card">
+                  <h2 class="kit-card-title">3. Capsule Controls &amp; Forms (≥44px)</h2>
+                  <div class="action-row">
+                    <button type="button" class="btn btn--primary">${ICONS.plus} Create order</button>
+                    <button type="button" class="btn btn--glass">${ICONS.upload} Import CSV</button>
+                  </div>
+                  <div class="field-group" style="margin-bottom:0;margin-top:4px;">
+                    <label class="field-label" for="kit-input">Glass Input (Valid)</label>
+                    <input id="kit-input" class="input-glass" type="text" value="Sample recipient" readonly />
+                  </div>
+                  <div class="field-group" style="margin-bottom:0;">
+                    <label class="field-label" for="kit-input-err">Glass Input (Validation Error)</label>
+                    <input id="kit-input-err" class="input-glass input-glass--error" type="text" value="" placeholder="Enter a destination" readonly />
+                    <p class="field-error">${ICONS.alert} Destination address is required.</p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="kit-grid" style="grid-template-columns: 1.45fr 1fr;">
+                <article class="glass-panel kit-card">
+                  <h2 class="kit-card-title">4. Spatial Typography &amp; Figure-Ground Separation</h2>
+                  <p style="margin:0;font-size:14px;color:var(--text-secondary);">
+                    Neutral crystal glass eliminates color fatigue across 8-hour dispatcher shifts while letting <strong>tabular order codes</strong>, <strong>time windows</strong>, and <strong>Location Guide status</strong> pop cleanly.
+                  </p>
+                  <div class="glass-subtle" style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                    <div>
+                      <span class="order-id">VL-0001</span> · <strong style="font-size:14px;">Sample recipient 1</strong>
+                      <div class="order-address">12 Sample Street, Ward 5 (Synthetic)</div>
+                    </div>
+                    <span class="tabular" style="font-size:13px;font-weight:600;">09:00–11:00</span>
+                    <span class="badge badge--success">${ICONS.bookOpen} Verified guide</span>
+                    <span class="badge badge--pending">${ICONS.clock} Pending</span>
+                  </div>
+                </article>
+
+                <article class="glass-elevated kit-card">
+                  <h2 class="kit-card-title">5. Screen Inventory (BOOYAH-25)</h2>
+                  <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text-secondary);display:grid;gap:6px;">
+                    <li><strong class="tabular">S07-01</strong> · Orders / normal (1440×900)</li>
+                    <li><strong class="tabular">S07-01-min</strong> · Minimum desktop (1280×720)</li>
+                    <li><strong class="tabular">S05-01-error</strong> · Error with retained input</li>
+                    <li><strong class="tabular">S07-01-empty</strong> · Empty state recovery</li>
+                    <li><strong class="tabular">S07-01-denied</strong> · RBAC permission denied</li>
+                    <li><strong class="tabular">S11-01</strong> · Rider mobile thumb-dock (360×800)</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </section>
+        `
+      },
+
+      "S07-01": {
+        viewport: "1440 × 900",
+        caption: "S07-01 · Orders / normal — Floating Apple Liquid Glass console (1440×900)",
+        render: () =>
+          renderDesktopShell(`
+            <header class="page-header">
+              <div>
+                <p class="eyebrow">HUB OPERATIONS / ORDERS</p>
+                <h1 class="page-title">Orders</h1>
+                <p class="page-subtitle">Prepare today's deliveries with clear, verified details.</p>
+              </div>
+              <div class="action-row">
+                <button type="button" class="btn btn--primary">${ICONS.plus} Create order</button>
+                <button type="button" class="btn btn--glass">${ICONS.upload} Import CSV</button>
+              </div>
+            </header>
+
+            <div class="kpi-strip">
+              <div class="glass-panel kpi-card">
+                <div>
+                  <div class="kpi-label">Today's Intake</div>
+                  <div class="kpi-value tabular">3</div>
+                </div>
+                <span class="kpi-icon">${ICONS.package}</span>
+              </div>
+              <div class="glass-panel kpi-card">
+                <div>
+                  <div class="kpi-label">Pending Assignment</div>
+                  <div class="kpi-value tabular">3</div>
+                </div>
+                <span class="kpi-icon">${ICONS.clock}</span>
+              </div>
+              <div class="glass-panel kpi-card">
+                <div>
+                  <div class="kpi-label">Verified Guides</div>
+                  <div class="kpi-value tabular">2 / 3</div>
+                </div>
+                <span class="kpi-icon">${ICONS.mapPin}</span>
+              </div>
+            </div>
+
+            <div class="glass-chrome toolbar-glass" role="search" aria-label="Filter orders">
+              <div class="search-box">
+                ${ICONS.search}
+                <input class="search-input" type="search" placeholder="Search order ID, recipient, or street..." aria-label="Search orders" />
+              </div>
+              <div class="segmented-control" role="group" aria-label="Status filter">
+                <button type="button" class="filter-pill filter-pill--active">All (3)</button>
+                <button type="button" class="filter-pill">Pending (3)</button>
+                <button type="button" class="filter-pill">Assigned (0)</button>
+              </div>
+            </div>
+
+            <div class="glass-panel table-card">
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Order / recipient</th>
+                    <th scope="col">Window</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Location guide</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="order-main">
+                        <div class="order-title-row">
+                          <span class="order-id">VL-0001</span>
+                          <span class="order-recipient">Sample recipient 1</span>
+                        </div>
+                        <span class="order-address">12 Sample Street, Ward 5 · Synthetic</span>
+                      </div>
+                    </td>
+                    <td class="tabular">09:00–11:00</td>
+                    <td class="tabular">2.4 kg</td>
+                    <td><span class="badge badge--success">${ICONS.bookOpen} Verified guide</span></td>
+                    <td><span class="badge badge--pending">${ICONS.clock} Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="order-main">
+                        <div class="order-title-row">
+                          <span class="order-id">VL-0002</span>
+                          <span class="order-recipient">Sample recipient 2</span>
+                        </div>
+                        <span class="order-address">48 Sample Alley, Ward 3 · Synthetic</span>
+                      </div>
+                    </td>
+                    <td class="tabular">09:00–11:00</td>
+                    <td class="tabular">1.8 kg</td>
+                    <td><span class="badge badge--info">${ICONS.mapPin} Draft review</span></td>
+                    <td><span class="badge badge--pending">${ICONS.clock} Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="order-main">
+                        <div class="order-title-row">
+                          <span class="order-id">VL-0003</span>
+                          <span class="order-recipient">Sample recipient 3</span>
+                        </div>
+                        <span class="order-address">95 Sample Boulevard, Ward 7 · Synthetic</span>
+                      </div>
+                    </td>
+                    <td class="tabular">09:00–11:00</td>
+                    <td class="tabular">3.1 kg</td>
+                    <td><span class="badge badge--success">${ICONS.bookOpen} Verified guide</span></td>
+                    <td><span class="badge badge--pending">${ICONS.clock} Pending</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-footer">
+              <span>3 synthetic orders · Example data</span>
+              <span>Hub Q1 · Ready for shift planning</span>
+            </div>
+          `)
+      },
+
+      "S07-01-min": {
+        viewport: "1280 × 720",
+        caption: "S07-01-min · Minimum 1280 × 720 desktop viewport check (Vision §3.3)",
+        render: () =>
+          renderDesktopShell(
+            `
+            <header class="page-header" style="margin-bottom:14px;">
+              <div>
+                <p class="eyebrow">HUB OPERATIONS / ORDERS</p>
+                <h1 class="page-title" style="font-size:27px;">Orders</h1>
+                <p class="page-subtitle">Prepare today's deliveries with clear, verified details.</p>
+              </div>
+              <div class="action-row">
+                <button type="button" class="btn btn--primary">${ICONS.plus} Create order</button>
+                <button type="button" class="btn btn--glass">${ICONS.upload} Import CSV</button>
+              </div>
+            </header>
+
+            <div class="glass-chrome toolbar-glass" style="margin-bottom:12px;" role="search" aria-label="Filter orders">
+              <div class="search-box">
+                ${ICONS.search}
+                <input class="search-input" type="search" placeholder="Search order ID, recipient, or street..." aria-label="Search orders" />
+              </div>
+              <div class="segmented-control">
+                <button type="button" class="filter-pill filter-pill--active">All (3)</button>
+                <button type="button" class="filter-pill">Pending (3)</button>
+              </div>
+            </div>
+
+            <div class="glass-panel table-card">
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Order / recipient</th>
+                    <th scope="col">Window</th>
+                    <th scope="col">Location guide</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="order-title-row">
+                        <span class="order-id">VL-0001</span>
+                        <span class="order-recipient">Sample recipient 1</span>
+                      </div>
+                    </td>
+                    <td class="tabular">09:00–11:00</td>
+                    <td><span class="badge badge--success">${ICONS.bookOpen} Verified guide</span></td>
+                    <td><span class="badge badge--pending">${ICONS.clock} Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="order-title-row">
+                        <span class="order-id">VL-0002</span>
+                        <span class="order-recipient">Sample recipient 2</span>
+                      </div>
+                    </td>
+                    <td class="tabular">09:00–11:00</td>
+                    <td><span class="badge badge--info">${ICONS.mapPin} Draft review</span></td>
+                    <td><span class="badge badge--pending">${ICONS.clock} Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="order-title-row">
+                        <span class="order-id">VL-0003</span>
+                        <span class="order-recipient">Sample recipient 3</span>
+                      </div>
+                    </td>
+                    <td class="tabular">09:00–11:00</td>
+                    <td><span class="badge badge--success">${ICONS.bookOpen} Verified guide</span></td>
+                    <td><span class="badge badge--pending">${ICONS.clock} Pending</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-footer">
+              <span>3 synthetic orders · Example data</span>
+              <span>Minimum viewport 1280 × 720 verified</span>
+            </div>
+          `,
+            "veylo-canvas--min"
+          )
+      },
+
+      "S05-01-error": {
+        viewport: "1440 × 900",
+        caption: "S05-01-error · Error state with retained input & accessible inline validation (UC05 / FR-02-3)",
+        render: () =>
+          renderDesktopShell(`
+            <header class="page-header">
+              <div>
+                <p class="eyebrow">HUB OPERATIONS / ORDERS / NEW</p>
+                <h1 class="page-title">Create order</h1>
+                <p class="page-subtitle">Correct the highlighted fields and try again.</p>
+              </div>
+            </header>
+
+            <div class="glass-elevated form-card">
+              <div class="alert-banner alert-banner--error" role="alert" tabindex="-1" aria-labelledby="err-summary-title">
+                ${ICONS.alert}
+                <div>
+                  <h2 id="err-summary-title" class="alert-banner-title">Could not save changes</h2>
+                  <p class="alert-banner-body">Your input is preserved. Try again.</p>
+                  <a class="alert-link" href="#destination-address">1. Destination address is required</a>
+                </div>
+              </div>
+
+              <form onsubmit="return false" novalidate>
+                <div class="field-group">
+                  <label class="field-label" for="recipient-name">Recipient<span class="field-required" aria-hidden="true">*</span></label>
+                  <input id="recipient-name" class="input-glass" type="text" value="Sample recipient" />
+                  <p class="field-helper">Use synthetic contact details only for PA3 validation.</p>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label" for="destination-address">Destination address<span class="field-required" aria-hidden="true">*</span></label>
+                  <input
+                    id="destination-address"
+                    class="input-glass input-glass--error"
+                    type="text"
+                    value=""
+                    placeholder="Enter a destination"
+                    aria-invalid="true"
+                    aria-describedby="destination-error"
+                  />
+                  <p id="destination-error" class="field-error">${ICONS.alert} Destination address is required.</p>
+                </div>
+
+                <div class="action-row" style="margin-top:22px;">
+                  <button type="submit" class="btn btn--primary">Save order</button>
+                  <button type="button" class="btn btn--glass">Cancel</button>
+                </div>
+              </form>
+            </div>
+          `)
+      },
+
+      "S07-01-empty": {
+        viewport: "1440 × 900",
+        caption: "S07-01-empty · Orders empty state glass sheet with onboarding recovery actions",
+        render: () =>
+          renderDesktopShell(`
+            <header class="page-header">
+              <div>
+                <p class="eyebrow">HUB OPERATIONS</p>
+                <h1 class="page-title">Orders</h1>
+                <p class="page-subtitle">No active deliveries queued for Hub Q1 today.</p>
+              </div>
+            </header>
+
+            <div class="glass-elevated state-card">
+              <div class="state-icon-badge state-icon-badge--info">${ICONS.package}</div>
+              <div>
+                <h2 class="state-card-title">No orders yet</h2>
+                <p class="state-card-body">Create an order or import a CSV file to begin building today's delivery shifts.</p>
+              </div>
+              <div class="action-row" style="margin-top:6px;">
+                <button type="button" class="btn btn--primary">${ICONS.plus} Create order</button>
+                <button type="button" class="btn btn--glass">${ICONS.upload} Import CSV</button>
+              </div>
+            </div>
+          `)
+      },
+
+      "S07-01-denied": {
+        viewport: "1440 × 900",
+        caption: "S07-01-denied · RBAC permission denied glass sheet (FR-01-2 authorization boundary)",
+        render: () =>
+          renderDesktopShell(`
+            <header class="page-header">
+              <div>
+                <p class="eyebrow">HUB OPERATIONS</p>
+                <h1 class="page-title">Orders</h1>
+                <p class="page-subtitle">Role-based access check for hub order intake.</p>
+              </div>
+            </header>
+
+            <div class="glass-elevated state-card" role="status">
+              <div class="state-icon-badge state-icon-badge--error">${ICONS.shieldAlert}</div>
+              <div>
+                <h2 class="state-card-title">Access restricted</h2>
+                <p class="state-card-body">This account cannot perform this action. Dispatcher authorization is required to manage hub orders.</p>
+              </div>
+              <div class="action-row" style="margin-top:6px;">
+                <button type="button" class="btn btn--glass">${ICONS.arrowLeft} Back to orders</button>
+              </div>
+            </div>
+          `)
+      },
+
+      "S11-01": {
+        viewport: "360 × 800",
+        caption: "S11-01 · Rider / assigned work — Apple Maps Liquid Glass thumb-zone dock (360×800)",
+        render: () => `
+          <section class="veylo-canvas veylo-canvas--mobile">
+            ${MAP_BACKDROP_SVG}
+            <div class="mobile-shell">
+              <header class="mobile-topbar glass-chrome">
+                <div class="brand-lockup" style="gap:8px;">
+                  <span class="brand-logo" style="width:28px;height:28px;border-radius:9px;">${ICONS.truck}</span>
+                  <span style="font-weight:700;font-size:15px;">Veylo · Rider</span>
+                </div>
+                <span class="badge badge--success tabular">SH-034</span>
+              </header>
+
+              <div class="mobile-body">
+                <div style="padding:2px 4px;">
+                  <p class="eyebrow" style="margin-bottom:3px;">MORNING SHIFT · 3 STOPS</p>
+                  <h1 class="mobile-title">Today's deliveries</h1>
+                </div>
+
+                <article class="glass-elevated mobile-stop-card" aria-label="Next assigned stop">
+                  <div class="mobile-stop-header">
+                    <div>
+                      <div class="mobile-stop-index">STOP 01 · VL-0001</div>
+                      <h2 class="mobile-stop-name">Sample recipient</h2>
+                    </div>
+                    <span class="badge badge--pending">${ICONS.clock} Pending</span>
+                  </div>
+
+                  <div class="mobile-meta-row">
+                    ${ICONS.mapPin}
+                    <span>12 Sample Street · Synthetic</span>
+                  </div>
+
+                  <div class="mobile-meta-row">
+                    ${ICONS.clock}
+                    <span class="tabular">Window 09:00–11:00</span>
+                  </div>
+
+                  <div class="glass-subtle" style="padding:11px 12px;display:flex;flex-direction:column;gap:4px;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+                      <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;">
+                        ${ICONS.bookOpen} Verified Location Guide
+                      </span>
+                      <span class="badge badge--success">Gate B</span>
+                    </div>
+                    <div style="font-size:12.5px;color:var(--text-secondary);">Enter Gate B beside security desk · Basement ramp B1</div>
+                  </div>
+                </article>
+
+                <div class="glass-panel" style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                  <div>
+                    <div class="tabular" style="font-size:12px;color:var(--text-muted);font-weight:700;">STOP 02 · VL-0002</div>
+                    <div style="font-size:14px;font-weight:600;">48 Sample Alley · 09:00–11:00</div>
+                  </div>
+                  <span class="badge badge--info">Queued</span>
+                </div>
+
+                <div class="glass-chrome mobile-dock" aria-label="Primary stop actions">
+                  <button type="button" class="btn btn--primary btn--lg-touch">
+                    <span>View delivery</span>
+                    ${ICONS.arrowRight}
+                  </button>
+                  <button type="button" class="btn btn--glass btn--lg-touch">
+                    ${ICONS.bookOpen}
+                    <span>Location guide</span>
+                  </button>
+                  <p class="mobile-footer-note">Only your assigned work appears here · Synthetic example</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        `
+      }
+    };
+
+    for (const [id, frame] of Object.entries(BOOYAH_FRAMES)) {
+      const rider = /^S1[12]/.test(id);
+      const minimum = id.endsWith("-min");
+      SCREENS[id] = {
+        viewport: rider ? "360 × 800" : minimum ? "1280 × 720" : "1440 × 900",
+        caption: `${id} · ${frame.title}`,
+        render: () => renderWalkthrough(id, frame, renderDesktopShell),
+      };
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    let currentScreen = Object.hasOwn(SCREENS, params.get("screen")) ? params.get("screen") : WORK;
+    let currentTheme = params.get("theme") === "dark" ? "dark" : "light";
+    const isStandalone = params.get("standalone") === "1";
+
+    if (isStandalone) {
+      document.body.classList.remove("gallery-mode");
+      document.body.classList.add("standalone-mode");
+    }
+
+    const stageFrame = document.getElementById("stage-frame");
+    const viewportBadge = document.getElementById("viewport-badge");
+    const screenCaption = document.getElementById("screen-caption");
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeLabel = document.getElementById("theme-label");
+    const themeIcon = document.getElementById("theme-icon");
+    const walkthroughFrame = document.getElementById("walkthrough-frame");
+    for (const [id, frame] of Object.entries(BOOYAH_FRAMES)) {
+      walkthroughFrame.add(new Option(`${id} · ${frame.title}`, id));
+    }
+    walkthroughFrame.addEventListener("change", () => {
+      currentScreen = walkthroughFrame.value;
+      render();
+    });
+    stageFrame.addEventListener("submit", handleSimulation);
+
+    function render() {
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      const spec = SCREENS[currentScreen];
+      stageFrame.innerHTML = spec.render();
+      stageFrame.dataset.renderedScreen = currentScreen;
+      restoreFilters(stageFrame);
+      walkthroughFrame.value = Object.hasOwn(BOOYAH_FRAMES, currentScreen) ? currentScreen : "";
+      viewportBadge.textContent = spec.viewport;
+      screenCaption.textContent = spec.caption;
+
+      const isDark = currentTheme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeLabel.textContent = isDark ? "Theme: Dark Glass" : "Theme: Light Glass";
+      themeIcon.innerHTML = isDark ? ICONS.moon : ICONS.sun;
+
+      document.querySelectorAll(".screen-tab").forEach((btn) => {
+        btn.setAttribute("aria-selected", String(btn.dataset.screen === currentScreen));
+      });
+    }
+
+    document.querySelectorAll(".screen-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentScreen = btn.dataset.screen;
+        render();
+      });
+    });
+
+    themeToggle.addEventListener("click", () => {
+      currentTheme = currentTheme === "light" ? "dark" : "light";
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
