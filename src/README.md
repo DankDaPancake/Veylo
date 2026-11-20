@@ -103,7 +103,7 @@ Keep `BETTER_AUTH_URL` equal to the server's browser origin and configure `BETTE
 
 ```powershell
 $env:VEYLO_ENABLE_DEMO_SEED='1'
-node --env-file=.env --run test:integration
+node --env-file=.env --test --test-concurrency=1 tests/orders.integration.mjs
 ```
 
 `VEYLO_TEST_URL` defaults to `http://127.0.0.1:3000`; set it to the running test server origin when using another port. The integration suite uses real Better Auth sign-ins and writes synthetic test orders. It checks seed replay, authorization on every F02 route, filtering/pagination, persisted edits/cancellation, 20-row CSV import, atomic failures and concurrent duplicate writes. It also expires Dispatcher A's sessions and briefly clears/restores its hub association. Use only an isolated demo database/server without other users; synthetic test orders remain for inspection. The script verifies database name and local target before writing. Normal `npm test` runs pure validation/parser and existing foundation/password tests without a database.
@@ -115,7 +115,10 @@ node --env-file=.env --run test:integration
 | GET | `/api/orders/[id]` | Saved order, including current version |
 | PATCH | `/api/orders/[id]` | Changed editable fields plus numeric `version`; returns saved order |
 | POST | `/api/orders/[id]/cancel` | `{ reason, version }`; returns retained CANCELLED order |
+| POST | `/api/orders/import/preview` | Multipart `file`; authorized read-only check returning `{ orders, total, valid, saved: 0 }` |
 | POST | `/api/orders/import` | Multipart `file`; returns `{ imported }`, 201 |
 | GET | `/api/orders/template` | Guarded UTF-8 CSV download with a synthetic example |
 
 Every endpoint uses the existing Dispatcher/session/hub guard. Administrator and Rider are denied. JSON validation errors contain `{ code, errors: [{ field, message, row? }] }`; CSV `row` counts records with header as record 1. Statuses are 400 for validation, 401/403 for access denial, 404 for unavailable or other-hub orders, and 409 for duplicates/stale or ineligible writes. The database enforces hub/code uniqueness. CSV writes are atomic, including duplicate races. Timestamps in responses are UTC instants; input windows use `YYYY-MM-DD HH:mm` in `Asia/Ho_Chi_Minh`. Decimal weight is returned as a JSON string to preserve precision. Edits reject identity, hub, state and audit fields; omitted editable fields retain their values.
+
+The CSV screen checks a file through the read-only preview route, then requires explicit confirmation before calling the atomic import route. Preview validates records and current same-hub codes without reserving codes or saving orders. Confirmation rechecks the original file and current authorization/uniqueness; another request can claim a code after preview and cause an atomic 409 rejection. Preview shares the existing file/record rules, reports record/column/reason diagnostics and is denied to anonymous, expired, Administrator, Rider and hub-less sessions.

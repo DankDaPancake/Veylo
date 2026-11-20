@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { OrderError, parseListQuery, requireVersion, validateOrder } from "../lib/orders/validation.ts";
-import { csvHeader, csvTemplate, parseOrdersCsv } from "../lib/orders/csv.ts";
+import { analyzeOrdersCsv, csvHeader, csvTemplate, parseOrdersCsv } from "../lib/orders/csv.ts";
 
 const valid = { order_code: " Test-1 ", recipient_name: " Người nhận thử ", recipient_phone: "0900000001", delivery_address: "Địa chỉ giả lập", window_start: "2026-11-20 09:00", window_end: "2026-11-20 11:00", weight_kg: "1.25" };
 const bytes = (text) => new TextEncoder().encode(text);
@@ -85,6 +85,23 @@ test("CSV reports both duplicate occurrences and record numbers across quoted ne
     assert.deepEqual(error.errors.filter((item) => item.field === "order_code").map((item) => item.row), [2, 3]);
     assert.equal(error.errors.find((item) => item.field === "weight_kg").row, 4);
     assert.ok(!JSON.stringify(error.errors).includes("Synthetic"));
+    return true;
+  });
+});
+
+test("CSV analysis retains valid rows and all field, width and duplicate diagnostics", () => {
+  const malformed = csvHeader + "\n" + csvRow("DUPLICATE", "-1") + "\n" + csvRow(" duplicate ") + "\n" + csvRow("WIDTH").replace(",NORMAL,,,", ",,,") + "\n" + csvRow("GOOD");
+  const result = analyzeOrdersCsv(bytes(malformed), "mixed.csv");
+  assert.deepEqual(result.orders.map(({ row }) => row), [3, 5]);
+  assert.deepEqual(result.codeOccurrences.map(({ row, normalizedCode }) => [row, normalizedCode]), [
+    [2, "duplicate"], [3, "duplicate"], [4, "width"], [5, "good"],
+  ]);
+  assert.deepEqual(result.errors.filter(({ field }) => field === "order_code").map(({ row }) => row), [2, 3]);
+  assert.equal(result.errors.find(({ field }) => field === "weight_kg").row, 2);
+  assert.deepEqual(result.errors.filter(({ field }) => field === "file").map(({ row }) => row), [4]);
+  assert.throws(() => parseOrdersCsv(bytes(malformed), "mixed.csv"), (error) => {
+    assert.equal(error.status, 400);
+    assert.ok(error.errors.some(({ row, field }) => row === 4 && field === "file"));
     return true;
   });
 });
