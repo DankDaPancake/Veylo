@@ -17,6 +17,7 @@ const SCREENS = [
   { id: "S09-05", file: "UC09/S09-05-rider-capacity.png", w: 1440, h: 900 },
   { id: "S09-06", file: "UC09/S09-06-stale.png", w: 1440, h: 900 },
   { id: "S09-07", file: "UC09/S09-07-no-orders-selected.png", w: 1440, h: 900 },
+  { id: "S09-08", file: "UC09/S09-08-invalid-time.png", w: 1440, h: 900 },
   { id: "S10-01", file: "UC10/S10-01-adjust.png", w: 1440, h: 900 },
   { id: "S10-02", file: "UC10/S10-02-confirm.png", w: 1440, h: 900 },
   { id: "S10-03", file: "UC10/S10-03-updated.png", w: 1440, h: 900 },
@@ -24,6 +25,10 @@ const SCREENS = [
   { id: "S10-05", file: "UC10/S10-05-blocked.png", w: 1440, h: 900 },
   { id: "S10-06", file: "UC10/S10-06-stale.png", w: 1440, h: 900 },
   { id: "S10-07", file: "UC10/S10-07-rider-unavailable.png", w: 1440, h: 900 },
+  { id: "S10-08", file: "UC10/S10-08-confirm-removal.png", w: 1440, h: 900 },
+  { id: "S10-09", file: "UC10/S10-09-stop-removed.png", w: 1440, h: 900 },
+  { id: "S10-10", file: "UC10/S10-10-confirm-rider-change.png", w: 1440, h: 900 },
+  { id: "S10-11", file: "UC10/S10-11-rider-updated.png", w: 1440, h: 900 },
   { id: "S14-01", file: "UC14/S14-01-stops.png", w: 360, h: 800 },
   { id: "S14-02", file: "UC14/S14-02-reasons.png", w: 360, h: 800 },
   { id: "S14-03", file: "UC14/S14-03-empty.png", w: 360, h: 800 },
@@ -32,7 +37,8 @@ const SCREENS = [
   { id: "S14-06", file: "UC14/S14-06-tie.png", w: 360, h: 800 },
   { id: "S14-07", file: "UC14/S14-07-choice.png", w: 360, h: 800 },
   { id: "S14-08", file: "UC14/S14-08-priority.png", w: 360, h: 800 },
-  { id: "S14-09", file: "UC14/S14-09-distance.png", w: 360, h: 800 }
+  { id: "S14-09", file: "UC14/S14-09-distance.png", w: 360, h: 800 },
+  { id: "S14-10", file: "UC14/S14-10-no-suggestion.png", w: 360, h: 800 }
 ];
 
 function findChrome() {

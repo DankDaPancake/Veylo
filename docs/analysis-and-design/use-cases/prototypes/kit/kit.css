@@ -39,6 +39,7 @@ body {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
+select:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
@@ -803,6 +804,10 @@ body.standalone-mode .stage-frame {
   -webkit-backdrop-filter: blur(22px);
 }
 
+.alert-banner[hidden] {
+  display: none;
+}
+
 .alert-banner--error {
   background: var(--status-error-bg);
   border: 1px solid var(--status-error-border);
@@ -863,6 +868,18 @@ body.standalone-mode .stage-frame {
 .input-glass--error {
   border: 1.5px solid var(--status-error-accent);
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.14);
+}
+
+.input-glass[hidden] {
+  display: none;
+}
+
+.input-glass[disabled] {
+  background: var(--glass-subtle);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.78;
 }
 
 .field-helper {
@@ -1134,6 +1151,10 @@ body.standalone-mode .stage-frame {
   margin-bottom: 16px;
 }
 
+.summary-grid-4--draft {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.78fr) minmax(0, 1.44fr) minmax(0, 1fr);
+}
+
 .summary-card {
   padding: 14px 18px;
   display: flex;
@@ -1161,6 +1182,14 @@ body.standalone-mode .stage-frame {
 
 .summary-value--error {
   color: var(--status-error-fg);
+}
+
+.order-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
 }
 
 .route-ribbon {
@@ -1249,4 +1278,18 @@ body.standalone-mode .stage-frame {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+}
+
+.assigned-stop {
+  width: 100%;
+  min-height: 48px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.assigned-stop-address {
+  display: block;
+  font-size: 15px;
 }
