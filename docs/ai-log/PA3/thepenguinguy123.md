@@ -228,3 +228,18 @@
 - Checks: Strict validation passed on the active change before archive and on both new main specs after sync and archive. `openspec validate --specs` passed with pre-existing warnings on `project-plan-revision`, which make repository-wide strict spec validation fail. The prototype's Node harness passed all 77 states and synthetic metric checks. Verified 267 local Markdown links and image references, 70 A4 PDF pages, all 77 original image pixel contents in source order, all captions on the corresponding image page, and four visual sample pages. Git whitespace checks passed.
 - Limits and handoff: Real F03 allocation and any post-attempt F02 edit/cancel restrictions require separate approved integration contracts. This task did not implement or test those integrations. Scope was local archive finalization. No push, PR creation, or merge occurred.
 - Handoff recheck: A second fetch confirmed `origin/dev` at `e89291e`. BOOYAH-14's OpenSpec inputs, the F02/F03 contracts and existing main specs were unchanged from `b220ccb`. Tasks 4.2 and 4.3 remain unchecked on `dev`. Its shared AI log has since gained BOOYAH-20 entries, which belong to `dev` and must be preserved when integrating this branch. The two BOOYAH-14 specs still passed strict validation, and `pdfinfo` and `pdfimages` independently confirmed 70 A4 pages and 77 embedded images.
+
+## 2026-11-20 — BOOYAH-14 follow-up PR preflight
+
+- Task owner: Trần Lê Hải (thepenguinguy123).
+- AI tool/model: Codex. Exact model unavailable.
+- Request and purpose: Publish a follow-up PR from `feature/booyah-14-redo` to `dev` only if the remote comparison is scoped to BOOYAH-14 and conflict-free.
+- Checks: Fetched both refs. Confirmed `origin/feature/booyah-14-redo` at `176dfe4`, `origin/dev` at `e89291e`, and PR #15 merged. The GitHub PR list showed no follow-up for the same head and base. The three-dot diff contained only the checklist, archive, two new main specs, use-case Markdown and PDF, and append-only AI log changes. The Git whitespace check passed.
+- Findings and outcome: A dry-run `git merge-tree --write-tree` using a temporary object directory returned conflicts in the shared AI log and the binary `UC-F04-F08-Delivery-Reporting.pdf`. The `dev` log contains BOOYAH-20 entries and its PDF includes an update from BOOYAH-15 commit `f501dd9`. Stopped PR creation as requested. Appended this local log entry. No commit, push, branch, PR or merge was created. No conflict was resolved.
+
+## 2026-11-20 — BOOYAH-14 archive follow-up PR publication
+
+- Task owner: Trần Lê Hải (thepenguinguy123).
+- AI tool/model: Codex. Exact model unavailable.
+- Request and purpose: Open the archive follow-up PR with the two known conflicts documented for team resolution. Preserve local work and leave Git history and conflict resolution to the team.
+- Actions and checks: Confirmed no open PR for the same head and base and verified both remote SHAs with `git ls-remote`. Opened [PR #18](https://github.com/DankDaPancake/Veylo/pull/18) through `gh pr create` from `feature/booyah-14-redo` at `176dfe4` into `dev`. GitHub reported 12 changed files, `CONFLICTING`, and `REVIEW_REQUIRED`. The PR body records the archive validation and both conflict-resolution requirements. Prior local edits were preserved. This entry is local and unstaged. No commit, push, new branch, merge, or conflict resolution was performed.
