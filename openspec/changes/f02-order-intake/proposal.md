@@ -23,4 +23,4 @@ None.
 
 BOOYAH-18 owns authentication and demo account integration. BOOYAH-19 owns shared persistence and the order API. BOOYAH-16 owns the interface, and BOOYAH-17 verifies integration.
 
-On 19 November 2026, Phạm Công Khánh confirmed the F02 rules and Hub/User/Order design for local work and delegated the remaining contract details. This proposal and the exact contract in the design are ready for independent review by Trần Lê Hải. Record his approval before merging a migration.
+On 19 November 2026, Phạm Công Khánh confirmed the F02 rules and Hub/User/Order design for local work and delegated the remaining contract details. On 20 November, Khánh confirmed that Thái Kiệt had approved in place of Trần Lê Hải. PR #9 records Kiệt's approval; the reviewer substitution is confirmed by the user's conversation and recorded in the design and AI log. This resolves the contract-review prerequisite for local BOOYAH-19 work; a migration PR still requires the repository's normal human review and checks.

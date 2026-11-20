@@ -1,8 +1,11 @@
+import { AccountControl } from "./account-control";
+
 export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-10 sm:px-12">
       <header className="flex items-center justify-between border-b border-emerald-900/20 pb-6">
         <span className="text-2xl font-semibold tracking-tight">Veylo</span>
+        <AccountControl />
         <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm text-emerald-900">Local foundation</span>
       </header>
       <section className="max-w-2xl py-20 sm:py-28" aria-labelledby="welcome">

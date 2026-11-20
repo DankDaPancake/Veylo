@@ -13,15 +13,21 @@
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "test:integration": "node --test --test-concurrency=1 tests/orders.integration.mjs",
     "db:check": "node --env-file-if-exists=.env scripts/db-check.mjs",
-    "db:migrate": "node scripts/schema-pending.mjs",
-    "db:seed": "node scripts/schema-pending.mjs",
+    "db:migrate": "node --env-file-if-exists=.env node_modules/prisma/build/index.js migrate deploy",
+    "db:seed": "node --env-file-if-exists=.env prisma/seed.ts",
     "spec:validate": "openspec validate app-foundation --strict"
   },
   "dependencies": {
+    "@better-auth/prisma-adapter": "1.7.26",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "better-auth": "1.7.26",
     "next": "16.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@fission-ai/openspec": "1.16.0",
