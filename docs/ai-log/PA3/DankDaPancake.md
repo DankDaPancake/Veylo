@@ -239,3 +239,23 @@ Member: Lý Huỳnh Minh Đăng.
 ## 2026-11-20 — Prepare the BOOYAH-16 review PR
 
 - User requested a PR. Codex fetched dev and checked local mergeability. Prepared the 16 browser-generated evidence files and the report for review. Outstanding items are full keyboard coverage, the resource 404 and prototype differences. OpenSpec acceptance tasks remain open.
+
+## 2026-11-20 — Audit PA3 deliverables and Jira status
+
+- User requested an overall audit. Codex checked Jira 16/18/22/27, their comment lists, GitHub PR #20, dev, the indexed member AI log and the Drive folder listings. PR #20 remains open, with no submitted review. Drive shows the Markdown/PDF pairs for 22/27; source PNGs and the Section B Changes fragment were not visible there. No Jira, Drive or GitHub changes.
+
+## 2026-11-20 — Publish PA3 handoff updates in Jira
+
+- At the user's request, Codex posted Jira handoff comments 10035–10038 on BOOYAH-16, 18, 22 and 27 with artifact and AI log links. Jira confirmed BOOYAH-16 transitioned to In QA Review. The other tasks' Done statuses were left as recorded. No GitHub push, Drive upload or T18 delivery.
+
+## 2026-11-20 — Identify PNGs for Drive handoff
+
+- User asked which images should be placed on Drive. Codex counted the F01 prototype source PNGs and F02 browser evidence and summarized the upload layout. No Drive or Jira write.
+
+## 2026-11-20 — Reconcile Section B across repo and Drive
+
+- User requested a Section B comparison. Codex fetched dev at 7327989, listed tracked Vision/Changes files and read the BOOYAH-26/27 Drive listings. Downloaded the two BOOYAH-27 deliverables and verified both match local SHA-256. Compared BOOYAH-26 Vision 2.2-review and its Changes against the local Section B fragment. The Drive baseline records some overlapping claim removals and does not contain the BOOYAH-27 merged sections. No Drive, Jira or source edits.
+
+## 2026-11-20 — Prepare the BOOYAH-27 repository handoff
+
+- User requested publishing Vision Section B and Changes to the repo. Codex checked BOOYAH-26 and BOOYAH-29, fast-forwarded the task branch to dev 7327989, preserved shared logs, and prepared the reviewed sections, matching PDF, B01–B05 entries and full Vision integration candidate. Checked local links, PDF signature, Changes identifiers, indexed AI log and staged whitespace. The Drive master and final combined PDF remain with the owners.
