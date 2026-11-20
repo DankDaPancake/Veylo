@@ -1,4 +1,4 @@
-order_code,recipient_name,recipient_phone,destination_address,window_start,window_end,weight_kg,note
-F02-001,Demo Recipient 01,0000000001,"100 Example Lane, Demo Ward",2026-11-21T09:00+07:00,2026-11-21T11:00+07:00,1.25,
- f02-001 ,Demo Recipient 02,abc,,2026-11-21T09:00+07:00,2026-11-21T09:00+07:00,0,
-F02-500,Demo Recipient 02,0000000002,"100 Example Lane, Demo Ward",2026-11-21T09:00+07:00,2026-11-21T11:00+07:00,1.25,
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg,priority,note,latitude,longitude
+F02-001,Demo Recipient 01,0900000001,"100 Example Lane, Demo Ward",2026-11-21 09:00,2026-11-21 11:00,1.25,NORMAL,,,
+ f02-001 ,Demo Recipient 02,abc,,2026-11-21 09:00,2026-11-21 09:00,0,NORMAL,,,
+F02-500,Demo Recipient 02,0900000002,"100 Example Lane, Demo Ward",2026-11-21 09:00,2026-11-21 11:00,1.25,NORMAL,,,

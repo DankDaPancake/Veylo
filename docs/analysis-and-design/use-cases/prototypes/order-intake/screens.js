@@ -189,5 +189,10 @@ const SCREENS = [
     "id": "S07-01-session-expired",
     "title": "Session expired",
     "group": "Access"
+  },
+  {
+    "id": "S07-01-not-found",
+    "title": "Order unavailable · 404",
+    "group": "Access"
   }
 ];

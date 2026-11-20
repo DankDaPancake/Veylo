@@ -20,34 +20,56 @@ try {
     await exportPdf();
   } else {
     const captures = mode === "--sample" ? [screens.find(({ id }) => id === "S07-01")] : screens;
-    const themes = mode === "--sample" ? ["light"] : ["light", "dark"];
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, offline: true });
     try {
-      for (const theme of themes) {
-        const page = await context.newPage();
-        try {
-          for (const screen of captures) {
-            const { id } = screen;
-            const output = join(reportRoot, screenshotPath(screen, theme));
-            await mkdir(dirname(output), { recursive: true });
-            const url = pathToFileURL(join(root, "index.html"));
-            url.search = new URLSearchParams({ screen: id, theme, standalone: "1" });
-            await page.goto(url.href);
-            await page.locator(`#stage[data-screen="${id}"] h1`).waitFor();
-            await page.evaluate(() => document.fonts.ready);
-            await page.screenshot({ path: output, animations: "disabled" });
-          }
-        } finally {
-          await page.close();
-        }
-        console.log(`${theme}: captured ${captures.length} PNG(s) at 2880 × 1800`);
+      const page = await context.newPage();
+      for (const screen of captures.filter(({ id }) => id !== "S08-03")) {
+        const output = join(reportRoot, screenshotPath(screen));
+        await mkdir(dirname(output), { recursive: true });
+        await captureScreen(page, screen.id, output);
       }
+      console.log(`Captured ${captures.length} light PNG(s) at 2880 × 1800`);
     } finally {
       await context.close();
     }
   }
 } finally {
   await browser.close();
+}
+
+async function captureScreen(page, id, output) {
+  const awaitScreen = (screenId) => page.locator(`#stage[data-screen="${screenId}"] h1`).waitFor();
+  const fileEvidence = {
+    "S06-01-file-header": "orders-header-missing.csv",
+    "S06-02": "orders-valid.csv",
+    "S06-02-row-errors": "orders-invalid.csv",
+    "S07-01-import-cancelled": "orders-valid.csv",
+  };
+  const filename = fileEvidence[id];
+  const url = pathToFileURL(join(root, "index.html"));
+  url.search = new URLSearchParams({ screen: filename ? "S06-01" : id, standalone: "1" });
+  await page.goto(url.href);
+  if (filename) {
+    await page.locator("#csv-file").setInputFiles(join(reportRoot, "fixtures/order-intake", filename));
+    await page.getByRole("button", { name: "Check CSV", exact: true }).click();
+    if (id === "S07-01-import-cancelled") {
+      await page.getByRole("button", { name: "Cancel import", exact: true }).click();
+    }
+  }
+  await awaitScreen(id);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: output, animations: "disabled" });
+  if (id === "S08-02") {
+    const code = await page.locator(".page-subtitle").innerText();
+    const reason = await page.locator("#reason").inputValue();
+    await page.getByRole("button", { name: "Confirm cancellation", exact: true }).click();
+    await awaitScreen("S08-03");
+    assert.equal(code, (await page.locator("h1").innerText()) + " · Demo Hub");
+    assert.equal(await page.locator(".detail-grid div").filter({ hasText: "Cancellation reason" }).locator("dd").innerText(), reason);
+    assert.equal(await page.locator(".f02-card .badge").innerText(), "CANCELLED");
+    const result = screens.find((screen) => screen.id === "S08-03");
+    await page.screenshot({ path: join(reportRoot, screenshotPath(result)), animations: "disabled" });
+  }
 }
 
 async function exportPdf() {

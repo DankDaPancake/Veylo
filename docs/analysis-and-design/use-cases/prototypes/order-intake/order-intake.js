@@ -3,15 +3,16 @@
   const stage = document.querySelector("#stage");
   const screenSelect = document.querySelector("#gallery-screen");
   const simulation = document.querySelector("#simulate");
-  const themeButton = document.querySelector("#toggle-theme");
   const params = new URLSearchParams(location.search);
   const screenMap = new Map(SCREENS.map((entry) => [entry.id, entry]));
+  const cancellationReason = "Synthetic recipient requested cancellation.";
+  const accessScreens = ["S07-01-session-expired", "S07-01-denied", "S07-01-not-found"];
   const blankFilters = { keyword: "", status: "", from: "", to: "" };
   const importErrors = {
     type: ["S06-01-file-type", "Choose a CSV file", "This file type is unsupported. Select a file ending in .csv."],
     empty: ["S06-01-file-empty", "The file is empty", "Select a CSV with a header and at least one data record."],
     "empty-header": ["S06-01-file-empty-header", "The file contains only a header", "Add at least one order record below the header."],
-    header: ["S06-01-file-header", "The header does not match the template", "Use the seven required columns in template order. The final note column is optional."],
+    header: ["S06-01-file-header", "The header does not match the template", "Use unique required and approved optional columns from the template in any order."],
     limit: ["S06-01-file-limit", "Too many order records", "The maximum is 500 data records per file. Reduce the number of records and try again."],
     "limit-bytes": ["S06-01-file-limit-bytes", "The CSV is too large", "The maximum file size is 1,000,000 bytes. Select a smaller file."],
     format: ["S06-01-file-format", "Malformed CSV", "Check quotes, commas and record breaks."],
@@ -23,20 +24,21 @@
     ...F02.example,
     order_code: `F02-${101 + i}`,
     recipient_name: `Demo Recipient ${101 + i}`,
-    recipient_phone: `0000000${101 + i}`,
-    destination_address: `${10 + i} Example Lane, Demo Ward`,
+    recipient_phone: `0900000${101 + i}`,
+    delivery_address: `${10 + i} Example Lane, Demo Ward`,
     status: i === 5 ? "CANCELLED" : "NEW",
-    reason: i === 5 ? "Synthetic recipient requested cancellation." : "",
+    reason: i === 5 ? cancellationReason : "",
   })).reverse();
-  seed.push({ ...seed.at(-1), order_code: "F02-500", recipient_name: "Demo Existing Recipient", status: "NEW" });
+  seed.push({ ...seed.at(-1), order_code: "F02-500", recipient_name: "Demo Existing Recipient", recipient_phone: "0900000500", status: "NEW" });
   const demoBatch = Array.from({ length: 20 }, (_, i) => ({
     ...F02.example,
     order_code: `F02-${String(i + 1).padStart(3, "0")}`,
     recipient_name: `Demo Recipient ${String(i + 1).padStart(2, "0")}`,
+    recipient_phone: `09000000${String(i + 1).padStart(2, "0")}`,
   }));
   const demoInvalid = [
     F02.example,
-    { ...demoBatch[1], order_code: " f02-001 ", recipient_phone: "abc", destination_address: "", window_end: F02.example.window_start, weight_kg: "0" },
+    { ...demoBatch[1], order_code: " f02-001 ", recipient_phone: "abc", delivery_address: "", window_end: F02.example.window_start, weight_kg: "0" },
     { ...demoBatch[1], order_code: "F02-500" },
   ];
 
@@ -65,6 +67,7 @@
   let report;
   let fileName;
   let fileRecord;
+  let fileIssue;
   let imported;
   let reason;
   let conflictKind;
@@ -116,18 +119,19 @@
       + card(`${summary}<form id="order-form" data-edit="${edit}" novalidate><div class="field-grid">${F02.fields.map(([key, label, example]) => {
         const error = fieldErrors[key];
         const value = values[key] ?? "";
-        const required = key !== "note";
+        const required = F02.requiredColumns.includes(key);
+        const readOnlyCode = edit && key === "order_code";
         const classes = `input-glass${error ? " input-glass--error" : ""}`;
-        const attrs = `id="${key}" name="${key}" class="${classes}"${error ? ` aria-invalid="true" aria-describedby="${key}-error"` : ""}${required ? " required" : ""}`;
+        const attrs = `id="${key}" ${readOnlyCode ? "" : `name="${key}"`} class="${classes}"${error ? ` aria-invalid="true" aria-describedby="${key}-error"` : ""}${required ? " required" : ""}`;
         const input = key === "note" ? `<textarea ${attrs} rows="2">${esc(value)}</textarea>`
-          : `<input ${attrs} value="${esc(value)}" placeholder="${esc(example)}"${edit && key === "order_code" ? " readonly" : ""}${key === "weight_kg" ? ' inputmode="decimal"' : ""}>`;
+          : `<input ${attrs} value="${esc(value)}" placeholder="${esc(example)}"${readOnlyCode ? " readonly" : ""}${key === "recipient_phone" ? ' inputmode="numeric"' : ""}${key === "weight_kg" ? ' inputmode="decimal"' : ""}>`;
         return `<div class="field-group${key === "note" ? " full-field" : ""}"><label class="field-label" for="${key}">${label}</label>${input}
           ${error ? `<p class="field-error" id="${key}-error">${esc(error)}</p>` : ""}</div>`;
       }).join("")}</div>${row(submit(edit ? "Save changes" : "Save order"), button("Discard and return", edit ? "detail" : "orders"))}</form>`);
   }
 
   function displayValue(key, value) {
-    if (key === "window_start" || key === "window_end") return value.replace("T", " ").replace("+07:00", " (UTC+7)");
+    if (key === "window_start" || key === "window_end") return value + " (UTC+7)";
     if (key === "weight_kg") return `${value} kg`;
     return value || "—";
   }
@@ -147,10 +151,10 @@
     const error = screen === "S08-02-error";
     return header("Cancel order", `${selected.order_code} · Demo Hub`, row(button("Back to detail", "detail", "glass", ICONS.arrowLeft)))
       + card(`<h2>Confirm cancellation</h2><p>The order will remain in the list with status CANCELLED and the reason you enter.</p>
-        ${error ? banner("Enter a cancellation reason", "Use 1–250 characters.", [["reason", "Cancellation reason"]]) : ""}
+        ${error ? banner("Enter a cancellation reason", F02.reasonError, [["reason", "Cancellation reason"]]) : ""}
         <form id="reason-form" novalidate><div class="field-group"><label class="field-label" for="reason">Cancellation reason</label>
         <textarea class="input-glass${error ? " input-glass--error" : ""}" name="reason" id="reason" rows="3" required${error ? ' aria-invalid="true" aria-describedby="reason-error"' : ""}>${esc(reason)}</textarea>
-        ${error ? '<p id="reason-error" class="field-error">Enter a reason of 1–250 characters.</p>' : ""}</div>
+        ${error ? `<p id="reason-error" class="field-error">${F02.reasonError}</p>` : ""}</div>
         ${row(submit("Confirm cancellation", "danger"), button("Keep order", "detail"))}</form>`);
   }
 
@@ -162,14 +166,14 @@
       <tbody>${records.map((order, i) => `<tr>${preview ? `<td class="tabular">${i + 2}</td>` : ""}
         <td><div class="order-title-row">${preview ? `<strong class="order-id">${esc(order.order_code)}</strong>`
           : `<button type="button" class="order-id code-link" data-action="open" data-code="${esc(order.order_code)}">${esc(order.order_code)}</button>`}
-          <span class="order-recipient">${esc(order.recipient_name)}</span></div><span class="order-address">${esc(order.destination_address)}</span></td>
+          <span class="order-recipient">${esc(order.recipient_name)}</span></div><span class="order-address">${esc(order.delivery_address)}</span></td>
         <td class="tabular">${esc(order.window_start.slice(0, 10))}<br>${esc(order.window_start.slice(11, 16))}–${esc(order.window_end.slice(11, 16))}</td>
         <td class="tabular">${esc(order.weight_kg)} kg</td>${preview ? "" : `<td>${badge(order.status)}</td>`}</tr>`).join("")}</tbody></table></div>`;
   }
 
   function filterForm(error) {
     return `<form class="glass-panel filters" id="filters">
-      <div class="field-group"><label class="field-label" for="keyword">Search orders</label><input class="input-glass" type="search" id="keyword" name="keyword" value="${esc(filters.keyword)}" placeholder="Code, recipient or address"></div>
+      <div class="field-group"><label class="field-label" for="keyword">Search orders</label><input class="input-glass" type="search" id="keyword" name="keyword" value="${esc(filters.keyword)}" placeholder="Code, recipient name or phone"></div>
       <div class="field-group"><label class="field-label" for="filter-status">Status</label><select class="input-glass" name="status" id="filter-status">
       ${[["", "All statuses"], ["NEW", "NEW"], ["CANCELLED", "CANCELLED"]].map(([value, title]) =>
         `<option value="${value}"${filters.status === value ? " selected" : ""}>${title}</option>`).join("")}</select></div>
@@ -199,7 +203,7 @@
   function picker() {
     const error = errorsByScreen.get(screen);
     const details = fileRecord ? ` Record ${fileRecord} is affected.` : "";
-    const feedback = error ? banner(error[1], `${fileName ? fileName + " · " : ""}${error[2]}${details}`) : "";
+    const feedback = error ? banner(error[1], `${fileName ? fileName + " · " : ""}${error[2]}${fileIssue ? " " + fileIssue : ""}${details}`) : "";
     return header("Import CSV", "Validate every record before confirming the import.", row(listButton()))
       + card(`${feedback}<h2>Select an order file</h2><p>CSV in UTF-8 · Up to 500 orders and 1,000,000 bytes.</p>
         <form id="import-form"><div class="glass-subtle import-zone"><label class="field-label" for="csv-file">CSV file</label>
@@ -210,7 +214,7 @@
 
   function importPreview() {
     return header("Review import", "Confirm the batch after checking its contents.", row(listButton()))
-      + card(`<h2>${batch.length} orders ready to import</h2><p>${esc(fileName)} · All records passed the preview check.</p>
+      + card(`<h2>${batch.length} orders ready to import</h2><p>${esc(fileName)} · All records passed validation. 0 orders saved.</p>
         ${orderTable(batch, "Preview records", true)}
         ${row(button(`Import ${batch.length} orders`, "confirm-import", "primary"), button("Cancel import", "abandon-import"))}`);
   }
@@ -219,7 +223,7 @@
     const conflict = screen === "S06-02-conflict";
     return header("Import errors", "Correct the CSV and check the entire batch again.", row(listButton()))
       + card(`${banner(conflict ? "An order code was claimed after preview" : "The batch contains invalid records",
-        `${fileName} · 0 orders imported.`)}
+        `${fileName} · ${report.length} issue(s) across ${new Set(report.map(({ record }) => record)).size} record(s) · 0 orders imported.`)}
         <div class="glass-panel table-card f02-table error-table" role="region" aria-label="CSV diagnostics" tabindex="0">
           <table class="orders-table"><thead><tr><th scope="col">Record</th><th scope="col">Column</th><th scope="col">Reason</th></tr></thead>
           <tbody>${report.map((entry) => `<tr><td class="tabular">${entry.record}</td><td><code>${esc(entry.column)}</code></td><td>${esc(entry.reason)}</td></tr>`).join("")}</tbody></table>
@@ -228,7 +232,7 @@
 
   function screenContent() {
     if (exited) return header("Staff workspace") + stateCard("Returned to workspace", "Order information is restricted.", "");
-    if (screen.startsWith("S07-01") && !["S07-01-denied", "S07-01-session-expired"].includes(screen)) return list();
+    if (screen.startsWith("S07-01") && !accessScreens.includes(screen)) return list();
     if (screen.startsWith("S05-01")) return editor(false);
     if (screen === "S06-01" || errorsByScreen.has(screen)) return picker();
     if (screen === "S06-02") return importPreview();
@@ -246,15 +250,18 @@
       row(button("Reload order", "detail", "primary"), listButton()), "error");
     if (screen === "S08-03-already-cancelled") return header("Order already cancelled") + stateCard("The order is CANCELLED",
       `Original reason: ${selected.reason}`, row(button("View order details", "detail", "primary")), "error");
-    if (screen === "S07-01-session-expired") return header("Session expired") + stateCard("Sign in to continue", "Your previous action will not be replayed.", row(button("Sign in", "sign-in", "primary")), "error");
-    return header("Access restricted") + stateCard("This workspace is restricted", "Your account cannot access this order or action.", row(button("Return to staff workspace", "safe-exit", "primary")), "error");
+    if (screen === "S07-01-session-expired") return header("Sign-in required", "HTTP 401 · Missing or expired session") + stateCard("Sign in to continue", "Your previous action will not be replayed.", row(button("Sign in", "sign-in", "primary")), "error");
+    if (screen === "S07-01-not-found") return header("Order not found", "HTTP 404 · Order unavailable")
+      + stateCard("Order unavailable", "The requested order is unavailable.", row(listButton()), "error");
+    return header("Access restricted", "HTTP 403 · Dispatcher access required")
+      + stateCard("This workspace is restricted", "Your account cannot access this action.", row(button("Return to staff workspace", "safe-exit", "primary")), "error");
   }
 
   function go(id, focus = true) {
     screen = id;
     screenSelect.value = id;
     stage.dataset.screen = id;
-    const restricted = exited || id === "S07-01-denied" || id === "S07-01-session-expired";
+    const restricted = exited || accessScreens.includes(id);
     stage.innerHTML = `<section class="veylo-canvas veylo-canvas--desktop">${MAP_BACKDROP_SVG}
       <div class="app-shell">${sidebar(restricted)}<div class="workspace">${screenContent()}
       <footer class="workspace-footer"><span>PA3 · Section D</span><span>Synthetic prototype</span></footer></div></div></section>`;
@@ -275,6 +282,7 @@
     report = [];
     fileName = "orders-valid.csv";
     fileRecord = 0;
+    fileIssue = "";
     imported = 20;
     reason = "";
     conflictKind = "update";
@@ -284,7 +292,7 @@
     if (["S05-01-error", "S08-01-error"].includes(id)) {
       values = {
         ...(id === "S08-01-error" ? selected : F02.example),
-        recipient_phone: "abc", destination_address: "", window_end: F02.example.window_start, weight_kg: "0",
+        recipient_phone: "abc", delivery_address: "", window_end: F02.example.window_start, weight_kg: "0",
       };
       fieldErrors = F02.orderErrors(values);
     }
@@ -293,11 +301,13 @@
       fieldErrors = { order_code: "Code already exists in this hub." };
     }
     if (id === "S08-01") values = F02.cleanOrder(selected);
-    if (id === "S08-02") reason = "Synthetic recipient requested cancellation.";
+    if (id === "S08-02") reason = cancellationReason;
+    if (id === "S08-02-error") reason = "No";
     if (id === "S07-02-created") selected = { ...F02.example, status: "NEW" };
-    if (["S07-02-updated", "S08-01-conflict", "S08-01-conflict-cancel"].includes(id)) selected.destination_address = "125 Example Lane, Demo Ward";
+    if (["S07-02-updated", "S08-01-conflict", "S08-01-conflict-cancel"].includes(id)) selected.delivery_address = "125 Example Lane, Demo Ward";
     if (id === "S08-01-conflict-cancel") conflictKind = "cancellation";
-    if (["S08-03", "S08-03-already-cancelled", "S08-01-blocked"].includes(id)) selected = orders.find((order) => order.status === "CANCELLED");
+    if (["S08-03", "S08-03-already-cancelled"].includes(id)) Object.assign(selected, { status: "CANCELLED", reason: cancellationReason });
+    if (id === "S08-01-blocked") selected = orders.find((order) => order.status === "CANCELLED");
     if (id === "S07-01-filtered") filters = { keyword: "F02-10", status: "NEW", from: "2026-11-21", to: "2026-11-21" };
     if (id === "S07-01-filter-error") filters = { ...blankFilters, from: "2026-11-22", to: "2026-11-21" };
     if (id === "S07-01-no-results") filters.keyword = "Example Z";
@@ -318,7 +328,7 @@
     const mode = simulation.value;
     simulation.value = "";
     if (mode === "role" || mode === "hub") {
-      go("S07-01-denied");
+      go(mode === "role" ? "S07-01-denied" : "S07-01-not-found");
       return null;
     }
     if (mode === "expired") {
@@ -330,6 +340,7 @@
 
   function showList() {
     const results = F02.searchOrders(orders, filters, pageNumber);
+    pageNumber = results.page;
     if (!orders.length) go("S07-01-empty");
     else if (!results.total) go("S07-01-no-results");
     else if (results.page > 1) go("S07-01-page-2");
@@ -342,8 +353,7 @@
   }
 
   function cancelPreviously() {
-    selected.status = "CANCELLED";
-    selected.reason = "Synthetic recipient requested cancellation.";
+    if (selected.status !== "CANCELLED") Object.assign(selected, { status: "CANCELLED", reason: cancellationReason });
     go("S08-03-already-cancelled");
   }
 
@@ -399,7 +409,7 @@
     },
     open: (_, control) => {
       selected = orderByCode(control.dataset.code);
-      go(selected ? "S07-02" : "S07-01-denied");
+      go(selected ? "S07-02" : "S07-01-not-found");
     },
     "abandon-import": () => {
       batch = [];
@@ -422,11 +432,11 @@
   const formActions = {
     "order-form": (form, data, mode) => {
       const edit = form.dataset.edit === "true";
-      values = F02.cleanOrder(data);
+      values = F02.withDefaults(F02.cleanOrder(edit ? { ...data, order_code: selected.order_code } : data));
       if (edit && mode === "cancelled") return cancelPreviously();
       if (edit && selected.status !== "NEW") return go("S08-01-blocked");
       if (edit && mode === "stale") {
-        selected.destination_address = "125 Example Lane, Demo Ward";
+        selected.delivery_address = "125 Example Lane, Demo Ward";
         conflictKind = "update";
         return go("S08-01-conflict");
       }
@@ -451,12 +461,12 @@
       if (mode === "cancelled") return cancelPreviously();
       if (selected.status === "CANCELLED") return go("S08-03-already-cancelled");
       if (mode === "stale") {
-        selected.destination_address = "125 Example Lane, Demo Ward";
+        selected.delivery_address = "125 Example Lane, Demo Ward";
         conflictKind = "cancellation";
         return go("S08-01-conflict-cancel");
       }
       const cleaned = reason.trim();
-      if (!cleaned || F02.count(cleaned) > 250) return go("S08-02-error");
+      if (!F02.validReason(reason)) return go("S08-02-error");
       selected.status = "CANCELLED";
       selected.reason = cleaned;
       go("S08-03");
@@ -477,6 +487,7 @@
         if (!form.isConnected) return;
         const result = F02.csvCheck(fileName, bytes, orders.map((order) => order.order_code));
         fileRecord = result.record ?? 0;
+        fileIssue = result.detail ?? "";
         if (result.issue) return go(importErrors[result.issue][0]);
         report = result.report;
         batch = result.orders;
@@ -507,14 +518,6 @@
     formActions[form.id](form, Object.fromEntries(new FormData(form)), mode);
   });
 
-  function setTheme(theme) {
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-    const dark = theme === "dark";
-    themeButton.textContent = dark ? "Light theme" : "Dark theme";
-    themeButton.setAttribute("aria-pressed", String(dark));
-  }
-
   for (const group of new Set(SCREENS.map((entry) => entry.group))) {
     const options = document.createElement("optgroup");
     options.label = group;
@@ -524,14 +527,24 @@
     screenSelect.append(options);
   }
   screenSelect.addEventListener("change", () => openScenario(screenSelect.value, true));
-  themeButton.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
   document.querySelector("#gallery").hidden = params.get("standalone") === "1";
-  setTheme(params.get("theme") === "dark" ? "dark" : "light");
+  document.documentElement.style.colorScheme = "light";
   const requested = screenMap.has(params.get("screen")) ? params.get("screen") : "S07-01";
-  const restricted = params.has("hub") && params.get("hub") !== "demo" || ["administrator", "rider"].includes(params.get("role"));
-  openScenario(params.has("expired") ? "S07-01-session-expired" : restricted ? "S07-01-denied" : requested, false);
-  if (!restricted && !params.has("expired") && requested === "S07-02" && params.has("code")) {
-    selected = orderByCode(params.get("code"));
-    go(selected ? "S07-02" : "S07-01-denied", false);
+  if (params.has("expired") || params.has("missingSession")) {
+    openScenario("S07-01-session-expired", false);
+  } else if (["administrator", "rider"].includes(params.get("role"))) {
+    openScenario("S07-01-denied", false);
+  } else if (params.has("hub") && params.get("hub") !== "demo") {
+    openScenario("S07-01-not-found", false);
+  } else {
+    openScenario(requested, false);
+    if (requested === "S07-02" && params.has("code")) {
+      selected = orderByCode(params.get("code"));
+      go(selected ? "S07-02" : "S07-01-not-found", false);
+    } else if (requested === "S07-01" && params.has("page")) {
+      const requestedPage = Number(params.get("page"));
+      pageNumber = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+      showList();
+    }
   }
 })();
