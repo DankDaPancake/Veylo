@@ -223,3 +223,19 @@ Member: Lý Huỳnh Minh Đăng.
 ## 2026-11-20 — Align BOOYAH-16 styling with the team prototype
 
 - User requested the team UI before manual capture. Codex inspected BOOYAH-20 S07-01 and updated the Orders workspace and its scoped CSS. Lint, typecheck, 16 unit tests, production build and Git whitespace passed. Restarted the manual preview against the same synthetic database. The first HTTP assertion expected a client-loaded table header in the server HTML; the corrected smoke checked the rendered shell and authenticated Orders API data. Visual walkthrough and captures remain pending. CSV preview remains an open prototype difference.
+
+## 2026-11-20 — Locate F02 design references on Drive
+
+- User asked which Drive design to follow. Codex listed the shared PA3 folder and confirmed the BOOYAH-20 audited prototype, screen exports, handoff and prototype kit. No source or Drive edits.
+
+## 2026-11-20 — Capture BOOYAH-16 browser evidence
+
+- User requested the Computer Use capture. Codex initialized Sky and retried after reset, but its Windows native pipe was unavailable. Used Playwright with installed Chrome to capture 16 PNGs at 1440 x 900 from build 28e0cae. The first script iteration used a single-page browser wrapper that blocked the two-tab test; used an explicit browser context and reran. Verified PNG headers and dimensions and linked images in the report. Recorded keyboard smoke, expected 400/409 browser errors and a separate unresolved resource 404. No human walkthrough, push or Jira change.
+
+## 2026-11-20 — Summarize BOOYAH-16 work
+
+- User asked for a summary. Codex checked the task commits, current local changes and evidence count. Summarized implementation, test outcomes and outstanding review. No source, Jira or remote changes.
+
+## 2026-11-20 — Prepare the BOOYAH-16 review PR
+
+- User requested a PR. Codex fetched dev and checked local mergeability. Prepared the 16 browser-generated evidence files and the report for review. Outstanding items are full keyboard coverage, the resource 404 and prototype differences. OpenSpec acceptance tasks remain open.
