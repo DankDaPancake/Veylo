@@ -162,8 +162,10 @@ export function OrdersWorkspace() {
       }
     } catch (caught) {
       if (mode === "import") {
+        const nextPhase = caught instanceof RequestError && Array.isArray(caught.body.errors) && caught.body.errors.some(issue => typeof issue.row === "number") ? "report" : "pick";
         setPreview(undefined);
-        setImportPhase(caught instanceof RequestError && Array.isArray(caught.body.errors) && caught.body.errors.some(issue => typeof issue.row === "number") ? "report" : "pick");
+        if (importPhase === "preview" && nextPhase === "pick") setFile(undefined);
+        setImportPhase(nextPhase);
       }
       setError(caught instanceof Error ? caught : new Error("Unable to save."));
     } finally {
@@ -241,7 +243,7 @@ export function OrdersWorkspace() {
         <button className={button} disabled={page * list.pageSize >= list.total || saving} onClick={() => { setError(undefined); setLoading(true); setQuery({ ...query, page: page + 1 }); }}>Next</button>
       </nav>}
     </section>}
-    {mode !== "list" && !unavailable && <button className={`${button} mb-4`} disabled={saving} onClick={() => {
+    {mode !== "list" && !denied && !unavailable && <button className={`${button} mb-4`} disabled={saving} onClick={() => {
       if (mode === "cancel") open("detail");
       else { open("list"); setLoading(true); void load(); }
     }}>{mode === "cancel" ? "Back to detail" : "Back to orders"}</button>}
