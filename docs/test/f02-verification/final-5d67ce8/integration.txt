@@ -1,0 +1,20 @@
+▶ combined F02 database/auth/API/CSV verification
+  ✔ migration fixtures and seed replay preserve rows (826.972586ms)
+  ✔ every route denies absent sessions, Admin and Rider (148.07371ms)
+  ✔ create/detail reject invalid fields, preserve values and enforce per-hub codes (159.163591ms)
+  ✔ cross-hub reads, edits and cancellations return 404 without changes (26.055335ms)
+  ✔ combined filters, inclusive local dates, stable pages and literal keywords (160.805544ms)
+  ✔ edits preserve identity; stale/concurrent edits conflict; cancellation persists (174.38588ms)
+  ✔ CSV template, atomic 20-row import, mixed errors and duplicate races (149.225668ms)
+  ✔ read-only CSV preview, complete diagnostics, hub isolation and confirmation races (211.399849ms)
+  ✔ database uniqueness races and invalid numeric values cannot bypass the API (32.369544ms)
+  ✔ current hub assignment, expired session, reload and server-side sign-out (253.912017ms)
+✔ combined F02 database/auth/API/CSV verification (14179.392679ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14290.849179

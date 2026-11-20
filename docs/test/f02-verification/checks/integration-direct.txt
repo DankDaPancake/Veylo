@@ -1,0 +1,24 @@
+Command: VEYLO_ENABLE_DEMO_SEED=1 node --env-file=.env --test --test-concurrency=1 tests/orders.integration.mjs
+Started: 2026-11-20T12:58:00.989824+00:00
+Ended: 2026-11-20T12:58:14.858724+00:00
+Exit: 0
+
+▶ combined F02 database/auth/API/CSV verification
+  ✔ migration fixtures and seed replay preserve rows (784.158568ms)
+  ✔ every route denies absent sessions, Admin and Rider (124.804506ms)
+  ✔ create/detail reject invalid fields, preserve values and enforce per-hub codes (136.697698ms)
+  ✔ cross-hub reads, edits and cancellations return 404 without changes (23.748165ms)
+  ✔ combined filters, inclusive local dates, stable pages and literal keywords (148.353048ms)
+  ✔ edits preserve identity; stale/concurrent edits conflict; cancellation persists (156.371796ms)
+  ✔ CSV template, atomic 20-row import, mixed errors and duplicate races (132.525309ms)
+  ✔ database uniqueness races and invalid numeric values cannot bypass the API (27.744049ms)
+  ✔ current hub assignment, expired session, reload and server-side sign-out (231.054898ms)
+✔ combined F02 database/auth/API/CSV verification (13736.289729ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13844.049113

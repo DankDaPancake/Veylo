@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "docs/test/f02-verification/window-roundtrip-fix/check_browser.py", line 104, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "/home/yelgsef/miniconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/yelgsef/miniconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/yelgsef/miniconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "docs/test/f02-verification/window-roundtrip-fix/check_browser.py", line 87, in main
+    assert after[key] == before[key], key
+           ~~~~~^^^^^
+KeyError: 'hub_id'

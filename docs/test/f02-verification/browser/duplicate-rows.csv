@@ -1,0 +1,3 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg
+QA-B17-20261120T133616Z-DUP-ROWS,Synthetic Duplicate One,0900171002,33 Synthetic Way,2026-11-21 09:00,2026-11-21 10:00,1.0
+qa-b17-20261120t133616z-dup-rows,Synthetic Duplicate Two,0900171003,34 Synthetic Way,2026-11-21 09:00,2026-11-21 10:00,2.0

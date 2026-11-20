@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "name": "missing environment",
+      "status": 1,
+      "elapsed_ms": 23,
+      "output": "DATABASE_URL is required. Copy .env.example to .env and configure your local database."
+    },
+    {
+      "name": "malformed URL",
+      "status": 1,
+      "elapsed_ms": 20,
+      "output": "DATABASE_URL must be a valid PostgreSQL URL with a host and database name."
+    },
+    {
+      "name": "real PostgreSQL SELECT 1",
+      "status": 0,
+      "elapsed_ms": 552,
+      "output": "PostgreSQL connection verified through Prisma (SELECT 1). No schema changes were requested."
+    },
+    {
+      "name": "unresponsive PostgreSQL handshake",
+      "status": 1,
+      "elapsed_ms": 20068,
+      "output": "Database check failed. Verify the server, port, database and credentials in your local .env. No schema changes were requested."
+    }
+  ]
+}

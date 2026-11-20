@@ -1,0 +1,29 @@
+
+> veylo@0.1.0 test
+> node --test --test-concurrency=1 tests/*.test.mjs
+
+✔ rejects absent and blank configuration (0.855939ms)
+✔ rejects malformed, wrong protocol and missing database URLs without leaking credentials (0.453694ms)
+✔ accepts both PostgreSQL URL schemes and preserves query configuration (0.188941ms)
+✔ assertDemoDatabaseUrl rejects invalid or unparseable URLs without leaking credentials (0.292599ms)
+✔ serializes local windows and omits blank optional coordinates (0.860754ms)
+✔ editing sends the version without changing order identity (0.100839ms)
+✔ separates API field errors from CSV record errors (0.130628ms)
+✔ saved windows round-trip through UI values and edit payloads across accepted years (0.505513ms)
+✔ shared validation trims, normalizes ASCII, preserves decimals and interprets hub time (1.230846ms)
+✔ field errors reject invalid numbers, calendar dates, windows and coordinates (1.432814ms)
+✔ rejects year 0000 and timestamps outside PostgreSQL representable UTC range (0.47067ms)
+✔ list dates include local end day and reject malformed filters (0.185167ms)
+✔ CSV accepts template, 20 rows, BOM, CRLF and quoted commas/quotes/newlines (5.763995ms)
+✔ CSV rejects invalid encoding, structure, file limits and record limits (3.085953ms)
+✔ CSV reports both duplicate occurrences and record numbers across quoted newlines without raw data (0.69097ms)
+✔ password hashes round-trip, use independent salts, and reject wrong passwords (561.521155ms)
+✔ malformed and unknown stored hash versions are rejected (145.998109ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 956.722153

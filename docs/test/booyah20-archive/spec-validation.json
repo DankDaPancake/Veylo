@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "id": "app-foundation",
+      "type": "spec",
+      "valid": true,
+      "issues": [],
+      "durationMs": 4
+    },
+    {
+      "id": "delivery-execution",
+      "type": "spec",
+      "valid": true,
+      "issues": [],
+      "durationMs": 3
+    },
+    {
+      "id": "guide-use-case-package",
+      "type": "spec",
+      "valid": true,
+      "issues": [],
+      "durationMs": 2
+    },
+    {
+      "id": "order-intake",
+      "type": "spec",
+      "valid": true,
+      "issues": [],
+      "durationMs": 2
+    },
+    {
+      "id": "order-intake-interactions",
+      "type": "spec",
+      "valid": true,
+      "issues": [
+        {
+          "level": "INFO",
+          "path": "requirements[0]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        },
+        {
+          "level": "INFO",
+          "path": "requirements[2]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        }
+      ],
+      "durationMs": 1
+    },
+    {
+      "id": "order-intake-prototype",
+      "type": "spec",
+      "valid": true,
+      "issues": [],
+      "durationMs": 1
+    },
+    {
+      "id": "project-plan-revision",
+      "type": "spec",
+      "valid": true,
+      "issues": [
+        {
+          "level": "INFO",
+          "path": "requirements[1]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        },
+        {
+          "level": "INFO",
+          "path": "requirements[2]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        },
+        {
+          "level": "INFO",
+          "path": "requirements[3]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        },
+        {
+          "level": "INFO",
+          "path": "requirements[5]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        },
+        {
+          "level": "INFO",
+          "path": "requirements[7]",
+          "message": "Requirement text is very long (>500 characters). Consider breaking it down."
+        }
+      ],
+      "durationMs": 0
+    },
+    {
+      "id": "shift-rider-reporting",
+      "type": "spec",
+      "valid": true,
+      "issues": [],
+      "durationMs": 0
+    }
+  ],
+  "summary": {
+    "totals": {
+      "items": 8,
+      "passed": 8,
+      "failed": 0
+    },
+    "byType": {
+      "spec": {
+        "items": 8,
+        "passed": 8,
+        "failed": 0
+      }
+    }
+  },
+  "version": "1.0",
+  "root": {
+    "path": "/home/yelgsef/Learning/HCMUS/SEM7/Intro2SE/Veylo",
+    "source": "nearest"
+  }
+}

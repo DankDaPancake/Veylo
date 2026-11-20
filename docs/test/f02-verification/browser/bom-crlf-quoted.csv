@@ -1,0 +1,3 @@
+﻿order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg
+QA-B17-20261120T133616Z-CSV-QUOTED,"Synthetic, ""Quoted""
+Recipient",0900171010,39 Synthetic Way,2026-11-21 09:00,2026-11-21 10:00,1.0

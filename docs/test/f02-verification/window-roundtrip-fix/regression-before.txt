@@ -1,0 +1,37 @@
+✔ serializes local windows and omits blank optional coordinates (0.844245ms)
+✔ editing sends the version without changing order identity (0.118877ms)
+✔ separates API field errors from CSV record errors (0.150449ms)
+✖ saved windows round-trip through UI values and edit payloads across accepted years (8.203458ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.36274
+
+✖ failing tests:
+
+test at src/tests/order-form.test.mjs:23:1
+✖ saved windows round-trip through UI values and edit payloads across accepted years (8.203458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+
+  + '1-01-01T07:06'
+  - '0001-01-01T07:00'
+
+      at TestContext.<anonymous> (file:///home/yelgsef/Learning/HCMUS/SEM7/Intro2SE/Veylo/src/tests/order-form.test.mjs:28:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '1-01-01T07:06',
+    expected: '0001-01-01T07:00',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

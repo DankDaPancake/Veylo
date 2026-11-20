@@ -1,0 +1,11 @@
+Command: npm run typecheck
+Prerequisite: Prisma Client generated from existing schema
+Timestamp: 2026-11-20T12:32:47.308746+00:00
+Exit: 0
+
+
+> veylo@0.1.0 typecheck
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

@@ -1,0 +1,1 @@
+Current application 5d67ce8: template byte equality, valid 20-row parsing, six parser errors, and seventh simulated same-hub conflict passed. No database calls.

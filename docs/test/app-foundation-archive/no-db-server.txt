@@ -1,0 +1,14 @@
+
+> veylo@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3018
+
+▲ Next.js 16.4.6
+- Local:         http://127.0.0.1:3018
+- Network:       http://127.0.0.1:3018
+✓ Ready in 67ms
+✓ Running next.config.ts took 23ms
+⨯ Error: DATABASE_URL is required
+    at h (.next/server/chunks/384.js:1:293)
+    at <unknown> (.next/server/chunks/384.js:1:34264)
+    at j (.next/server/chunks/384.js:1:34455)
+    at g (.next/server/app/api/auth/[...all]/route.js:1:657)

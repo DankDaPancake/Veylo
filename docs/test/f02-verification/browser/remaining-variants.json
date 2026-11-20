@@ -1,0 +1,117 @@
+{
+  "applicationCommit": "9be2097b647b6a7ca7c6fdebc09d9267d8c30411",
+  "cases": [
+    {
+      "case": "missing-address",
+      "result": "PASS",
+      "field": "delivery_address",
+      "formRetained": true
+    },
+    {
+      "case": "short-address",
+      "result": "PASS",
+      "field": "delivery_address",
+      "formRetained": true
+    },
+    {
+      "case": "equal-window",
+      "result": "PASS",
+      "field": "window_end",
+      "formRetained": true
+    },
+    {
+      "case": "longitude-only",
+      "result": "PASS",
+      "field": "latitude",
+      "formRetained": true
+    },
+    {
+      "case": "latitude-bound",
+      "result": "PASS",
+      "field": "latitude",
+      "formRetained": true
+    },
+    {
+      "case": "longitude-bound",
+      "result": "PASS",
+      "field": "longitude",
+      "formRetained": true
+    },
+    {
+      "case": "mixed-weight-and-missing-fields",
+      "result": "PASS",
+      "status": 400,
+      "errors": [
+        {
+          "field": "weight_kg",
+          "row": 3
+        },
+        {
+          "field": "order_code",
+          "row": 4
+        },
+        {
+          "field": "recipient_phone",
+          "row": 4
+        },
+        {
+          "field": "delivery_address",
+          "row": 4
+        },
+        {
+          "field": "weight_kg",
+          "row": 4
+        }
+      ],
+      "batchRowsAbsent": true
+    },
+    {
+      "case": "duplicate-header",
+      "result": "PASS",
+      "status": 400,
+      "errors": [
+        {
+          "field": "file",
+          "row": null
+        }
+      ],
+      "batchRowsAbsent": true
+    },
+    {
+      "case": "invalid-utf8",
+      "result": "PASS",
+      "status": 400,
+      "errors": [
+        {
+          "field": "file",
+          "row": null
+        }
+      ],
+      "batchRowsAbsent": true
+    },
+    {
+      "case": "zero-byte-file",
+      "result": "PASS",
+      "status": 400,
+      "errors": [
+        {
+          "field": "file",
+          "row": null
+        }
+      ],
+      "batchRowsAbsent": true
+    },
+    {
+      "case": "wrong-extension",
+      "result": "PASS",
+      "status": 400,
+      "errors": [
+        {
+          "field": "file",
+          "row": null
+        }
+      ],
+      "batchRowsAbsent": true
+    }
+  ]
+}

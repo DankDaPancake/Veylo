@@ -1,0 +1,21 @@
+Exit: 1
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: other-hub Dispatcher PATCH /api/orders/cmwoz7z30000zrzvt2d4kk5ad
+
+400 !== 404
+
+    at denied (file:///home/yelgsef/Learning/HCMUS/SEM7/Intro2SE/Veylo/docs/test/f02-verification/check-permissions.mjs:35:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///home/yelgsef/Learning/HCMUS/SEM7/Intro2SE/Veylo/docs/test/f02-verification/check-permissions.mjs:50:51 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 400,
+  expected: 404,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.2

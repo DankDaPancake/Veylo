@@ -1,0 +1,17 @@
+{
+  "purpose": "Synthetic marker only; no app .env or credentials used",
+  "results": [
+    {
+      "command": "node --env-file=probe.env probe.mjs",
+      "exit": 0,
+      "stdout": "true",
+      "stderr": ""
+    },
+    {
+      "command": "node --env-file=probe.env --run probe",
+      "exit": 0,
+      "stdout": "false",
+      "stderr": ""
+    }
+  ]
+}

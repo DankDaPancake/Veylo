@@ -18,7 +18,7 @@ None.
 
 ### Modified Capabilities
 
-None. This restores the existing F02 window-validation, valid-edit and saved-detail contracts in [the original spec](../../f02-order-intake/specs/order-intake/spec.md); it introduces no requirement change. Metadata uses `skip_specs: true` rather than duplicating the still-active original order-intake delta.
+None. This restores the existing F02 window-validation, valid-edit and saved-detail contracts in [the original spec](../2026-11-21-f02-order-intake/specs/order-intake/spec.md); it introduces no requirement change. Metadata uses `skip_specs: true` rather than duplicating the still-active original order-intake delta.
 
 ## Impact
 

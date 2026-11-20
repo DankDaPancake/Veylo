@@ -1,0 +1,2 @@
+Playwright Chromium 156.0.8078.79
+A4 PDF exported with 39 loaded figures.

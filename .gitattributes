@@ -17,3 +17,6 @@
 *.png binary
 *.jpg binary
 *.jpeg binary
+# Preserve the CRLF fixture and diff context in captured verification evidence.
+docs/test/f02-verification/browser/bom-crlf-quoted.csv -text whitespace=cr-at-eol
+docs/test/**/*.patch whitespace=-blank-at-eol

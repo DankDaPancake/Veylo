@@ -63,12 +63,12 @@ Open the repository root as the coding-agent workspace. OpenSpec artifacts are i
 
 ```powershell
 $env:OPENSPEC_TELEMETRY='0'
-npx --no-install openspec status --change app-foundation
+npx --no-install openspec show app-foundation --type spec
 npm run spec:validate
 npx --no-install openspec new change <your-change-name>
 ```
 
-Write the proposal, specs with WHEN/THEN scenarios, design and owner tasks before implementation. New requirements/business schema still need concrete approval. Keep the foundation change unarchived until peer acceptance. The Figma kit belongs to BOOYAH-25; it is not an implemented order UI.
+Write the proposal, specs with WHEN/THEN scenarios, design and owner tasks before implementation. New requirements/business schema still need concrete approval. The [foundation change](../openspec/changes/archive/2026-11-21-app-foundation/proposal.md) is archived at the requester's direction; [main spec](../openspec/specs/app-foundation/spec.md) and [current-code verification](../docs/test/app-foundation-archive/README.md) distinguish the original model-free stage from later approved integrations. Independent N15 evidence is not inferred from archival. The Figma kit belongs to BOOYAH-25; it is not an implemented order UI.
 ## BOOYAH-18 local demo accounts
 
 Generate Prisma Client with `npx --no-install prisma generate` after configuring a local `DATABASE_URL`. Set `BETTER_AUTH_URL` to the browser origin and supply a generated `BETTER_AUTH_SECRET` in local environment configuration. Use `/sign-in` to sign in and the home page to sign out.

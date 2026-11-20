@@ -1,0 +1,2042 @@
+{
+  "commit": "9be2097b647b6a7ca7c6fdebc09d9267d8c30411",
+  "base": "http://127.0.0.1:3017",
+  "runId": "20261120T133616Z",
+  "cases": [
+    {
+      "case": "Dispatcher A sign-in and Orders page",
+      "outcome": "PASS",
+      "details": {
+        "page": "/orders",
+        "screen": "S07-01"
+      }
+    },
+    {
+      "case": "Keyboard tab focus and Enter activation",
+      "outcome": "FAIL",
+      "details": "AssertionError: Tab sequence did not reach Create order within 20 tabs"
+    },
+    {
+      "case": "UC05 missing required order code",
+      "outcome": "PASS",
+      "details": {
+        "browserRequired": true,
+        "formRetained": true
+      }
+    },
+    {
+      "case": "UC05 valid create, detail and persistence after reload",
+      "outcome": "PASS",
+      "details": {
+        "orderCode": "QA-B17-20261120T133616Z-MANUAL-01",
+        "detailContainsStatusNew": true,
+        "detailContainsAddress": true,
+        "visibleAfterReload": true
+      }
+    },
+    {
+      "case": "UC05 invalid phone feedback, retention and no write",
+      "outcome": "PASS",
+      "details": {
+        "phoneFieldError": true,
+        "inputRetained": true,
+        "savedOrderAbsent": true
+      }
+    },
+    {
+      "case": "UC05 reversed delivery window",
+      "outcome": "PASS",
+      "details": {
+        "fieldError": "window_end",
+        "formRetained": true
+      }
+    },
+    {
+      "case": "UC05 incomplete coordinate pair",
+      "outcome": "PASS",
+      "details": {
+        "fieldError": "longitude",
+        "formRetained": true
+      }
+    },
+    {
+      "case": "UC05 non-positive weight",
+      "outcome": "PASS",
+      "details": {
+        "fieldError": "weight_kg",
+        "formRetained": true
+      }
+    },
+    {
+      "case": "UC05 duplicate code within the same hub",
+      "outcome": "PASS",
+      "details": {
+        "duplicateFieldError": true,
+        "codeRetained": true
+      }
+    },
+    {
+      "case": "UC07 combined filters, empty state and 20-row pagination",
+      "outcome": "PASS",
+      "details": {
+        "keywordAndInclusiveDates": true,
+        "statusFilter": true,
+        "emptyResults": true,
+        "firstPageRows": 20,
+        "pagination": "Previous\nPage 1 · 52 orders\nNext"
+      }
+    },
+    {
+      "case": "UC06 template download and valid 20-row import",
+      "outcome": "PASS",
+      "details": {
+        "templateDownload": "downloaded-template.csv",
+        "imported": 20,
+        "rowsVisibleAfterReload": 20
+      }
+    },
+    {
+      "case": "UC06 mixed valid and invalid rows are atomic",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "mixed-invalid.csv",
+        "visibleRowErrors": [
+          "Row 3, recipient_phone: Use 10 digits starting with 0"
+        ],
+        "httpStatus": 400,
+        "errorVisible": true,
+        "rejectedBatchRowsAbsent": true
+      }
+    },
+    {
+      "case": "UC06 duplicate normalized codes in one file",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "duplicate-rows.csv",
+        "visibleRowErrors": [
+          "Row 2, order_code: Duplicate order code within file",
+          "Row 3, order_code: Duplicate order code within file"
+        ],
+        "httpStatus": 400,
+        "errorVisible": true,
+        "rejectedBatchRowsAbsent": true
+      }
+    },
+    {
+      "case": "UC06 missing required header",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "missing-phone-header.csv",
+        "visibleRowErrors": [],
+        "httpStatus": 400,
+        "errorVisible": true
+      }
+    },
+    {
+      "case": "UC06 unsupported header",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "unsupported-header.csv",
+        "visibleRowErrors": [],
+        "httpStatus": 400,
+        "errorVisible": true
+      }
+    },
+    {
+      "case": "UC06 malformed quoted CSV",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "malformed-quote.csv",
+        "visibleRowErrors": [],
+        "httpStatus": 400,
+        "errorVisible": true
+      }
+    },
+    {
+      "case": "UC06 empty CSV",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "empty.csv",
+        "visibleRowErrors": [],
+        "httpStatus": 400,
+        "errorVisible": true
+      }
+    },
+    {
+      "case": "UC06 over 500 record CSV",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "too-many-rows.csv",
+        "visibleRowErrors": [],
+        "httpStatus": 400,
+        "errorVisible": true
+      }
+    },
+    {
+      "case": "UC06 file exceeding one megabyte",
+      "outcome": "PASS",
+      "details": {
+        "fixture": "oversized.csv",
+        "visibleRowErrors": [],
+        "httpStatus": 400,
+        "errorVisible": true
+      }
+    },
+    {
+      "case": "UC06 UTF-8 BOM, CRLF and quoted multiline fields",
+      "outcome": "PASS",
+      "details": {
+        "utf8Bom": true,
+        "crlf": true,
+        "quotedCommaQuoteAndLineBreak": true
+      }
+    },
+    {
+      "case": "UC08 edit, reason validation and persistent cancellation",
+      "outcome": "PASS",
+      "details": {
+        "editPreservedOrderCode": true,
+        "editVisibleAfterReload": true,
+        "shortReasonBrowserBlocked": true,
+        "cancelStatusAndReasonAfterReload": true
+      }
+    },
+    {
+      "case": "UC08 stale edit conflict and reload latest details",
+      "outcome": "PASS",
+      "details": {
+        "twoTabsShareDispatcherSession": true,
+        "staleVersionConflictVisible": true,
+        "reloadShowsLatest": true
+      }
+    },
+    {
+      "case": "1280x720 list and form layout smoke",
+      "outcome": "PASS",
+      "details": {
+        "viewport": "1280x720",
+        "documentWidth": 1280,
+        "noHorizontalPageOverflow": true
+      }
+    },
+    {
+      "case": "Anonymous Orders page requires sign-in",
+      "outcome": "PASS",
+      "details": {
+        "redirectedToSignIn": true,
+        "ordersScreenAbsent": true
+      }
+    },
+    {
+      "case": "Administrator is denied the Orders page",
+      "outcome": "PASS",
+      "details": {
+        "accessDeniedPage": true,
+        "ordersWorkspaceAbsent": true
+      }
+    },
+    {
+      "case": "Rider is denied the Orders page",
+      "outcome": "PASS",
+      "details": {
+        "accessDeniedPage": true,
+        "ordersWorkspaceAbsent": true
+      }
+    },
+    {
+      "case": "Dispatcher B hub scope and same code in another hub",
+      "outcome": "PASS",
+      "details": {
+        "hubAOnlyOrderHiddenFromHubB": true,
+        "sameCodeAllowedInHubB": true
+      }
+    },
+    {
+      "case": "Dispatcher sign-out removes Orders access",
+      "outcome": "PASS",
+      "details": {
+        "signOutReturnsToSignIn": true,
+        "oldSessionCannotReopenOrders": true
+      }
+    }
+  ],
+  "screenshots": [
+    "dispatcher-a-list-1440x900.png",
+    "create-required-field-1440x900.png",
+    "manual-create-filtered-list-1440x900.png",
+    "manual-order-detail-1440x900.png",
+    "create-invalid-phone-retained-1440x900.png",
+    "create-duplicate-same-hub-1440x900.png",
+    "orders-no-results-1440x900.png",
+    "orders-page-2-1440x900.png",
+    "csv-valid-20-page-1440x900.png",
+    "mixed-invalid-rejected-1440x900.png",
+    "duplicate-rows-rejected-1440x900.png",
+    "missing-phone-header-rejected-1440x900.png",
+    "unsupported-header-rejected-1440x900.png",
+    "malformed-quote-rejected-1440x900.png",
+    "empty-rejected-1440x900.png",
+    "too-many-rows-rejected-1440x900.png",
+    "oversized-rejected-1440x900.png",
+    "csv-bom-crlf-quoted-detail-1440x900.png",
+    "order-edited-after-reload-1440x900.png",
+    "order-cancelled-detail-after-reload-1440x900.png",
+    "stale-edit-conflict-1440x900.png",
+    "stale-edit-reloaded-detail-1440x900.png",
+    "dispatcher-a-list-1280x720.png",
+    "create-form-1280x720.png",
+    "anonymous-orders-redirect-1440x900.png",
+    "admin-denied-1440x900.png",
+    "rider-denied-1440x900.png",
+    "dispatcher-b-same-code-other-hub-1440x900.png"
+  ],
+  "api": [
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 51,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 51,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": "NEW",
+      "path": "/api/orders",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-MANUAL-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-MANUAL-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0vp9v000tjnvt9fjietc3",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-MANUAL-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders",
+      "code": "VALIDATION_ERROR",
+      "errors": [
+        {
+          "field": "recipient_phone"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders",
+      "code": "VALIDATION_ERROR",
+      "errors": [
+        {
+          "field": "window_end"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders",
+      "code": "VALIDATION_ERROR",
+      "errors": [
+        {
+          "field": "longitude"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders",
+      "code": "VALIDATION_ERROR",
+      "errors": [
+        {
+          "field": "weight_kg"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 409,
+      "path": "/api/orders",
+      "code": "DUPLICATE_ORDER_CODE",
+      "errors": [
+        {
+          "field": "order_code"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-MANUAL-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 2,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-CSV-7",
+        "CHECK-1795179481100-CSV-8",
+        "CHECK-1795179481100-CSV-9",
+        "CHECK-1795179481100-DB-RACE",
+        "CHECK-1795179481100-RACE",
+        "CHECK-1795179481100-RACE-A",
+        "DEMO-001",
+        "DEMO-004",
+        "DEMO-007",
+        "DEMO-010",
+        "DEMO-013",
+        "DEMO-016",
+        "DEMO-019",
+        "DEMO-022",
+        "DEMO-025",
+        "DEMO-002",
+        "DEMO-005",
+        "DEMO-008",
+        "DEMO-011",
+        "DEMO-014"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 52,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 201,
+      "path": "/api/orders/import",
+      "imported": 20
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 20,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-CSV-01",
+        "QA-B17-20261120T133616Z-CSV-02",
+        "QA-B17-20261120T133616Z-CSV-03",
+        "QA-B17-20261120T133616Z-CSV-04",
+        "QA-B17-20261120T133616Z-CSV-05",
+        "QA-B17-20261120T133616Z-CSV-06",
+        "QA-B17-20261120T133616Z-CSV-07",
+        "QA-B17-20261120T133616Z-CSV-08",
+        "QA-B17-20261120T133616Z-CSV-09",
+        "QA-B17-20261120T133616Z-CSV-10",
+        "QA-B17-20261120T133616Z-CSV-11",
+        "QA-B17-20261120T133616Z-CSV-12",
+        "QA-B17-20261120T133616Z-CSV-13",
+        "QA-B17-20261120T133616Z-CSV-14",
+        "QA-B17-20261120T133616Z-CSV-15",
+        "QA-B17-20261120T133616Z-CSV-16",
+        "QA-B17-20261120T133616Z-CSV-17",
+        "QA-B17-20261120T133616Z-CSV-18",
+        "QA-B17-20261120T133616Z-CSV-19",
+        "QA-B17-20261120T133616Z-CSV-20"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "VALIDATION_ERROR",
+      "errors": [
+        {
+          "field": "recipient_phone",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "VALIDATION_ERROR",
+      "errors": [
+        {
+          "row": 2,
+          "field": "order_code"
+        },
+        {
+          "row": 3,
+          "field": "order_code"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "INVALID_CSV",
+      "errors": [
+        {
+          "field": "file"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "INVALID_CSV",
+      "errors": [
+        {
+          "field": "file"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "INVALID_CSV",
+      "errors": [
+        {
+          "field": "file"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "INVALID_CSV",
+      "errors": [
+        {
+          "field": "file"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "INVALID_CSV",
+      "errors": [
+        {
+          "field": "file"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 400,
+      "path": "/api/orders/import",
+      "code": "INVALID_CSV",
+      "errors": [
+        {
+          "field": "file"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 72,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": 201,
+      "path": "/api/orders/import",
+      "imported": 1
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 73,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-CSV-QUOTED"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0vy2k001fjnvtj2ofc6ml",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-CSV-QUOTED"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 73,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": "NEW",
+      "path": "/api/orders",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-EDIT-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 74,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-EDIT-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0vyp3001gjnvtvomm52mz",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-EDIT-01"
+    },
+    {
+      "method": "PATCH",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0vyp3001gjnvtvomm52mz",
+      "version": 2,
+      "order_code": "QA-B17-20261120T133616Z-EDIT-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 74,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-EDIT-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0vyp3001gjnvtvomm52mz",
+      "version": 2,
+      "order_code": "QA-B17-20261120T133616Z-EDIT-01"
+    },
+    {
+      "method": "POST",
+      "status": "CANCELLED",
+      "path": "/api/orders/cmwp0vyp3001gjnvtvomm52mz/cancel",
+      "version": 3,
+      "order_code": "QA-B17-20261120T133616Z-EDIT-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 74,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-EDIT-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "CANCELLED",
+      "path": "/api/orders/cmwp0vyp3001gjnvtvomm52mz",
+      "version": 3,
+      "order_code": "QA-B17-20261120T133616Z-EDIT-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 74,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "POST",
+      "status": "NEW",
+      "path": "/api/orders",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-STALE-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 75,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-STALE-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0w1b2001hjnvt4hlaej37",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-STALE-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 75,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-STALE-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0w1b2001hjnvt4hlaej37",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-STALE-01"
+    },
+    {
+      "method": "PATCH",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0w1b2001hjnvt4hlaej37",
+      "version": 2,
+      "order_code": "QA-B17-20261120T133616Z-STALE-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-STALE-01"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "status": 409,
+      "path": "/api/orders/cmwp0w1b2001hjnvt4hlaej37",
+      "code": "ORDER_CONFLICT",
+      "errors": []
+    },
+    {
+      "method": "GET",
+      "status": "NEW",
+      "path": "/api/orders/cmwp0w1b2001hjnvt4hlaej37",
+      "version": 2,
+      "order_code": "QA-B17-20261120T133616Z-STALE-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 75,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 26,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-ONE",
+        "DEMO-001",
+        "DEMO-004",
+        "DEMO-007",
+        "DEMO-010",
+        "DEMO-013",
+        "DEMO-016",
+        "DEMO-019",
+        "DEMO-022",
+        "DEMO-025",
+        "DEMO-002",
+        "DEMO-005",
+        "DEMO-008",
+        "DEMO-011",
+        "DEMO-014",
+        "DEMO-017",
+        "DEMO-020",
+        "DEMO-023",
+        "DEMO-003",
+        "DEMO-006"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "POST",
+      "status": "NEW",
+      "path": "/api/orders",
+      "version": 1,
+      "order_code": "QA-B17-20261120T133616Z-MANUAL-01"
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 0,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 0,
+      "visibleOrderCodes": []
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 1,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 1,
+      "visibleOrderCodes": [
+        "QA-B17-20261120T133616Z-MANUAL-01"
+      ]
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/orders",
+      "total": 75,
+      "page": 1,
+      "pageSize": 20,
+      "visibleOrderCount": 20,
+      "visibleOrderCodes": [
+        "CHECK-1795179481100-EARLIEST",
+        "CHECK-1795179481100-EDIT",
+        "CHECK-1795179481100-ONE",
+        "CHECK-1795179481100-CSV-0",
+        "CHECK-1795179481100-CSV-1",
+        "CHECK-1795179481100-CSV-10",
+        "CHECK-1795179481100-CSV-11",
+        "CHECK-1795179481100-CSV-12",
+        "CHECK-1795179481100-CSV-13",
+        "CHECK-1795179481100-CSV-14",
+        "CHECK-1795179481100-CSV-15",
+        "CHECK-1795179481100-CSV-16",
+        "CHECK-1795179481100-CSV-17",
+        "CHECK-1795179481100-CSV-18",
+        "CHECK-1795179481100-CSV-19",
+        "CHECK-1795179481100-CSV-2",
+        "CHECK-1795179481100-CSV-3",
+        "CHECK-1795179481100-CSV-4",
+        "CHECK-1795179481100-CSV-5",
+        "CHECK-1795179481100-CSV-6"
+      ]
+    }
+  ],
+  "unexpectedHttp": [
+    {
+      "status": 403,
+      "method": "GET",
+      "path": "/orders"
+    },
+    {
+      "status": 403,
+      "method": "GET",
+      "path": "/orders"
+    }
+  ],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+    }
+  ],
+  "pageErrors": [],
+  "requestFailures": [
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/orders",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "unverifiedUi": [
+    {
+      "scenario": "duplicate concurrent create/import race",
+      "reason": "The UI disables save while submitting and exposes no race control."
+    },
+    {
+      "scenario": "crafted cross-hub resource identifier / guessed order ID",
+      "reason": "The UI has no order-ID route or user control for requesting another hub's resource."
+    },
+    {
+      "scenario": "expired session before API request",
+      "reason": "The UI has no session expiry control; API integration suite is the appropriate evidence."
+    },
+    {
+      "scenario": "request page beyond last page / server clamping",
+      "reason": "The UI disables Next at the last page and filter submission resets to page 1."
+    },
+    {
+      "scenario": "no delivery attempt is created by intake",
+      "reason": "The F02 UI exposes no attempt history or attempt creation control."
+    },
+    {
+      "scenario": "client-forged role or hub headers",
+      "reason": "The UI provides no control to add or modify authorization headers."
+    }
+  ],
+  "browser": {
+    "engine": "Google Chrome",
+    "executable": "/usr/bin/google-chrome",
+    "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+    "python": "3.13.11",
+    "playwright": "preinstalled in /tmp/veylo-booyah15-pdf",
+    "startedAtUtc": "2026-11-20T13:36:16.684887+00:00",
+    "version": "156.0.8078.79"
+  },
+  "summary": {
+    "PASS": 27,
+    "FAIL": 1,
+    "UNVERIFIED": 0
+  },
+  "unexpectedHttpCount": 2,
+  "consoleErrorOrWarningCount": 17,
+  "uncaughtPageErrorCount": 0,
+  "requestFailureCount": 10
+}

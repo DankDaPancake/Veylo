@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "case": "Create, all form fields and invalid Save accessible by Tab/Enter",
+      "result": "PASS",
+      "focus": {
+        "text": "Create order",
+        "outline": "solid",
+        "width": "3px"
+      },
+      "fieldIds": [
+        "delivery_address",
+        "latitude",
+        "longitude",
+        "note",
+        "order_code",
+        "priority",
+        "recipient_name",
+        "recipient_phone",
+        "weight_kg",
+        "window_end",
+        "window_start"
+      ]
+    },
+    {
+      "case": "Import screen, template, native file chooser and duplicate import via keyboard",
+      "result": "PASS",
+      "duplicateImportStatus": 409
+    },
+    {
+      "case": "Search, open detail and edit via keyboard",
+      "result": "PASS"
+    },
+    {
+      "case": "Cancel dialog, reason and confirmation via keyboard; invalid reason blocked",
+      "result": "PASS"
+    },
+    {
+      "case": "Apply filters, next/previous and sign-out via keyboard",
+      "result": "PASS"
+    }
+  ],
+  "scope": "Targeted keyboard retest; does not override boundary date defect or initial observations"
+}

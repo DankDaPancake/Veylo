@@ -1,5 +1,5 @@
 # Veylo · F02 Order Intake
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 **Group 09 · PA3 Section D · BOOYAH-20 · Review corrections · 20 November 2026**
 
@@ -8,7 +8,7 @@ This specification covers the Hub Dispatcher goals in Use Case Model view D2, UC
 Sources are [BOOYAH-20](https://thaikiet291006.atlassian.net/browse/BOOYAH-20) and the PA3 rubric pp. 2–4, Kiệt's BOOYAH-24 `UseCaseModel.md` sections 2, 4.2 and 5–7, and BOOYAH-26 `VisionDocument.md`/`Changes.md` sections 3.2–3.3, 5.1, 5.3 and 6. Screens use Công Khánh's original PrototypeKit with fresh synthetic states. The [prototype guide](prototypes/order-intake/README.md) describes the working copy and evidence commands.
 
 ## UC05 — Create Order Manually
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 **Actor.** Hub Dispatcher. There is no secondary actor.
 
@@ -47,7 +47,7 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 ![S07-02-created · Order created](prototypes/UC05/S07-02-created.png)
 
 ## UC06 — Import Orders from CSV
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 **Actor.** Hub Dispatcher. There is no secondary actor.
 
@@ -113,7 +113,7 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 ![S06-02-conflict · Import · confirmation conflict](prototypes/UC06/S06-02-conflict.png)
 
 ## UC07 — Search and View Orders
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 **Actor.** Hub Dispatcher. There is no secondary actor.
 
@@ -156,7 +156,7 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 ![S07-01-filter-error · Orders · invalid date range](prototypes/UC07/S07-01-filter-error.png)
 
 ## UC08 — Update or Cancel Order
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 **Actor.** Hub Dispatcher. There is no secondary actor.
 
@@ -210,7 +210,7 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 ![S08-03-already-cancelled · Order already cancelled](prototypes/UC08/S08-03-already-cancelled.png)
 
 ## Shared access recovery
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 - **AUTH.1** FR-01-2 / SRC-01-02. A signed-in user with the wrong role or without an authorized Dispatcher hub receives HTTP `403` (N05). `S07-01-denied` reveals no account, hub or Order details and offers a return to the staff workspace. It ends the attempted access.
 - **AUTH.2** FR-01-2 / SRC-01-02. An absent or expired session is treated as unauthenticated (N05, `401`). `S07-01-session-expired` offers Sign In. After signing in, the Dispatcher starts again from Orders. The attempted operation is not replayed.
@@ -224,23 +224,23 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 ![S07-01-not-found · Order unavailable 404](prototypes/UC07/S07-01-not-found.png)
 
 ## Decision Log
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
-The BOOYAH-13 design records Phạm Công Khánh’s local confirmation of D-F02-1–8 on 19 November 2026. His changes-requested review on [PR #16](https://github.com/DankDaPancake/Veylo/pull/16) on 20 November supplies the specific corrections below. Independent Section E acceptance and the corrected revision re-review remain **Pending Review**.
+The BOOYAH-13 design records Phạm Công Khánh’s local confirmation of D-F02-1–8 on 19 November 2026. His changes-requested review on [PR #16](https://github.com/DankDaPancake/Veylo/pull/16) on 20 November supplies the specific corrections below. PR #16 was subsequently approved by Cee-Ka at `f7f296a` on 20 November 2026 and merged. The approval body does not enumerate separate Kiệt/team confirmations or all AC3–AC5 walkthrough details; those details remain unavailable.
 
 | Rule | Section E baseline and reviewer correction | Evidence | Corrected PR |
 | --- | --- | --- | --- |
-| **D-F02-1** | Require `order_code`, `recipient_name`, `recipient_phone`, `delivery_address`, `window_start`, `window_end` and `weight_kg`. Trim code, name and address. Code uses 1–40 ASCII letters, digits, underscores or hyphens, e.g. `_A-01`. Name uses 1–100 Unicode characters and delivery address 5–255. Phone is exactly 10 digits starting with 0, e.g. `0900000001`. Use valid `YYYY-MM-DD HH:mm` in `Asia/Ho_Chi_Minh`, end after start and positive finite weight. Optional priority is `NORMAL` by default or `HIGH`. Note is optional. Coordinates are both absent or both within latitude [−90, 90] and longitude [−180, 180]. | BOOYAH-13 and BOOYAH-19 validator. PR #16 finding 1. | Pending re-review |
-| **D-F02-2** | Keep the trimmed display code and compare lowercase keys within the authorized hub. `F02-001` and ` f02-001 ` conflict in a file and against records in that hub. A code used in another hub remains available. | BOOYAH-13 and BOOYAH-19 parser and service. PR #16 finding 3. | Pending re-review |
-| **D-F02-3** | Preview is read-only. Explicit confirmation starts the atomic import and rechecks the batch. Report record, column and reason, including every duplicate occurrence. Twenty valid records create 20. Mixed errors, a confirmation-time conflict and dismissal create zero. The prototype simulates both preview and commit. | BOOYAH-13 and BOOYAH-19 import route and service. PR #16 finding 3. | Pending re-review |
-| **D-F02-4** | Accept `.csv`, UTF-8 with optional BOM, LF or CRLF, quoted commas and line breaks and escaped quotes. Require all seven required columns in any order. Optional columns are `priority`, `note`, `latitude` and `longitude`. Reject missing, duplicate and unknown names and wrong-width records. Accept 1–500 data records and at most 1,000,000 bytes. Header is record 1. | BOOYAH-13 and BOOYAH-19 parser and template. PR #16 finding 2. | Pending re-review |
-| **D-F02-5** | Edit or cancel a current `NEW` order with a matching version. Code is read-only and omitted from edit submission. Hub, status and audit fields are protected. Cancel with 5–300 characters after trim, retain the same order as `CANCELLED` and show the saved reason. A stale or repeat request preserves the current record and saved reason. | BOOYAH-13 and BOOYAH-19 service. PR #16 findings 1, 5 and 6. | Pending re-review |
-| **D-F02-6** | Create/import yield `NEW`. Edits retain `NEW`. Confirmed cancellation transitions `NEW → CANCELLED` with no reversal. Order and DeliveryAttempt lifecycles are separate. | BOOYAH-13 and BOOYAH-24 state reconciliation. | Pending re-review |
-| **D-F02-7** | Only Dispatchers with a trusted hub assignment can access F02. Respond `401` for missing or expired session, `403` for denied role or missing hub authorization and `404` for a missing or different-hub Order. The last two cases show no Order details. Signing in does not replay the request. | BOOYAH-13 and BOOYAH-19 access wrapper and service. PR #16 finding 4. | Pending re-review |
-| **D-F02-8** | Combine status, inclusive hub-local window-start dates and a case-insensitive literal keyword in displayed code, recipient name or phone. Sort by window start then displayed code ascending. Page size is 20. Reset an out-of-range page to page 1 and retain current filters. | BOOYAH-13 and BOOYAH-19 list service. PR #16 finding 4. | Pending re-review |
+| **D-F02-1** | Require `order_code`, `recipient_name`, `recipient_phone`, `delivery_address`, `window_start`, `window_end` and `weight_kg`. Trim code, name and address. Code uses 1–40 ASCII letters, digits, underscores or hyphens, e.g. `_A-01`. Name uses 1–100 Unicode characters and delivery address 5–255. Phone is exactly 10 digits starting with 0, e.g. `0900000001`. Use valid `YYYY-MM-DD HH:mm` in `Asia/Ho_Chi_Minh`, end after start and positive finite weight. Optional priority is `NORMAL` by default or `HIGH`. Note is optional. Coordinates are both absent or both within latitude [−90, 90] and longitude [−180, 180]. | BOOYAH-13 and BOOYAH-19 validator. PR #16 finding 1. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-2** | Keep the trimmed display code and compare lowercase keys within the authorized hub. `F02-001` and ` f02-001 ` conflict in a file and against records in that hub. A code used in another hub remains available. | BOOYAH-13 and BOOYAH-19 parser and service. PR #16 finding 3. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-3** | Preview is read-only. Explicit confirmation starts the atomic import and rechecks the batch. Report record, column and reason, including every duplicate occurrence. Twenty valid records create 20. Mixed errors, a confirmation-time conflict and dismissal create zero. The prototype simulates both preview and commit. | BOOYAH-13 and BOOYAH-19 import route and service. PR #16 finding 3. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-4** | Accept `.csv`, UTF-8 with optional BOM, LF or CRLF, quoted commas and line breaks and escaped quotes. Require all seven required columns in any order. Optional columns are `priority`, `note`, `latitude` and `longitude`. Reject missing, duplicate and unknown names and wrong-width records. Accept 1–500 data records and at most 1,000,000 bytes. Header is record 1. | BOOYAH-13 and BOOYAH-19 parser and template. PR #16 finding 2. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-5** | Edit or cancel a current `NEW` order with a matching version. Code is read-only and omitted from edit submission. Hub, status and audit fields are protected. Cancel with 5–300 characters after trim, retain the same order as `CANCELLED` and show the saved reason. A stale or repeat request preserves the current record and saved reason. | BOOYAH-13 and BOOYAH-19 service. PR #16 findings 1, 5 and 6. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-6** | Create/import yield `NEW`. Edits retain `NEW`. Confirmed cancellation transitions `NEW → CANCELLED` with no reversal. Order and DeliveryAttempt lifecycles are separate. | BOOYAH-13 and BOOYAH-24 state reconciliation. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-7** | Only Dispatchers with a trusted hub assignment can access F02. Respond `401` for missing or expired session, `403` for denied role or missing hub authorization and `404` for a missing or different-hub Order. The last two cases show no Order details. Signing in does not replay the request. | BOOYAH-13 and BOOYAH-19 access wrapper and service. PR #16 finding 4. | PR #16 approved; separate confirmation not evidenced |
+| **D-F02-8** | Combine status, inclusive hub-local window-start dates and a case-insensitive literal keyword in displayed code, recipient name or phone. Sort by window start then displayed code ascending. Page size is 20. Reset an out-of-range page to page 1 and retain current filters. | BOOYAH-13 and BOOYAH-19 list service. PR #16 finding 4. | PR #16 approved; separate confirmation not evidenced |
 
 ## FR, step and screen traceability
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 | FR and source | UC and steps/branches | Screen evidence |
 | --- | --- | --- |
@@ -252,14 +252,14 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 | FR-01-2 / SRC-01-02 · cross-cutting | UC05 05.A4, UC06 06.A9, UC07 07.A4–A5, UC08 08.A7 | `S07-01-denied`, `S07-01-session-expired`, `S07-01-not-found` (AUTH.1–AUTH.3) |
 
 ## CSV contract and Section E comparison
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 - The [downloadable template](fixtures/order-intake/orders-template.csv) matches BOOYAH-19’s template byte for byte, including its synthetic example. The [valid fixture](fixtures/order-intake/orders-valid.csv) contains 20 records. The [missing](fixtures/order-intake/orders-header-missing.csv), [duplicate](fixtures/order-intake/orders-header-duplicate.csv) and [unknown](fixtures/order-intake/orders-header-unknown.csv) header fixtures each isolate one failure.
 - The [invalid fixture](fixtures/order-intake/orders-invalid.csv) reports duplicate `order_code` on records 2 and 3. Record 3 also has an invalid phone, address, end time and weight. Record 4 repeats seeded code `F02-500`. The prototype preview reports seven diagnostics across three records and imports zero. The BOOYAH-19 parser returns six diagnostics before database lookup. The prototype separately simulates the same-hub lookup and the confirmation-time race. Neither simulation writes to PostgreSQL.
 - Source comparison used the [BOOYAH-13 contract on dev](https://github.com/DankDaPancake/Veylo/blob/84bc0d813605706329d44d1ed72f24956960d5b2/openspec/changes/f02-order-intake/design.md) and the [BOOYAH-19 order modules at c0906d0](https://github.com/DankDaPancake/Veylo/tree/c0906d06704653456ec8b592e338f6abcf952e22/src/lib/orders), plus the import, detail and cancel routes at the same revision. Source inspection confirms the access codes, edit-version checks, displayed-code ordering and page fallback. The prototype displays simulated HTTP statuses. Runtime guard, transaction and reload evidence remain pending for AC4.
 
 ## Verification and reviewer handoff
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 | Jira AC | Local evidence | Reviewer action |
 | --- | --- | --- |
@@ -271,4 +271,10 @@ Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công K
 
 Local checks exercise 39 light states at each of 1440×900 and 1280×720, fixture import and cancellation, independent 401/403/404 views, and form boundary cases. The exporter captures the UC06 header/preview/error outcomes through real file selection and captures the two UC08 cancellation images in the same browser flow. The [reproduction guide](prototypes/order-intake/README.md#reproduce-the-evidence) records how to run these checks.
 
-Reviewer findings 1–6 are addressed in D-F02-1, D-F02-4, D-F02-2/3, D-F02-7/8 and D-F02-5, respectively. Phạm Công Khánh’s review of the corrected revision and Section E integration verification remain pending. See [PR #16](https://github.com/DankDaPancake/Veylo/pull/16) and the [PA3 AI log](../../ai-log/PA3/thepenguinguy123.md).
+Reviewer findings 1–6 are addressed in D-F02-1, D-F02-4, D-F02-2/3, D-F02-7/8 and D-F02-5, respectively. Phạm Công Khánh approved the corrected PR revision on 20 November 2026. The table above retains the detailed acceptance evidence to record; PR approval alone is not a scenario-by-scenario attestation. Later current-application verification is recorded separately in the [F02 acceptance report](../../test/PA3-F02-verification.md). See [PR #16](https://github.com/DankDaPancake/Veylo/pull/16) and the [PA3 AI log](../../ai-log/PA3/thepenguinguy123.md).
+
+
+## Archive verification — 21 November 2026
+Performed by: Codex (AI). Reviewed by: Pending for this archive-status update. Edited by: Codex.
+
+The requester authorized syncing after code checks and archiving with 21/21 tasks marked complete. [PR #16](https://github.com/DankDaPancake/Veylo/pull/16) was approved by Cee-Ka at `f7f296a4ea510660c15a83be27be3d8adf84785d` on 20 November 2026 at 09:18:55 UTC and merged at 09:19:14 UTC. This establishes PR approval, without inventing a detailed walkthrough transcript or separate team confirmation. See the [archive code-check evidence](../../test/booyah20-archive/README.md), [synced main spec](../../../openspec/specs/order-intake-prototype/spec.md) and [archived tasks](../../../openspec/changes/archive/2026-11-21-booyah-20-f02-order-intake-uc05-uc08/tasks.md).

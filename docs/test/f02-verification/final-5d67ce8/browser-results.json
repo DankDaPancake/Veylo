@@ -1,0 +1,73 @@
+{
+  "base": "http://127.0.0.1:3017",
+  "run": "1795193923",
+  "baseCommit": "5d67ce821e6c77c1952c8191a5086b0d8e712171",
+  "worktree": "src clean at frozen application commit; documentation/evidence edits separate",
+  "cases": [
+    {
+      "case": "mutation detail, discard, linked errors and keyboard",
+      "viewport": [
+        1440,
+        900
+      ],
+      "result": "PASS",
+      "orderId": "cmwp84268003bz5vtmbx9mdq0"
+    },
+    {
+      "case": "20-row preview/cancel/confirm, mixed diagnostics",
+      "viewport": [
+        1440,
+        900
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "mutation detail, discard, linked errors and keyboard",
+      "viewport": [
+        1280,
+        720
+      ],
+      "result": "PASS",
+      "orderId": "cmwp845cd003wz5vtp0u1cgu0"
+    },
+    {
+      "case": "20-row preview/cancel/confirm, mixed diagnostics",
+      "viewport": [
+        1280,
+        720
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "code claimed after preview, atomic rollback and replacement",
+      "result": "PASS"
+    },
+    {
+      "case": "stale edit and cancellation recovery preserves newest note/original reason",
+      "result": "PASS"
+    },
+    {
+      "case": "manual weight/window/coordinates/duplicate variants preserve data",
+      "result": "PASS"
+    },
+    {
+      "case": "CSV file/encoding/header/row/byte limits and supported quoted BOM CRLF",
+      "result": "PASS"
+    },
+    {
+      "case": "combined literal/date/status filters,20-row pagination,empty and shrinking-page fallback",
+      "result": "PASS"
+    },
+    {
+      "case": "access lost after preview returns401; sign-in does not replay import",
+      "result": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "browser": "156.0.8078.79",
+  "sourceSha256": {
+    "src/app/orders/workspace.tsx": "529ba3c6f4a0c85022364bd256ddcbbb541462ef945c0a80c10303c731de2d49",
+    "src/lib/orders/csv.ts": "031826cfc0bbd8c0e711acbd9e11f5cdc9b3dbb7d826056486aeb10ecf2ca2a8",
+    "src/lib/orders/service.ts": "e40cbd5a2e36f7706697f3e05d7527771b815ab0ec44a30224504476c6a6d003"
+  }
+}

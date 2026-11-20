@@ -1,0 +1,3 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg
+QA-B17-20261120T133616Z-ATOMIC-VALID,Synthetic Atomic Recipient,0900171001,31 Synthetic Way,2026-11-21 09:00,2026-11-21 10:00,1.0
+QA-B17-20261120T133616Z-ATOMIC-INVALID,Synthetic Atomic Recipient,123,32 Synthetic Way,2026-11-21 09:00,2026-11-21 10:00,2.0

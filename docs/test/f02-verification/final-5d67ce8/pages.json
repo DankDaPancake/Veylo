@@ -1,0 +1,25 @@
+{
+  "commit": "5d67ce821e6c77c1952c8191a5086b0d8e712171",
+  "checks": [
+    {
+      "case": "anonymous page/hub isolation",
+      "result": "PASS"
+    },
+    {
+      "case": "Admin page/hub isolation",
+      "result": "PASS"
+    },
+    {
+      "case": "Rider page/hub isolation",
+      "result": "PASS"
+    },
+    {
+      "case": "Template actual download via keyboard",
+      "result": "PASS"
+    },
+    {
+      "case": "Dispatcher B page/hub isolation",
+      "result": "PASS"
+    }
+  ]
+}

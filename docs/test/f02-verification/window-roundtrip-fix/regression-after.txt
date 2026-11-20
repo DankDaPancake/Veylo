@@ -1,0 +1,12 @@
+✔ serializes local windows and omits blank optional coordinates (1.004199ms)
+✔ editing sends the version without changing order identity (0.107374ms)
+✔ separates API field errors from CSV record errors (0.123057ms)
+✔ saved windows round-trip through UI values and edit payloads across accepted years (0.520722ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63.866535

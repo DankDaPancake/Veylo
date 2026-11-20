@@ -1,0 +1,3 @@
+minimum: PASS
+ordinary: PASS
+maximum: PASS

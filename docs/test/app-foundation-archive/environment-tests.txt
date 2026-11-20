@@ -1,0 +1,12 @@
+✔ rejects absent and blank configuration (0.636106ms)
+✔ rejects malformed, wrong protocol and missing database URLs without leaking credentials (0.23987ms)
+✔ accepts both PostgreSQL URL schemes and preserves query configuration (0.11137ms)
+✔ assertDemoDatabaseUrl rejects invalid or unparseable URLs without leaking credentials (0.150983ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 70.19075
