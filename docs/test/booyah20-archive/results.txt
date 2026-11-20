@@ -1,0 +1,7 @@
+CSV check: arbitrary headers, 20/0 ready counts, seven preview diagnostics, UTF-8/BOM, quoting and both limit boundaries.
+1440×900: 39 layouts and keyboard/mouse walkthroughs passed.
+1280×720: 39 layouts and keyboard/mouse walkthroughs passed.
+39 distinct PNGs decoded; dimensions and nonempty content passed.
+Markdown attestation, local links, 39 embeds and screen references passed.
+A4 PDF: 29 pages, 39 figures, UC headings and link destinations passed.
+Verified with Chromium 156.0.8078.79.

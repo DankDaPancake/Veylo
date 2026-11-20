@@ -1,0 +1,8 @@
+Command: npm run lint
+Started: 2026-11-20T12:30:31.829818+00:00
+Ended: 2026-11-20T12:30:33.396085+00:00
+Exit: 0
+
+
+> veylo@0.1.0 lint
+> eslint .

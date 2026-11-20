@@ -1,0 +1,26 @@
+1440x900: PASS
+1280x720: PASS
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "docs/test/f02-verification/prototype-parity/check_browser.py", line 256, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "/home/yelgsef/miniconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/yelgsef/miniconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/yelgsef/miniconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "docs/test/f02-verification/prototype-parity/check_browser.py", line 248, in main
+    assert await count(context, lost_code) == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "docs/test/f02-verification/prototype-parity/check_browser.py", line 34, in count
+    assert status == 200
+           ^^^^^^^^^^^^^
+AssertionError

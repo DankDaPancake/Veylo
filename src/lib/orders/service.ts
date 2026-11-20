@@ -2,7 +2,7 @@ import "server-only";
 import { getPrisma } from "@/lib/db";
 import type { Prisma } from "@/generated/prisma/client";
 import { OrderError, editableFields, hasNul, localInput, objectBody, parseListQuery, rejectUnknown, requireVersion, validateOrder } from "./validation";
-import { parseOrdersCsv } from "./csv";
+import { analyzeOrdersCsv, parseOrdersCsv } from "./csv";
 
 function duplicate(error: unknown): boolean {
   return typeof error === "object" && error !== null && "code" in error && error.code === "P2002";
@@ -79,22 +79,47 @@ export async function cancelOrder(hubId: string, id: string, value: unknown) {
   });
 }
 
+type CodeOccurrence = { row: number; normalizedCode: string; orderCode: string };
+
+async function existingCodeErrors(hubId: string, occurrences: CodeOccurrence[]) {
+  if (!occurrences.length) return [];
+  const saved = await getPrisma().order.findMany({
+    where: { hubId, normalized_code: { in: [...new Set(occurrences.map(({ normalizedCode }) => normalizedCode))] } },
+    select: { normalized_code: true },
+  });
+  const codes = new Set(saved.map((order) => order.normalized_code));
+  return occurrences.filter(({ normalizedCode }) => codes.has(normalizedCode))
+    .map(({ row, orderCode }) => ({ row, field: "order_code", message: `Code ${orderCode} already exists in this hub` }));
+}
+
+export async function previewOrdersCsv(hubId: string, bytes: Uint8Array, filename: string) {
+  const analysis = analyzeOrdersCsv(bytes, filename);
+  const errors = [...analysis.errors, ...await existingCodeErrors(hubId, analysis.codeOccurrences)];
+  if (errors.length) {
+    const code = analysis.errors.some(({ field }) => field === "file") ? "INVALID_CSV"
+      : analysis.errors.length ? "VALIDATION_ERROR" : "DUPLICATE_ORDER_CODE";
+    throw new OrderError(code === "DUPLICATE_ORDER_CODE" ? 409 : 400, code, errors);
+  }
+  const orders = analysis.orders.map(({ row, data }) => ({
+    ...data,
+    row,
+    window_start: localInput(data.window_start),
+    window_end: localInput(data.window_end),
+  }));
+  return { orders, total: orders.length, valid: orders.length, saved: 0 };
+}
+
 export async function importOrders(hubId: string, bytes: Uint8Array, filename: string) {
   const rows = parseOrdersCsv(bytes, filename);
-  const where = { hubId, normalized_code: { in: rows.map(({ data }) => data.normalized_code) } };
-  const conflicts = async () => {
-    const saved = await getPrisma().order.findMany({ where, select: { normalized_code: true } });
-    const codes = new Set(saved.map((order) => order.normalized_code));
-    return rows.filter(({ data }) => codes.has(data.normalized_code)).map(({ row, data }) => ({ row, field: "order_code", message: `Code ${data.order_code} already exists in this hub` }));
-  };
-  const errors = await conflicts();
+  const occurrences = rows.map(({ row, data }) => ({ row, normalizedCode: data.normalized_code, orderCode: data.order_code }));
+  const errors = await existingCodeErrors(hubId, occurrences);
   if (errors.length) throw new OrderError(409, "DUPLICATE_ORDER_CODE", errors);
   try {
     await getPrisma().$transaction(async (tx) => {
       await tx.order.createMany({ data: rows.map(({ data }) => ({ ...data, hubId })) });
     });
   } catch (error) {
-    if (duplicate(error)) throw new OrderError(409, "DUPLICATE_ORDER_CODE", await conflicts());
+    if (duplicate(error)) throw new OrderError(409, "DUPLICATE_ORDER_CODE", await existingCodeErrors(hubId, occurrences));
     throw error;
   }
   return { imported: rows.length };

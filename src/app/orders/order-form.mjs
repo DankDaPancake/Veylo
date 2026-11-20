@@ -1,3 +1,16 @@
+import { localInput } from "../../lib/orders/validation.ts";
+
+/** @param {string} field @param {Partial<Record<string, string | number>>} [order] */
+export function formValue(field, order) {
+  const value = order?.[field];
+  if (value == null) return field === "priority" ? "NORMAL" : "";
+  if (!field.startsWith("window_")) return String(value);
+  const text = String(value);
+  const date = new Date(text);
+  if (!/(Z|[+-]\d{2}:\d{2})$/.test(text) || Number.isNaN(date.getTime())) return text.replace(" ", "T").slice(0, 16);
+  return localInput(date).replace(" ", "T");
+}
+
 /** @param {Record<string, string>} fields @param {number} [version] */
 export function orderPayload(fields, version) {
   const payload = Object.fromEntries(Object.entries(fields).flatMap(([field, raw]) => {

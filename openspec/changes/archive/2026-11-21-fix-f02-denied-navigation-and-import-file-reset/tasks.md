@@ -1,0 +1,9 @@
+## 1. Focused regression and component corrections
+
+- [x] 1.1 **Codex · 1.5 h** — Add `src/tests/orders-workspace.test.mjs` using the existing Node/TypeScript/React tooling to execute actual component handlers with mocked requests. Verify separate cancel 401/403 cases and preview-confirm network/500/file-level 400 expose the current bugs, and cover missing/replacement file, picker-origin selection, row report, normal dismissal, 404, 409 and success without new dependencies or database writes.
+- [x] 1.2 **Codex · 0.5 h** — After 1.1, add the denial guard to the common back control and clear retained file only for failed preview-to-pick import recovery in `src/app/orders/workspace.tsx`. Verify the focused regression file passes, explicit 401/403 recovery remains visible, row diagnostics/replacement still work and picker-origin selection is preserved; keep the source diff limited to the two corrections.
+
+## 2. Browser and integration verification
+
+- [x] 2.1 **Codex · 1 h** — After 1.2, use existing browser tooling with synthetic fixtures and intercepted order responses to check cancel 401/403, ordinary/409/404 recovery, and preview-confirm non-row failure. Verify actual input `files.length` is zero after returning to pick, Check CSV without selection sends no request, a replacement selection uploads the new file, and keyboard recovery remains usable. Report browser/version and actual outcomes separately from the in-memory checks; do not mutate a shared database.
+- [x] 2.2 **Codex · 1 h** — After 2.1, run `npm test`, `npm run lint`, `npm run typecheck` and `npm run build` from `src`, plus strict validation of this change and Git whitespace/scoped-diff checks. Verify only planned code/test/artifact changes exist, record actual results in the handoff and leave any failed or unavailable check explicit. Do not mark implementation complete from artifact-existence status, or publish/merge/archive as part of this task.

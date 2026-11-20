@@ -1,0 +1,442 @@
+{
+  "timestamp": "2026-11-20T17:00:33.432Z",
+  "applicationCommit": "5d67ce821e6c77c1952c8191a5086b0d8e712171",
+  "ordersUnchanged": true,
+  "otherHubRecordUnchanged": true,
+  "hubRestored": true,
+  "results": [
+    {
+      "actor": "anonymous",
+      "method": "GET",
+      "route": "/api/orders",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "POST",
+      "route": "/api/orders",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "GET",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "PATCH",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "POST",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad/cancel",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "POST",
+      "route": "/api/orders/import",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "POST",
+      "route": "/api/orders/import/preview",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "anonymous",
+      "method": "GET",
+      "route": "/api/orders/template",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "GET",
+      "route": "/api/orders",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "POST",
+      "route": "/api/orders",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "GET",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "PATCH",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "POST",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad/cancel",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "POST",
+      "route": "/api/orders/import",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "POST",
+      "route": "/api/orders/import/preview",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Administrator",
+      "method": "GET",
+      "route": "/api/orders/template",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "GET",
+      "route": "/api/orders",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "POST",
+      "route": "/api/orders",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "GET",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "PATCH",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "POST",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad/cancel",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "POST",
+      "route": "/api/orders/import",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "POST",
+      "route": "/api/orders/import/preview",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Rider",
+      "method": "GET",
+      "route": "/api/orders/template",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "other-hub Dispatcher",
+      "method": "GET",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 404,
+      "actual": 404,
+      "response": {
+        "code": "NOT_FOUND",
+        "errors": []
+      }
+    },
+    {
+      "actor": "other-hub Dispatcher",
+      "method": "PATCH",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 404,
+      "actual": 404,
+      "response": {
+        "code": "NOT_FOUND",
+        "errors": []
+      }
+    },
+    {
+      "actor": "other-hub Dispatcher",
+      "method": "POST",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad/cancel",
+      "expected": 404,
+      "actual": 404,
+      "response": {
+        "code": "NOT_FOUND",
+        "errors": []
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "GET",
+      "route": "/api/orders",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "POST",
+      "route": "/api/orders",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "GET",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "PATCH",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "POST",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad/cancel",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "POST",
+      "route": "/api/orders/import",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "POST",
+      "route": "/api/orders/import/preview",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "Dispatcher without current hub",
+      "method": "GET",
+      "route": "/api/orders/template",
+      "expected": 403,
+      "actual": 403,
+      "response": {
+        "code": "FORBIDDEN"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "GET",
+      "route": "/api/orders",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "POST",
+      "route": "/api/orders",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "GET",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "PATCH",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "POST",
+      "route": "/api/orders/cmwoz7z30000zrzvt2d4kk5ad/cancel",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "POST",
+      "route": "/api/orders/import",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "POST",
+      "route": "/api/orders/import/preview",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    },
+    {
+      "actor": "expired Dispatcher",
+      "method": "GET",
+      "route": "/api/orders/template",
+      "expected": 401,
+      "actual": 401,
+      "response": {
+        "code": "UNAUTHENTICATED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+Command: npm run start -- --port 3017
+Working directory: src
+Source: tool-captured startup console excerpt; wall-clock start timestamp unavailable
+Process: running (no final exit code yet)
+
+> veylo@0.1.0 start
+> next start --hostname 127.0.0.1 --port 3017
+
+Next.js 16.4.6
+Local: http://127.0.0.1:3017
+Network: http://127.0.0.1:3017
+Ready in 64ms
+Running next.config.ts took 22ms

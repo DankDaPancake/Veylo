@@ -1,0 +1,45 @@
+Command: npm run build
+Started: 2026-11-20T12:33:08.155614+00:00
+Ended: 2026-11-20T12:33:19.789397+00:00
+Available physical bytes before build: 12806299648
+Exit: 0
+
+
+> veylo@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config.ts took 21ms
+- Experiments (use with caution):
+  ✓ authInterrupts
+  · cpus: 1
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.0s
+  Running TypeScript ...
+  Finished TypeScript in 1700ms ...
+  Collecting page data using 1 worker ...
+  Generating static pages using 1 worker (0/9) ...
+  Generating static pages using 1 worker (2/9)
+  Generating static pages using 1 worker (4/9)
+  Generating static pages using 1 worker (6/9)
+✓ Generating static pages using 1 worker (9/9) in 98ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/auth/[...all]
+├ ƒ /api/health
+├ ƒ /api/orders
+├ ƒ /api/orders/[id]
+├ ƒ /api/orders/[id]/cancel
+├ ƒ /api/orders/import
+├ ƒ /api/orders/template
+├ ƒ /orders
+└ ○ /sign-in
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

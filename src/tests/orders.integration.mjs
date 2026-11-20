@@ -33,10 +33,10 @@ async function signIn(email) {
   assert.equal(response.status, 200, "Real Better Auth sign-in must succeed");
   return response.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
 }
-async function upload(text, cookie, name = "orders.csv") {
+async function upload(text, cookie, name = "orders.csv", path = "/api/orders/import") {
   const form = new FormData();
   form.append("file", new File([text], name, { type: "text/csv" }));
-  return call("/api/orders/import", cookie, "POST", form);
+  return call(path, cookie, "POST", form);
 }
 
 test("combined F02 database/auth/API/CSV verification", async (t) => {
@@ -64,7 +64,7 @@ test("combined F02 database/auth/API/CSV verification", async (t) => {
     assert.ok(serverScope.data.orders.length > 0);
     assert.ok(serverScope.data.orders.every((order) => order.hubId === hubA.id), "Test server must use the same disposable database");
     const sample = await prisma.order.findFirstOrThrow({ where: { hubId: hubB.id } });
-    const paths = [["/api/orders", "GET"], ["/api/orders", "POST"], [`/api/orders/${sample.id}`, "GET"], [`/api/orders/${sample.id}`, "PATCH"], [`/api/orders/${sample.id}/cancel`, "POST"], ["/api/orders/import", "POST"], ["/api/orders/template", "GET"]];
+    const paths = [["/api/orders", "GET"], ["/api/orders", "POST"], [`/api/orders/${sample.id}`, "GET"], [`/api/orders/${sample.id}`, "PATCH"], [`/api/orders/${sample.id}/cancel`, "POST"], ["/api/orders/import", "POST"], ["/api/orders/import/preview", "POST"], ["/api/orders/template", "GET"]];
     await t.test("every route denies absent sessions, Admin and Rider", async () => {
       for (const [path, method] of paths) {
         for (const [cookie, expected] of [["", 401], [admin, 403], [rider, 403]]) {
@@ -221,6 +221,55 @@ test("combined F02 database/auth/API/CSV verification", async (t) => {
       assert.equal(manyEmptyImport.status, 400);
       assert.ok(manyEmptyImport.data.errors.some((error) => error.field === "file"));
     });
+    await t.test("read-only CSV preview, complete diagnostics, hub isolation and confirmation races", async () => {
+      const preview = (text, cookie = cookieA, name = "orders.csv") => upload(text, cookie, name, "/api/orders/import/preview");
+      const codes = Array.from({ length: 20 }, (_, i) => `${prefix}-PRE-${i}`);
+      const count = await prisma.order.count();
+      const checked = await preview(csv(codes));
+      assert.equal(checked.status, 200);
+      assert.equal(checked.data.orders.length, 20);
+      assert.equal(checked.data.total, 20);
+      assert.equal(checked.data.valid, 20);
+      assert.equal(checked.data.saved, 0);
+      assert.equal(checked.data.orders[0].row, 2);
+      assert.equal(checked.data.orders[0].order_code, codes[0]);
+      assert.equal(checked.data.orders[0].window_start, "2026-11-20 09:00");
+      assert.equal(checked.data.orders[0].window_end, "2026-11-20 11:00");
+      assert.equal(await prisma.order.count(), count, "Preview must never write orders");
+      assert.equal((await preview(csv(codes))).status, 200);
+      assert.equal(await prisma.order.count(), count, "Repeated preview/dismissal leaves data unchanged");
+      assert.equal((await upload(csv(codes), cookieA)).status, 201);
+      assert.equal(await prisma.order.count(), count + 20);
+      const sameHub = `${prefix}-PRE-EXIST`;
+      const foreignOnly = `${prefix}-PRE-FOREIGN`;
+      assert.equal((await call("/api/orders", cookieA, "POST", valid(sameHub))).status, 201);
+      assert.equal((await call("/api/orders", cookieB, "POST", valid(foreignOnly))).status, 201);
+      assert.equal((await preview(csv([foreignOnly]))).status, 200, "Foreign-hub code must not collide or disclose foreign details");
+      const mixedCodes = [`${prefix}-PRE-DUP`, `${prefix.toLowerCase()}-pre-dup`, sameHub];
+      const beforeMixed = await prisma.order.count();
+      const mixed = await preview(csv(mixedCodes, true));
+      assert.equal(await prisma.order.count(), beforeMixed, "Mixed diagnostic preview must not write any orders");
+      assert.equal(mixed.status, 400);
+      assert.ok(mixed.data.errors.some(e => e.row === 3 && e.field === "weight_kg"));
+      for (const row of [2, 3]) assert.ok(mixed.data.errors.some(e => e.row === row && e.field === "order_code"));
+      assert.ok(mixed.data.errors.some(e => e.row === 4 && e.field === "order_code"));
+      const beforeBad = await prisma.order.count();
+      assert.equal((await preview(csv(codes), cookieA, "bad.txt")).status, 400);
+      assert.equal((await preview(csvHeader + "\n")).status, 400);
+      const width = await preview(csvHeader + "\nshort,row\n");
+      assert.equal(width.status, 400);
+      assert.ok(width.data.errors.some(e => e.row === 2));
+      assert.equal(await prisma.order.count(), beforeBad);
+      const claimed = [`${prefix}-PRE-CLAIM`, `${prefix}-PRE-LOSER`];
+      assert.equal((await preview(csv(claimed))).status, 200);
+      assert.equal((await call("/api/orders", cookieA, "POST", valid(claimed[0]))).status, 201);
+      const afterClaim = await prisma.order.count();
+      const conflict = await upload(csv(claimed), cookieA);
+      assert.equal(conflict.status, 409);
+      assert.ok(conflict.data.errors.some(e => e.row === 2 && e.field === "order_code"));
+      assert.equal(await prisma.order.count(), afterClaim);
+      assert.equal(await prisma.order.count({ where: { hubId: hubA.id, order_code: claimed[1] } }), 0);
+    });
     await t.test("database uniqueness races and invalid numeric values cannot bypass the API", async () => {
       const data = { hubId: hubA.id, ...valid(`${prefix}-DB-RACE`), normalized_code: `${prefix.toLowerCase()}-db-race`, window_start: new Date("2026-11-20T02:00:00Z"), window_end: new Date("2026-11-20T04:00:00Z") };
       const race = await Promise.allSettled([prisma.order.create({ data }), prisma.order.create({ data })]);
@@ -232,10 +281,14 @@ test("combined F02 database/auth/API/CSV verification", async (t) => {
       try {
         await prisma.user.update({ where: { id: user.id }, data: { hubId: null } });
         assert.equal((await call("/api/orders", cookieA)).status, 403);
+        assert.equal((await upload(csv([`${prefix}-NOHUB`]), cookieA, "orders.csv", "/api/orders/import/preview")).status, 403);
       } finally { await prisma.user.update({ where: { id: user.id }, data: { hubId: hubA.id } }); }
       assert.equal((await call("/api/orders", cookieA)).status, 200);
       await prisma.session.updateMany({ where: { userId: user.id }, data: { expiresAt: new Date(Date.now() - 1000) } });
       assert.equal((await call("/api/orders", cookieA)).status, 401);
+      const beforeExpired = await prisma.order.count();
+      assert.equal((await upload(csv([`${prefix}-EXPIRED`]), cookieA, "orders.csv", "/api/orders/import/preview")).status, 401);
+      assert.equal(await prisma.order.count(), beforeExpired);
       cookieA = await signIn("dispatcher-a@example.test");
       assert.equal((await call("/api/orders", cookieA)).status, 200);
       assert.equal((await call("/api/auth/sign-out", cookieA, "POST", {})).status, 200);

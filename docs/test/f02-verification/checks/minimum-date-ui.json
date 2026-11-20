@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Script ran on page and returned:\n```json\n{\"browser\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36\",\"code\":\"CHECK-1795179481100-EARLIEST\",\"apiStatus\":200,\"savedStart\":\"0001-01-01T00:00:00.000Z\",\"savedEnd\":\"0001-01-01T01:00:00.000Z\",\"editStart\":\"\",\"editEnd\":\"\",\"formValid\":false,\"observedAt\":\"2026-11-20T13:12:38.683Z\"}\n```"
+    }
+  ]
+}

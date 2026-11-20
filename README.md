@@ -75,6 +75,24 @@ The private GitHub repository is owned by `DankDaPancake`. The team has selected
 
 [AGENTS.md](AGENTS.md) records planned branch protection and CI/CD requirements. Main/dev protection was observed in the historical governance check; recheck before relying on current enforcement. CI/CD setup is separate work.
 
-The user confirmed OpenSpec is accepted in place of GitHub Spec Kit. The real `app-foundation` change lives in `openspec/` at the repository root; the pinned CLI dependency remains in `src`. The user requested this working layout so tools can discover OpenSpec from the root. PA2's submitted-artifact placement under `src` remains a separate requirement. Do not create a nested Git repository under `src`.
+The user confirmed OpenSpec is accepted in place of GitHub Spec Kit. The real [app-foundation change](openspec/changes/archive/2026-11-21-app-foundation/proposal.md) is archived under root `openspec/`; the pinned CLI dependency remains in `src`. The user requested this working layout so tools can discover OpenSpec from the root. PA2's submitted-artifact placement under `src` remains a separate requirement. Do not create a nested Git repository under `src`.
 
 Keep the repository private and provide instructor/TA access when requested, as PA1 requires. Add team collaborators after their handles are supplied. Preserve the existing Git history when cloning or setting up another machine.
+
+## E — F02 implementation and OpenSpec evidence
+Performed by: Codex (AI-assisted implementation, verification and handoff preparation for BOOYAH-17 owner Nguyễn Thành Trung). Reviewed by: Acceptance reported complete by requester; reviewer identity/link unavailable. Edited by: Codex.
+
+The F02 application revision frozen for final verification is **`5d67ce821e6c77c1952c8191a5086b0d8e712171`**. This is the application commit; later report/evidence commits do not change the tested application identity. The final original16-scenario matrix passes on this revision. The requester reported all remaining closure checks passed on21November; reviewer metadata and handout copy were not supplied to the assistant. No demo video is published; BOOYAH-30 owns the video and must use this same application revision after acceptance.
+
+| Rubric/workflow term | Actual repository evidence |
+| --- | --- |
+| Specification | Original [F02 requirements and scenarios](openspec/changes/archive/2026-11-21-f02-order-intake/specs/order-intake/spec.md); synced [prototype interaction spec](openspec/specs/order-intake-interactions/spec.md) |
+| Plan/design | Original [F02 proposal](openspec/changes/archive/2026-11-21-f02-order-intake/proposal.md) and [design/approved rules](openspec/changes/archive/2026-11-21-f02-order-intake/design.md) |
+| Tasks | Original [implementation tasks](openspec/changes/archive/2026-11-21-f02-order-intake/tasks.md) and [BOOYAH-17 verification tasks](openspec/changes/archive/2026-11-21-booyah-17-f02-acceptance-verification/tasks.md) |
+| Implementation | Auth `f56c0ac`; persistence/API `c0906d0`; integrated Dispatcher UI `7327989`; committed date/prototype corrections `5d67ce8` |
+| Scoped correction records | Archived [window round-trip correction](openspec/changes/archive/2026-11-20-fix-f02-order-window-roundtrip/proposal.md) and [prototype parity correction](openspec/changes/archive/2026-11-20-fix-f02-prototype-parity/proposal.md), each retaining design/tasks and applicable delta |
+| Verification/report | [F02 acceptance report](docs/test/PA3-F02-verification.md) and [matching draft PDF](docs/test/PA3-F02-verification.pdf), including historical baseline, scoped fix evidence and final-revision results; [application commands](src/README.md) |
+| AI evidence | [AI log index](docs/ai-log/README.md), [actual requester-unassigned PA3 records](docs/ai-log/PA3/unassigned.md) |
+| Archive status | Original [f02-order-intake](openspec/changes/archive/2026-11-21-f02-order-intake/proposal.md) and both corrections are archived; [main order-intake spec](openspec/specs/order-intake/spec.md) is synced. The completed [BOOYAH-17 verification change](openspec/changes/archive/2026-11-21-booyah-17-f02-acceptance-verification/proposal.md) is also archived (9/9 tasks). |
+
+Working OpenSpec artifacts deliberately live at repository-root `openspec/`; stale Jira paths `src/openspec` and `docs/ai-logs` map to root `openspec/` and `docs/ai-log/`. Kiệt confirmed instructor/TA acceptance of OpenSpec instead of GitHub Spec Kit; no exception to PA2's submitted-path requirement is claimed. The cited official PA3 handout is unavailable locally, so direct handout/rubric comparison remains pending. This section maps actual artifacts without claiming unavailable course evidence or independent human review.

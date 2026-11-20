@@ -1,0 +1,5 @@
+
+> veylo@0.1.0 db:check
+> node --env-file-if-exists=.env scripts/db-check.mjs
+
+PostgreSQL connection verified through Prisma (SELECT 1). No schema changes were requested.

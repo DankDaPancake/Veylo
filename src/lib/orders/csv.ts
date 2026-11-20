@@ -45,7 +45,11 @@ function records(text: string, maxRecords: number): string[][] {
   return rows;
 }
 
-export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
+type ParsedOrder = { row: number; data: ReturnType<typeof validateOrder> };
+type CodeOccurrence = { row: number; normalizedCode: string; orderCode: string };
+type CsvAnalysis = { orders: ParsedOrder[]; codeOccurrences: CodeOccurrence[]; errors: FieldError[] };
+
+export function analyzeOrdersCsv(bytes: Uint8Array, filename: string): CsvAnalysis {
   if (!filename.toLowerCase().endsWith(".csv")) fileError("Upload a .csv file");
   if (!bytes.length || bytes.length > 1_000_000) fileError("File must contain 1–1,000,000 bytes");
   let text: string;
@@ -56,16 +60,25 @@ export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
   const allowed: readonly string[] = [...requiredFields, ...optionalFields];
   if (new Set(header).size !== header.length || requiredFields.some((key) => !header.includes(key)) || header.some((key) => !allowed.includes(key))) fileError("Headers must be unique and contain only the required and optional template columns");
   if (rows.length < 1 || rows.length > 500) fileError("Use 1–500 data records");
-  if (rows.some((row) => row.length !== header.length)) fileError("Every record must match the header column count");
+
   const errors: FieldError[] = [];
-  const parsed: { row: number; data: ReturnType<typeof validateOrder> }[] = [];
+  const orders: ParsedOrder[] = [];
+  const codeOccurrences: CodeOccurrence[] = [];
   const codes = new Map<string, number[]>();
   for (const [index, values] of rows.entries()) {
     const row = index + 2;
+    const code = String(values[header.indexOf("order_code")] ?? "").trim();
+    const normalizedCode = code.toLowerCase();
+    if (/^[a-z0-9_-]{1,40}$/.test(normalizedCode)) {
+      codes.set(normalizedCode, [...(codes.get(normalizedCode) ?? []), row]);
+      codeOccurrences.push({ row, normalizedCode, orderCode: code });
+    }
+    if (values.length !== header.length) {
+      errors.push({ row, field: "file", message: `Record has ${values.length} columns; expected ${header.length}` });
+      continue;
+    }
     const body = Object.fromEntries(header.map((key, i) => [key, values[i]]));
-    const code = String(body.order_code).trim().toLowerCase();
-    if (/^[a-z0-9_-]{1,40}$/.test(code)) codes.set(code, [...(codes.get(code) ?? []), row]);
-    try { parsed.push({ row, data: validateOrder(body) }); }
+    try { orders.push({ row, data: validateOrder(body) }); }
     catch (error) {
       if (!(error instanceof OrderError)) throw error;
       errors.push(...error.errors.map((item) => ({ ...item, row })));
@@ -74,6 +87,14 @@ export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
   for (const occurrences of codes.values()) {
     if (occurrences.length > 1) errors.push(...occurrences.map((row) => ({ row, field: "order_code", message: "Duplicate order code within file" })));
   }
-  if (errors.length) throw new OrderError(400, "VALIDATION_ERROR", errors);
-  return parsed;
+  return { orders, codeOccurrences, errors };
+}
+
+export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
+  const analysis = analyzeOrdersCsv(bytes, filename);
+  if (analysis.errors.length) {
+    const code = analysis.errors.some(({ field }) => field === "file") ? "INVALID_CSV" : "VALIDATION_ERROR";
+    throw new OrderError(400, code, analysis.errors);
+  }
+  return analysis.orders;
 }

@@ -1,0 +1,12 @@
+{
+  "base": "http://127.0.0.1:3017",
+  "commit": "9be2097b647b6a7ca7c6fdebc09d9267d8c30411",
+  "applicationWorktree": "uncommitted correction on recorded HEAD; not final accepted demo commit",
+  "cases": [],
+  "sourceSha256": {
+    "src/app/orders/order-form.mjs": "8ae71515cb7f53d7471bfa24e7fadd0ef13aed131f8bd973a90572c8dd7e60a4",
+    "src/app/orders/workspace.tsx": "128b039c63cbf373c4a490dea7fd74301e4bdf62aeefc28bfde759c0ef419569",
+    "src/tests/order-form.test.mjs": "0383b3bf3466cf3af8f4b1153f48aba82d412a8e025827b6e80230b4f8c439ed"
+  },
+  "browser": "156.0.8078.79"
+}

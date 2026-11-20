@@ -1,0 +1,1 @@
+No-credential home render200, GET health200/application-only, POST405 PASS; ancillary errors recorded separately

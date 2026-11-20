@@ -1,0 +1,44 @@
+
+> veylo@0.1.0 test
+> node --test --test-concurrency=1 tests/*.test.mjs
+
+✔ rejects absent and blank configuration (0.638934ms)
+✔ rejects malformed, wrong protocol and missing database URLs without leaking credentials (0.216279ms)
+✔ accepts both PostgreSQL URL schemes and preserves query configuration (0.109829ms)
+✔ assertDemoDatabaseUrl rejects invalid or unparseable URLs without leaking credentials (0.182534ms)
+✔ serializes local windows and omits blank optional coordinates (0.83828ms)
+✔ editing sends the version without changing order identity (0.102113ms)
+✔ separates API field errors from CSV record errors (0.138142ms)
+✔ saved windows round-trip through UI values and edit payloads across accepted years (0.489191ms)
+✔ cancel 401 keeps denied order details hidden (22.422689ms)
+✔ cancel 403 keeps denied order details hidden (1.117239ms)
+✔ ordinary cancellation dismissal returns to cached detail (1.210488ms)
+✔ 404 keeps the separate Back to orders recovery (3.090085ms)
+✔ 409 offers cancellation dismissal and reload; success shows saved cancellation (1.933306ms)
+✔ successful cancellation shows saved CANCELLED detail and reason (1.365887ms)
+✔ failed preview confirmation (network) resets upload and empty Check CSV sends no request (2.03769ms)
+✔ failed preview confirmation (500) resets upload and empty Check CSV sends no request (1.772595ms)
+✔ failed preview confirmation (400) resets upload and empty Check CSV sends no request (1.73294ms)
+✔ missing file does not make an upload request (1.195179ms)
+✔ replacement selection checks the replacement file after confirmation failure (1.718583ms)
+✔ picker-origin failure preserves selection for deliberate retry (1.283049ms)
+✔ row report keeps diagnostics and replacement clears the previous file (1.882053ms)
+✔ successful import reaches completion and clears the selected file (1.485844ms)
+✔ shared validation trims, normalizes ASCII, preserves decimals and interprets hub time (1.190349ms)
+✔ field errors reject invalid numbers, calendar dates, windows and coordinates (1.452724ms)
+✔ rejects year 0000 and timestamps outside PostgreSQL representable UTC range (0.480354ms)
+✔ list dates include local end day and reject malformed filters (0.185012ms)
+✔ CSV accepts template, 20 rows, BOM, CRLF and quoted commas/quotes/newlines (5.699307ms)
+✔ CSV rejects invalid encoding, structure, file limits and record limits (2.950083ms)
+✔ CSV reports both duplicate occurrences and record numbers across quoted newlines without raw data (0.671393ms)
+✔ CSV analysis retains valid rows and all field, width and duplicate diagnostics (0.345712ms)
+✔ password hashes round-trip, use independent salts, and reject wrong passwords (595.852737ms)
+✔ malformed and unknown stored hash versions are rejected (147.006531ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1302.480586

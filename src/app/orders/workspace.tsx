@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import styles from "./workspace.module.css";
 import { AccountControl } from "../account-control";
-import { orderPayload, orderIssues } from "./order-form.mjs";
+import { formValue, orderPayload, orderIssues } from "./order-form.mjs";
 
 const fields = {
   order_code: "Order code", recipient_name: "Recipient", recipient_phone: "Phone",
@@ -15,6 +15,7 @@ const fields = {
 type Field = keyof typeof fields;
 type Order = Partial<Record<Field, string | number>> & { id: string; status: string; version: number; cancellation_reason?: string };
 type OrderList = { orders: Order[]; total: number; page: number; pageSize: number };
+type ImportPreview = { orders: (Partial<Record<Field, string | number>> & { row: number })[]; total: number; valid: number; saved: number };
 type Mode = "list" | "detail" | "create" | "edit" | "cancel" | "import";
 const required = Object.keys(fields).slice(0, 7);
 const blankFilters = { q: "", status: "", from: "", to: "" };
@@ -48,19 +49,6 @@ function orderPath(order: Order) {
   return "/" + encodeURIComponent(order.id);
 }
 
-function formValue(field: Field, order?: Order) {
-  const value = order?.[field];
-  if (value == null) return field === "priority" ? "NORMAL" : "";
-  if (!field.startsWith("window_")) return String(value);
-  const text = String(value);
-  const date = new Date(text);
-  if (!/(Z|[+-]\d{2}:\d{2})$/.test(text) || Number.isNaN(date.getTime())) return text.replace(" ", "T").slice(0, 16);
-  return new Intl.DateTimeFormat("sv-SE", {
-    timeZone: "Asia/Ho_Chi_Minh", year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
-  }).format(date).replace(" ", "T");
-}
-
 export function OrdersWorkspace() {
   const [mode, setMode] = useState<Mode>("list");
   const [filters, setFilters] = useState(blankFilters);
@@ -72,6 +60,15 @@ export function OrdersWorkspace() {
   const [error, setError] = useState<RequestError | Error>();
   const [notice, setNotice] = useState("");
   const [inputs, setInputs] = useState<Record<string, string>>({});
+  const [importPhase, setImportPhase] = useState<"pick" | "preview" | "report" | "complete">("pick");
+  const [file, setFile] = useState<File>();
+  const [preview, setPreview] = useState<ImportPreview>();
+  const [imported, setImported] = useState(0);
+  const summaryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (error) summaryRef.current?.focus();
+  }, [error]);
 
   const load = useCallback(async (signal?: AbortSignal) => {
     const params = new URLSearchParams({ page: String(query.page) });
@@ -105,6 +102,9 @@ export function OrdersWorkspace() {
   function open(next: Mode) {
     setError(undefined);
     setNotice("");
+    if (next === "import") {
+      setImportPhase("pick"); setPreview(undefined); setFile(undefined);
+    }
     if (next === "create" || next === "edit") {
       setInputs(Object.fromEntries((Object.keys(fields) as Field[]).map(key =>
         [key, formValue(key, next === "edit" ? selected : undefined)])));
@@ -127,24 +127,46 @@ export function OrdersWorkspace() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (saving) return;
     const form = new FormData(event.currentTarget);
     setSaving(true);
     setError(undefined);
     try {
-      let message = successMessages[mode] ?? "Saved.";
-      if (mode === "create") await request("", json("POST", orderPayload(inputs)));
-      else if (mode === "edit" && selected) await request(orderPath(selected), json("PATCH", orderPayload(inputs, selected.version)));
+      let savedOrder: Order | undefined;
+      const message = successMessages[mode] ?? "Saved.";
+      if (mode === "create") savedOrder = await request<Order>("", json("POST", orderPayload(inputs)));
+      else if (mode === "edit" && selected) savedOrder = await request<Order>(orderPath(selected), json("PATCH", orderPayload(inputs, selected.version)));
       else if (mode === "cancel" && selected) {
-        await request(orderPath(selected) + "/cancel", json("POST", { reason: String(form.get("reason")).trim(), version: selected.version }));
+        savedOrder = await request<Order>(orderPath(selected) + "/cancel", json("POST", { reason: String(form.get("reason")).trim(), version: selected.version }));
       } else if (mode === "import") {
-        const result = await request<{ imported: number }>("/import", { method: "POST", body: form });
-        message = `Imported ${result.imported} orders.`;
+        if (!file) throw new RequestError(400, { errors: [{ field: "file", message: "Choose a CSV file" }] });
+        const upload = new FormData(); upload.append("file", file);
+        if (importPhase === "preview") {
+          const result = await request<{ imported: number }>("/import", { method: "POST", body: upload });
+          setImported(result.imported); setImportPhase("complete"); setPreview(undefined); setFile(undefined);
+        } else {
+          setPreview(await request<ImportPreview>("/import/preview", { method: "POST", body: upload }));
+          setImportPhase("preview");
+        }
+        return;
       }
-      setSelected(undefined);
-      setMode("list");
-      setNotice(message);
-      setLoading(true); await load();
+      if (savedOrder) {
+        setSelected(savedOrder);
+        setMode("detail");
+        setNotice(message);
+      } else {
+        setSelected(undefined);
+        setMode("list");
+        setNotice(message);
+        setLoading(true); await load();
+      }
     } catch (caught) {
+      if (mode === "import") {
+        const nextPhase = caught instanceof RequestError && Array.isArray(caught.body.errors) && caught.body.errors.some(issue => typeof issue.row === "number") ? "report" : "pick";
+        setPreview(undefined);
+        if (importPhase === "preview" && nextPhase === "pick") setFile(undefined);
+        setImportPhase(nextPhase);
+      }
       setError(caught instanceof Error ? caught : new Error("Unable to save."));
     } finally {
       setSaving(false);
@@ -154,6 +176,7 @@ export function OrdersWorkspace() {
   const body = error instanceof RequestError ? error.body : {};
   const { fieldErrors, rowErrors } = orderIssues(body.errors);
   const denied = error instanceof RequestError && (error.status === 401 || error.status === 403);
+  const unavailable = error instanceof RequestError && error.status === 404;
   const page = list?.page ?? 1;
 
   return <div className={styles.shell}>
@@ -175,15 +198,26 @@ export function OrdersWorkspace() {
           <h1>Orders</h1>
           <p>Search and manage orders for your hub.</p>
         </div>
-        {mode === "list" && !denied && <div className={styles.actions}>
+        {mode === "list" && !denied && !unavailable && <div className={styles.actions}>
           <button className={`${button} ${styles.primary}`} disabled={!list || loading} onClick={() => open("create")}>Create order</button>
           <button className={button} disabled={!list || loading} onClick={() => open("import")}>Import CSV</button>
         </div>}
       </header>
     {notice && <p role="status" className="mb-4 text-emerald-800">{notice}</p>}
-    {error && <p role="alert" className="mb-4 rounded border border-red-300 bg-red-50 p-3 text-red-900">{error.message}</p>}
-    {denied && error instanceof RequestError && error.status === 401 && <Link className={button} href="/sign-in?next=/orders">Sign in</Link>}
-    {mode === "list" && !denied && <section data-screen-id="S07-01">
+    {error && <div ref={summaryRef} role="alert" tabIndex={-1} className="mb-4 rounded border border-red-300 bg-red-50 p-3 text-red-900">
+      <p>{error.message}</p>
+      {Object.entries(fieldErrors).length > 0 && <ul className="list-disc pl-5">{Object.entries(fieldErrors).map(([field, message]) =>
+        <li key={field}><a href={`#${field}`} className="underline" onClick={event => { event.preventDefault(); document.getElementById(field)?.focus(); }}>{fields[field as Field] ?? (field === "file" ? "CSV file" : field === "reason" ? "Reason" : field)}: {message}</a></li>)}</ul>}
+      {mode === "import" && <p>{rowErrors.length > 0 ? `${rowErrors.length} issue(s) across ${new Set(rowErrors.map(issue => issue.row)).size} record(s). ` : ""}0 orders imported.</p>}
+      {rowErrors.length > 0 && <div className={styles.table} role="region" aria-label="CSV diagnostics" tabIndex={0}>
+          <table className="w-full text-left"><thead><tr>{["Record", "Column", "Reason"].map(label => <th key={label} className="p-3" scope="col">{label}</th>)}</tr></thead>
+          <tbody>{rowErrors.map((issue, index) => <tr key={index}><td className="p-3">{issue.row}</td><td className="p-3">{issue.field}</td><td className="p-3">{issue.message}</td></tr>)}</tbody></table>
+      </div>}
+    </div>}
+    {denied && error instanceof RequestError && error.status === 401 && <><p>Your previous action will not be replayed.</p><Link className={button} href="/sign-in?next=/orders">Sign in</Link></>}
+    {denied && error instanceof RequestError && error.status === 403 && <Link className={button} href="/">Return to staff workspace</Link>}
+    {unavailable && <button className={button} onClick={() => { setSelected(undefined); open("list"); setLoading(true); void load(); }}>Back to orders</button>}
+    {mode === "list" && !denied && !unavailable && <section data-screen-id="S07-01">
       <form className={styles.filters} onSubmit={event => {
         event.preventDefault(); setError(undefined); setLoading(true); setQuery({ ...filters, page: 1 });
       }}>
@@ -209,47 +243,66 @@ export function OrdersWorkspace() {
         <button className={button} disabled={page * list.pageSize >= list.total || saving} onClick={() => { setError(undefined); setLoading(true); setQuery({ ...query, page: page + 1 }); }}>Next</button>
       </nav>}
     </section>}
-    {mode !== "list" && <button className={`${button} mb-4`} disabled={saving} onClick={() => { open("list"); if (denied) { setLoading(true); void load(); } }}>Back to orders</button>}
-    {!denied && mode === "detail" && selected && <section data-screen-id="S07-02" className={styles.card}>
+    {mode !== "list" && !denied && !unavailable && <button className={`${button} mb-4`} disabled={saving} onClick={() => {
+      if (mode === "cancel") open("detail");
+      else { open("list"); setLoading(true); void load(); }
+    }}>{mode === "cancel" ? "Back to detail" : "Back to orders"}</button>}
+    {!denied && !unavailable && mode === "detail" && selected && <section data-screen-id="S07-02" className={styles.card}>
       <h2 className="text-xl font-semibold">Order {selected.order_code}</h2>
       <p className="mt-2">Status: {selected.status}</p>
       <dl className="my-4 grid gap-3 sm:grid-cols-2">{(Object.keys(fields) as Field[]).map(key => <div key={key}><dt className="font-medium">{fields[key]}</dt><dd>{key.startsWith("window_") ? formValue(key, selected).replace("T", " ") : selected[key] ?? "—"}</dd></div>)}</dl>
       {selected.cancellation_reason && <p>Cancellation reason: {selected.cancellation_reason}</p>}
       {selected.status === "NEW" && <div className="mt-4 flex gap-2"><button className={button} onClick={() => open("edit")}>Edit order</button><button className={button} onClick={() => open("cancel")}>Cancel order</button></div>}
     </section>}
-    {!denied && (mode === "create" || mode === "edit") && <form data-screen-id={mode === "edit" ? "S08-01" : "S05-01"} onSubmit={submit} className={`${styles.card} grid max-w-4xl gap-4 sm:grid-cols-2`}>
+    {!denied && !unavailable && (mode === "create" || mode === "edit") && <form data-screen-id={mode === "edit" ? "S08-01" : "S05-01"} noValidate onSubmit={submit} className={`${styles.card} grid max-w-4xl gap-4 sm:grid-cols-2`}>
       <h2 className="text-xl font-semibold sm:col-span-2">{mode === "edit" ? `Edit ${selected?.order_code}` : "New order"}</h2>
       <p className="sm:col-span-2">Delivery windows use Ho Chi Minh City local time.</p>
-      {(Object.keys(fields) as Field[]).filter(key => mode !== "edit" || key !== "order_code").map(key => <div key={key}>
+      {(Object.keys(fields) as Field[]).map(key => <div key={key}>
         <label htmlFor={key}>{fields[key]}</label>
         {key === "priority" ? <select id={key} className={input} value={inputs[key] ?? ""} onChange={e => setInputs({ ...inputs, [key]: e.target.value })}><option>NORMAL</option><option>HIGH</option></select> :
           <input id={key} className={input} type={key.startsWith("window_") ? "datetime-local" : key === "recipient_phone" ? "tel" : "text"}
-            value={inputs[key] ?? ""} required={required.includes(key)} aria-invalid={Boolean(fieldErrors[key])} aria-describedby={fieldErrors[key] ? `${key}-error` : undefined}
+            value={inputs[key] ?? ""} readOnly={mode === "edit" && key === "order_code"} required={required.includes(key)} aria-invalid={Boolean(fieldErrors[key])} aria-describedby={fieldErrors[key] ? `${key}-error` : undefined}
             onChange={e => setInputs({ ...inputs, [key]: e.target.value })} />}
         {fieldErrors[key] && <p id={`${key}-error`} className="text-red-800">{String(fieldErrors[key])}</p>}
       </div>)}
       <div className="flex gap-2 sm:col-span-2">
-        <button className={button} disabled={saving}>{saving ? "Saving…" : "Save order"}</button>
-        {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && selected && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload details</button>}
+        <button className={button} disabled={saving}>{saving ? "Saving…" : mode === "edit" ? "Save changes" : "Save order"}</button>
+        {mode === "edit" && <button type="button" className={button} disabled={saving} onClick={() => open("detail")}>Discard and return</button>}
+        {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && selected && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload order</button>}
       </div>
     </form>}
-    {!denied && mode === "cancel" && selected && <form data-screen-id="S08-03" className={`${styles.card} grid max-w-lg gap-3`} onSubmit={submit}>
+    {!denied && !unavailable && mode === "cancel" && selected && <form data-screen-id="S08-02" className={`${styles.card} grid max-w-lg gap-3`} noValidate onSubmit={submit}>
       <h2 className="text-xl font-semibold">Confirm cancellation of {selected.order_code}</h2>
-      <label>Reason<textarea className={input} name="reason" minLength={5} maxLength={300} required /></label>
-      {fieldErrors.reason && <p className="text-red-800">{String(fieldErrors.reason)}</p>}
+      <label htmlFor="reason">Reason</label><textarea id="reason" className={input} name="reason" minLength={5} maxLength={300} required aria-invalid={Boolean(fieldErrors.reason)} aria-describedby={fieldErrors.reason ? "reason-error" : undefined} />
+      {fieldErrors.reason && <p id="reason-error" className="text-red-800">{String(fieldErrors.reason)}</p>}
       <button className={button} disabled={saving}>Confirm cancellation</button>
-      {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload details</button>}
+      <button type="button" className={button} disabled={saving} onClick={() => open("detail")}>Keep order</button>
+      {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload order</button>}
     </form>}
-    {!denied && mode === "import" && <form data-screen-id="S06-01" className={`${styles.card} grid max-w-2xl gap-3`} onSubmit={submit}>
-      <h2 className="text-xl font-semibold">Import orders from CSV</h2>
-      <a href="/api/orders/template" download="order-template.csv" className="underline">Download CSV template</a>
-      <label>CSV file<input className={input} type="file" name="file" accept=".csv,text/csv" required /></label>
-      {fieldErrors.file && <p className="text-red-800">{String(fieldErrors.file)}</p>}
-      {Array.isArray(rowErrors) && rowErrors.length > 0 && <ul className="list-disc pl-5 text-red-800">
-        {rowErrors.map((issue, index) => <li key={index}>Row {issue.row}, {issue.field}: {issue.message}</li>)}
-      </ul>}
-      <button className={button} disabled={saving}>{saving ? "Importing…" : "Import orders"}</button>
-    </form>}
+    {!denied && !unavailable && mode === "import" && <section data-screen-id={importPhase === "preview" ? "S06-02" : importPhase === "complete" ? "S06-03" : importPhase === "report" ? "S06-02-row-errors" : "S06-01"} className={`${styles.card} grid gap-3`}>
+      <h2 className="text-xl font-semibold">{importPhase === "preview" ? "Review import" : importPhase === "complete" ? "Import complete" : importPhase === "report" ? "Import errors" : "Import orders from CSV"}</h2>
+      {importPhase !== "complete" && <a href="/api/orders/template" download="order-template.csv" className="underline">Download CSV template</a>}
+      {importPhase === "pick" && <form noValidate onSubmit={submit} className="grid gap-3">
+        <p>CSV in UTF-8 · Up to 500 orders and 1,000,000 bytes.</p>
+        <label htmlFor="file">CSV file</label><input id="file" className={input} type="file" name="file" accept=".csv,text/csv" required disabled={saving} aria-invalid={Boolean(fieldErrors.file)} aria-describedby={fieldErrors.file ? "file-error" : undefined} onChange={event => { setFile(event.target.files?.[0]); setPreview(undefined); setError(undefined); }} />
+        {fieldErrors.file && <p id="file-error" className="text-red-800">{String(fieldErrors.file)}</p>}
+        <button className={button} disabled={saving}>{saving ? "Checking…" : "Check CSV"}</button>
+      </form>}
+      {importPhase === "preview" && preview && <>
+        <p>{file?.name} · {preview.valid} orders ready to import. 0 orders saved.</p>
+        <div className={styles.table} role="region" aria-label="Preview records" tabIndex={0}>
+          <table className="w-full text-left"><thead><tr><th scope="col" className="p-3">Record</th>{Object.entries(fields).map(([key, label]) => <th key={key} scope="col" className="p-3">{label}</th>)}</tr></thead>
+          <tbody>{preview.orders.map(order => <tr key={order.row}><td className="p-3">{order.row}</td>{(Object.keys(fields) as Field[]).map(key => <td key={key} className="p-3">{String(order[key] ?? "—")}</td>)}</tr>)}</tbody></table>
+        </div>
+        <form onSubmit={submit}><button className={button} disabled={saving}>{saving ? "Importing…" : `Import ${preview.total} orders`}</button></form>
+        <button className={button} disabled={saving} onClick={() => { open("list"); setFile(undefined); setPreview(undefined); setNotice("0 orders imported. Import cancelled."); }}>Cancel import</button>
+        <button className={button} disabled={saving} onClick={() => open("import")}>Choose a replacement CSV</button>
+      </>}
+      {importPhase === "report" && <>
+        <button className={button} disabled={saving} onClick={() => open("import")}>Choose a replacement CSV</button>
+      </>}
+      {importPhase === "complete" && <><p role="status">{imported} orders imported.</p><button className={button} onClick={() => { open("list"); setLoading(true); void load(); }}>View orders</button></>}
+    </section>}
     </main>
   </div>;
 }

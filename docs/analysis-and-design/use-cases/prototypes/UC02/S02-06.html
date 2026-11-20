@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S02-06 — Account deactivated</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: #142b28; font: 16px/1.5 Arial, sans-serif;
+  background: radial-gradient(ellipse at 15% 0%, #bce4f5, transparent 45%),
+    radial-gradient(ellipse at 85% 8%, #d8def1, transparent 48%),
+    radial-gradient(ellipse at 22% 65%, #c9e5e3, transparent 40%),
+    radial-gradient(ellipse at 80% 66%, #eee7d2, transparent 40%), #e8edf4; }
+header { height: 76px; padding: 21px 60px; border-bottom: 1px solid white; background: #ffffff70; }
+header strong { font-size: 24px; margin-right: 10px; }
+main { width: 820px; margin: 60px auto; padding: 40px; border: 1px solid white; border-radius: 24px;
+  background: #ffffffbd; box-shadow: 0 24px 48px #18332e12; }
+.meta { color: #32616a; font-size: 14px; margin: 0; }
+h1 { font-size: 36px; line-height: 1.2; margin: 8px 0 28px; }
+.notice { border-left: 4px solid #075d4b; background: #e3f2e9; padding: 12px 16px; margin-bottom: 24px; }
+.actions { display: flex; gap: 12px; margin-bottom: 24px; }
+button { border: 0; border-radius: 10px; background: #075d4b; color: white; font: inherit; padding: 12px 18px; }
+button:disabled { background: #d8e3df; color: #52645f; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid #b6c9c4; }
+.selected { background: #e6f0ed; }
+.status { font-weight: bold; }
+footer { width: 820px; margin: 0 auto; color: #47645d; font-size: 13px; }
+</style>
+<header><strong>Veylo</strong>Administration</header>
+<main aria-labelledby="title">
+<p class="meta">S02-06 · Supplementary review prototype · Synthetic data</p>
+<h1 id="title">Staff accounts</h1>
+<p class="notice" role="status">Account deactivated. The updated status is shown below.</p>
+<div class="actions"><button>Create account</button><button>Edit selected account</button><button disabled>Deactivate selected account</button></div>
+<table aria-label="Staff accounts after deactivation">
+<thead><tr><th>Account</th><th>Role</th><th>Hub</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="selected" aria-selected="true"><td>dispatcher-a@example.test</td><td>Dispatcher</td><td>Demo Hub A</td><td class="status">Inactive</td></tr>
+<tr><td>rider@example.test</td><td>Rider</td><td>Demo Hub A</td><td>Active</td></tr>
+</tbody></table>
+</main>
+<footer>AI-created supplementary prototype. Human review pending. This screen is not application execution evidence.</footer>
+</html>

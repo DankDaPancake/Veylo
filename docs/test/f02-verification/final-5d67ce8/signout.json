@@ -1,0 +1,8 @@
+{
+  "commit": "5d67ce821e6c77c1952c8191a5086b0d8e712171",
+  "result": "PASS",
+  "uiSignIn": true,
+  "keyboardSignOut": true,
+  "protectedPageRequiresSignIn": true,
+  "oldSessionApiStatus": 401
+}

@@ -1,0 +1,2 @@
+Exit: 0
+PASS: 38 permission responses; no order changes; hub restored.

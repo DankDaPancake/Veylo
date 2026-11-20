@@ -1,0 +1,20 @@
+{
+  "commit": "5d67ce821e6c77c1952c8191a5086b0d8e712171",
+  "origin": "http://127.0.0.1:3018",
+  "configuration": "DATABASE_URL explicitly blank; no database credentials; existing .env not changed",
+  "httpErrors": [
+    {
+      "path": "/api/auth/get-session",
+      "status": 500
+    }
+  ],
+  "pageErrors": [],
+  "browser": "156.0.8078.79",
+  "health": {
+    "status": "ok",
+    "service": "veylo",
+    "scope": "application"
+  },
+  "homeStatus": 200,
+  "unsupportedPostStatus": 405
+}

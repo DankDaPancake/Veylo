@@ -1,0 +1,88 @@
+diff --git a/src/app/orders/order-form.mjs b/src/app/orders/order-form.mjs
+index 63ad939..3f475a7 100644
+--- a/src/app/orders/order-form.mjs
++++ b/src/app/orders/order-form.mjs
+@@ -1,3 +1,16 @@
++import { localInput } from "../../lib/orders/validation.ts";
++
++/** @param {string} field @param {Partial<Record<string, string | number>>} [order] */
++export function formValue(field, order) {
++  const value = order?.[field];
++  if (value == null) return field === "priority" ? "NORMAL" : "";
++  if (!field.startsWith("window_")) return String(value);
++  const text = String(value);
++  const date = new Date(text);
++  if (!/(Z|[+-]\d{2}:\d{2})$/.test(text) || Number.isNaN(date.getTime())) return text.replace(" ", "T").slice(0, 16);
++  return localInput(date).replace(" ", "T");
++}
++
+ /** @param {Record<string, string>} fields @param {number} [version] */
+ export function orderPayload(fields, version) {
+   const payload = Object.fromEntries(Object.entries(fields).flatMap(([field, raw]) => {
+diff --git a/src/app/orders/workspace.tsx b/src/app/orders/workspace.tsx
+index 8482c18..86b2ff7 100644
+--- a/src/app/orders/workspace.tsx
++++ b/src/app/orders/workspace.tsx
+@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
+ import Link from "next/link";
+ import styles from "./workspace.module.css";
+ import { AccountControl } from "../account-control";
+-import { orderPayload, orderIssues } from "./order-form.mjs";
++import { formValue, orderPayload, orderIssues } from "./order-form.mjs";
+ 
+ const fields = {
+   order_code: "Order code", recipient_name: "Recipient", recipient_phone: "Phone",
+@@ -48,19 +48,6 @@ function orderPath(order: Order) {
+   return "/" + encodeURIComponent(order.id);
+ }
+ 
+-function formValue(field: Field, order?: Order) {
+-  const value = order?.[field];
+-  if (value == null) return field === "priority" ? "NORMAL" : "";
+-  if (!field.startsWith("window_")) return String(value);
+-  const text = String(value);
+-  const date = new Date(text);
+-  if (!/(Z|[+-]\d{2}:\d{2})$/.test(text) || Number.isNaN(date.getTime())) return text.replace(" ", "T").slice(0, 16);
+-  return new Intl.DateTimeFormat("sv-SE", {
+-    timeZone: "Asia/Ho_Chi_Minh", year: "numeric", month: "2-digit", day: "2-digit",
+-    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+-  }).format(date).replace(" ", "T");
+-}
+-
+ export function OrdersWorkspace() {
+   const [mode, setMode] = useState<Mode>("list");
+   const [filters, setFilters] = useState(blankFilters);
+diff --git a/src/tests/order-form.test.mjs b/src/tests/order-form.test.mjs
+index 124c9d1..da1f332 100644
+--- a/src/tests/order-form.test.mjs
++++ b/src/tests/order-form.test.mjs
+@@ -1,6 +1,7 @@
+ import assert from "node:assert/strict";
+ import test from "node:test";
+-import { orderPayload, orderIssues } from "../app/orders/order-form.mjs";
++import { formValue, orderPayload, orderIssues } from "../app/orders/order-form.mjs";
++import { parseLocalDateTime } from "../lib/orders/validation.ts";
+ 
+ test("serializes local windows and omits blank optional coordinates", () => {
+   const result = orderPayload({ order_code: " A-1 ", window_start: "2026-11-19T08:00", weight_kg: "1.2", latitude: "", longitude: "" });
+@@ -17,3 +18,20 @@ test("separates API field errors from CSV record errors", () => {
+     fieldErrors: { file: "Invalid CSV" }, rowErrors: [row],
+   });
+ });
++
++test("saved windows round-trip through UI values and edit payloads across accepted years", () => {
++  for (const window of ["0001-01-01 07:00", "2026-11-20 09:00", "9999-12-31 23:59"]) {
++    const date = parseLocalDateTime(window);
++    assert.ok(date);
++    const input = formValue("window_start", { window_start: date.toISOString() });
++    assert.equal(input, window.replace(" ", "T"));
++    const payload = orderPayload({ window_start: input }, 1);
++    assert.equal(payload.window_start, window);
++    assert.equal(parseLocalDateTime(payload.window_start).toISOString(), date.toISOString());
++  }
++  assert.equal(formValue("priority"), "NORMAL");
++  assert.equal(formValue("window_start"), "");
++  assert.equal(formValue("weight_kg", { weight_kg: 1.5 }), "1.5");
++  assert.equal(formValue("window_start", { window_start: "2026-11-20 09:00" }), "2026-11-20T09:00");
++  assert.equal(formValue("window_start", { window_start: "invalid" }), "invalid");
++});

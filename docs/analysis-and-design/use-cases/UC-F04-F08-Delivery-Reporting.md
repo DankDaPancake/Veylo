@@ -6,7 +6,7 @@ PA3 Section D · [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-
 
 This English specification documents synthetic rider and dispatcher flows. `Order` means the delivery request and its overall outcome. `DeliveryAttempt` means one execution record with its own ID, rider, shift, timestamps and result. Assignment means the order's work placement in a shift. An unsuccessful attempt can leave the order open. Re-dispatch keeps prior attempts and their attribution.
 
-**Sources.** [BOOYAH-24 use-case model](https://thaikiet291006.atlassian.net/browse/BOOYAH-24) and [BOOYAH-26 Vision](https://thaikiet291006.atlassian.net/browse/BOOYAH-26) supplied local editions 0.2 and 2.0-review. The Jira-linked review editions 0.4 and 2.2-review were unavailable for comparison. [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) and [BOOYAH-21](https://thaikiet291006.atlassian.net/browse/BOOYAH-21) clarify EP11-A: show a returned suggestion automatically, and open its explanation on selection. [BOOYAH-15](https://thaikiet291006.atlassian.net/browse/BOOYAH-15) owns UC15 guide publication and access. [F02 contract](../../../openspec/changes/f02-order-intake/specs/order-intake/spec.md) owns Order intake, scoped access and NEW/CANCELLED behavior. [F03 contract](UC-F03-F05-Shifts.md) owns published assignments, sequence and changes subject to active-attempt locks. The [working kit and capture instructions](prototypes/delivery-execution-reporting/README.md) derive from Phạm Công Khánh's BOOYAH-25 PrototypeKit.
+**Sources.** [BOOYAH-24 use-case model](https://thaikiet291006.atlassian.net/browse/BOOYAH-24) and [BOOYAH-26 Vision](https://thaikiet291006.atlassian.net/browse/BOOYAH-26) supplied local editions 0.2 and 2.0-review. The Jira-linked review editions 0.4 and 2.2-review were unavailable for comparison. [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) and [BOOYAH-21](https://thaikiet291006.atlassian.net/browse/BOOYAH-21) clarify EP11-A: show a returned suggestion automatically, and open its explanation on selection. [BOOYAH-15](https://thaikiet291006.atlassian.net/browse/BOOYAH-15) owns UC15 guide publication and access. [F02 contract](../../../openspec/changes/archive/2026-11-21-f02-order-intake/specs/order-intake/spec.md) owns Order intake, scoped access and NEW/CANCELLED behavior. [F03 contract](UC-F03-F05-Shifts.md) owns published assignments, sequence and changes subject to active-attempt locks. The [working kit and capture instructions](prototypes/delivery-execution-reporting/README.md) derive from Phạm Công Khánh's BOOYAH-25 PrototypeKit.
 
 ## UC11 — View Assigned Shift and Deliveries
 
@@ -637,7 +637,7 @@ Each entry is **Proposed / Pending PR Review**. Confirmer, confirmation date and
 
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
 
-[Synthetic metric checks and reproduction](prototypes/delivery-execution-reporting/README.md#verification) · [OpenSpec task status](../../../openspec/changes/booyah-14-delivery-execution-reporting/tasks.md)
+[Synthetic metric checks and reproduction](prototypes/delivery-execution-reporting/README.md#verification) · [OpenSpec task status](../../../openspec/changes/archive/2026-11-21-booyah-14-delivery-execution-reporting/tasks.md)
 
 | Jira criterion | Available evidence and limit |
 | --- | --- |

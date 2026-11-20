@@ -1,0 +1,11 @@
+{
+  "applicationCommit": "9be2097b647b6a7ca7c6fdebc09d9267d8c30411",
+  "result": "PASS",
+  "flow": "Cancel the sole NEW order on page2 of a21-order filtered list",
+  "before": "Previous\nPage 1 \u00b7 21 orders\nNext",
+  "requestedPage": 2,
+  "responsePage": 1,
+  "responseTotal": 20,
+  "after": "Previous\nPage 1 \u00b7 20 orders\nNext",
+  "filtersRetained": true
+}

@@ -1,0 +1,125 @@
+{
+  "retrieved_date": "2026-11-21",
+  "files": [
+    {
+      "path": "docs/analysis-and-design/use-cases/UC-F01-Access.md",
+      "source_url": "https://drive.google.com/uc?export=download&id=1-EEHdgZ8J55z74LUf8zoo2fBX_J9Cs4H",
+      "sha256": "831ee4f02d99871e36212a3635f3786dbbdca2aa8a9aae184c41dd9c30d6bfd4",
+      "bytes": 7632
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/UC-F01-Access.pdf",
+      "source_url": "https://drive.google.com/uc?export=download&id=1EOekKQo_0lfXtEoHhGDciyPrlYqE77AN",
+      "sha256": "0297c15e1c4a231daa95fc3d39207db9b292a5c4c43a2dcaf541326062e3159a",
+      "bytes": 10201267
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC01/S01-01.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1fenQHvvpgqQtzHouIPLCSiU3cPGaG0jw",
+      "sha256": "37d8086cdbd550a47fe6b071dc45aac7463bb9c3272a26f91edb4c05069014d8",
+      "bytes": 689154
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC01/S01-02.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1bEEX_hAQgi9H1V_19qRmwjQBn93ysWHm",
+      "sha256": "e0651f9edb2fb7f6b7c5e363102624a20a7eb9be665e333b8e5f3c38c9abde89",
+      "bytes": 702401
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC01/S01-03.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1dNBfZVgtAMg0YOydMj_MaxagbSBV_G0q",
+      "sha256": "a6115e95722921b71ac6cb436c25210d6315762630336bb9be6d578a8ba6ecad",
+      "bytes": 711750
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC01/S01-04.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1SAkBqZZsRQcwPTRv2bpeWn6me83Vf8T6",
+      "sha256": "a5e2f8999e8b9be6f623b6cdb5e7f7ce1bc670d608b1cb836581be858c267cfe",
+      "bytes": 699903
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC01/S01-05.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1zSoxigoBVXUA80aeAVIwZcZ88iZV6Bi1",
+      "sha256": "e6ab9c4aee1f82efca6dfb6bbdb597c528535044036d9ee84c937131fc88bec8",
+      "bytes": 700456
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC01/S01-06.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1XHw2vbv_CaRTGd5ylZDq-ksGuiUNDATg",
+      "sha256": "22affee06790028dd09079053b69fa0f74bb2f200284662ca2c7e1084115ef22",
+      "bytes": 713316
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC02/S02-01.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=11m9xbmJ_bcqHjt0Qpt9Bbt3bk9b5-DPl",
+      "sha256": "80cc0408dd79dcb541adcff05336caaa53a7e8e278b1ca5adb0fb68781c1fbec",
+      "bytes": 708701
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC02/S02-02.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1pY8AEaAxaRXhAPPGwRRBPFRTIES01dvu",
+      "sha256": "027f85b39d2741851ccc42b8bf8d3127fc1ac977aeec37653d31f9a874ed9d28",
+      "bytes": 709936
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC02/S02-03.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1BIvb3HYboEqCS48EFIm7z3F2FmD9uU65",
+      "sha256": "1384f0b9ffbb52a2c1527182d4ef9c1b739bf12d9d25de77309199b7b4cd9cde",
+      "bytes": 721950
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC02/S02-04.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1OqOZ58Ie53lIlEo6e1jrDM6rJIkIyAz1",
+      "sha256": "8a2ca15c2a1baca9fc6d99c9c9e3693c8dabe0f57cd8e9d7400af0630bd40015",
+      "bytes": 690471
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC02/S02-05.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1kO2wI_ZJmbfXwOXMeSGfL5HERE9bRxIV",
+      "sha256": "fe7489baf970f92317bc8c90760cab2854ebf02d7ba2eaaaee799344e23854ec",
+      "bytes": 699292
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC03/S03-01.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1tjvQqlIO18uzHYG4zhe9CnjmRh0zGyAp",
+      "sha256": "f6d4d7f3c19a320b9a18a89a0dd8d8cc5c5ad409fca499d4416fe59467f06770",
+      "bytes": 691387
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC03/S03-02.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1ee_xtz8_WR6vuKxlExfiUkzzkVyfuSEa",
+      "sha256": "003b1bd626f4ce71bb545298c4ae21795d405ef82b33e18e7aab408072b83c34",
+      "bytes": 711558
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC03/S03-03.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1-bOESPXod57a2vZOIJMwi5VLorid6nXU",
+      "sha256": "df21d3fb990c44d5c0ad72b4a3bb249fe3bb21355c63fbfc7dd81037430d89d1",
+      "bytes": 711159
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC03/S03-04.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1VovrU-0ahCbDR67GMkOzWWFFMRrUWvu-",
+      "sha256": "9def7618160e6ba07ba92ac105f5184bdd9463ab1979412615d50668d4124456",
+      "bytes": 701881
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC04/S04-01.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1THv1eq8LDXy-ni5zes4BL7o4UxAYiNj_",
+      "sha256": "c5a3bc18928ab05a388fa92a33b603f7bd1b49d64f6a4d719324e228b6651345",
+      "bytes": 714646
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC04/S04-02.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1lsFSdHZ5O16eAXq9f7V_yBmFnCwGrwLt",
+      "sha256": "e8396e65bfd675b26f2345231e2805683d9c0cc17cd2f84bc92faadc193717cb",
+      "bytes": 711503
+    },
+    {
+      "path": "docs/analysis-and-design/use-cases/prototypes/UC04/S04-03.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=16HX5d4VmbN8XbXnZtRPFPodn_svq4_lK",
+      "sha256": "23d9b0781bf9d970ff22d06f8564e28060461f08594ca1b1cb02a069dadf4057",
+      "bytes": 685053
+    }
+  ]
+}

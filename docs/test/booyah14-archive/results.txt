@@ -1,0 +1,4 @@
+Synthetic metric checks passed: cohorts, closure, attempt rates, progress, range edges, timing quality, and failure groups.
+77 preview states registered and rendered in Node's minimal DOM harness; local navigation targets resolve.
+Chrome 156.0.8078.79: all 77 states rendered at manifest dimensions without page errors.
+Interactive checks passed: pre-arrival reasons, required comments, preserved input, closure, date range, shift attribution, and rejected photo inputs.

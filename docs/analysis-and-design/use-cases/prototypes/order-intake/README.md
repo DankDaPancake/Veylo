@@ -1,5 +1,5 @@
 # Veylo · Order Intake prototype
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 The prototype shares the desktop shell, glass components, fonts, icons and decorative map from Công Khánh's original kit in `docs/draft/3/Công Khánh - PA3 - ProtoypeKit-20261119T103921Z-1-001/Công Khánh - PA3 - ProtoypeKit/PrototypeKit/`. It loads [shared tokens](../kit/tokens.css) and [shared fonts](../kit/assets/fonts/fonts.css) from the team kit. Its local [component stylesheet](kit.css) retains the original rules used by the F02 screens, and [kit-graphics.js](kit-graphics.js) contains the original SVG definitions. All data is synthetic. Reload resets the demo.
 
@@ -8,7 +8,7 @@ Open [index.html](index.html) locally. The gallery's **Screen** menu opens any o
 UC06 downloads the [CSV template](../../fixtures/order-intake/orders-template.csv), [valid sample](../../fixtures/order-intake/orders-valid.csv) and [invalid sample](../../fixtures/order-intake/orders-invalid.csv) from the Section D fixture directory. Three dedicated CSVs cover missing, duplicate and unknown headers. The preview reads only. Confirmation is the only simulated commit. The prototype executes no database or HTTP calls.
 
 ## Reproduce the evidence
-Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (initial PR, changes requested). Corrected revision review: Pending. Edited by: Codex.
+Performed by: Codex for task owner Trần Lê Hải. Reviewed by: Phạm Công Khánh (Cee-Ka; PR #16 corrected revision approved on 20 November 2026 at f7f296a). Edited by: Codex.
 
 Use Node.js 22, the locked Playwright dependency, its Chromium headless shell, Pandoc and Poppler. This prototype was checked using Playwright **1.61.0** and Chromium **149.0.7827.55**. The commands use Chromium installed through Playwright or a matching local browser cache supplied via `PLAYWRIGHT_BROWSERS_PATH`.
 

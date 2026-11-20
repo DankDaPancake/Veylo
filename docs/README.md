@@ -29,3 +29,11 @@ Original course handouts, broader research, obsolete exports, and older setup no
 
 - [Project Plan v2.0-review](management/ProjectPlan.md)
 - [Section A Changes handoff and review evidence](management/pa3/ProjectPlan-Changes.md)
+
+## PA3 use-case specifications
+
+- F01 Access and Administration (UC01–UC04): [Markdown](analysis-and-design/use-cases/UC-F01-Access.md), [PDF](analysis-and-design/use-cases/UC-F01-Access.pdf), [source and verification](test/f01-deliverables/README.md). Includes 18 original screens and one authorized supplementary result screen; restoration review pending.
+
+## PA3 shared change record
+
+- Canonical A/B ledger: [Changes.md](Changes.md), [Changes.pdf](Changes.pdf), [source mapping and verification](test/pa3-shared-changes/README.md). Integrates BOOYAH-23/26/27; designated human review pending.

@@ -1,0 +1,136 @@
+{
+  "run_at_utc": "2026-11-20T18:47:01.492535+00:00",
+  "base_url": "http://127.0.0.1:3020",
+  "browser": "Google Chrome",
+  "browser_version": "156.0.8078.79",
+  "browser_binary_version": "Google Chrome 156.0.8078.79",
+  "viewport": "1440x900",
+  "result": "FAIL",
+  "cases": [
+    {
+      "case": "Cancellation HTTP 401: denied detail hidden; keyboard recovery works; no replay",
+      "result": "PASS"
+    },
+    {
+      "case": "Cancellation HTTP 403: denied detail hidden; keyboard recovery works; no replay",
+      "result": "PASS"
+    },
+    {
+      "case": "Authorized Keep order and Back to detail preserve detail without mutation",
+      "result": "PASS"
+    },
+    {
+      "case": "Cancellation 409 keeps reload recovery and loads current detail",
+      "result": "PASS"
+    },
+    {
+      "case": "Cancellation success displays saved CANCELLED detail and reason",
+      "result": "PASS"
+    }
+  ],
+  "intercepted_order_api_calls": [
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-recovery",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/orders/browser-recovery/cancel",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-recovery",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/orders/browser-recovery/cancel",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-recovery",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-recovery",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/orders/browser-recovery/cancel",
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-recovery",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-recovery",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/orders/browser-recovery/cancel",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/orders/browser-missing",
+      "status": 404
+    }
+  ],
+  "order_api_unexpected_calls": [],
+  "order_database_mutations": 0,
+  "auth_session": "synthetic local sign-in; no session data recorded",
+  "credentials_or_cookies_recorded": false,
+  "failure": {
+    "type": "AssertionError",
+    "message": ""
+  }
+}

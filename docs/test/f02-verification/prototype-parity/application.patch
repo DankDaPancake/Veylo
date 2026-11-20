@@ -1,0 +1,589 @@
+diff --git a/src/app/orders/order-form.mjs b/src/app/orders/order-form.mjs
+index 63ad939..3f475a7 100644
+--- a/src/app/orders/order-form.mjs
++++ b/src/app/orders/order-form.mjs
+@@ -1,3 +1,16 @@
++import { localInput } from "../../lib/orders/validation.ts";
++
++/** @param {string} field @param {Partial<Record<string, string | number>>} [order] */
++export function formValue(field, order) {
++  const value = order?.[field];
++  if (value == null) return field === "priority" ? "NORMAL" : "";
++  if (!field.startsWith("window_")) return String(value);
++  const text = String(value);
++  const date = new Date(text);
++  if (!/(Z|[+-]\d{2}:\d{2})$/.test(text) || Number.isNaN(date.getTime())) return text.replace(" ", "T").slice(0, 16);
++  return localInput(date).replace(" ", "T");
++}
++
+ /** @param {Record<string, string>} fields @param {number} [version] */
+ export function orderPayload(fields, version) {
+   const payload = Object.fromEntries(Object.entries(fields).flatMap(([field, raw]) => {
+diff --git a/src/app/orders/workspace.tsx b/src/app/orders/workspace.tsx
+index 8482c18..6eea0d0 100644
+--- a/src/app/orders/workspace.tsx
++++ b/src/app/orders/workspace.tsx
+@@ -1,10 +1,10 @@
+ "use client";
+ 
+-import { useCallback, useEffect, useState, type FormEvent } from "react";
++import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+ import Link from "next/link";
+ import styles from "./workspace.module.css";
+ import { AccountControl } from "../account-control";
+-import { orderPayload, orderIssues } from "./order-form.mjs";
++import { formValue, orderPayload, orderIssues } from "./order-form.mjs";
+ 
+ const fields = {
+   order_code: "Order code", recipient_name: "Recipient", recipient_phone: "Phone",
+@@ -15,6 +15,7 @@ const fields = {
+ type Field = keyof typeof fields;
+ type Order = Partial<Record<Field, string | number>> & { id: string; status: string; version: number; cancellation_reason?: string };
+ type OrderList = { orders: Order[]; total: number; page: number; pageSize: number };
++type ImportPreview = { orders: (Partial<Record<Field, string | number>> & { row: number })[]; total: number; valid: number; saved: number };
+ type Mode = "list" | "detail" | "create" | "edit" | "cancel" | "import";
+ const required = Object.keys(fields).slice(0, 7);
+ const blankFilters = { q: "", status: "", from: "", to: "" };
+@@ -48,19 +49,6 @@ function orderPath(order: Order) {
+   return "/" + encodeURIComponent(order.id);
+ }
+ 
+-function formValue(field: Field, order?: Order) {
+-  const value = order?.[field];
+-  if (value == null) return field === "priority" ? "NORMAL" : "";
+-  if (!field.startsWith("window_")) return String(value);
+-  const text = String(value);
+-  const date = new Date(text);
+-  if (!/(Z|[+-]\d{2}:\d{2})$/.test(text) || Number.isNaN(date.getTime())) return text.replace(" ", "T").slice(0, 16);
+-  return new Intl.DateTimeFormat("sv-SE", {
+-    timeZone: "Asia/Ho_Chi_Minh", year: "numeric", month: "2-digit", day: "2-digit",
+-    hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+-  }).format(date).replace(" ", "T");
+-}
+-
+ export function OrdersWorkspace() {
+   const [mode, setMode] = useState<Mode>("list");
+   const [filters, setFilters] = useState(blankFilters);
+@@ -72,6 +60,15 @@ export function OrdersWorkspace() {
+   const [error, setError] = useState<RequestError | Error>();
+   const [notice, setNotice] = useState("");
+   const [inputs, setInputs] = useState<Record<string, string>>({});
++  const [importPhase, setImportPhase] = useState<"pick" | "preview" | "report" | "complete">("pick");
++  const [file, setFile] = useState<File>();
++  const [preview, setPreview] = useState<ImportPreview>();
++  const [imported, setImported] = useState(0);
++  const summaryRef = useRef<HTMLDivElement>(null);
++
++  useEffect(() => {
++    if (error) summaryRef.current?.focus();
++  }, [error]);
+ 
+   const load = useCallback(async (signal?: AbortSignal) => {
+     const params = new URLSearchParams({ page: String(query.page) });
+@@ -105,6 +102,9 @@ export function OrdersWorkspace() {
+   function open(next: Mode) {
+     setError(undefined);
+     setNotice("");
++    if (next === "import") {
++      setImportPhase("pick"); setPreview(undefined); setFile(undefined);
++    }
+     if (next === "create" || next === "edit") {
+       setInputs(Object.fromEntries((Object.keys(fields) as Field[]).map(key =>
+         [key, formValue(key, next === "edit" ? selected : undefined)])));
+@@ -127,24 +127,44 @@ export function OrdersWorkspace() {
+ 
+   async function submit(event: FormEvent<HTMLFormElement>) {
+     event.preventDefault();
++    if (saving) return;
+     const form = new FormData(event.currentTarget);
+     setSaving(true);
+     setError(undefined);
+     try {
+-      let message = successMessages[mode] ?? "Saved.";
+-      if (mode === "create") await request("", json("POST", orderPayload(inputs)));
+-      else if (mode === "edit" && selected) await request(orderPath(selected), json("PATCH", orderPayload(inputs, selected.version)));
++      let savedOrder: Order | undefined;
++      const message = successMessages[mode] ?? "Saved.";
++      if (mode === "create") savedOrder = await request<Order>("", json("POST", orderPayload(inputs)));
++      else if (mode === "edit" && selected) savedOrder = await request<Order>(orderPath(selected), json("PATCH", orderPayload(inputs, selected.version)));
+       else if (mode === "cancel" && selected) {
+-        await request(orderPath(selected) + "/cancel", json("POST", { reason: String(form.get("reason")).trim(), version: selected.version }));
++        savedOrder = await request<Order>(orderPath(selected) + "/cancel", json("POST", { reason: String(form.get("reason")).trim(), version: selected.version }));
+       } else if (mode === "import") {
+-        const result = await request<{ imported: number }>("/import", { method: "POST", body: form });
+-        message = `Imported ${result.imported} orders.`;
++        if (!file) throw new RequestError(400, { errors: [{ field: "file", message: "Choose a CSV file" }] });
++        const upload = new FormData(); upload.append("file", file);
++        if (importPhase === "preview") {
++          const result = await request<{ imported: number }>("/import", { method: "POST", body: upload });
++          setImported(result.imported); setImportPhase("complete"); setPreview(undefined); setFile(undefined);
++        } else {
++          setPreview(await request<ImportPreview>("/import/preview", { method: "POST", body: upload }));
++          setImportPhase("preview");
++        }
++        return;
++      }
++      if (savedOrder) {
++        setSelected(savedOrder);
++        setMode("detail");
++        setNotice(message);
++      } else {
++        setSelected(undefined);
++        setMode("list");
++        setNotice(message);
++        setLoading(true); await load();
+       }
+-      setSelected(undefined);
+-      setMode("list");
+-      setNotice(message);
+-      setLoading(true); await load();
+     } catch (caught) {
++      if (mode === "import") {
++        setPreview(undefined);
++        setImportPhase(caught instanceof RequestError && Array.isArray(caught.body.errors) && caught.body.errors.some(issue => typeof issue.row === "number") ? "report" : "pick");
++      }
+       setError(caught instanceof Error ? caught : new Error("Unable to save."));
+     } finally {
+       setSaving(false);
+@@ -154,6 +174,7 @@ export function OrdersWorkspace() {
+   const body = error instanceof RequestError ? error.body : {};
+   const { fieldErrors, rowErrors } = orderIssues(body.errors);
+   const denied = error instanceof RequestError && (error.status === 401 || error.status === 403);
++  const unavailable = error instanceof RequestError && error.status === 404;
+   const page = list?.page ?? 1;
+ 
+   return <div className={styles.shell}>
+@@ -175,15 +196,26 @@ export function OrdersWorkspace() {
+           <h1>Orders</h1>
+           <p>Search and manage orders for your hub.</p>
+         </div>
+-        {mode === "list" && !denied && <div className={styles.actions}>
++        {mode === "list" && !denied && !unavailable && <div className={styles.actions}>
+           <button className={`${button} ${styles.primary}`} disabled={!list || loading} onClick={() => open("create")}>Create order</button>
+           <button className={button} disabled={!list || loading} onClick={() => open("import")}>Import CSV</button>
+         </div>}
+       </header>
+     {notice && <p role="status" className="mb-4 text-emerald-800">{notice}</p>}
+-    {error && <p role="alert" className="mb-4 rounded border border-red-300 bg-red-50 p-3 text-red-900">{error.message}</p>}
+-    {denied && error instanceof RequestError && error.status === 401 && <Link className={button} href="/sign-in?next=/orders">Sign in</Link>}
+-    {mode === "list" && !denied && <section data-screen-id="S07-01">
++    {error && <div ref={summaryRef} role="alert" tabIndex={-1} className="mb-4 rounded border border-red-300 bg-red-50 p-3 text-red-900">
++      <p>{error.message}</p>
++      {Object.entries(fieldErrors).length > 0 && <ul className="list-disc pl-5">{Object.entries(fieldErrors).map(([field, message]) =>
++        <li key={field}><a href={`#${field}`} className="underline" onClick={event => { event.preventDefault(); document.getElementById(field)?.focus(); }}>{fields[field as Field] ?? (field === "file" ? "CSV file" : field === "reason" ? "Reason" : field)}: {message}</a></li>)}</ul>}
++      {mode === "import" && <p>{rowErrors.length > 0 ? `${rowErrors.length} issue(s) across ${new Set(rowErrors.map(issue => issue.row)).size} record(s). ` : ""}0 orders imported.</p>}
++      {rowErrors.length > 0 && <div className={styles.table} role="region" aria-label="CSV diagnostics" tabIndex={0}>
++          <table className="w-full text-left"><thead><tr>{["Record", "Column", "Reason"].map(label => <th key={label} className="p-3" scope="col">{label}</th>)}</tr></thead>
++          <tbody>{rowErrors.map((issue, index) => <tr key={index}><td className="p-3">{issue.row}</td><td className="p-3">{issue.field}</td><td className="p-3">{issue.message}</td></tr>)}</tbody></table>
++      </div>}
++    </div>}
++    {denied && error instanceof RequestError && error.status === 401 && <><p>Your previous action will not be replayed.</p><Link className={button} href="/sign-in?next=/orders">Sign in</Link></>}
++    {denied && error instanceof RequestError && error.status === 403 && <Link className={button} href="/">Return to staff workspace</Link>}
++    {unavailable && <button className={button} onClick={() => { setSelected(undefined); open("list"); setLoading(true); void load(); }}>Back to orders</button>}
++    {mode === "list" && !denied && !unavailable && <section data-screen-id="S07-01">
+       <form className={styles.filters} onSubmit={event => {
+         event.preventDefault(); setError(undefined); setLoading(true); setQuery({ ...filters, page: 1 });
+       }}>
+@@ -209,47 +241,66 @@ export function OrdersWorkspace() {
+         <button className={button} disabled={page * list.pageSize >= list.total || saving} onClick={() => { setError(undefined); setLoading(true); setQuery({ ...query, page: page + 1 }); }}>Next</button>
+       </nav>}
+     </section>}
+-    {mode !== "list" && <button className={`${button} mb-4`} disabled={saving} onClick={() => { open("list"); if (denied) { setLoading(true); void load(); } }}>Back to orders</button>}
+-    {!denied && mode === "detail" && selected && <section data-screen-id="S07-02" className={styles.card}>
++    {mode !== "list" && !unavailable && <button className={`${button} mb-4`} disabled={saving} onClick={() => {
++      if (mode === "cancel") open("detail");
++      else { open("list"); setLoading(true); void load(); }
++    }}>{mode === "cancel" ? "Back to detail" : "Back to orders"}</button>}
++    {!denied && !unavailable && mode === "detail" && selected && <section data-screen-id="S07-02" className={styles.card}>
+       <h2 className="text-xl font-semibold">Order {selected.order_code}</h2>
+       <p className="mt-2">Status: {selected.status}</p>
+       <dl className="my-4 grid gap-3 sm:grid-cols-2">{(Object.keys(fields) as Field[]).map(key => <div key={key}><dt className="font-medium">{fields[key]}</dt><dd>{key.startsWith("window_") ? formValue(key, selected).replace("T", " ") : selected[key] ?? "—"}</dd></div>)}</dl>
+       {selected.cancellation_reason && <p>Cancellation reason: {selected.cancellation_reason}</p>}
+       {selected.status === "NEW" && <div className="mt-4 flex gap-2"><button className={button} onClick={() => open("edit")}>Edit order</button><button className={button} onClick={() => open("cancel")}>Cancel order</button></div>}
+     </section>}
+-    {!denied && (mode === "create" || mode === "edit") && <form data-screen-id={mode === "edit" ? "S08-01" : "S05-01"} onSubmit={submit} className={`${styles.card} grid max-w-4xl gap-4 sm:grid-cols-2`}>
++    {!denied && !unavailable && (mode === "create" || mode === "edit") && <form data-screen-id={mode === "edit" ? "S08-01" : "S05-01"} noValidate onSubmit={submit} className={`${styles.card} grid max-w-4xl gap-4 sm:grid-cols-2`}>
+       <h2 className="text-xl font-semibold sm:col-span-2">{mode === "edit" ? `Edit ${selected?.order_code}` : "New order"}</h2>
+       <p className="sm:col-span-2">Delivery windows use Ho Chi Minh City local time.</p>
+-      {(Object.keys(fields) as Field[]).filter(key => mode !== "edit" || key !== "order_code").map(key => <div key={key}>
++      {(Object.keys(fields) as Field[]).map(key => <div key={key}>
+         <label htmlFor={key}>{fields[key]}</label>
+         {key === "priority" ? <select id={key} className={input} value={inputs[key] ?? ""} onChange={e => setInputs({ ...inputs, [key]: e.target.value })}><option>NORMAL</option><option>HIGH</option></select> :
+           <input id={key} className={input} type={key.startsWith("window_") ? "datetime-local" : key === "recipient_phone" ? "tel" : "text"}
+-            value={inputs[key] ?? ""} required={required.includes(key)} aria-invalid={Boolean(fieldErrors[key])} aria-describedby={fieldErrors[key] ? `${key}-error` : undefined}
++            value={inputs[key] ?? ""} readOnly={mode === "edit" && key === "order_code"} required={required.includes(key)} aria-invalid={Boolean(fieldErrors[key])} aria-describedby={fieldErrors[key] ? `${key}-error` : undefined}
+             onChange={e => setInputs({ ...inputs, [key]: e.target.value })} />}
+         {fieldErrors[key] && <p id={`${key}-error`} className="text-red-800">{String(fieldErrors[key])}</p>}
+       </div>)}
+       <div className="flex gap-2 sm:col-span-2">
+-        <button className={button} disabled={saving}>{saving ? "Saving…" : "Save order"}</button>
+-        {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && selected && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload details</button>}
++        <button className={button} disabled={saving}>{saving ? "Saving…" : mode === "edit" ? "Save changes" : "Save order"}</button>
++        {mode === "edit" && <button type="button" className={button} disabled={saving} onClick={() => open("detail")}>Discard and return</button>}
++        {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && selected && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload order</button>}
+       </div>
+     </form>}
+-    {!denied && mode === "cancel" && selected && <form data-screen-id="S08-03" className={`${styles.card} grid max-w-lg gap-3`} onSubmit={submit}>
++    {!denied && !unavailable && mode === "cancel" && selected && <form data-screen-id="S08-02" className={`${styles.card} grid max-w-lg gap-3`} noValidate onSubmit={submit}>
+       <h2 className="text-xl font-semibold">Confirm cancellation of {selected.order_code}</h2>
+-      <label>Reason<textarea className={input} name="reason" minLength={5} maxLength={300} required /></label>
+-      {fieldErrors.reason && <p className="text-red-800">{String(fieldErrors.reason)}</p>}
++      <label htmlFor="reason">Reason</label><textarea id="reason" className={input} name="reason" minLength={5} maxLength={300} required aria-invalid={Boolean(fieldErrors.reason)} aria-describedby={fieldErrors.reason ? "reason-error" : undefined} />
++      {fieldErrors.reason && <p id="reason-error" className="text-red-800">{String(fieldErrors.reason)}</p>}
+       <button className={button} disabled={saving}>Confirm cancellation</button>
+-      {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload details</button>}
+-    </form>}
+-    {!denied && mode === "import" && <form data-screen-id="S06-01" className={`${styles.card} grid max-w-2xl gap-3`} onSubmit={submit}>
+-      <h2 className="text-xl font-semibold">Import orders from CSV</h2>
+-      <a href="/api/orders/template" download="order-template.csv" className="underline">Download CSV template</a>
+-      <label>CSV file<input className={input} type="file" name="file" accept=".csv,text/csv" required /></label>
+-      {fieldErrors.file && <p className="text-red-800">{String(fieldErrors.file)}</p>}
+-      {Array.isArray(rowErrors) && rowErrors.length > 0 && <ul className="list-disc pl-5 text-red-800">
+-        {rowErrors.map((issue, index) => <li key={index}>Row {issue.row}, {issue.field}: {issue.message}</li>)}
+-      </ul>}
+-      <button className={button} disabled={saving}>{saving ? "Importing…" : "Import orders"}</button>
++      <button type="button" className={button} disabled={saving} onClick={() => open("detail")}>Keep order</button>
++      {error instanceof RequestError && error.body.code === "ORDER_CONFLICT" && <button type="button" className={button} disabled={saving} onClick={() => void inspect(selected)}>Reload order</button>}
+     </form>}
++    {!denied && !unavailable && mode === "import" && <section data-screen-id={importPhase === "preview" ? "S06-02" : importPhase === "complete" ? "S06-03" : importPhase === "report" ? "S06-02-row-errors" : "S06-01"} className={`${styles.card} grid gap-3`}>
++      <h2 className="text-xl font-semibold">{importPhase === "preview" ? "Review import" : importPhase === "complete" ? "Import complete" : importPhase === "report" ? "Import errors" : "Import orders from CSV"}</h2>
++      {importPhase !== "complete" && <a href="/api/orders/template" download="order-template.csv" className="underline">Download CSV template</a>}
++      {importPhase === "pick" && <form noValidate onSubmit={submit} className="grid gap-3">
++        <p>CSV in UTF-8 · Up to 500 orders and 1,000,000 bytes.</p>
++        <label htmlFor="file">CSV file</label><input id="file" className={input} type="file" name="file" accept=".csv,text/csv" required disabled={saving} aria-invalid={Boolean(fieldErrors.file)} aria-describedby={fieldErrors.file ? "file-error" : undefined} onChange={event => { setFile(event.target.files?.[0]); setPreview(undefined); setError(undefined); }} />
++        {fieldErrors.file && <p id="file-error" className="text-red-800">{String(fieldErrors.file)}</p>}
++        <button className={button} disabled={saving}>{saving ? "Checking…" : "Check CSV"}</button>
++      </form>}
++      {importPhase === "preview" && preview && <>
++        <p>{file?.name} · {preview.valid} orders ready to import. 0 orders saved.</p>
++        <div className={styles.table} role="region" aria-label="Preview records" tabIndex={0}>
++          <table className="w-full text-left"><thead><tr><th scope="col" className="p-3">Record</th>{Object.entries(fields).map(([key, label]) => <th key={key} scope="col" className="p-3">{label}</th>)}</tr></thead>
++          <tbody>{preview.orders.map(order => <tr key={order.row}><td className="p-3">{order.row}</td>{(Object.keys(fields) as Field[]).map(key => <td key={key} className="p-3">{String(order[key] ?? "—")}</td>)}</tr>)}</tbody></table>
++        </div>
++        <form onSubmit={submit}><button className={button} disabled={saving}>{saving ? "Importing…" : `Import ${preview.total} orders`}</button></form>
++        <button className={button} disabled={saving} onClick={() => { open("list"); setFile(undefined); setPreview(undefined); setNotice("0 orders imported. Import cancelled."); }}>Cancel import</button>
++        <button className={button} disabled={saving} onClick={() => open("import")}>Choose a replacement CSV</button>
++      </>}
++      {importPhase === "report" && <>
++        <button className={button} disabled={saving} onClick={() => open("import")}>Choose a replacement CSV</button>
++      </>}
++      {importPhase === "complete" && <><p role="status">{imported} orders imported.</p><button className={button} onClick={() => { open("list"); setLoading(true); void load(); }}>View orders</button></>}
++    </section>}
+     </main>
+   </div>;
+ }
+diff --git a/src/lib/orders/csv.ts b/src/lib/orders/csv.ts
+index 81d0ed9..22d5743 100644
+--- a/src/lib/orders/csv.ts
++++ b/src/lib/orders/csv.ts
+@@ -45,7 +45,11 @@ function records(text: string, maxRecords: number): string[][] {
+   return rows;
+ }
+ 
+-export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
++type ParsedOrder = { row: number; data: ReturnType<typeof validateOrder> };
++type CodeOccurrence = { row: number; normalizedCode: string; orderCode: string };
++type CsvAnalysis = { orders: ParsedOrder[]; codeOccurrences: CodeOccurrence[]; errors: FieldError[] };
++
++export function analyzeOrdersCsv(bytes: Uint8Array, filename: string): CsvAnalysis {
+   if (!filename.toLowerCase().endsWith(".csv")) fileError("Upload a .csv file");
+   if (!bytes.length || bytes.length > 1_000_000) fileError("File must contain 1–1,000,000 bytes");
+   let text: string;
+@@ -56,16 +60,25 @@ export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
+   const allowed: readonly string[] = [...requiredFields, ...optionalFields];
+   if (new Set(header).size !== header.length || requiredFields.some((key) => !header.includes(key)) || header.some((key) => !allowed.includes(key))) fileError("Headers must be unique and contain only the required and optional template columns");
+   if (rows.length < 1 || rows.length > 500) fileError("Use 1–500 data records");
+-  if (rows.some((row) => row.length !== header.length)) fileError("Every record must match the header column count");
++
+   const errors: FieldError[] = [];
+-  const parsed: { row: number; data: ReturnType<typeof validateOrder> }[] = [];
++  const orders: ParsedOrder[] = [];
++  const codeOccurrences: CodeOccurrence[] = [];
+   const codes = new Map<string, number[]>();
+   for (const [index, values] of rows.entries()) {
+     const row = index + 2;
++    const code = String(values[header.indexOf("order_code")] ?? "").trim();
++    const normalizedCode = code.toLowerCase();
++    if (/^[a-z0-9_-]{1,40}$/.test(normalizedCode)) {
++      codes.set(normalizedCode, [...(codes.get(normalizedCode) ?? []), row]);
++      codeOccurrences.push({ row, normalizedCode, orderCode: code });
++    }
++    if (values.length !== header.length) {
++      errors.push({ row, field: "file", message: `Record has ${values.length} columns; expected ${header.length}` });
++      continue;
++    }
+     const body = Object.fromEntries(header.map((key, i) => [key, values[i]]));
+-    const code = String(body.order_code).trim().toLowerCase();
+-    if (/^[a-z0-9_-]{1,40}$/.test(code)) codes.set(code, [...(codes.get(code) ?? []), row]);
+-    try { parsed.push({ row, data: validateOrder(body) }); }
++    try { orders.push({ row, data: validateOrder(body) }); }
+     catch (error) {
+       if (!(error instanceof OrderError)) throw error;
+       errors.push(...error.errors.map((item) => ({ ...item, row })));
+@@ -74,6 +87,14 @@ export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
+   for (const occurrences of codes.values()) {
+     if (occurrences.length > 1) errors.push(...occurrences.map((row) => ({ row, field: "order_code", message: "Duplicate order code within file" })));
+   }
+-  if (errors.length) throw new OrderError(400, "VALIDATION_ERROR", errors);
+-  return parsed;
++  return { orders, codeOccurrences, errors };
++}
++
++export function parseOrdersCsv(bytes: Uint8Array, filename: string) {
++  const analysis = analyzeOrdersCsv(bytes, filename);
++  if (analysis.errors.length) {
++    const code = analysis.errors.some(({ field }) => field === "file") ? "INVALID_CSV" : "VALIDATION_ERROR";
++    throw new OrderError(400, code, analysis.errors);
++  }
++  return analysis.orders;
+ }
+diff --git a/src/lib/orders/service.ts b/src/lib/orders/service.ts
+index f39b3de..53419d4 100644
+--- a/src/lib/orders/service.ts
++++ b/src/lib/orders/service.ts
+@@ -2,7 +2,7 @@ import "server-only";
+ import { getPrisma } from "@/lib/db";
+ import type { Prisma } from "@/generated/prisma/client";
+ import { OrderError, editableFields, hasNul, localInput, objectBody, parseListQuery, rejectUnknown, requireVersion, validateOrder } from "./validation";
+-import { parseOrdersCsv } from "./csv";
++import { analyzeOrdersCsv, parseOrdersCsv } from "./csv";
+ 
+ function duplicate(error: unknown): boolean {
+   return typeof error === "object" && error !== null && "code" in error && error.code === "P2002";
+@@ -79,22 +79,47 @@ export async function cancelOrder(hubId: string, id: string, value: unknown) {
+   });
+ }
+ 
++type CodeOccurrence = { row: number; normalizedCode: string; orderCode: string };
++
++async function existingCodeErrors(hubId: string, occurrences: CodeOccurrence[]) {
++  if (!occurrences.length) return [];
++  const saved = await getPrisma().order.findMany({
++    where: { hubId, normalized_code: { in: [...new Set(occurrences.map(({ normalizedCode }) => normalizedCode))] } },
++    select: { normalized_code: true },
++  });
++  const codes = new Set(saved.map((order) => order.normalized_code));
++  return occurrences.filter(({ normalizedCode }) => codes.has(normalizedCode))
++    .map(({ row, orderCode }) => ({ row, field: "order_code", message: `Code ${orderCode} already exists in this hub` }));
++}
++
++export async function previewOrdersCsv(hubId: string, bytes: Uint8Array, filename: string) {
++  const analysis = analyzeOrdersCsv(bytes, filename);
++  const errors = [...analysis.errors, ...await existingCodeErrors(hubId, analysis.codeOccurrences)];
++  if (errors.length) {
++    const code = analysis.errors.some(({ field }) => field === "file") ? "INVALID_CSV"
++      : analysis.errors.length ? "VALIDATION_ERROR" : "DUPLICATE_ORDER_CODE";
++    throw new OrderError(code === "DUPLICATE_ORDER_CODE" ? 409 : 400, code, errors);
++  }
++  const orders = analysis.orders.map(({ row, data }) => ({
++    ...data,
++    row,
++    window_start: localInput(data.window_start),
++    window_end: localInput(data.window_end),
++  }));
++  return { orders, total: orders.length, valid: orders.length, saved: 0 };
++}
++
+ export async function importOrders(hubId: string, bytes: Uint8Array, filename: string) {
+   const rows = parseOrdersCsv(bytes, filename);
+-  const where = { hubId, normalized_code: { in: rows.map(({ data }) => data.normalized_code) } };
+-  const conflicts = async () => {
+-    const saved = await getPrisma().order.findMany({ where, select: { normalized_code: true } });
+-    const codes = new Set(saved.map((order) => order.normalized_code));
+-    return rows.filter(({ data }) => codes.has(data.normalized_code)).map(({ row, data }) => ({ row, field: "order_code", message: `Code ${data.order_code} already exists in this hub` }));
+-  };
+-  const errors = await conflicts();
++  const occurrences = rows.map(({ row, data }) => ({ row, normalizedCode: data.normalized_code, orderCode: data.order_code }));
++  const errors = await existingCodeErrors(hubId, occurrences);
+   if (errors.length) throw new OrderError(409, "DUPLICATE_ORDER_CODE", errors);
+   try {
+     await getPrisma().$transaction(async (tx) => {
+       await tx.order.createMany({ data: rows.map(({ data }) => ({ ...data, hubId })) });
+     });
+   } catch (error) {
+-    if (duplicate(error)) throw new OrderError(409, "DUPLICATE_ORDER_CODE", await conflicts());
++    if (duplicate(error)) throw new OrderError(409, "DUPLICATE_ORDER_CODE", await existingCodeErrors(hubId, occurrences));
+     throw error;
+   }
+   return { imported: rows.length };
+diff --git a/src/tests/order-form.test.mjs b/src/tests/order-form.test.mjs
+index 124c9d1..da1f332 100644
+--- a/src/tests/order-form.test.mjs
++++ b/src/tests/order-form.test.mjs
+@@ -1,6 +1,7 @@
+ import assert from "node:assert/strict";
+ import test from "node:test";
+-import { orderPayload, orderIssues } from "../app/orders/order-form.mjs";
++import { formValue, orderPayload, orderIssues } from "../app/orders/order-form.mjs";
++import { parseLocalDateTime } from "../lib/orders/validation.ts";
+ 
+ test("serializes local windows and omits blank optional coordinates", () => {
+   const result = orderPayload({ order_code: " A-1 ", window_start: "2026-11-19T08:00", weight_kg: "1.2", latitude: "", longitude: "" });
+@@ -17,3 +18,20 @@ test("separates API field errors from CSV record errors", () => {
+     fieldErrors: { file: "Invalid CSV" }, rowErrors: [row],
+   });
+ });
++
++test("saved windows round-trip through UI values and edit payloads across accepted years", () => {
++  for (const window of ["0001-01-01 07:00", "2026-11-20 09:00", "9999-12-31 23:59"]) {
++    const date = parseLocalDateTime(window);
++    assert.ok(date);
++    const input = formValue("window_start", { window_start: date.toISOString() });
++    assert.equal(input, window.replace(" ", "T"));
++    const payload = orderPayload({ window_start: input }, 1);
++    assert.equal(payload.window_start, window);
++    assert.equal(parseLocalDateTime(payload.window_start).toISOString(), date.toISOString());
++  }
++  assert.equal(formValue("priority"), "NORMAL");
++  assert.equal(formValue("window_start"), "");
++  assert.equal(formValue("weight_kg", { weight_kg: 1.5 }), "1.5");
++  assert.equal(formValue("window_start", { window_start: "2026-11-20 09:00" }), "2026-11-20T09:00");
++  assert.equal(formValue("window_start", { window_start: "invalid" }), "invalid");
++});
+diff --git a/src/tests/orders.integration.mjs b/src/tests/orders.integration.mjs
+index 2152b7b..e7fe550 100644
+--- a/src/tests/orders.integration.mjs
++++ b/src/tests/orders.integration.mjs
+@@ -33,10 +33,10 @@ async function signIn(email) {
+   assert.equal(response.status, 200, "Real Better Auth sign-in must succeed");
+   return response.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
+ }
+-async function upload(text, cookie, name = "orders.csv") {
++async function upload(text, cookie, name = "orders.csv", path = "/api/orders/import") {
+   const form = new FormData();
+   form.append("file", new File([text], name, { type: "text/csv" }));
+-  return call("/api/orders/import", cookie, "POST", form);
++  return call(path, cookie, "POST", form);
+ }
+ 
+ test("combined F02 database/auth/API/CSV verification", async (t) => {
+@@ -64,7 +64,7 @@ test("combined F02 database/auth/API/CSV verification", async (t) => {
+     assert.ok(serverScope.data.orders.length > 0);
+     assert.ok(serverScope.data.orders.every((order) => order.hubId === hubA.id), "Test server must use the same disposable database");
+     const sample = await prisma.order.findFirstOrThrow({ where: { hubId: hubB.id } });
+-    const paths = [["/api/orders", "GET"], ["/api/orders", "POST"], [`/api/orders/${sample.id}`, "GET"], [`/api/orders/${sample.id}`, "PATCH"], [`/api/orders/${sample.id}/cancel`, "POST"], ["/api/orders/import", "POST"], ["/api/orders/template", "GET"]];
++    const paths = [["/api/orders", "GET"], ["/api/orders", "POST"], [`/api/orders/${sample.id}`, "GET"], [`/api/orders/${sample.id}`, "PATCH"], [`/api/orders/${sample.id}/cancel`, "POST"], ["/api/orders/import", "POST"], ["/api/orders/import/preview", "POST"], ["/api/orders/template", "GET"]];
+     await t.test("every route denies absent sessions, Admin and Rider", async () => {
+       for (const [path, method] of paths) {
+         for (const [cookie, expected] of [["", 401], [admin, 403], [rider, 403]]) {
+@@ -221,6 +221,55 @@ test("combined F02 database/auth/API/CSV verification", async (t) => {
+       assert.equal(manyEmptyImport.status, 400);
+       assert.ok(manyEmptyImport.data.errors.some((error) => error.field === "file"));
+     });
++    await t.test("read-only CSV preview, complete diagnostics, hub isolation and confirmation races", async () => {
++      const preview = (text, cookie = cookieA, name = "orders.csv") => upload(text, cookie, name, "/api/orders/import/preview");
++      const codes = Array.from({ length: 20 }, (_, i) => `${prefix}-PRE-${i}`);
++      const count = await prisma.order.count();
++      const checked = await preview(csv(codes));
++      assert.equal(checked.status, 200);
++      assert.equal(checked.data.orders.length, 20);
++      assert.equal(checked.data.total, 20);
++      assert.equal(checked.data.valid, 20);
++      assert.equal(checked.data.saved, 0);
++      assert.equal(checked.data.orders[0].row, 2);
++      assert.equal(checked.data.orders[0].order_code, codes[0]);
++      assert.equal(checked.data.orders[0].window_start, "2026-11-20 09:00");
++      assert.equal(checked.data.orders[0].window_end, "2026-11-20 11:00");
++      assert.equal(await prisma.order.count(), count, "Preview must never write orders");
++      assert.equal((await preview(csv(codes))).status, 200);
++      assert.equal(await prisma.order.count(), count, "Repeated preview/dismissal leaves data unchanged");
++      assert.equal((await upload(csv(codes), cookieA)).status, 201);
++      assert.equal(await prisma.order.count(), count + 20);
++      const sameHub = `${prefix}-PRE-EXIST`;
++      const foreignOnly = `${prefix}-PRE-FOREIGN`;
++      assert.equal((await call("/api/orders", cookieA, "POST", valid(sameHub))).status, 201);
++      assert.equal((await call("/api/orders", cookieB, "POST", valid(foreignOnly))).status, 201);
++      assert.equal((await preview(csv([foreignOnly]))).status, 200, "Foreign-hub code must not collide or disclose foreign details");
++      const mixedCodes = [`${prefix}-PRE-DUP`, `${prefix.toLowerCase()}-pre-dup`, sameHub];
++      const beforeMixed = await prisma.order.count();
++      const mixed = await preview(csv(mixedCodes, true));
++      assert.equal(await prisma.order.count(), beforeMixed, "Mixed diagnostic preview must not write any orders");
++      assert.equal(mixed.status, 400);
++      assert.ok(mixed.data.errors.some(e => e.row === 3 && e.field === "weight_kg"));
++      for (const row of [2, 3]) assert.ok(mixed.data.errors.some(e => e.row === row && e.field === "order_code"));
++      assert.ok(mixed.data.errors.some(e => e.row === 4 && e.field === "order_code"));
++      const beforeBad = await prisma.order.count();
++      assert.equal((await preview(csv(codes), cookieA, "bad.txt")).status, 400);
++      assert.equal((await preview(csvHeader + "\n")).status, 400);
++      const width = await preview(csvHeader + "\nshort,row\n");
++      assert.equal(width.status, 400);
++      assert.ok(width.data.errors.some(e => e.row === 2));
++      assert.equal(await prisma.order.count(), beforeBad);
++      const claimed = [`${prefix}-PRE-CLAIM`, `${prefix}-PRE-LOSER`];
++      assert.equal((await preview(csv(claimed))).status, 200);
++      assert.equal((await call("/api/orders", cookieA, "POST", valid(claimed[0]))).status, 201);
++      const afterClaim = await prisma.order.count();
++      const conflict = await upload(csv(claimed), cookieA);
++      assert.equal(conflict.status, 409);
++      assert.ok(conflict.data.errors.some(e => e.row === 2 && e.field === "order_code"));
++      assert.equal(await prisma.order.count(), afterClaim);
++      assert.equal(await prisma.order.count({ where: { hubId: hubA.id, order_code: claimed[1] } }), 0);
++    });
+     await t.test("database uniqueness races and invalid numeric values cannot bypass the API", async () => {
+       const data = { hubId: hubA.id, ...valid(`${prefix}-DB-RACE`), normalized_code: `${prefix.toLowerCase()}-db-race`, window_start: new Date("2026-11-20T02:00:00Z"), window_end: new Date("2026-11-20T04:00:00Z") };
+       const race = await Promise.allSettled([prisma.order.create({ data }), prisma.order.create({ data })]);
+@@ -232,10 +281,14 @@ test("combined F02 database/auth/API/CSV verification", async (t) => {
+       try {
+         await prisma.user.update({ where: { id: user.id }, data: { hubId: null } });
+         assert.equal((await call("/api/orders", cookieA)).status, 403);
++        assert.equal((await upload(csv([`${prefix}-NOHUB`]), cookieA, "orders.csv", "/api/orders/import/preview")).status, 403);
+       } finally { await prisma.user.update({ where: { id: user.id }, data: { hubId: hubA.id } }); }
+       assert.equal((await call("/api/orders", cookieA)).status, 200);
+       await prisma.session.updateMany({ where: { userId: user.id }, data: { expiresAt: new Date(Date.now() - 1000) } });
+       assert.equal((await call("/api/orders", cookieA)).status, 401);
++      const beforeExpired = await prisma.order.count();
++      assert.equal((await upload(csv([`${prefix}-EXPIRED`]), cookieA, "orders.csv", "/api/orders/import/preview")).status, 401);
++      assert.equal(await prisma.order.count(), beforeExpired);
+       cookieA = await signIn("dispatcher-a@example.test");
+       assert.equal((await call("/api/orders", cookieA)).status, 200);
+       assert.equal((await call("/api/auth/sign-out", cookieA, "POST", {})).status, 200);
+diff --git a/src/tests/orders.test.mjs b/src/tests/orders.test.mjs
+index eadb971..9ac07de 100644
+--- a/src/tests/orders.test.mjs
++++ b/src/tests/orders.test.mjs
+@@ -1,7 +1,7 @@
+ import assert from "node:assert/strict";
+ import test from "node:test";
+ import { OrderError, parseListQuery, requireVersion, validateOrder } from "../lib/orders/validation.ts";
+-import { csvHeader, csvTemplate, parseOrdersCsv } from "../lib/orders/csv.ts";
++import { analyzeOrdersCsv, csvHeader, csvTemplate, parseOrdersCsv } from "../lib/orders/csv.ts";
+ 
+ const valid = { order_code: " Test-1 ", recipient_name: " Người nhận thử ", recipient_phone: "0900000001", delivery_address: "Địa chỉ giả lập", window_start: "2026-11-20 09:00", window_end: "2026-11-20 11:00", weight_kg: "1.25" };
+ const bytes = (text) => new TextEncoder().encode(text);
+@@ -88,3 +88,20 @@ test("CSV reports both duplicate occurrences and record numbers across quoted ne
+     return true;
+   });
+ });
++
++test("CSV analysis retains valid rows and all field, width and duplicate diagnostics", () => {
++  const malformed = csvHeader + "\n" + csvRow("DUPLICATE", "-1") + "\n" + csvRow(" duplicate ") + "\n" + csvRow("WIDTH").replace(",NORMAL,,,", ",,,") + "\n" + csvRow("GOOD");
++  const result = analyzeOrdersCsv(bytes(malformed), "mixed.csv");
++  assert.deepEqual(result.orders.map(({ row }) => row), [3, 5]);
++  assert.deepEqual(result.codeOccurrences.map(({ row, normalizedCode }) => [row, normalizedCode]), [
++    [2, "duplicate"], [3, "duplicate"], [4, "width"], [5, "good"],
++  ]);
++  assert.deepEqual(result.errors.filter(({ field }) => field === "order_code").map(({ row }) => row), [2, 3]);
++  assert.equal(result.errors.find(({ field }) => field === "weight_kg").row, 2);
++  assert.deepEqual(result.errors.filter(({ field }) => field === "file").map(({ row }) => row), [4]);
++  assert.throws(() => parseOrdersCsv(bytes(malformed), "mixed.csv"), (error) => {
++    assert.equal(error.status, 400);
++    assert.ok(error.errors.some(({ row, field }) => row === 4 && field === "file"));
++    return true;
++  });
++});
+
+New preview route (untracked at verification):
+import { withOrderAccess } from "@/lib/orders/http";
+import { previewOrdersCsv } from "@/lib/orders/service";
+import { OrderError } from "@/lib/orders/validation";
+
+export function POST(request: Request) {
+  return withOrderAccess(request, async (hubId) => {
+    let form: FormData;
+    try { form = await request.formData(); }
+    catch { throw new OrderError(400, "INVALID_CSV", [{ field: "file", message: "Supply a multipart file" }]); }
+    const file = form.get("file");
+    if (!(file instanceof File) || file.size > 1_000_000) throw new OrderError(400, "INVALID_CSV", [{ field: "file", message: "Supply a CSV file of at most 1,000,000 bytes" }]);
+    return Response.json(await previewOrdersCsv(hubId, new Uint8Array(await file.arrayBuffer()), file.name));
+  });
+}

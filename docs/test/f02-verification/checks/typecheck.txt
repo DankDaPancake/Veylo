@@ -1,0 +1,23 @@
+Command: npm run typecheck
+Started: 2026-11-20T12:30:33.396220+00:00
+Ended: 2026-11-20T12:30:35.155915+00:00
+Exit: 2
+
+
+> veylo@0.1.0 typecheck
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+lib/db.ts(3,30): error TS2307: Cannot find module '@/generated/prisma/client' or its corresponding type declarations.
+lib/orders/service.ts(3,29): error TS2307: Cannot find module '@/generated/prisma/client' or its corresponding type declarations.
+lib/orders/service.ts(28,42): error TS7006: Parameter 'tx' implicitly has an 'any' type.
+lib/orders/service.ts(53,42): error TS7006: Parameter 'tx' implicitly has an 'any' type.
+lib/orders/service.ts(74,42): error TS7006: Parameter 'tx' implicitly has an 'any' type.
+lib/orders/service.ts(87,38): error TS7006: Parameter 'order' implicitly has an 'any' type.
+lib/orders/service.ts(93,43): error TS7006: Parameter 'tx' implicitly has an 'any' type.
+prisma/seed-demo-accounts.ts(1,35): error TS2307: Cannot find module '../generated/prisma/client' or its corresponding type declarations.
+prisma/seed-demo-accounts.ts(38,36): error TS7006: Parameter 'tx' implicitly has an 'any' type.
+prisma/seed-demo-accounts.ts(52,36): error TS7006: Parameter 'account' implicitly has an 'any' type.
+prisma/seed.ts(2,30): error TS2307: Cannot find module '../generated/prisma/client.ts' or its corresponding type declarations.
+prisma/seed.ts(9,49): error TS7006: Parameter 'tx' implicitly has an 'any' type.
