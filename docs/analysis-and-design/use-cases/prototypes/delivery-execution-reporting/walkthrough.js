@@ -56,6 +56,13 @@ function renderWalkthrough(id, frame, desktopShell) {
     }
     if (id.startsWith("S12-06")) actions = [action("Finish reassigned work", "S11-07-no-eligible-stops")];
   }
+  if (id === STOP || id === "S11-02-guide-only") {
+    const query = new URLSearchParams({ screen: "S15-02", standalone: "1", from: id });
+    if (redispatched) query.set("redispatch", "1");
+    if (pageQuery.get("theme") === "dark") query.set("theme", "dark");
+    body = body.replace("../guide-screens.html?screen=S15-02&amp;standalone=1",
+      `../guide-screens.html?${query.toString().replaceAll("&", "&amp;")}`);
+  }
   const buttons = actions.map(([label, target], i) => {
     const data = secondOrder(id) && /^S12/.test(target) ? { stop: "202" } : {};
     if (redispatched || (id === "S13-04-redispatch-confirmed" && target === WORK)) data.redispatch = "1";

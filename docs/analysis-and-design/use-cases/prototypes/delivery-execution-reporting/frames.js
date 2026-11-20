@@ -37,7 +37,7 @@ function workList(suggestion, details) {
 function guide(available, secondStop = false) {
   const details = secondStop ? facts(["Order", "DEMO-202"], ["Delivery point", "Demo Annex"], ["Window", "10:00–11:30"]) : stop;
   return card("Assigned stop", details) + (available
-    ? card("Published guide preview", '<p>Atrium A · Use the marked visitor entrance.</p><details><summary>Open full guide (UC15)</summary><p>Follow signs from the visitor entrance to the reception desk. Published in this hub. This is a simulated UC15 handoff.</p></details>')
+    ? card("Published guide preview", '<p>Atrium A · Use the marked visitor entrance.</p><a class="booyah-link" href="../guide-screens.html?screen=S15-02&amp;standalone=1">Open full guide (UC15)</a>')
     : hint("No published guide is available for this stop."));
 }
 
