@@ -1,0 +1,2 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg,priority,note,latitude,longitude
+CSV-EXAMPLE-001,Synthetic Recipient,0900000001,"1 Synthetic Street, Demo",2026-11-20 09:00,2026-11-20 11:00,1,NORMAL,,,
