@@ -1,0 +1,1055 @@
+{
+  "records": [
+    {
+      "screen_id": "S19-01",
+      "node_id": "8:2718",
+      "name": "NAV|S19-01-loading|Apply filters",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2719",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01",
+      "node_id": "8:2720",
+      "name": "NAV|S19-01-historical|Include historical retry shift",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2669",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01",
+      "node_id": "5:2665",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-historical",
+      "node_id": "8:2739",
+      "name": "NAV|S19-02|Apply historical cohort",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-historical",
+      "node_id": "8:2741",
+      "name": "NAV|S19-01|Return to today",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-historical",
+      "node_id": "5:2715",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-historical",
+      "node_id": "5:2717",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-loading",
+      "node_id": "5:2719",
+      "name": "S19-01-loading · Generating one snapshot",
+      "trigger": {
+        "type": "AFTER_TIMEOUT",
+        "timeout": 1.2000000476837158
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2839",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-loading",
+      "node_id": "5:2755",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-loading",
+      "node_id": "5:2757",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02",
+      "node_id": "5:2827",
+      "name": "NAV|S19-03|Inspect breakdown",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2904",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02",
+      "node_id": "5:2829",
+      "name": "NAV|S19-02-definitions-orders|Metric definitions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3588",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02",
+      "node_id": "5:2831",
+      "name": "NAV|S11-01-refresh|Refresh snapshot",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02",
+      "node_id": "5:2835",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02",
+      "node_id": "5:2837",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-today",
+      "node_id": "8:2788",
+      "name": "NAV|S19-01-historical|Include both dates",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2669",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-today",
+      "node_id": "8:2790",
+      "name": "NAV|S19-02-definitions-orders|Metric definitions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3588",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-today",
+      "node_id": "8:2792",
+      "name": "NAV|S19-04-today|Inspect contributions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "9:2703",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-today",
+      "node_id": "5:2900",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-today",
+      "node_id": "5:2902",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-03",
+      "node_id": "5:2982",
+      "name": "NAV|S19-04|Inspect contributions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2992",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-03",
+      "node_id": "5:2984",
+      "name": "NAV|S19-02|Back to summary",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-03",
+      "node_id": "5:2988",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-03",
+      "node_id": "5:2990",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04",
+      "node_id": "5:3074",
+      "name": "NAV|S13-02|View current Order history",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1404",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04",
+      "node_id": "5:3076",
+      "name": "NAV|S19-04-outside-scope|Select first failed shift only",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3084",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04",
+      "node_id": "5:3080",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04",
+      "node_id": "5:3082",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-outside-scope",
+      "node_id": "5:3139",
+      "name": "NAV|S19-02|Broaden to both shifts",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-outside-scope",
+      "node_id": "5:3141",
+      "name": "NAV|S19-04|Back to contributions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2992",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-outside-scope",
+      "node_id": "5:3145",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-outside-scope",
+      "node_id": "5:3147",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-invalid",
+      "node_id": "5:3196",
+      "name": "NAV|S19-01|Correct date range",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-invalid",
+      "node_id": "5:3198",
+      "name": "NAV|S19-02-stale|View last valid result",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3525",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-invalid",
+      "node_id": "5:3202",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-invalid",
+      "node_id": "5:3204",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-empty",
+      "node_id": "5:3253",
+      "name": "NAV|S19-01|Edit filters",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-empty",
+      "node_id": "5:3257",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-empty",
+      "node_id": "5:3259",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-partial",
+      "node_id": "5:3312",
+      "name": "NAV|S19-01-loading|Refresh to later snapshot",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2719",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-partial",
+      "node_id": "5:3314",
+      "name": "NAV|S19-04|Inspect contributions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2992",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-partial",
+      "node_id": "5:3318",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-partial",
+      "node_id": "5:3320",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-quality",
+      "node_id": "5:3379",
+      "name": "NAV|S19-04-quality|Inspect quality details",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3389",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-quality",
+      "node_id": "5:3381",
+      "name": "NAV|S19-02|Back to valid snapshot",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-quality",
+      "node_id": "5:3385",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-quality",
+      "node_id": "5:3387",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-quality",
+      "node_id": "5:3471",
+      "name": "NAV|S19-02-quality|Return to quality summary",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3322",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-quality",
+      "node_id": "5:3475",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-quality",
+      "node_id": "5:3477",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-error",
+      "node_id": "5:3515",
+      "name": "NAV|S19-01-loading|Retry report",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2719",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-error",
+      "node_id": "5:3517",
+      "name": "NAV|S19-01|Edit filters",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-error",
+      "node_id": "5:3521",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-01-error",
+      "node_id": "5:3523",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-stale",
+      "node_id": "5:3578",
+      "name": "NAV|S19-02|Refresh snapshot",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-stale",
+      "node_id": "5:3580",
+      "name": "NAV|S19-01|Edit filters",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-stale",
+      "node_id": "5:3584",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-stale",
+      "node_id": "5:3586",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-orders",
+      "node_id": "5:3646",
+      "name": "NAV|S19-02-definitions-attempts|More definitions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3656",
+          "navigation": "SWAP"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-orders",
+      "node_id": "5:3648",
+      "name": "NAV|S19-02|Back to report",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-orders",
+      "node_id": "5:3652",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-orders",
+      "node_id": "5:3654",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-attempts",
+      "node_id": "5:3714",
+      "name": "NAV|S19-02-definitions-orders|Order definitions",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:3588",
+          "navigation": "SWAP"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-attempts",
+      "node_id": "5:3716",
+      "name": "NAV|S19-02|Back to report",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2759",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-attempts",
+      "node_id": "5:3720",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-02-definitions-attempts",
+      "node_id": "5:3722",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-today",
+      "node_id": "9:2749",
+      "name": "NAV|S19-02-today|Back to today’s report",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2839",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-today",
+      "node_id": "9:2751",
+      "name": "NAV|S19-01-historical|Include historical shift",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2669",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-today",
+      "node_id": "9:2755",
+      "name": "NAV|S13-01|Delivery monitoring",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1324",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S19-04-today",
+      "node_id": "9:2757",
+      "name": "NAV|S19-01|Shift / Rider reports",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:2609",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    }
+  ]
+}

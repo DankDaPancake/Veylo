@@ -1,0 +1,580 @@
+{
+  "records": [
+    {
+      "screen_id": "S11-01",
+      "node_id": "4:34",
+      "name": "NAV|S11-02|View suggested delivery",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:39",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01",
+      "node_id": "4:36",
+      "name": "NAV|S11-01-explanation|Why this stop?",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:76",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02",
+      "node_id": "4:71",
+      "name": "NAV|S12-01|Start delivery attempt",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:452",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02",
+      "node_id": "4:73",
+      "name": "NAV|S11-02-guide-handoff|View Full Guide",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:142",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-explanation",
+      "node_id": "4:104",
+      "name": "NAV|S11-02|Open suggested stop",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:39",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-explanation",
+      "node_id": "4:106",
+      "name": "NAV|S11-02-other|Choose another stop",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:109",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02-other",
+      "node_id": "4:137",
+      "name": "NAV|S12-01-next|Start selected stop",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:17:2940",
+          "value": true
+        },
+        {
+          "type": "NODE",
+          "destinationId": "5:1167",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02-other",
+      "node_id": "4:139",
+      "name": "NAV|S11-02|View suggested stop",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:39",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02-guide-handoff",
+      "node_id": "4:172",
+      "name": "NAV|S11-02|Back to delivery",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:39",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-active",
+      "node_id": "4:205",
+      "name": "NAV|S12-01-resume|Resume attempt",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1007",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-active",
+      "node_id": "4:207",
+      "name": "NAV|S11-01-active|Refresh work",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-scheduled",
+      "node_id": "4:234",
+      "name": "NAV|S11-01-scheduled|Refresh schedule",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-scheduled",
+      "node_id": "4:236",
+      "name": "NAV|S11-01|Back to current work",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-03-pending",
+      "node_id": "4:269",
+      "name": "NAV|S11-03-pending|Refresh work",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-03-finished",
+      "node_id": "4:298",
+      "name": "NAV|S11-03-finished|Refresh work",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-next",
+      "node_id": "4:329",
+      "name": "NAV|S12-01-next|Start VL-0002",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1167",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-after-failure",
+      "node_id": "4:362",
+      "name": "NAV|S12-01-next|Start remaining stop",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1167",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-after-failure",
+      "node_id": "4:364",
+      "name": "NAV|S12-07-failed|Back to saved failure",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:922",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-loading",
+      "node_id": "4:367",
+      "name": "S11-01-loading · Loading assigned work",
+      "trigger": {
+        "type": "AFTER_TIMEOUT",
+        "timeout": 1.2000000476837158
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-preview-loading",
+      "node_id": "4:390",
+      "name": "S11-01-preview-loading · Today’s deliveries",
+      "trigger": {
+        "type": "AFTER_TIMEOUT",
+        "timeout": 1.2000000476837158
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-empty",
+      "node_id": "4:443",
+      "name": "NAV|S11-01-empty|Refresh",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-unavailable",
+      "node_id": "4:466",
+      "name": "NAV|S11-01|Back to My Shift",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-auth",
+      "node_id": "4:491",
+      "name": "NAV|S11-01-loading|Sign in",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:367",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-forbidden",
+      "node_id": "4:516",
+      "name": "NAV|S11-01-auth|Return to sign in",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:469",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-error",
+      "node_id": "4:541",
+      "name": "NAV|S11-01-loading|Retry loading",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:367",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-offline",
+      "node_id": "4:566",
+      "name": "NAV|S11-01-loading|Refresh connection",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:367",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02-stale",
+      "node_id": "4:591",
+      "name": "NAV|S11-01-loading|Reload assigned work",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:367",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-conflict",
+      "node_id": "4:616",
+      "name": "NAV|S12-01-resume|Resume known attempt",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:1007",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-conflict",
+      "node_id": "4:618",
+      "name": "NAV|S11-01-loading|Refresh",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:367",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-no-suggestion",
+      "node_id": "4:649",
+      "name": "NAV|S11-02|View VL-0001",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:39",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-no-suggestion",
+      "node_id": "4:651",
+      "name": "NAV|S11-02-other|Choose VL-0002",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:109",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02-no-guide",
+      "node_id": "4:682",
+      "name": "NAV|S12-01|Start attempt",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:452",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-02-no-guide",
+      "node_id": "4:684",
+      "name": "NAV|S11-01|Back to My Shift",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:2",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-previews-unavailable",
+      "node_id": "4:717",
+      "name": "NAV|S11-02-no-guide|View delivery",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:654",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-previews-unavailable",
+      "node_id": "4:719",
+      "name": "NAV|S11-01-preview-loading|Retry previews",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "4:390",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-refresh",
+      "node_id": "8:2818",
+      "name": "S11-01-refresh · Shared refresh acknowledgement",
+      "trigger": {
+        "type": "AFTER_TIMEOUT",
+        "timeout": 1.2000000476837158
+      },
+      "actions": [
+        {
+          "type": "CLOSE"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-03-pending-two",
+      "node_id": "10:2803",
+      "name": "NAV|S11-03-pending-two|Refresh work",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "8:2818",
+          "navigation": "OVERLAY"
+        }
+      ]
+    },
+    {
+      "screen_id": "S11-01-selected-next",
+      "node_id": "16:2848",
+      "name": "NAV|S12-01|Start remaining VL-0001",
+      "trigger": {
+        "type": "ON_CLICK"
+      },
+      "actions": [
+        {
+          "type": "NODE",
+          "destinationId": "5:452",
+          "navigation": "NAVIGATE"
+        }
+      ]
+    }
+  ]
+}
