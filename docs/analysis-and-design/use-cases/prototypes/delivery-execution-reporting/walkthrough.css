@@ -1,0 +1,33 @@
+.booyah-shell { min-height: 800px; }
+.booyah-heading { margin-bottom: 2px; }
+.booyah-heading .eyebrow { color: var(--brand-primary-hover); margin: 0 0 4px; }
+.booyah-lead { color: var(--text-secondary); margin: 6px 0 0; font-size: 14px; line-height: 1.4; }
+.booyah-error { color: var(--status-error-fg); }
+.booyah-hint { color: var(--text-secondary); font-size: 13px; line-height: 1.4; margin: 8px 0 0; }
+.booyah-card { padding: 13px 15px; }
+.booyah-card h2 { font-size: 17px; margin: 0 0 8px; }
+.booyah-card p { margin: 5px 0; }
+.booyah-card summary, .booyah-link { cursor: pointer; color: var(--brand-primary-hover); text-decoration: underline; }
+.booyah-facts { margin: 0; }
+.booyah-facts div { display: grid; grid-template-columns: 1fr 1.6fr; gap: 8px; padding: 4px 0; }
+.booyah-facts dt { color: var(--text-secondary); }
+.booyah-facts dd { margin: 0; font-weight: 600; }
+.booyah-stops { padding-inline-start: 18px; margin: 0; }
+.booyah-stops li { padding: 5px 0; }
+.booyah-card .input-glass { width: 100%; min-height: 36px; height: auto; padding: 7px 9px; }
+.booyah-card .btn { margin-top: 7px; }
+.booyah-card .field-group + .field-group { margin-top: 7px; }
+.booyah-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.booyah-shell .booyah-actions > a { flex: 1 1 100%; min-height: 44px; }
+.booyah-actions a { text-decoration: none; }
+.booyah-pod { display: flex; align-items: center; gap: 7px; }
+.booyah-pod svg { width: 80px; height: 51px; flex-shrink: 0; }
+.booyah-desktop { display: grid; gap: 12px; }
+.booyah-filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; gap: 10px; align-items: end; }
+.booyah-filters label { display: grid; gap: 4px; }
+.booyah-filters .field-error { grid-column: 1 / -1; }
+.booyah-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.booyah-kpis .kpi-card { display: grid; gap: 6px; }
+.booyah-kpis strong { font-size: 21px; font-variant-numeric: tabular-nums; }
+.booyah-split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.booyah-desktop .orders-table td, .booyah-desktop .orders-table th { padding: 7px 9px; }
