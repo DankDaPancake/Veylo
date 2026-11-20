@@ -36,6 +36,21 @@
 - Human validation / approvals: The member selected Vision v2.2 and authorized alignment, resolving the inherited F05 PA5 versus N02 PA4 discrepancy for this plan. This does not certify BOOYAH-26/27 acceptance. No other functional requirements, database structure, provider, hosting, team role or resource allocation was changed. PA2 full marks/no feedback remains member-supplied provenance. Đăng's independent review and three random Jira-row comparisons have not occurred.
 - Outcome/limitations: 7/8 implementation tasks complete locally; task 3.3 remains unchecked until actual peer acceptance. Plan SHA-256 in the handoff identifies the review input; any changes require rechecking. Actual sprint end/cutoff, later allocation and new risk owners remain unconfirmed. BOOYAH-29 still owns canonical shared-ledger integration, PDF/render/export and ZIP packaging. No runtime tests/build, DB probe, PDF checks, remote-protection audit, external message/upload, Jira mutation, commit, push, merge or archive performed. Document checks are not final human acceptance.
 
+## 2026-11-20 — BOOYAH-20 clean-remake exploration
+
+- Task owner — Jira lists Trần Lê Hải as assignee. The requesting member's GitHub handle was unavailable.
+- AI tool/model — Codex (GPT-6).
+- Request and purpose — Explore the clean remake of PA3 Section D, F02 Order Intake (UC05–UC08), against the live Jira issue, Kiệt's BOOYAH-24/26 drafts and Phạm Công Khánh's original PrototypeKit.
+- AI work — Mapped AC1–AC5 and FR-01-2/FR-02-1–5 to numbered flows and proposed screen states. Drafted review proposals for D-F02-1–8, CSV fixtures and the BOOYAH-13/19 handoff in the conversation.
+- Affected files — This log and the AI log index. Source drafts were read in place. The tracked prototype working copy, Section D Markdown, PNGs and PDF are planned for implementation after exploration.
+- Commands and actual results — Atlassian MCP returned the live BOOYAH-20, BOOYAH-13 and BOOYAH-19 issue descriptions. Read PA3 with `pdftotext -layout`; read the BOOYAH-24/26 Markdown and Khánh's kit README, HTML, CSS and exporter. Read-only OpenSpec inventory confirmed the local root and counted its changes/specs without inspecting F02 artifacts. A Python in-memory CSV check parsed 20 valid records and found six expected issues across two invalid records. The exporter was inspected only: Brave and Pandoc are present, `google-chrome` was absent from PATH and WeasyPrint was absent from the probed Python environment.
+- Human validation and approvals — Pending for the clean remake. Jira's existing `Done` status was observed. Kiệt's BOOYAH-26 changes record confirms numbering/source alignment and leaves detailed F02 decisions open.
+- Outcome and remaining work — Exploration delivered in Vietnamese. Proposed F02 values are Pending PR Review. Compatibility was checked at Jira contract level. Deliverable exports, implementation parity and Khánh's walkthrough remain pending. No OpenSpec artifacts, production changes, commits, pushes or PRs were created.
+- Log verification — Read back the new entry and its index link. Scoped `git diff --check` exited successfully.
+
+### 2026-11-20 — BOOYAH-20 clean-remake exploration attribution amendment
+
+The requester later identified `thepenguinguy123` as the GitHub handle for this BOOYAH-20 work. The original exploration entry above preserves its attribution as known at the time. The [named PA3 log](thepenguinguy123.md) links this exploration and continues with the proposal record.
 ## 2026-11-20 — BOOYAH-14 clean remake exploration
 
 - Task owner: BOOYAH-14 assignee Trần Lê Hải per Jira. Requesting member's GitHub handle is unverified.
@@ -61,3 +76,44 @@
 ## 2026-11-20 — BOOYAH-14 clean remake attribution amendment
 
 The requester confirmed their GitHub handle as `thepenguinguy123`. The BOOYAH-14 clean remake Explore and Propose entries above are indexed with the corrected attribution in [thepenguinguy123.md](thepenguinguy123.md). The original records are preserved for history.
+## 2026-11-19 — Start BOOYAH-18 implementation plan
+
+- Codex in T3 Code, gpt-6.2-sol. Requester GitHub handle unknown.
+- User requested execution of the approved BOOYAH-18 plan. Fast-forwarded the task worktree to dev at `851f324` after saving the prior log index in a path-scoped stash. Prior untracked notes remain in the worktree.
+- Added the approved auth contract and proposed shared data model revision to the F02 OpenSpec design. Updated the new log index. Shared Prisma schema and migration review remain pending. No application changes or runtime tests.
+
+## 2026-11-19 — Preserve the Prisma credential model
+
+- User asked to follow Prisma rather than the newly proposed hashing arrangement. Codex in T3 Code, gpt-6.2-sol. Requester handle unknown.
+- Revised F02 design and BOOYAH-18 plan to preserve User password hash and PostgreSQL sessions. Superseded the credential-account mapping. No code, schema or migration applied. Verified document readback, log index and Git whitespace.
+
+## 2026-11-19 — Propose auth compatible with Prisma User hash
+
+- User requested an integration proposal. Codex in T3 Code, gpt-6.2-sol. Requester handle unknown.
+- Inspected the F02 design and consulted official Better Auth documentation. Proposed verifying credentials from Prisma User and using opaque PostgreSQL-backed sessions. Hash format and session schema remain to be confirmed. No auth code or schema changes. Read back indexed log and ran Git whitespace check.
+
+- Follow-up on 2026-11-19: the user retained ownership of the algorithm and format decision. Recorded this in the BOOYAH-18 plan and checked the log index and Git whitespace.
+
+- Follow-up on 2026-11-19: the user requested basic hashing. Interpreted this as built-in Node.js scrypt with random salt and a versioned stored format. Updated the plan only. Read back the plan, log and index and ran Git whitespace check.
+
+## 2026-11-19 — Implement shared scrypt password helper
+
+- User requested implementation following the basic hashing choice. Codex in T3 Code, gpt-6.2-sol. Requester handle unknown.
+- Added src/lib/auth/password.mjs and src/tests/password.test.mjs. Witnessed missing-module test failure before implementation. npm test passed all 5 tests. Git whitespace check passed with log line-ending warning.
+- Prisma scaffold still lacks models. Sign-in, seed and database sessions await the shared contract. No migration or runtime integration applied. Read back entry and index.
+
+## 2026-11-19 — Implement Better Auth schema and app integration
+
+- User approved the Better Auth Prisma schema and requested continuation. Codex in T3 Code, gpt-6.2-sol. Requester handle unknown.
+- Added Prisma models, pinned dependencies, scrypt credential integration, PostgreSQL session configuration, auth route, dispatcher guard, sign-in/sign-out UI and local demo account fixture function. Updated OpenSpec, implementation plan, example env and README. Account.password holds the scrypt hash. BOOYAH-19 owns the shared migration and seed entry point.
+- Prisma validate/generate, lint, typecheck, npm test (5/5), Next production build and strict OpenSpec validation passed. Docker CLI could not connect to its engine. No database migration, seed, auth flow or cross-hub test ran. F02 route wiring and independent review remain pending. Read back log/index and ran git diff --check.
+
+## 2026-11-19 — Prepare draft PR handoff for BOOYAH-19
+
+- Request: create a draft handoff PR for BOOYAH-18. Codex in T3 Code, gpt-6.2-sol. Requester handle unknown.
+- Preserved the pre-existing shared log history. Verified the branch baseline matches fetched dev and reran lint, typecheck, five unit tests, strict OpenSpec validation and whitespace checks.
+- Draft handoff leaves migration, seed invocation and F02 route wiring to integration. No PostgreSQL or end-to-end acceptance result is claimed.
+
+## 2026-11-20 — Log ownership relocation
+
+At the requesting member's explicit instruction, BOOYAH-23 and BOOYAH-15 entries were relocated to [Yelgsef's PA3 log](Yelgsef.md). The three BOOYAH-23 entries already existed there verbatim and were retained once. Other members' authentication/F02 entries remain here. Historical entry wording and attribution were preserved.

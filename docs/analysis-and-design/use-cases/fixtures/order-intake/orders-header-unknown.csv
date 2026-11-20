@@ -1,0 +1,2 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg,priority,note,latitude,longitude,unexpected
+F02-001,Demo Recipient 01,0900000001,"100 Example Lane, Demo Ward",2026-11-21 09:00,2026-11-21 11:00,1.25,NORMAL,,,,value

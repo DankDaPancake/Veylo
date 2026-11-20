@@ -1,5 +1,121 @@
-// BOOYAH-12 verifies connectivity only. BOOYAH-13/19 own approved business models.
-// Add a generator when actual models are introduced; do not add a dummy probe table.
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+  importFileExtension = "ts"
+}
+
 datasource db {
   provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  DISPATCHER
+  RIDER
+}
+
+model Hub {
+  id    String @id @default(cuid())
+  code  String @unique
+  name  String
+  users User[]
+  orders Order[]
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  role          Role      @default(RIDER)
+  hubId         String?
+  hub           Hub?      @relation(fields: [hubId], references: [id])
+  sessions      Session[]
+  accounts      Account[]
+
+  @@index([hubId])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}
+
+enum OrderStatus {
+  NEW
+  CANCELLED
+}
+
+enum OrderPriority {
+  NORMAL
+  HIGH
+}
+
+model Order {
+  id                String        @id @default(cuid())
+  hubId             String
+  hub               Hub           @relation(fields: [hubId], references: [id])
+  order_code        String
+  normalized_code   String
+  recipient_name    String
+  recipient_phone   String
+  delivery_address  String
+  window_start      DateTime      @db.Timestamptz(3)
+  window_end        DateTime      @db.Timestamptz(3)
+  weight_kg         Decimal      @db.Decimal
+  priority          OrderPriority @default(NORMAL)
+  note              String?
+  latitude          Float?
+  longitude         Float?
+  status            OrderStatus   @default(NEW)
+  cancellation_reason String?
+  version           Int           @default(1)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@unique([hubId, normalized_code])
+  @@index([hubId, window_start, order_code])
 }

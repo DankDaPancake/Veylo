@@ -1,0 +1,24 @@
+@page {
+  size: A4;
+  margin: 16mm 16mm 17mm;
+  @bottom-right { content: counter(page); font-size: 8pt; color: #466059; }
+}
+body { margin: 0; color: #142722; font: 9.6pt/1.4 "DejaVu Sans", sans-serif; }
+h1, h2, h3 { margin-top: 1em; color: #123b30; break-after: avoid; line-height: 1.2; }
+h1 { font-size: 23pt; margin-top: 0; }
+h2 { font-size: 16pt; border-bottom: 1px solid #b7ccc5; padding-bottom: 4pt; }
+h3 { font-size: 11pt; }
+p { margin: 5pt 0; }
+a { color: #155343; overflow-wrap: anywhere; }
+code { font-size: 0.88em; overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; margin: 8pt 0; }
+th, td { padding: 4pt 5pt; border: 1px solid #bed1cb; text-align: left; vertical-align: top; }
+th { background: #e5efeb; }
+tr { break-inside: avoid; }
+td:first-child strong { white-space: nowrap; }
+blockquote { margin: 8pt 0; padding-left: 9pt; border-left: 3px solid #b7ccc5; }
+figure { margin: 8pt 0 10pt; break-inside: avoid; }
+figure img { border: 1px solid #b7ccc5; display: block; margin: 0 auto; width: 100%; height: auto; }
+figcaption { margin-top: 3pt; font-size: 8pt; color: #344d46; }
+ul, ol { margin: 4pt 0 8pt; padding-left: 17pt; }
+li { margin-bottom: 3pt; }

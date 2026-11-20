@@ -5,6 +5,7 @@
 !.env.*.example
 *.pem
 *.key
+.local/
 
 # Dependencies and generated application output.
 node_modules/
@@ -41,3 +42,4 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+/src/generated/prisma/

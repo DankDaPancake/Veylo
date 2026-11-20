@@ -1,0 +1,2 @@
+order_code,recipient_name,recipient_phone,window_start,window_end,weight_kg,priority,note,latitude,longitude
+F02-001,Demo Recipient 01,0900000001,2026-11-21 09:00,2026-11-21 11:00,1.25,NORMAL,,,

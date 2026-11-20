@@ -10,11 +10,15 @@ Copy [the template](TEMPLATE.md) for each new task. Record the actual date, tool
 
 ## Index
 
+- [General — Unassigned](general/unassigned.md)
+
 - [PA1 — Historical and setup records](PA1/AI_LOG.md)
 - [PA2 — DankDaPancake](PA2/DankDaPancake.md)
 - [PA3 — kiettheis0702 (BOOYAH-12 publication)](PA3/kiettheis0702.md)
+- [PA3 — DankDaPancake](PA3/DankDaPancake.md)
 - [PA3 — Cee-Ka](PA3/Cee-Ka.md)
 - [PA3 — thepenguinguy123](PA3/thepenguinguy123.md)
 - [PA3 — Contributors with GitHub handles pending](PA3/unassigned.md)
+- [PA3 — Yelgsef](PA3/Yelgsef.md)
 
 Add links here when new member/phase logs are created. A log file or template is not proof of completed work or human review.
