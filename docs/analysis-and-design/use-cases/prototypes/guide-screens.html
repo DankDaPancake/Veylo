@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veylo guide prototype</title>
+<link rel="stylesheet" href="kit/assets/fonts/fonts.css">
+<link rel="stylesheet" href="kit/tokens.css">
+<link rel="stylesheet" href="kit/kit.css">
+<style>
+  body { margin: 0; background: var(--bg-app, #e9f1f0); }
+  #frame { min-height: 100dvh; padding: 16px; color: var(--text-primary); background: radial-gradient(ellipse at 100% 0, #c7ede7, transparent 54%), #eff5f5; }
+  body[data-role="Dispatcher"] #frame { padding: 48px 64px; }
+  main { max-width: 1120px; margin: 24px auto; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 14px; border-radius: 16px; }
+  header strong, h1 { letter-spacing: -.03em; }
+  h1 { font-size: 26px; line-height: 1.15; margin: 8px 0 16px; }
+  body[data-role="Dispatcher"] h1 { font-size: 42px; }
+  body[data-role="Dispatcher"] article h2 { font-size: 23px; }
+  body[data-role="Dispatcher"] article p,
+  body[data-role="Dispatcher"] label,
+  body[data-role="Dispatcher"] textarea,
+  body[data-role="Dispatcher"] #status,
+  body[data-role="Dispatcher"] #actions .btn { font-size: 20px; }
+  .panels { display: grid; gap: 14px; margin: 16px 0; }
+  body[data-role="Dispatcher"] .panels { grid-template-columns: 1fr 1fr; }
+  article { min-width: 0; padding: 16px; border-radius: 16px; }
+  article h2 { font-size: 17px; margin: 0 0 8px; }
+  article p, label, textarea { font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; white-space: pre-wrap; }
+  article p { margin: 0; }
+  #status { margin: 12px 0; }
+  textarea { display: block; width: 100%; min-height: 98px; margin-top: 7px; padding: 8px; border: 1px solid #758f89; border-radius: 8px; color: inherit; background: white; }
+  #actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  #actions .btn { white-space: normal; }
+  .screen-picker { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px; }
+  .screen-picker a { color: #07574f; }
+</style>
+<nav class="screen-picker" aria-label="Prototype screens"></nav>
+<div id="frame">
+  <header class="glass-chrome"><strong>Veylo</strong><span id="role"></span></header>
+  <main>
+    <p id="context" class="eyebrow"></p>
+    <h1></h1>
+    <p id="status" class="mobile-reason" role="status"></p>
+    <div class="panels"></div>
+    <div id="actions" aria-label="Actions"></div>
+  </main>
+</div>
+<script type="module">
+const locationName = "Atrium A";
+const entrance = "Use the marked visitor entrance.";
+const guideContent = entrance + "\nFollow signs from the visitor entrance to the reception desk.";
+const note = "Dùng lối vào dành cho khách có biển chỉ dẫn. Đi theo biển đến quầy lễ tân. Giờ lễ tân có thể đã đổi.";
+const source = ["Raw note · RN-016", note];
+const guidance = ["Published guide · v3", guideContent];
+const olderGuide = ["Current publication · v2", "Entrance is listed as the street lobby. Compare the new visitor entrance observation before approval."];
+const draft = ["Editable guide draft", guideContent + "\nReception hours: unverified.", true];
+const submit = ["Field note", note, true];
+const manual = ["Manual draft", "", true];
+const retry = ["Retry save", "S16-07"];
+const search = ["Back to search", "S15-01"];
+const edit = ["Edit draft", "S18-08"];
+const review = ["Review publication", "S18-10"];
+const fallback = ["Draft manually", "S18-07"];
+
+const screens = {
+  "S16-01": ["note-form", "Add a location note", "Avoid personal data and access codes. Notes are saved for dispatcher review.", [submit], [["Save note", "S16-02"]]],
+  "S16-02": ["saved", "Note saved", "One raw note was saved for this location. You can continue your work.", [source], []],
+  "S16-03": ["empty-note", "Enter a note", "Note is required. Enter 1–500 characters.", [["Field note", "", true]], [["Edit note", "S16-01"]]],
+  "S16-04": ["long-note", "Shorten your note", "501 characters entered. Maximum 500 after trimming. Your text is kept.", [["Field note", (note + " ").repeat(10).trim().slice(0, 500) + ".", true]], [["Edit note", "S16-01"]]],
+  "S16-05": ["save-failed", "Could not save note", "Your text is kept. Retry when the connection is available.", [submit], [retry]],
+  "S16-06": ["confirm-missing", "Save confirmation missing", "Retry the same submission. Veylo will check whether the note was already saved.", [submit], [retry]],
+  "S16-07": ["retry-confirmed", "Note saved", "Submission confirmed. There is one saved raw note for this submission.", [source], []],
+
+  "S15-01": ["search", "Location guides", "Demo hub · Off shift", [["Search by location", locationName, true], ["Published result", locationName + " · " + entrance]], [["Open guide", "S15-02"], ["No results example", "S15-03"]]],
+  "S15-02": ["full-guide", locationName, "Published · Demo hub", [guidance], [search]],
+  "S15-03": ["no-results", "No published guides found", "No available guide matches your search in Demo hub.", [["Search by location", "Example building", true]], [search]],
+  "S15-04": ["updated-guide", locationName, "Guide updated. You are viewing the current publication.", [guidance], [search]],
+  "S15-05": ["unavailable", "Guide unavailable", "This guide is unavailable to your account.", [], [search]],
+  "S15-06": ["preview-handoff", "Assigned stop", "UC11 handoff illustration · Demo hub", [["DEMO-201 · D-110 · R-17", locationName], ["Guide preview", entrance]], [["View full guide", "S15-02"]]],
+  "S15-07": ["preview-unavailable", "Assigned stop", "UC11 handoff illustration · Demo hub", [["DEMO-201 · D-110 · R-17", locationName], ["Assigned stops", "DEMO-201 · " + locationName]], []],
+  "S15-08": ["delivery-denied", "Delivery unavailable", "This delivery is unavailable to your account.", [], [search]],
+
+  "S18-01": ["processing", "Guide preparation", "Normalization queued or processing. The raw note has already been saved.", [source, ["Preparation", "Processing Vietnamese source text. You can draft manually now."]], [fallback]],
+  "S18-02": ["compare-source", "Compare guide draft", "Mock AI draft · Unapproved · Reception hours require verification.", [source, draft], [edit, ["Regenerate", "S18-09"], review, ["Reject draft", "S18-11"]]],
+  "S18-03": ["timeout", "Preparation timed out", "20-second timeout reached. Manual queue · raw note preserved.", [source, ["Next action", "Open manual drafting from the original note."]], [fallback]],
+  "S18-04": ["invalid-json", "Draft format invalid", "The response could not be read as a structured draft. Manual queue · raw note preserved.", [source], [fallback]],
+  "S18-05": ["quota", "AI quota unavailable", "AI preparation is unavailable. Manual queue · raw note preserved.", [source], [fallback]],
+  "S18-06": ["mock-mode", "Mock mode", "No live provider is active. The saved raw note is available for manual drafting.", [source], [fallback, ["View scripted draft", "S18-02"]]],
+  "S18-07": ["manual-draft", "Draft manually", "Unapproved · Prepare reusable building guidance from the original note.", [source, manual], [review]],
+  "S18-08": ["edit-draft", "Edit guide draft", "Unapproved · Verify ambiguous details against the raw note before approval.", [source, draft], [review]],
+  "S18-09": ["regeneration", "Regenerate draft", "Preparation in progress · raw note retained. Review the new draft before approval.", [source, draft], [fallback, ["Compare regenerated draft", "S18-02"]]],
+  "S18-10": ["approve", "Confirm publication", "Your approval publishes v3 and supersedes v2.", [olderGuide, ["Proposed publication · v3", guideContent]], [["Approve and publish", "S18-12"], ["Cancel", "S18-08"]]],
+  "S18-11": ["reject", "Reject guide draft", "Provide a reason. The draft will remain unavailable to riders.", [source, ["Rejection reason", "Reception hours could not be confirmed.", true]], [["Confirm rejection", "S18-13"], ["Cancel", "S18-08"]]],
+  "S18-12": ["published", "Guide published", "v3 is current. v2 has been superseded.", [guidance, ["Source retained", "RN-016 remains available in dispatcher review."]], []],
+  "S18-13": ["rejected", "Draft rejected", "The draft is unavailable to riders. The current publication is unchanged.", [source, ["Recorded reason", "Reception hours could not be confirmed."]], []],
+  "S18-14": ["already-reviewed", "Draft already reviewed", "Another dispatcher reviewed this draft. Publication is blocked from this screen.", [source, draft], [["Reload and view recorded outcome", "S18-13"]]],
+  "S18-15": ["guide-conflict", "Publication changed", "The current guide changed during review. Your edits are kept. Reload and compare before publishing.", [source, draft], [["Reload and compare", "S18-10"]]],
+};
+
+const params = new URLSearchParams(location.search);
+const id = Object.hasOwn(screens, params.get("screen")) ? params.get("screen") : "S15-01";
+const [slug, title, status, panels, actions] = screens[id];
+const role = id.startsWith("S18") ? "Dispatcher" : "Rider";
+document.body.dataset.role = role;
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+
+function screenLink(label, target, className) {
+  const link = element("a", label, className);
+  link.href = target.startsWith("delivery-execution-reporting/")
+    ? target
+    : "?screen=" + target + (params.has("standalone") ? "&standalone=1" : "");
+  if (id === "S15-06" && target === "S15-02") link.href += "&from=stop";
+  return link;
+}
+
+const picker = document.querySelector(".screen-picker");
+picker.hidden = params.has("standalone");
+if (picker.hidden) picker.style.display = "none";
+for (const key of Object.keys(screens).sort()) picker.append(screenLink(key, key));
+document.querySelector("#role").textContent = role;
+const context = id.startsWith("S18") || id.startsWith("S16") ? locationName : "Location guidance";
+document.querySelector("#context").textContent = id + " · " + context;
+document.querySelector("h1").textContent = title;
+document.querySelector("#status").textContent = status;
+for (const [label, text, editable] of panels) {
+  const panel = element("article", "", "glass-panel");
+  if (editable) {
+    const field = element("label", label);
+    const input = element("textarea", "");
+    input.value = text;
+    field.append(input);
+    panel.append(field);
+  } else {
+    panel.append(element("h2", label), element("p", text));
+  }
+  document.querySelector(".panels").append(panel);
+}
+const from = params.get("from");
+const uc11Screens = ["S11-02-stop-details", "S11-02-guide-only"];
+const returnQuery = new URLSearchParams({ screen: from, standalone: "1" });
+if (params.get("redispatch") === "1") returnQuery.set("redispatch", "1");
+if (params.get("theme") === "dark") returnQuery.set("theme", "dark");
+const returnTarget = uc11Screens.includes(from)
+  ? "delivery-execution-reporting/index.html?" + returnQuery
+  : from === "stop" ? "S15-06" : undefined;
+const visibleActions = id === "S15-02" && typeof returnTarget === "string"
+  ? [["Back to assigned stop", returnTarget]]
+  : actions;
+visibleActions.forEach(([label, target], index) => {
+  document.querySelector("#actions").append(screenLink(label, target, index ? "btn btn--glass" : "btn btn--primary"));
+});
+
+// ponytail: Scripted states support the PA3 walkthrough. Add live state only in a later runtime change.
+window.prototypeScreens = Object.fromEntries(Object.entries(screens).map(([key, [name]]) => [key, name]));
+</script>
+</html>
