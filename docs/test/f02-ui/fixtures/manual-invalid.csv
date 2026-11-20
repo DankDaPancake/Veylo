@@ -1,0 +1,3 @@
+order_code,recipient_name,recipient_phone,delivery_address,window_start,window_end,weight_kg
+QA-UI-CSV-REJECT-01,Synthetic Recipient C,0900000003,24 Demo Street,2026-11-20 09:00,2026-11-20 10:00,1
+QA-UI-CSV-REJECT-02,Synthetic Recipient D,123,28 Demo Street,2026-11-20 10:00,2026-11-20 11:00,1
