@@ -34,7 +34,7 @@ The prototype SHALL distinguish order completion and success from attempt counts
 #### Scenario: UC19 Main 2 explains distinct metrics [S19-02, S19-08]
 
 - **WHEN** one order has several attempts and another has an unresolved failure
-- **THEN** the order panel shows separate delivered, terminal failure and open categories per distinct order
+- **THEN** the order panel shows separate delivered, terminal failure and open F04/F08 categories per distinct Order, independent of F02 Order status
 - **AND** the attempt panel shows separate attempt counts and rates, with the applicable scope and metric definitions accessible on the prototype
 
 ### Requirement: Show attempt duration and failure causes
@@ -48,7 +48,7 @@ The prototype SHALL show average attempt duration and frequent failure causes wi
 
 ### Requirement: Simulate scoped report cohorts and progress
 
-**Proposed / Pending PR Review (P06).** The draft prototype SHALL apply the date window and event definitions below for order, attempt, and shift progress metrics.
+Under P06, the prototype SHALL apply the date window and event definitions below for order, attempt, and shift progress metrics.
 
 #### Scenario: UC19 Main 1-2 uses distinct reporting windows and attribution [S19-01, S19-02, S19-08]
 
@@ -67,13 +67,13 @@ The prototype SHALL show average attempt duration and frequent failure causes wi
 
 ### Requirement: Simulate order and attempt outcome calculations
 
-**Proposed / Pending PR Review (P06).** The draft prototype SHALL calculate order and attempt rates using the separate cohorts and eligibility rules below.
+Under P06, the prototype SHALL calculate order and attempt rates using the separate cohorts and eligibility rules below.
 
 #### Scenario: UC19 Main 2 counts a retry once per order [S19-02, S19-08]
 
 - **WHEN** Order A fails and succeeds on retry, and Order B fails and remains open, with both orders and all three outcomes in scope
 - **THEN** order success is 1 of 2 orders (50%) and attempt success is 1 of 3 final attempts (33.3%)
-- **AND** order closure is (delivered orders plus terminal failures) divided by scoped distinct orders, and order success is delivered orders divided by those same scoped orders
+- **AND** order closure is (delivered orders plus orders with an F04/F08 terminal failure outcome) divided by scoped distinct orders, and order success is delivered orders divided by those same scoped orders
 - **AND** attempt success is Successful divided by Successful plus Failed, deduplicated by attempt identity
 
 #### Scenario: UC19 A4 and A7 displays incomplete work and zero denominators [S19-06, S19-08]
@@ -85,7 +85,7 @@ The prototype SHALL show average attempt duration and frequent failure causes wi
 
 ### Requirement: Simulate event quality and failure grouping
 
-**Proposed / Pending PR Review (P06).** The draft prototype SHALL show how the attempt duration and failure cause measures handle incomplete, invalid, and tied data.
+Under P06, the prototype SHALL show how the attempt duration and failure cause measures handle incomplete, invalid, and tied data.
 
 #### Scenario: UC19 Main 3 and A6 excludes invalid duration samples [S19-02, S19-06, S19-08]
 

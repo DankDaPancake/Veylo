@@ -2,7 +2,7 @@
 
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
 
-PA3 Section D · [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) · Review draft
+PA3 Section D · [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) · Final F04/F08 documentation
 
 This English specification documents synthetic rider and dispatcher flows. `Order` means the delivery request and its overall outcome. `DeliveryAttempt` means one execution record with its own ID, rider, shift, timestamps and result. Assignment means the order's work placement in a shift. An unsuccessful attempt can leave the order open. Re-dispatch keeps prior attempts and their attribution.
 
@@ -151,7 +151,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 | A10 | FR-04-2/5, P04 | 1, 2 or 4 | Before send, report unsent and allow retry. After send without acknowledgement, report unknown and recover the saved state before trying again. | Matching step after refresh/retry. | [S12-10-action-unsent](#s12-10-action-unsent), [S12-10-result-unknown](#s12-10-result-unknown), [S12-10-result-recovered](#s12-10-result-recovered) |
 | A11 | FR-04-2/5 | 1–4 | Session expired or assignment access revoked. Hide work details and require sign-in or a return to authorized assignments. | End or return to UC11. | [S12-11-sign-in](#s12-11-sign-in), [S12-11-access-denied](#s12-11-access-denied) |
 
-**Postconditions:** One confirmed attempt retains the accepted outcome and timestamps. Failed and Aborted remain separate from Order closure. Validation, cancellation of a form and uncertain acknowledgements do not imply success. **Special requirements:** Synthetic photo proof only. P01–P04 are draft review choices, including 5 MB JPEG/PNG, structured reasons, abort and result recovery.
+**Postconditions:** One confirmed attempt retains the accepted outcome and timestamps. Failed and Aborted remain separate from Order closure. Validation, cancellation of a form and uncertain acknowledgements do not imply success. **Special requirements:** Synthetic photo proof only. P01–P04 govern this walkthrough, including 5 MB JPEG/PNG, structured reasons, abort and result recovery.
 
 **Prototype evidence.** State links open the interactive preview at the corresponding frame. Captures, when available, appear alongside this use case.
 
@@ -329,10 +329,10 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 | --- | --- | --- | --- |
 | 1 | FR-08-1, FR-04-6 | Open permitted shift monitoring and display progress, latest attempt and separate order outcome. | [S13-01-monitoring](#s13-01-monitoring), [S13-01-monitoring-min](#s13-01-monitoring-min) |
 | 2 | FR-04-5/6, AC3 | Open an Order with a failed attempt and inspect the chronological attempt history. Delivered orders are visible in monitoring without a resolution action. | [S13-01-monitoring](#s13-01-monitoring), [S13-02-failed-order-history](#s13-02-failed-order-history) |
-| 3R | FR-04-6, P05 | Choose re-dispatch; present destination shift, rider and F03 eligibility. Inspect and confirm the proposed handoff. | [S13-03-redispatch-confirmation](#s13-03-redispatch-confirmation) |
+| 3R | FR-04-6, P05 | Choose re-dispatch and review the request. The prototype may show a candidate shift and rider for illustration. Confirming the request does not allocate either. | [S13-03-redispatch-confirmation](#s13-03-redispatch-confirmation) |
 | 3T | FR-04-6, P05 | Choose terminal closure, enter a reason and explicitly confirm the decision. | [S13-05-terminal-confirmation](#s13-05-terminal-confirmation) |
-| 4R | FR-04-5/6 | Revalidate and record one re-dispatch decision for the same Order. Keep prior attempts. F03 handles the new assignment and publication. The new rider's UC12 Start creates the next attempt. | [S13-04-redispatch-confirmed](#s13-04-redispatch-confirmed) |
-| 4T | FR-04-5/6, AC3 | Revalidate and record one terminal decision and reason. Close the order while keeping every attempt. | [S13-04-terminal-confirmed](#s13-04-terminal-confirmed) |
+| 4R | FR-04-5/6 | Revalidate the resolution and record one F04/F08 re-dispatch request for the same Order. Preserve prior attempt and assignment history. Hand off the request for a separately approved F03 integration. Recording it creates neither a new assignment nor a new attempt. | [S13-04-redispatch-confirmed](#s13-04-redispatch-confirmed) |
+| 4T | FR-04-5/6, AC3 | Revalidate and record one F04/F08 terminal delivery-resolution outcome and reason. Preserve the Order and every attempt. Its F02 status stays unchanged and the Order is neither cancelled nor deleted by this action. | [S13-04-terminal-confirmed](#s13-04-terminal-confirmed) |
 
 **Alternative flows**
 
@@ -342,14 +342,14 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 | A2 | FR-08-1 | 1 | Monitoring fails to load. Show retry without recording an action. | 1. | [S13-07-load-failed](#s13-07-load-failed) |
 | A3 | FR-04-6 | 1–4 | Expired session or out-of-scope hub/role. Show sign-in or access denied and withhold attempt details. | End or 1 after sign-in. | [S13-08-sign-in](#s13-08-sign-in), [S13-08-access-denied](#s13-08-access-denied) |
 | A4 | FR-04-5/6, P01/P05 | 2 or 3R | Already resolved, active attempt or three distinct Failed attempts. Show recorded decision or lock. At the retry limit, leave the order open and make 3T available. | 1, 2 or 3T as applicable. | [S13-02-already-resolved](#s13-02-already-resolved), [S13-09-active-attempt-lock](#s13-09-active-attempt-lock), [S13-09-retry-limit](#s13-09-retry-limit) |
-| A5 | FR-04-6, P05 | 3R or 3T | No F03-eligible rider/shift, or closure reason is missing. Show the constraint and retain current decision options. | 2 or correct 3T. | [S13-09-no-eligible-destination](#s13-09-no-eligible-destination), [S13-05-terminal-reason-required](#s13-05-terminal-reason-required) |
+| A5 | FR-04-6, P05 | 3R or 3T | The illustrated downstream handoff has no eligible rider or shift, or terminal closure lacks a reason. Show the applicable constraint and retain current decision options. The simulated destination check does not establish F03 eligibility for the failed Order. | 2 or correct 3T. | [S13-09-no-eligible-destination](#s13-09-no-eligible-destination), [S13-05-terminal-reason-required](#s13-05-terminal-reason-required) |
 | A6 | FR-04-6 | 3R or 3T | Dismiss confirmation. No decision, assignment or history changes. | 2. | [S13-09-confirmation-dismissed](#s13-09-confirmation-dismissed) |
 | A7 | FR-04-6, P04 | 4R or 4T | Another dispatcher resolved the failure or the rider started an active attempt before save. Reject the stale action and show the current decision or active lock. | 1 or 2. | [S13-10-concurrent-decision](#s13-10-concurrent-decision), [S13-09-active-attempt-lock](#s13-09-active-attempt-lock) |
 | A8 | FR-04-5/6, P04 | 4R or 4T | An acknowledgement was lost. Refresh the current decision and recover an already saved result without duplicating it. | Matching 4R/4T result or 2 for another review. | [S13-10-result-unknown](#s13-10-result-unknown), [S13-10-result-recovered](#s13-10-result-recovered) |
 
-**Postconditions:** A confirmed action updates the order decision while retaining attempt history. If re-dispatched, the next assignment must satisfy F03. A blocked/dismissed action does not close or reassign the order. **Special requirements:** 1440×900 dispatcher baseline with 1280×720 comparison. Keep F02 terminal vocabulary and F03 readmission for PR review.
+**Postconditions:** A confirmed action records an F04/F08 request or closure outcome and keeps the attempt history. Pending allocation, the request leaves the existing assignment and its history intact. Terminal closure does not change the F02 status. A blocked or dismissed action records no new resolution. **Special requirements:** 1440×900 dispatcher baseline with 1280×720 comparison. See the [Decision Log](#decision-log) for the F02/F03 integration dependencies.
 
-**Prototype evidence.** State links open the interactive preview at the corresponding frame. Captures, when available, appear alongside this use case.
+**Prototype evidence.** The retained review captures and interactive preview are synthetic. The re-dispatch frames illustrate a candidate destination and a hypothetical F03 publication after handoff. They do not demonstrate an allocation by UC13 or eligibility for F03 intake. The closure frames use “closed” as an operational label, with no change to the F02 Order.
 
 <a id="s13-01-monitoring"></a>
 
@@ -505,7 +505,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 | A8 | FR-08-3, P06 | 3 | No failures or no coded reasons. Explain the empty ranking and count missing reasons separately. | 3. | [S19-08-no-failures](#s19-08-no-failures), [S19-08-missing-reasons](#s19-08-missing-reasons) |
 | A9 | FR-08-3, P06 | 3 | Known reasons tie. Keep both with the same numeric count. | 3. | [S19-08-tied-reasons](#s19-08-tied-reasons) |
 
-**Postconditions:** Report results update for the validated scope. Shift, assignment, Order and attempt records are unchanged. **Special requirements:** Display date/time zone and metric definitions without hover; make missing data distinguishable from measured zero. P06 is Proposed / Pending PR Review.
+**Postconditions:** Report results update for the validated scope. Shift, assignment, Order and attempt records are unchanged. **Special requirements:** Display date/time zone and metric definitions without hover; make missing data distinguishable from measured zero. P06 governs the synthetic metrics. Delivered, terminal failure and open are F04/F08 reporting categories independent of F02 status.
 
 **P06 metric definitions.** Range starts at local midnight on the first day and excludes midnight after the last day. Order attribution uses first valid Start and outcome at cutoff. Attempt attribution uses valid outcome time and actual executing shift/rider.
 
@@ -620,24 +620,29 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
 
-Each entry is **Proposed / Pending PR Review**. Confirmer, confirmation date and review evidence are pending. Scenario results demonstrate the draft rules; they do not indicate approval.
+**P01–P06 and the UC13 boundaries below are finalized for the BOOYAH-14 documentation and synthetic walkthrough.** The requester reported in the task conversation that the team approved this scope and authorized archive. The individual approver and decision date were not supplied. [PR #15](https://github.com/DankDaPancake/Veylo/pull/15) records approval and merge of the clean remake. It contains no itemized P01–P06 decision. [Jira BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) is Done without a decision comment.
 
-| ID | Draft decision and rationale | Synthetic example | Affected flows / screens |
+| ID | Final decision and rationale | Synthetic example | Affected flows / screens |
 | --- | --- | --- | --- |
 | P01 | One active attempt per order. Record Started and Arrived separately. Successful, Failed and Aborted describe attempts. Keep the order open on failure. This preserves history and prevents premature closure. | AT-201-01 is resumed rather than duplicated; a Failed attempt leaves DEMO-201 awaiting dispatcher action. | UC12 1–5, A2/A7; UC13 2, A4. S12-02, S12-06, S12-07, S13-02/09. |
 | P02 | Use unreachable, refused, wrong/unlocatable address, unsafe access and Other. Require comment for Other and pre-arrival failure. Permit pre-arrival failure only for address or unsafe access. Preserve active state after form dismissal; explicit abort retains history. | Unsafe access can be saved with a comment and no Arrived event. Exit alone keeps Started/Arrived. | UC12 3F, A3/A6/A7. S12-02, S12-05/07. |
 | P03 | One readable JPEG or PNG up to 5 MB. Preview, replace and retry. Require accepted photo and outcome before success confirmation. | A 1.4 MB synthetic photo is accepted; an oversized file leaves the attempt open. | UC12 3S, A4/A5. S12-04/09. |
 | P04 | Recover lost acknowledgement distinctly from unsent work. Retries converge on one result; revalidate against assignment and concurrent decisions. | If Start was accepted before removal, return an active-attempt lock. If removal happened first, reject the stale Start. | UC12 A1/A2/A9/A10 and UC13 A7/A8. S12-08/10, S13-09/10. |
-| P05 | At most three distinct Failed attempts, excluding Aborted, active and duplicates. A dispatcher may close earlier with reason; at the limit explicit closure is still needed. Keep order identity across re-dispatch. | Three failures disable Re-dispatch while keeping the Order open pending the terminal confirmation. | UC13 3R/3T, A4/A5. S13-03/05/09. |
+| P05 | At most three distinct Failed attempts, excluding Aborted, active and duplicates. A dispatcher may close earlier with reason; at the limit explicit closure is still needed. Keep order identity, attempt history and assignment history across a re-dispatch request. | Three failures disable Re-dispatch while keeping the Order open pending the terminal confirmation. | UC13 3R/3T, A4/A5. S13-03/05/09. |
 | P06 | Scope order cohorts by first valid Start; scope final attempts by executing rider and outcome time. Use a half-open hub-local window and explicit data quality rules. | One delivery across two Order IDs and three final attempts yields 50% order success and 33.3% attempt success. | UC19 1–3 and A3–A9. S19-01/02/05/06/08. |
 
-**Cross-owner decisions:** Reconcile whether F02 can edit or cancel a NEW order after attempt activity, exact future terminal labels, and how F03 admits re-dispatched orders and releases the prior assignment. These questions stay open during this review. After confirmation, update this log, glossary terminology, affected flows, examples and screenshots together.
+| UC13 boundary | Final F04/F08 decision | Downstream integration dependency |
+| --- | --- | --- |
+| 4R · Re-dispatch | A failed attempt can lead to one dispatcher re-dispatch request. The request retains the original Order, delivery attempt and assignment history. | F03 currently selects eligible unassigned same-hub `NEW` orders for new shifts. How a failed Order becomes eligible, how the old placement is handled, and how the new allocation is published require a separately approved F03 integration contract. |
+| 4T · Terminal closure | Record the operational resolution and reason, preserving the Order and its attempt history. The action leaves the existing F02 status intact and performs no cancellation or deletion. | F02 currently defines only `NEW` and `CANCELLED`. Any restriction on editing or cancelling an Order with attempts requires a separately approved F02 integration. This specification makes no claim that the current backend enforces such a restriction. |
+
+These boundaries apply to the BOOYAH-14 documentation. F02 and F03 API behavior and database migrations require their own approvals.
 
 ## Verification and handoff
 
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
 
-[Synthetic metric checks and reproduction](prototypes/delivery-execution-reporting/README.md#verification) · [OpenSpec task status](../../../openspec/changes/booyah-14-delivery-execution-reporting/tasks.md)
+[Synthetic metric checks and reproduction](prototypes/delivery-execution-reporting/README.md#verification) · [OpenSpec task status](../../../openspec/changes/archive/2026-11-20-booyah-14-delivery-execution-reporting/tasks.md)
 
 | Jira criterion | Available evidence and limit |
 | --- | --- |
@@ -645,4 +650,4 @@ Each entry is **Proposed / Pending PR Review**. Confirmer, confirmation date and
 | AC2 | Every documented step or branch points to named screen variants. 77/77 PNGs embedded. Reviewer walkthrough pending. |
 | AC3 | UC12 steps 4–5 and UC13 alternatives keep failed attempts separate from Order closure. Successful orders bypass resolution and the rider has an explicit continuation or end. |
 | AC4 | UC19 defines units, formulas and event inclusion. The interactive report reads synthetic events, and independent arithmetic checks are recorded with the reproduction instructions. |
-| AC5 | Pending human PR review. P01–P06 and F02/F03 interactions remain proposed. No confirmation is recorded. |
+| AC5 | The Decision Log records requester-reported agreement for P01–P06 and the 4R/4T documentation boundaries. PR #15 approval is documented separately. Downstream integration requires separate contracts and approval. |

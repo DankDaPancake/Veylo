@@ -1,6 +1,6 @@
 # Tasks
 
-Trần Lê Hải is the BOOYAH-14 assignee and Nguyễn Thành Trung is the named reviewer in Jira. Estimates below describe task size. Review and confirmation are separate from drafting, and all checkboxes start open. See the [design](design.md), [delivery spec](specs/delivery-execution/spec.md), and [reporting spec](specs/shift-rider-reporting/spec.md).
+Trần Lê Hải is the BOOYAH-14 assignee and Nguyễn Thành Trung is the named reviewer in Jira. Estimates below describe task size. The historical checklist records drafting, verification and review separately. See the [design](design.md), [delivery spec](specs/delivery-execution/spec.md), and [reporting spec](specs/shift-rider-reporting/spec.md).
 
 ## 1. Sources and rule draft
 
@@ -17,7 +17,7 @@ Trần Lê Hải is the BOOYAH-14 assignee and Nguyễn Thành Trung is the name
 
 ## 3. Prototype and numerical checks
 
-Edit `docs/analysis-and-design/use-cases/prototypes/delivery-execution-reporting/index.html` and its adjacent sources. The [working copy README](../../../docs/analysis-and-design/use-cases/prototypes/delivery-execution-reporting/README.md) records the original BOOYAH-25 kit under `docs/draft/3`, exact exporter commands, prerequisites and output paths. Keep `docs/draft` read-only and ignored. The exporter list provides the keys to register for each frame.
+Edit `docs/analysis-and-design/use-cases/prototypes/delivery-execution-reporting/index.html` and its adjacent sources. The [working copy README](../../../../docs/analysis-and-design/use-cases/prototypes/delivery-execution-reporting/README.md) records the original BOOYAH-25 kit under `docs/draft/3`, exact exporter commands, prerequisites and output paths. Keep `docs/draft` read-only and ignored. The exporter list provides the keys to register for each frame.
 
 - [X]  3.1 **Trần Lê Hải · 1.5 h.** Register UC11 screen keys S11-01 through S11-07 and their variants in the working copy using the kit's rider shell, stop cards and touch controls at 360×800. Walk published work, empty and denied states, independent recommendation/guide combinations, and both extension points with fresh synthetic data.
 - [X]  3.2 **Trần Lê Hải · 2 h.** Register UC12 screen keys S12-01 through S12-11 and their variants in the same working copy at 360×800. Reuse rider and field components. Walk success, failure, photo validation/retry, abort, double tap, network loss, stale work, and the repeat-until-empty loop.
@@ -31,3 +31,8 @@ Edit `docs/analysis-and-design/use-cases/prototypes/delivery-execution-reporting
 - [X]  4.1 **Trần Lê Hải · 1.5 h.** Check Jira AC1–AC5 and PA3 Section D against the integrated draft. Record AC1 field completeness, AC2 branch/image mapping, AC3 rider-to-dispatcher walkthrough and AC4 formula evidence. Record AC5 as pending while any scope-affecting decision awaits PR review.
 - [X]  4.2 **Trần Lê Hải · 1 h.** Prepare `docs/analysis-and-design/use-cases/UC-F04-F08-Delivery-Reporting.pdf` from the matching Markdown and prepare the PR review handoff with traceability, actual checks, decisions and limitations. Inspect every PNG and any Mermaid diagram in the PDF. Check the Markdown, prototype source, PNGs, and PDF with `git check-ignore --no-index` and `git ls-files --error-unmatch`, then confirm inclusion in the PR file list at handoff. Append and read back the AI log and verify its index link.
 - [X]  4.3 **Trần Lê Hải · 2 h.** After PR review evidence is available, incorporate decisions and any reviewer feedback. Verify decision rationale, confirmer/date and evidence are recorded for each scope-affecting rule, impacted flow/screens/metrics agree, and regenerate and inspect the final PDF. Record actual reviewer evidence before claiming final AC5 acceptance.
+
+### Completion evidence
+
+- **4.2:** The Markdown, original 77 screenshots and matching PDF were included in [PR #15](https://github.com/DankDaPancake/Veylo/pull/15), which was approved and merged. The PDF was regenerated for the archive decisions while preserving the original screenshot set.
+- **4.3:** The requester reported that the team approved P01–P06 and the UC13 4R/4T documentation boundaries. The [Decision Log](../../../../docs/analysis-and-design/use-cases/UC-F04-F08-Delivery-Reporting.md#decision-log) records their rationale, scope and sources. The task retains its completed status from checklist commit `87861c3`. The original PR approval is separate from the requester-reported decisions. The independent rule-by-rule review record and decision date were not supplied. F02/F03 downstream integration has a separate approval scope.

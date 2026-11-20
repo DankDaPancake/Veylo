@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Show how a rider executes published work and how a dispatcher resolves failed orders while retaining the history of every delivery attempt.
+Specify the BOOYAH-14 F04/F08 documentation and synthetic walkthrough for published rider work, delivery attempts, and dispatcher resolution. The F04/F08 workflow preserves attempt and assignment history. F02 status policy and F03 allocation remain under their respective contracts.
 
 ## ADDED Requirements
 
@@ -77,7 +77,7 @@ The prototype SHALL require photographic POD for a successful attempt and show s
 
 ### Requirement: Record a failed delivery with a reason and comments
 
-The prototype SHALL capture a structured failure reason and provide a comment field. A failed attempt SHALL preserve order history without setting the order's terminal status. Source baseline: FR-04-4, FR-04-5, BOOYAH-14 AC3, UC12.
+The prototype SHALL capture a structured failure reason and provide a comment field. A failed attempt SHALL preserve order history without recording an F04/F08 terminal resolution or changing the F02 Order status. Source baseline: FR-04-4, FR-04-5, BOOYAH-14 AC3, UC12.
 
 #### Scenario: UC12 Main 3F-4 records failure [S12-05, S12-06]
 
@@ -101,18 +101,21 @@ The prototype SHALL return the rider to remaining work after each recorded succe
 
 ### Requirement: Monitor attempt history and resolve failed orders
 
-The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order attempt history, then confirm re-dispatch or a terminal decision for an eligible failed order. Source baseline: FR-04-5, FR-04-6, FR-08-1, UC13.
+The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order attempt history, then record an F04/F08 re-dispatch request or a terminal delivery-resolution outcome for an eligible failed order. Source baseline: FR-04-5, FR-04-6, FR-08-1, UC13.
 
-#### Scenario: UC13 Main 1-4R re-dispatches [S13-01, S13-02, S13-03, S13-04]
+#### Scenario: UC13 Main 1-4R records a re-dispatch request [S13-01, S13-02, S13-03, S13-04]
 
-- **WHEN** the dispatcher confirms re-dispatch for an unresolved failed order with an eligible assignment under the F03 contract
-- **THEN** the same order is shown with its re-dispatch decision and assignment handoff, and its earlier attempt remains visible
-- **AND** the next attempt starts only when the assigned rider starts work
+- **WHEN** the dispatcher confirms re-dispatch for an unresolved failed Order within the retry limit and no attempt is active
+- **THEN** the F04/F08 workflow records one re-dispatch request for the same Order and preserves the earlier delivery attempt and assignment history
+- **AND** the handoff identifies that allocation and reassignment require a separately approved F03 integration contract. Submitting the request neither changes the existing assignment nor makes the failed Order eligible as an unassigned NEW Order
+- **AND** the request creates no new delivery attempt. A later attempt can start only after an eligible assignment is published and a rider starts it
 
 #### Scenario: UC13 Main 1-4T confirms a terminal decision [S13-01, S13-02, S13-05, S13-04]
 
 - **WHEN** the dispatcher confirms a terminal decision for an unresolved failed order
-- **THEN** the order is shown as closed and its attempt history is retained
+- **THEN** the F04/F08 workflow records the terminal delivery-resolution outcome and reason and preserves the Order and its attempt history
+- **AND** the F02 Order status stays unchanged. Terminal resolution neither cancels nor deletes the Order
+- **AND** any post-attempt restriction on F02 edits or cancellation requires a separately approved F02 integration. The current F02 Order states are NEW and CANCELLED
 
 #### Scenario: UC13 A1-A3 empty, unavailable or unauthorized monitoring [S13-06, S13-07, S13-08]
 
@@ -122,17 +125,17 @@ The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order
 
 #### Scenario: UC13 A5-A6 cannot assign or dismisses confirmation [S13-03, S13-05, S13-09]
 
-- **WHEN** no destination shift or rider satisfies F03, or the dispatcher dismisses confirmation
-- **THEN** the prototype explains any assignment constraint and leaves the order awaiting a decision without changing history
+- **WHEN** the simulated downstream handoff has no eligible candidate, or the dispatcher dismisses confirmation
+- **THEN** the prototype explains the applicable constraint or dismissal, leaves resolution options available and preserves history
 
 #### Scenario: UC13 A4 opens a previously resolved order [S13-02, S13-09]
 
-- **WHEN** the dispatcher opens a closed order or one whose latest failure has already been resolved
+- **WHEN** the dispatcher opens an Order with a recorded terminal delivery resolution or an existing re-dispatch request for its latest failure
 - **THEN** the screen shows the recorded outcome or decision and disables another resolution for that failure
 
 ### Requirement: Simulate one active attempt and distinct outcomes
 
-**Proposed / Pending PR Review (P01).** The draft prototype SHALL model at most one active attempt per Order and show separate successful, failed, and aborted attempt outcomes.
+Under P01, the prototype SHALL model at most one active attempt per Order and show separate successful, failed, and aborted attempt outcomes.
 
 #### Scenario: UC12 A2 and UC13 A4 have an existing active attempt [S12-02, S12-08, S13-02, S13-09]
 
@@ -141,7 +144,7 @@ The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order
 
 ### Requirement: Simulate failure rules and cancellation before outcome
 
-**Proposed / Pending PR Review (P02).** The draft prototype SHALL check the proposed reason and comment rules and distinguish closing an outcome form from aborting an attempt.
+Under P02, the prototype SHALL check the reason and comment rules and distinguish closing an outcome form from aborting an attempt.
 
 #### Scenario: UC12 A3 and A6 fail before arrival or omit a required comment [S12-02, S12-05]
 
@@ -156,7 +159,7 @@ The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order
 
 ### Requirement: Simulate photo format and size limits
 
-**Proposed / Pending PR Review (P03).** The draft prototype SHALL accept one readable JPEG or PNG of up to 5 MB and let the rider preview or replace it.
+Under P03, the prototype SHALL accept one readable JPEG or PNG of up to 5 MB and let the rider preview or replace it.
 
 #### Scenario: UC12 A5 rejects unsuitable photo evidence [S12-04, S12-09]
 
@@ -165,7 +168,7 @@ The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order
 
 ### Requirement: Simulate recovery without a duplicate operation
 
-**Proposed / Pending PR Review (P04).** The draft prototype SHALL show repeated actions and lost acknowledgements converging on a single recorded result, and stale actions being rejected before they change work.
+Under P04, the prototype SHALL show repeated actions and lost acknowledgements converging on a single recorded result, and stale actions being rejected before they change work.
 
 #### Scenario: UC12 A2, A9-A10 double taps or loses network [S12-02, S12-03, S12-10]
 
@@ -181,10 +184,10 @@ The prototype SHALL let a Hub Dispatcher see scoped shift progress and per-order
 
 ### Requirement: Simulate a bounded retry policy
 
-**Proposed / Pending PR Review (P05).** The draft prototype SHALL allow at most three recorded Failed attempts per Order and show dispatcher confirmation and reason for terminal closure.
+Under P05, the prototype SHALL allow at most three recorded Failed attempts per Order and show dispatcher confirmation and reason for terminal closure.
 
 #### Scenario: UC13 A4-A5 reaches the limit or closes early [S13-02, S13-05, S13-09]
 
 - **WHEN** three distinct Failed attempts exist for the order, or the dispatcher chooses to close before that limit
-- **THEN** re-dispatch is disabled at the limit with an explanation, and terminal closure still requires explicit confirmation with a reason
+- **THEN** a new re-dispatch request is disabled at the limit with an explanation, and terminal closure still requires explicit confirmation with a reason
 - **AND** Aborted attempts, duplicate actions and active attempts consume no retry slots
