@@ -86,7 +86,7 @@ The local demo password for these accounts is `Veylo-PA3-demo-only!`. Each crede
 
 ## BOOYAH-19 F02 API and database verification
 
-Use a fresh, dedicated PostgreSQL database named `veylo_demo`. The foundation Compose database named `veylo` is not a demo seed target. Configure `DATABASE_URL` in ignored local `.env`, then run from `src`:
+Use a fresh, dedicated PostgreSQL database named `veylo_demo` with database timezone set to UTC before migrating or seeding. On an isolated local cluster, set it with `ALTER DATABASE veylo_demo SET timezone TO 'UTC';` and reconnect. This setting preserves UTC instants in the Prisma PostgreSQL adapter. The application still accepts delivery windows in Ho Chi Minh City local time. The foundation Compose database named `veylo` is not a demo seed target. Configure `DATABASE_URL` in ignored local `.env`, then run from `src`:
 
 ```powershell
 node --env-file=.env node_modules/prisma/build/index.js generate
