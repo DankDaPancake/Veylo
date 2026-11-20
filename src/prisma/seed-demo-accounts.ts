@@ -1,14 +1,11 @@
 import type { PrismaClient } from "../generated/prisma/client";
 import { hashPassword } from "../lib/auth/password.mjs";
+import { validateDatabaseUrl } from "../scripts/validate-db-url.mjs";
 
 export const demoHubKeys = { hubA: "hub-a", hubB: "hub-b" } as const;
 
-export async function seedDemoAccounts(
-  prisma: PrismaClient,
-  hubs: { hubAId: string; hubBId: string },
-  databaseUrl: string,
-) {
-  const url = new URL(databaseUrl);
+export function assertDemoDatabaseUrl(databaseUrl: string) {
+  const url = new URL(validateDatabaseUrl(databaseUrl));
   if (
     process.env.NODE_ENV === "production" ||
     process.env.VEYLO_ENABLE_DEMO_SEED !== "1" ||
@@ -17,6 +14,14 @@ export async function seedDemoAccounts(
   ) {
     throw new Error("Demo seed requires explicit opt-in and the disposable local veylo_demo database");
   }
+}
+
+export async function seedDemoAccounts(
+  prisma: PrismaClient,
+  hubs: { hubAId: string; hubBId: string },
+  databaseUrl: string,
+) {
+  assertDemoDatabaseUrl(databaseUrl);
   const { hubAId, hubBId } = hubs;
   if (!hubAId || !hubBId || hubAId === hubBId) throw new Error("Two distinct demo hub IDs are required");
 

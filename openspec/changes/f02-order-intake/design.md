@@ -1,6 +1,6 @@
 ## Context
 
-BOOYAH-13 applies to the root OpenSpec workspace and the Next.js app under `src`. BOOYAH-20 handed off UC05–UC08, `F02-Business-Rules-Proposal.md` and the CSV samples. Phạm Công Khánh confirmed the rules and model for local work on 19 November 2026, and delegated the remaining implementation details. Trần Lê Hải's independent review is pending. The repository's existing PostgreSQL datasource is model-free.
+BOOYAH-13 applies to the root OpenSpec workspace and the Next.js app under `src`. BOOYAH-20 handed off UC05–UC08, `F02-Business-Rules-Proposal.md` and the CSV samples. Phạm Công Khánh confirmed the rules and model for local work on 19 November 2026, and delegated the remaining implementation details. On 20 November, he confirmed that Thái Kiệt had approved in place of Trần Lê Hải; see the approval record below. The BOOYAH-18 branch now supplies the approved Hub/User and Better Auth models. Order and the shared initial migration remain BOOYAH-19 work.
 
 ## F02 contract
 
@@ -42,4 +42,4 @@ The server guard accepts request headers and returns `{ ok: true, userId, hubId 
 
 Demo account fixtures accept existing, distinct hub IDs from the shared seed. BOOYAH-18 supplies placeholder hub references only. The session is valid for up to eight hours and sign-out revokes it server-side. Public registration is disabled.
 
-Phạm Công Khánh confirmed D-F02-1 through D-F02-8 and the Hub/User/Order model for local work on 19 November. Trần Lê Hải must independently review the contract. Record that approval on Jira or the PR before merging a migration. BOOYAH-18 must supply the guard for combined verification. If the development rehearsal fails, discard only its disposable database. A future rollback on shared data requires a backup and separate authorization.
+Phạm Công Khánh confirmed D-F02-1 through D-F02-8 and the Hub/User/Order model for local work on 19 November. On 20 November, he explicitly confirmed in the conversation that Thái Kiệt had approved in place of Trần Lê Hải. [PR #9](https://github.com/DankDaPancake/Veylo/pull/9) records Kiệt's approval on 19 November; the conversation supplies the reviewer-substitution confirmation. This resolves task 1.1's contract-review prerequisite for local implementation. It does not claim a separate review by Hải or approval of a future migration diff. The migration PR still requires normal human review and passing checks before merge. BOOYAH-18 supplies the guard source; combined runtime verification remains pending. If the development rehearsal fails, discard only its disposable database. A future rollback on shared data requires a backup and separate authorization.
