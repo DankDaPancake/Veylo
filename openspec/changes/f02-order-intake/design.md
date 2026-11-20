@@ -1,6 +1,6 @@
 ## Context
 
-BOOYAH-13 applies to the root OpenSpec workspace and the Next.js app under `src`. BOOYAH-20 handed off UC05–UC08, `F02-Business-Rules-Proposal.md` and the CSV samples. Phạm Công Khánh confirmed the rules and model for local work on 19 November 2026, and delegated the remaining implementation details. Trần Lê Hải's independent review is pending. The repository's existing PostgreSQL datasource is model-free.
+BOOYAH-13 applies to the root OpenSpec workspace and the Next.js app under `src`. BOOYAH-20 handed off UC05–UC08, `F02-Business-Rules-Proposal.md` and the CSV samples. Phạm Công Khánh confirmed the rules and model for local work on 19 November 2026, and delegated the remaining implementation details. On 20 November, he confirmed that Thái Kiệt had approved in place of Trần Lê Hải; see the approval record below. The BOOYAH-18 branch now supplies the approved Hub/User and Better Auth models. Order and the shared initial migration remain BOOYAH-19 work.
 
 ## F02 contract
 
@@ -20,7 +20,7 @@ BOOYAH-13 applies to the root OpenSpec workspace and the Next.js app under `src`
 | Model | Fields and constraints |
 | --- | --- |
 | Hub | Primary key, unique code, display name. Owns order records and supplies Dispatcher hub membership. |
-| User | Primary key, unique normalized login, password hash, role, optional hub association. The signed-off access policy determines which roles require hub membership. BOOYAH-18 confirms the session and credential contract before migration. |
+| User | Primary key, unique normalized email, role, optional hub association. The signed-off access policy determines which roles require hub membership. BOOYAH-18 confirms the session and credential contract before migration. |
 | Order | Primary key, required Hub foreign key, display code, normalized code, recipient contact, address, delivery window, positive finite decimal weight, optional approved metadata, state, cancellation reason, version and timestamps. Unique on hub and normalized code. Index hub, delivery-window start and display code for scoped listing. |
 
 Use an additive initial migration. Review constraints and validate on a disposable PostgreSQL instance, including seed replay and cross-hub fixtures. BOOYAH-19 owns the one shared migration and synthetic orders. BOOYAH-18 owns demo account fixtures using the shared schema and seed entry point. A second hub tests isolation. No schema or seed is applied by this design.
@@ -34,4 +34,12 @@ Use an additive initial migration. Review constraints and validate on a disposab
 
 ## Approval and rollback
 
-Phạm Công Khánh confirmed D-F02-1 through D-F02-8 and the Hub/User/Order model for local work on 19 November. Trần Lê Hải must independently review the contract. Record that approval on Jira or the PR before merging a migration. BOOYAH-18 must supply the guard for combined verification. If the development rehearsal fails, discard only its disposable database. A future rollback on shared data requires a backup and separate authorization.
+### BOOYAH-18 auth contract (19 November)
+
+The user approved the Better Auth Prisma schema. Use normalized email on User, the independently salted scrypt v1 hash on the credential Account, and PostgreSQL-backed Session. Verification is included for adapter compatibility. No User password hash column is introduced. BOOYAH-19 owns the shared migration.
+
+The server guard accepts request headers and returns `{ ok: true, userId, hubId }`, `{ ok: false, status: 401, code: "UNAUTHENTICATED" }`, or `{ ok: false, status: 403, code: "FORBIDDEN" }`. Resolve current role and hub from persisted user data. Keep D-F02-7 unchanged. BOOYAH-19 owns the shared migration.
+
+Demo account fixtures accept existing, distinct hub IDs from the shared seed. BOOYAH-18 supplies placeholder hub references only. The session is valid for up to eight hours and sign-out revokes it server-side. Public registration is disabled.
+
+Phạm Công Khánh confirmed D-F02-1 through D-F02-8 and the Hub/User/Order model for local work on 19 November. On 20 November, he explicitly confirmed in the conversation that Thái Kiệt had approved in place of Trần Lê Hải. [PR #9](https://github.com/DankDaPancake/Veylo/pull/9) records Kiệt's approval on 19 November; the conversation supplies the reviewer-substitution confirmation. This resolves task 1.1's contract-review prerequisite for local implementation. It does not claim a separate review by Hải or approval of a future migration diff. The migration PR still requires normal human review and passing checks before merge. BOOYAH-18 supplies the guard source; combined runtime verification remains pending. If the development rehearsal fails, discard only its disposable database. A future rollback on shared data requires a backup and separate authorization.
