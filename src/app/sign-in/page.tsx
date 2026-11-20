@@ -25,7 +25,8 @@ export default function SignInPage() {
         setError("Sign-in failed. Check your credentials and try again.");
         return;
       }
-      router.replace("/");
+      const next = new URLSearchParams(window.location.search).get("next");
+      router.replace(next === "/orders" ? next : "/");
       router.refresh();
     } catch {
       setError("Sign-in is temporarily unavailable.");
