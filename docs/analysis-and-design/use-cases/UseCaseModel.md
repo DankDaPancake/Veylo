@@ -207,7 +207,7 @@ UC15 ..> : extend UC11
 
 [Rendered PNG](diagrams/D3-rider.png)
 
-Extension guards: EP11-A = rider requests a recommendation for eligible assigned work; EP11-B = rider chooses guidance for a selected delivery. No guide / no eligible stop is handled by the corresponding specification, not by inventing another use case.
+Extension guards: EP11-A = the rider selects **View reason** for the suggestion already shown in UC11; EP11-B = rider chooses guidance for a selected delivery. No guide / no eligible stop is handled by the corresponding specification, not by inventing another use case.
 
 <!-- pagebreak -->
 
@@ -340,7 +340,7 @@ Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh 
 | FR-06-1 / SRC-06-01; V1 §5.1 F06 | Search and read published guides covering entrances, parking and security procedures. **Baseline.** | UC15 |
 | FR-06-2 / SRC-06-02; V1 §5.1 F06; workflow 2 | Submit and persist a raw field observation linked to a location. **Baseline.** | UC16 |
 | FR-06-3 / SRC-06-03; V1 §5.1 F06; workflow 2 | Review source content, edit a draft and explicitly approve or reject it. **Baseline.** | UC18 |
-| FR-06-4 / SRC-06-04; V1 §5.1 F06; workflow 2 | Make only approved published guidance available to authorized riders. **Baseline; audience boundary pending.** | UC11, UC15, UC18 |
+| FR-06-4 / SRC-06-04; V1 §5.1 F06; workflow 2 | Make only approved, published location guidance from the rider's own hub available to authorized riders. **Baseline; hub audience clarified 19 November.** | UC11, UC15, UC18 |
 
 ### F07 coverage
 Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh Đăng and Group 09 (21 November 2026). Edited by: Codex.
