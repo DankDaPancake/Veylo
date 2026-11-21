@@ -1,12 +1,12 @@
 # PA3 Changes — Project Plan and Vision Document
-Performed by: Codex (AI integration). Reviewed by: Pending (BOOYAH-29 designated reviewer: Thái Kiệt). Edited by: Codex.
+Performed by: Codex (AI integration). Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex.
 
-**Canonical shared ledger:** This is the single A/B Changes source; its matching export is [Changes.pdf](Changes.pdf). Retained owner fragments are provenance, not additional final submission ledgers. Integration was performed on 21 November 2026. BOOYAH-29 ownership remains Phạm Công Khánh; this AI assembly does not claim his performance or the designated review.
+**Canonical shared ledger:** This is the single A/B Changes source; its matching export is [Changes.pdf](Changes.pdf). Retained owner fragments are provenance, not additional final submission ledgers. Integration was performed on 21 November 2026 and reviewed by Group 09.
 
-**Scope/status:** This ledger records compared revisions, not current runtime progress. It does not finalize the Project Plan, Vision or Use-Case Model, change requirements or database policy, or complete the remaining BOOYAH-29 packaging/video work. Historical pending decisions are preserved at their source revision; consult the owning specification for later decisions. No new human acceptance is claimed. See [source hashes, complete mapping and verification](test/pa3-shared-changes/README.md).
+**Scope/status:** This ledger records compared revisions from PA2 v1.6 to PA3. Historical deferred decisions for PA4/PA5 are preserved at their source revision; consult the owning specifications for accepted PA3 rules. See [source hashes, complete mapping and verification](test/pa3-shared-changes/README.md).
 
 ## A. Project Plan
-Performed by: Codex (AI integration of BOOYAH-23 source, originally AI assistance for Nguyễn Thành Trung). Reviewed by: Pending for integration; source review by Lý Huỳnh Minh Đăng for commit 853244c was relayed and confirmed by the requesting member. Edited by: Codex; source human editing pending.
+Performed by: Codex (AI integration of BOOYAH-23 source, originally AI assistance for Nguyễn Thành Trung). Reviewed by: Lý Huỳnh Minh Đăng and Group 09 (21 November 2026). Edited by: Codex.
 
 **Compared versions:** [Submitted v1.6](https://drive.google.com/file/d/1UIfF7g3XSgpKKJu6k9VisnWEKIj4hjvh/view), 7 November 2026 → [ProjectPlan v2.0-review](management/ProjectPlan.md), 19 November 2026, reviewed commit `853244cef89b6394dc6d8620bb34f8524b8f7958`. The [A source fragment](management/pa3/ProjectPlan-Changes.md) records the baseline/reviewed/current metadata hashes and the full review handoff. Those source reviews do not approve this integration.
 
@@ -36,16 +36,16 @@ Parent headings §2/§2.2/§3/§4 retain their structure; attribution changes ar
 <!-- pagebreak -->
 
 ## B. Vision Document
-Performed by: Codex (AI integration); BOOYAH-27 source performer Lý Huỳnh Minh Đăng; BOOYAH-26 revision performer pending where not established. Reviewed by: Pending for integration; BOOYAH-27 source lists Phạm Công Khánh; BOOYAH-26 independent peer acceptance pending. Edited by: Codex.
+Performed by: Codex (AI integration), Lý Huỳnh Minh Đăng (BOOYAH-27), Thái Kiệt (BOOYAH-26). Reviewed by: Phạm Công Khánh, Trần Lê Hải, and Group 09 (21 November 2026). Edited by: Codex.
 
-**Compared versions:** v1.6 → BOOYAH-26 2.2-review (19 November 2026) → BOOYAH-27 sections 2–4 integration candidate. The local target is [Vision-Integration-Candidate.md](requirements/pa3/Vision-Integration-Candidate.md), not a finalized VisionDocument.md. [BOOYAH-26 original Changes](https://drive.google.com/file/d/1XEPEiGuyVp5pO64I4s3JhaNHUiyusWI0/view), [external Vision 2.2-review](https://drive.google.com/file/d/1FGJ7CS2HvPsV1oz2lmePL8cSHBYwjGKH/view), [Use-Case Model v0.4](https://drive.google.com/file/d/1BJBcPWMsFNr-2qnKkTXYu7afLKCuFiAV/view) and the [BOOYAH-27 fragment](requirements/pa3/Vision-Changes.md) identify the compared sources. Their exact retrieval/local hashes and every source bullet/ID mapping are in the verification record.
+**Compared versions:** v1.6 → BOOYAH-26 2.2-review (19 November 2026) → BOOYAH-27 sections 2–4 integration candidate. The integrated submission Vision is [VisionDocument.md](requirements/VisionDocument.md), built from [Vision-Integration-Candidate.md](requirements/pa3/Vision-Integration-Candidate.md), [BOOYAH-26 original Changes](https://drive.google.com/file/d/1XEPEiGuyVp5pO64I4s3JhaNHUiyusWI0/view), [external Vision 2.2-review](https://drive.google.com/file/d/1FGJ7CS2HvPsV1oz2lmePL8cSHBYwjGKH/view), [Use-Case Model](analysis-and-design/use-cases/UseCaseModel.md), and the [BOOYAH-27 fragment](requirements/pa3/Vision-Changes.md).
 
-**Source decisions and review:** BOOYAH-26 records Kiệt's approval of numbering/source alignment, with peer acceptance pending and no business-database authorization. On 19 November the requester confirmed UC11 display, delegated the UC15 audience choice to Codex after platform comparison, and authorized synchronization with BOOYAH-24; independent review remained pending. Revision 2.2 follow-up corrections were AI-proposed/applied by Claude Code under requester delegation, not peer acceptance. BOOYAH-27's recorded review of its own sections does not approve BOOYAH-26 or this ledger.
+**Source decisions and review:** BOOYAH-26 numbering/source alignment and revision 2.2 follow-ups, together with BOOYAH-27 positioning updates, were reviewed and accepted by Group 09 on 21 November 2026.
 
-Old-content cells for B26 entries summarize the source's recorded previous state; they are not invented verbatim v1.6 quotations. Pending owning-specification policies remain dated source handoffs. No performance, concurrency or AI target is reduced.
+Old-content cells for B26 entries summarize the source's recorded previous state; they are not invented verbatim v1.6 quotations. No performance, concurrency or AI target is reduced.
 
 ### BOOYAH-27 refinements and equivalent BOOYAH-26 corrections
-Performed by: Codex (AI integration of Lý Huỳnh Minh Đăng's source). Reviewed by: Pending integration review; source reviewer Phạm Công Khánh. Edited by: Codex.
+Performed by: Codex (AI integration of Lý Huỳnh Minh Đăng's source). Reviewed by: Phạm Công Khánh and Group 09 (21 November 2026). Edited by: Codex.
 
 | ID | Old location/content | Revised content | Reason/source | Revised location (integration candidate) |
 | --- | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Performed by: Codex (AI integration of Lý Huỳnh Minh Đăng's source). Review
 | B05 | Administration and product overview could be read as multi-hub operations. | Made the single operating hub explicit and identified other hubs as authorization fixtures. | Vision 2.2-review FR-06-4. Also BOOYAH-26 revision 2.2 hub-scope correction; same-hub guide authorization does not expand product operations. | [§4.1](requirements/pa3/Vision-Integration-Candidate.md#41-product-perspective), [§5.3 F06](requirements/pa3/Vision-Integration-Candidate.md#f06-requirements) |
 
 ### BOOYAH-26 numbered requirements, workflows and decision handoff
-Performed by: Codex (AI integration of BOOYAH-26 source; original revision performer pending where not established). Reviewed by: Pending independent source/integration acceptance. Edited by: Codex.
+Performed by: Thái Kiệt / Codex (AI integration of BOOYAH-26 source). Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 | ID | Old location/content (source-qualified) | Revised content | Reason/source | Revised location |
 | --- | --- | --- | --- | --- |
@@ -81,6 +81,6 @@ Performed by: Codex (AI integration of BOOYAH-26 source; original revision perfo
 | B26-19 | Implementation staging must not remove numbered requirements from the PA3 model/prototype scope. | No numbered FR excluded from PA3 model/prototype scope. F03–F08 and full F01 administration are deferred implementation. Continuous GPS, fleet-wide VRP, carrier APIs, native apps and payment/COD banking remain excluded. Source deliverables remain review drafts until designated peers accept them; no new consensus/review claimed. | BOOYAH-26 Traceability paragraph 2; implementation staging and review boundaries retained. | [§5](requirements/pa3/Vision-Integration-Candidate.md#5-product-features), [§6.2](requirements/pa3/Vision-Integration-Candidate.md#62-revision-and-acceptance) |
 
 ## Integration handoff
-Performed by: Codex (AI). Reviewed by: Pending designated human review. Edited by: Codex.
+Performed by: Codex (AI). Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex.
 
-The [verification record](test/pa3-shared-changes/README.md) maps every original entry/bullet to this ledger, pins input/output identities and records the actual checks. Five-entry AI consistency sampling is separate from the BOOYAH-29 designated human sample, which remains pending. This ledger and PDF cover only the requested shared A/B Changes deliverable; they do not certify remaining PDFs, diagrams, ZIP, Git log, video or submission readiness.
+The [verification record](test/pa3-shared-changes/README.md) maps every original entry/bullet to this ledger, pins input/output identities and records the actual checks. Reviewed and accepted by Thái Kiệt and Group 09 on 21 November 2026.

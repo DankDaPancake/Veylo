@@ -270,3 +270,42 @@ Performed by Antigravity for Phạm Công Khánh. AI investigation, surgical pat
 - Human validation (pending unless performed): Human code review and acceptance remain pending.
 - Requirements/database or other approvals (if applicable): Restores database-safe input validation, credential-safe error reporting, and bounded CSV parsing without changing functional requirements, schema, or migrations.
 - Outcome, limitations, and remaining work: All three P2 audit issues are fixed and verified locally with unit tests, seed/CSV probes, lint, typecheck, production build, real HTTP/PostgreSQL integration tests, and strict OpenSpec checks. No archive, commit, push, merge, or Jira update was performed. Read this entry back, checked the `PA3/Cee-Ka.md` index link, and verified `git diff --check` after logging.
+
+## 2026-11-21 — Complete remaining PA3 Sections A, B, and C deliverables on task branch `docs/pa3-complete-deliverables`
+
+Performed by Antigravity for Phạm Công Khánh. AI assembly, PDF export, and verification; human review pending. Edited by Antigravity.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): Antigravity (Gemini 4 Neon Medium); `export-pdf.py` (markdown-it-py + WeasyPrint), headless Chrome + Mermaid 11, `pdfinfo`, `pdftoppm`, `pdfimages`, `npm`.
+- Request/prompt reference and purpose: User confirmed PR #22 merged into `dev` and demo completed, and requested auditing `dev` against `.local/Docs/PA3/PA3-2026.pdf` and completing all remaining missing/defective PA3 requirements (leaving Section F report and ZIP packaging for later).
+- AI-generated work / AI review:
+  - Audited `dev` (`fe75b26`, including commit `4c30887` which added `docs/Changes.md/.pdf` and `UC-F01-Access.md/.pdf`) against `PA3-2026.pdf` and visually checked sample pages of the newly added `docs/Changes.pdf` and `UC-F01-Access.pdf`.
+  - Verified `src/` on `dev`: `npm test` (32/32), `npm run lint`, `npm run typecheck`, `npm run build` (10/10 static pages), and `npm run spec:validate` all passed.
+  - Created local task branch `docs/pa3-complete-deliverables` from `dev` (no push/merge) and completed the remaining missing Section A, B, and C deliverables:
+    1. Exported `docs/management/ProjectPlan.pdf` (11 pages) from `docs/management/ProjectPlan.md` via `export-pdf.py` and visually inspected pages 1 and 8.
+    2. Rendered 2x high-resolution single-page PNGs (`docs/requirements/diagrams/workflow-1.png` and `workflow-2.png`) from the two Mermaid workflow blocks in `Vision-Integration-Candidate.md`, assembled `docs/requirements/VisionDocument.md` (fixing relative link and replacing raw Pandoc YAML frontmatter with a clean Markdown title/attribution block), exported `docs/requirements/VisionDocument.pdf` (16 pages), and visually verified pages 1, 7, and 8 (no raw YAML, no node slicing, no connector-over-label overlap).
+    3. Copied BOOYAH-24 `UseCaseModel.md` and `UseCaseModel.pdf` (17 pages, 5/5 Mermaid diagrams previously verified PASS) from `.local/Docs/PA3/` into `docs/analysis-and-design/use-cases/`.
+    4. Updated `docs/README.md` to index all PA3 Section A, B, C, and D deliverables.
+- Affected files: `docs/management/ProjectPlan.pdf`, `docs/requirements/VisionDocument.md`, `docs/requirements/VisionDocument.pdf`, `docs/requirements/diagrams/workflow-1.png`, `docs/requirements/diagrams/workflow-2.png`, `docs/analysis-and-design/use-cases/UseCaseModel.md`, `docs/analysis-and-design/use-cases/UseCaseModel.pdf`, `docs/README.md`, and `docs/ai-log/PA3/Cee-Ka.md`.
+- Commands/checks and actual results: `npm test` (32/32 pass), `npm run lint` (pass), `npm run typecheck` (pass), `npm run build` (pass), `npm run spec:validate` (pass), `export-pdf.py` on `ProjectPlan.md` and `VisionDocument.md` (pass), visual PNG inspection of `Changes.pdf`, `UC-F01-Access.pdf`, `ProjectPlan.pdf`, and `VisionDocument.pdf` (pass). Final `git diff --check` and link verification recorded below.
+- Human validation (pending unless performed): Pending peer review and PR merge into `dev`.
+- Requirements/database or other approvals (if applicable): No functional requirement, business rule, or database schema changed; only assembled/exported existing approved PA3 documents.
+- Outcome, limitations, and remaining work: Sections A, B, C, D, and E (source/OpenSpec) are now complete with matching `.md` and `.pdf` pairs on local branch `docs/pa3-complete-deliverables`. Remaining work per user scope: commit/PR this branch to `dev`, complete Section F (Weekly Report & AI Usage Report), and assemble `PA3-Group09.zip` with fresh `GitLog` and YouTube demo link.
+
+## 2026-11-21 — Redraw Vision `workflow-1` and `workflow-2` using `diagram-design`
+
+Performed by Antigravity for Phạm Công Khánh. AI diagram authoring and automated geometry/self-checks passed; visual PNG export blocked by missing Python Playwright. Edited by Antigravity.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): Antigravity (Gemini 4 Hydrogen High); `diagram-design` `scripts/mermaid_extract.py`, `scripts/self_check.py`, `scripts/verify_geometry.py`.
+- Request/prompt reference and purpose: `/diagram-design vẽ lại docs/requirements/diagrams/workflow-1.png và workflow-2 sao cho dễ nhìn đi`, followed by user confirmation `1 e, 2 balance` (default editorial skin, `balanced` detail level).
+- AI-generated work / AI review:
+  - Read `diagram-design` `SKILL.md` and references (`style-guide.md`, `profiles.md`, `onboarding.md`, `type-flowchart.md`, `type-swimlane.md`, `primitives-core.md`, `output-spec.md`, `layout-budget.md`, `import-mermaid.md`, `export.md`).
+  - Redrew both workflows as horizontal 3-lane Swimlane diagrams (`doc-wide` `1280×720`, `balanced` detail, `mixed` audience, default editorial skin `#f5f5f5` / `#2d3142` / `#bf4520`) in `docs/requirements/diagrams/workflow-1.html` and `docs/requirements/diagrams/workflow-2.html`.
+  - Fixed a detected 12px mask-to-node overlap on `NEXT STOP` in `workflow-1.html`, then re-verified both files with `self_check.py` and `verify_geometry.py`.
+  - Checked Python Playwright (`python3 -c "import playwright"` -> `ModuleNotFoundError`) and halted PNG export per `export.md` without auto-installing dependencies.
+- Affected files: `docs/requirements/diagrams/workflow-1.html`, `docs/requirements/diagrams/workflow-1.svg`, `docs/requirements/diagrams/workflow-2.html`, `docs/requirements/diagrams/workflow-2.svg`, `docs/requirements/VisionDocument.md`, `docs/requirements/VisionDocument.pdf` (removed obsolete Mermaid `workflow-1.png` and `workflow-2.png`), and `docs/ai-log/PA3/Cee-Ka.md`.
+- Commands/checks and actual results: `self_check.py` (`OK` on both HTML files), `verify_geometry.py` (`Summary: 1 file(s) checked, 0 finding(s)` on both HTML files), `export_svg.py` (exported standalone `workflow-1.svg` and `workflow-2.svg`), `export-pdf.py docs/requirements/VisionDocument.md` (16 pages), `pdftoppm -png -r 120 -f 6 -l 9` + visual inspection of rendered PDF pages 6–8 (both SVGs crisp, full-width, zero clipping/overlap), and `git diff --check` passed.
+- Human validation (pending unless performed): User confirmed option `2` (SVG export + embed into `VisionDocument.pdf`); peer review pending.
+- Requirements/database or other approvals (if applicable): Default skin `(e)` and `balanced` detail confirmed by user; no requirement, schema, or database change.
+- Outcome, limitations, and remaining work: Completed both `diagram-design` Swimlane HTML/SVG diagrams and integrated them cleanly into `VisionDocument.md` and `VisionDocument.pdf`. PNG rasterization remains skipped due to missing Python `playwright` (not needed for `VisionDocument.pdf` because WeasyPrint renders the vector SVGs directly).

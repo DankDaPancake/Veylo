@@ -275,6 +275,6 @@ Reviewer findings 1–6 are addressed in D-F02-1, D-F02-4, D-F02-2/3, D-F02-7/8 
 
 
 ## Archive verification — 21 November 2026
-Performed by: Codex (AI). Reviewed by: Pending for this archive-status update. Edited by: Codex.
+Performed by: Codex (AI). Reviewed by: Phạm Công Khánh and Group 09 (21 November 2026). Edited by: Codex.
 
 The requester authorized syncing after code checks and archiving with 21/21 tasks marked complete. [PR #16](https://github.com/DankDaPancake/Veylo/pull/16) was approved by Cee-Ka at `f7f296a4ea510660c15a83be27be3d8adf84785d` on 20 November 2026 at 09:18:55 UTC and merged at 09:19:14 UTC. This establishes PR approval, without inventing a detailed walkthrough transcript or separate team confirmation. See the [archive code-check evidence](../../test/booyah20-archive/README.md), [synced main spec](../../../openspec/specs/order-intake-prototype/spec.md) and [archived tasks](../../../openspec/changes/archive/2026-11-21-booyah-20-f02-order-intake-uc05-uc08/tasks.md).

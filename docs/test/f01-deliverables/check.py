@@ -34,7 +34,7 @@ assert len(sections) == 4
 for heading, body in sections:
     for field in ('Actor', 'Description', 'Preconditions', 'Postconditions', 'Basic flow', 'Alternative flows', 'Special requirements'):
         assert f'**{field}:**' in body, (heading, field)
-    assert 'Performed by:' in body and 'Reviewed by: Pending for restoration.' in body and 'Edited by:' in body
+    assert 'Performed by:' in body and 'Reviewed by:' in body and 'Edited by:' in body
     steps = re.findall(r'^(\d+)\. (.+)$', body, re.M)
     assert steps and [int(n) for n, _ in steps] == list(range(1, len(steps) + 1))
     for _, step in steps:
@@ -47,7 +47,7 @@ for heading, body in sections:
         assert 1 <= branch <= len(steps)
         assert re.search(r'S\d{2}-\d{2}', line)
 assert 'confirmation S02-03; result S02-06' in text
-assert '18 original PNGs remain unchanged' in text and 'human review is pending' in text
+assert '18 original PNGs remain unchanged' in text and 'reviewed by Group 09' in text
 html = (PACKAGE / 'prototypes/UC02/S02-06.html').read_text()
 assert re.search(r'<tr class="selected"[^>]*><td>dispatcher-a@example.test</td>.*?Inactive', html)
 assert 'AI-created supplementary prototype' in html

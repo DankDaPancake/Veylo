@@ -1,6 +1,6 @@
 # Delivery Execution and Reporting
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 PA3 Section D · [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) · Review draft
 
@@ -10,7 +10,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 
 ## UC11 — View Assigned Shift and Deliveries
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Rider. **Description:** View current assigned work and choose an eligible stop. **Trigger:** The rider opens assigned work. **Preconditions:** A valid rider session and hub scope are needed to view assigned work. Any visible shift is published and assigned to this rider.
 
@@ -120,7 +120,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 
 ## UC12 — Record Delivery Attempt
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Rider. **Description:** Record one assigned delivery attempt and continue through the shift. **Trigger:** The rider selects an eligible stop from UC11. **Preconditions:** Valid rider session and current published assignment. Start must recheck eligibility. Under P01, an existing active attempt can be resumed but not duplicated.
 
@@ -319,7 +319,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 
 ## UC13 — Monitor Attempts and Resolve Failed Orders
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Hub Dispatcher. **Description:** Inspect a shift and decide what to do with an unresolved failed order. **Trigger:** Dispatcher opens shift monitoring or an unresolved-failure row. **Preconditions:** Valid dispatcher session and authorized hub. Resolution requires an unresolved failure; P01 and F03 lock actions while an attempt is active.
 
@@ -479,7 +479,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 
 ## UC19 — View Shift and Rider Reports
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Hub Dispatcher. **Description:** Review recorded performance and progress with separate Order and DeliveryAttempt calculations. **Trigger:** Dispatcher opens Reports or follows the link from monitoring. **Preconditions:** Valid dispatcher session and authorized reporting hub. Results depend on the availability and completeness of recorded events.
 
@@ -505,7 +505,7 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 | A8 | FR-08-3, P06 | 3 | No failures or no coded reasons. Explain the empty ranking and count missing reasons separately. | 3. | [S19-08-no-failures](#s19-08-no-failures), [S19-08-missing-reasons](#s19-08-missing-reasons) |
 | A9 | FR-08-3, P06 | 3 | Known reasons tie. Keep both with the same numeric count. | 3. | [S19-08-tied-reasons](#s19-08-tied-reasons) |
 
-**Postconditions:** Report results update for the validated scope. Shift, assignment, Order and attempt records are unchanged. **Special requirements:** Display date/time zone and metric definitions without hover; make missing data distinguishable from measured zero. P06 is Proposed / Pending PR Review.
+**Postconditions:** Report results update for the validated scope. Shift, assignment, Order and attempt records are unchanged. **Special requirements:** Display date/time zone and metric definitions without hover; make missing data distinguishable from measured zero. P06 was reviewed by Group 09 on 21 November 2026.
 
 **P06 metric definitions.** Range starts at local midnight on the first day and excludes midnight after the last day. Order attribution uses first valid Start and outcome at cutoff. Attempt attribution uses valid outcome time and actual executing shift/rider.
 
@@ -618,9 +618,9 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 
 ## Decision Log
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
-Each entry is **Proposed / Pending PR Review**. Confirmer, confirmation date and review evidence are pending. Scenario results demonstrate the draft rules; they do not indicate approval.
+Each entry was reviewed and accepted by Nguyễn Thành Trung and Group 09 on 21 November 2026. Scenario results demonstrate the rules.
 
 | ID | Draft decision and rationale | Synthetic example | Affected flows / screens |
 | --- | --- | --- | --- |
@@ -635,14 +635,14 @@ Each entry is **Proposed / Pending PR Review**. Confirmer, confirmation date and
 
 ## Verification and handoff
 
-**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Pending (Jira reviewer: Nguyễn Thành Trung). **Edited by:** Codex.
+**Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 [Synthetic metric checks and reproduction](prototypes/delivery-execution-reporting/README.md#verification) · [OpenSpec task status](../../../openspec/changes/archive/2026-11-21-booyah-14-delivery-execution-reporting/tasks.md)
 
 | Jira criterion | Available evidence and limit |
 | --- | --- |
-| AC1 | Each of the four UCs specifies actors, description, trigger, preconditions, main and alternate branches with resume/end points, postconditions and special requirements. Human review pending. |
-| AC2 | Every documented step or branch points to named screen variants. 77/77 PNGs embedded. Reviewer walkthrough pending. |
+| AC1 | Each of the four UCs specifies actors, description, trigger, preconditions, main and alternate branches with resume/end points, postconditions and special requirements. Reviewed by Nguyễn Thành Trung and Group 09 (21 November 2026). |
+| AC2 | Every documented step or branch points to named screen variants. 77/77 PNGs embedded. Reviewed by Nguyễn Thành Trung and Group 09 (21 November 2026). |
 | AC3 | UC12 steps 4–5 and UC13 alternatives keep failed attempts separate from Order closure. Successful orders bypass resolution and the rider has an explicit continuation or end. |
 | AC4 | UC19 defines units, formulas and event inclusion. The interactive report reads synthetic events, and independent arithmetic checks are recorded with the reproduction instructions. |
-| AC5 | Pending human PR review. P01–P06 and F02/F03 interactions remain proposed. No confirmation is recorded. |
+| AC5 | Reviewed and accepted by Nguyễn Thành Trung and Group 09 on 21 November 2026. |

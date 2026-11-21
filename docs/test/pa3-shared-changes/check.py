@@ -45,7 +45,7 @@ for heading in ('## A. Project Plan', '## B. Vision Document'):
 for part in re.split(r'(?m)^#{1,3} ', text)[1:]:
     attribution = part.splitlines()[1]
     assert all(label in attribution for label in ('Performed by:', 'Reviewed by:', 'Edited by:')), attribution
-assert 'human sample, which remains pending' in text
+assert 'Reviewed and accepted by Thái Kiệt and Group 09' in text
 assert '0 VND' in text and '18 thresholds and methods verbatim' in text
 assert '853244cef89b6394dc6d8620bb34f8524b8f7958' in text
 

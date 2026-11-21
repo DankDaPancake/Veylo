@@ -17,7 +17,7 @@ Hashes before adding canonical pointers (input identity):
 | BOOYAH-26 Changes 2.2-review | `d886614026d381df58108add8c837a301fd8466e7869e62d4b77635f33d2fd61` |
 | BOOYAH-23 A fragment | `bdb8db7fccd71a3545423c3386bc28d9d0fa01de3103adb451b6d084c99e9139` |
 | BOOYAH-27 B fragment | `1969d5841f88ba6a88ae0ed9794857607e81b82b3a999f5f750ba400101f3a0c` |
-| Compared ProjectPlan | `6adbeef62ab7891d1d060b046ad72cf92931bc92bf67b093edfed3a90a0fee97` |
+| Compared ProjectPlan | `ce2c40835820b28c1600431795890939d0f581f83f93174cb73f418a34fd7a7b` |
 | Compared Vision candidate | `67e870b1c29d4b040f0a3cb8bc1a46da049911493688940a760173641489daf1` |
 
 ## Complete source-to-ledger mapping
@@ -90,8 +90,8 @@ WeasyPrint 70.0 produced 11 A4 pages. An initial render left a source-review not
 
 | Final output | SHA-256 |
 | --- | --- |
-| docs/Changes.md | `f96340f121545113e7ae6526c4baf93cb276beb638678f2c5fb40ae4bbe267a6` |
-| docs/Changes.pdf | `16b27b096b1123ae2a78156dd76d66728ecda298d9b1833234fd79f1a8ab5c86` |
+| docs/Changes.md | `4a44302dd16652ac7241acff4bbc7e990d82c35516395062ff02f0cc5bcf7fb0` |
+| docs/Changes.pdf | `e014887678685b6afb61134b553dd939e8efda80b0cafd16c43c2d1800476d01` |
 
 ## AI consistency sample and handoff
 

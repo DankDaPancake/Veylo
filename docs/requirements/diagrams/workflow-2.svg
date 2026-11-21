@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="workflow-2-title workflow-2-desc" id="workflow-2-root">
+        <title id="workflow-2-title">AI-Assisted Location Knowledge Management</title>
+        <desc id="workflow-2-desc">Swimlane workflow showing a rider submitting a raw location note, the system running AI normalization with manual fallback, and the dispatcher reviewing before publishing a micro-guide.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #workflow-2-root { --color-paper:   #f5f5f5;
+      --color-ink:     #2d3142;
+      --color-muted:   #4f5d75;
+      --color-accent:  #bf4520;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace; }
+      #workflow-2-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #workflow-2-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#workflow-2-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="workflow-2-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="workflow-2-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="workflow-2-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+        </defs>
+
+        <!-- Background -->
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- Lane structure (3 horizontal lanes) -->
+        <line x1="40" y1="64" x2="1240" y2="64" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <line x1="40" y1="224" x2="1240" y2="224" stroke="#2d3142" stroke-width="1" stroke-opacity="0.12"/>
+        <line x1="40" y1="424" x2="1240" y2="424" stroke="#2d3142" stroke-width="1" stroke-opacity="0.12"/>
+        <line x1="40" y1="600" x2="1240" y2="600" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <line x1="144" y1="64" x2="144" y2="600" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+
+        <!-- Lane labels -->
+        <text x="56" y="148" fill="#4f5d75" font-size="8" font-weight="500" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">RIDER</text>
+        <text x="56" y="328" fill="#4f5d75" font-size="8" font-weight="500" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">SYSTEM</text>
+        <text x="56" y="512" fill="#4f5d75" font-size="8" font-weight="500" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">DISPATCHER</text>
+
+        <!-- Connectors (drawn before boxes) -->
+        <!-- 1. Submit Raw Note -> Persist Raw Note (SUBMIT) -->
+        <line x1="236" y1="176" x2="236" y2="304" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 2. Persist Raw Note -> AI Normalization (TRIGGER AI) -->
+        <line x1="316" y1="332" x2="368" y2="332" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 3. AI Normalization -> Save AI Draft (AI OK) -->
+        <line x1="520" y1="332" x2="572" y2="332" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 4. AI Normalization -> Manual Queue (NO / TIMEOUT fallback) -->
+        <path d="M 444,304 V 268 Q 444,260 452,260 H 840 Q 848,260 848,268 V 304" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 5. Save AI Draft -> Compare & Review (UNAPPROVED) -->
+        <line x1="648" y1="360" x2="648" y2="472" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 6. Manual Queue -> Compare & Review (RAW NOTE) -->
+        <line x1="848" y1="360" x2="848" y2="472" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 7. Compare & Review self-loop (EDIT) -->
+        <path d="M 784,528 V 556 Q 784,564 776,564 H 704 Q 696,564 696,556 V 528" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 8. Compare & Review -> Reject & Archive (REJECT) -->
+        <line x1="588" y1="500" x2="516" y2="500" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 9. Compare & Review -> Publish Micro-Guide (APPROVE - coral focal) -->
+        <path d="M 888,500 H 1136 Q 1144,500 1144,492 V 360" fill="none" stroke="#bf4520" stroke-width="1.4" marker-end="url(#workflow-2-arrow-accent)"/>
+
+        <!-- 10. Publish Micro-Guide -> View Published Guide (PUBLISHED) -->
+        <line x1="1144" y1="304" x2="1144" y2="176" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- 11. View Published Guide -> Submit Raw Note (NEW UPDATE feedback loop) -->
+        <line x1="1056" y1="148" x2="316" y2="148" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#workflow-2-arrow)"/>
+
+        <!-- Arrow labels (opaque mask with >=6px clearance from stroke) -->
+        <rect x="244" y="252" width="48" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="268" y="261" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">SUBMIT</text>
+
+        <rect x="320" y="312" width="44" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="342" y="321" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">RUN AI</text>
+
+        <rect x="524" y="312" width="44" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="546" y="321" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">AI OK</text>
+
+        <rect x="604" y="240" width="88" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="648" y="249" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">NO / TIMEOUT</text>
+
+        <rect x="656" y="388" width="76" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="694" y="397" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">UNAPPROVED</text>
+
+        <rect x="856" y="388" width="60" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="886" y="397" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">RAW NOTE</text>
+
+        <rect x="720" y="572" width="40" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="740" y="581" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">EDIT</text>
+
+        <rect x="528" y="480" width="48" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="552" y="489" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">REJECT</text>
+
+        <rect x="976" y="480" width="56" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="1004" y="489" fill="#bf4520" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">APPROVE</text>
+
+        <rect x="1152" y="252" width="68" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="1186" y="261" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">PUBLISHED</text>
+
+        <rect x="644" y="128" width="76" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="682" y="137" fill="#5a6580" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">NEW UPDATE</text>
+
+        <!-- Nodes -->
+        <!-- Rider 1: Submit Raw Note (input) -->
+        <rect x="156" y="120" width="160" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="156" y="120" width="160" height="56" rx="6" fill="#4f5d75" stroke="#5a6580" stroke-width="1" fill-opacity="0.10"/>
+        <text x="236" y="144" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Submit Raw Note</text>
+        <text x="236" y="160" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">mobile web · constraint</text>
+
+        <!-- Rider 2: View Published Guide (step) -->
+        <rect x="1056" y="120" width="176" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="1144" y="144" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">View Published Guide</text>
+        <text x="1144" y="160" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">stop preview · hub search</text>
+
+        <!-- System 1: Persist Raw Note (store) -->
+        <rect x="156" y="304" width="160" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="156" y="304" width="160" height="56" rx="6" fill="#2d3142" stroke="#4f5d75" stroke-width="1" fill-opacity="0.05"/>
+        <text x="236" y="328" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Persist Raw Note</text>
+        <text x="236" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">linked to Location</text>
+
+        <!-- System 2: AI Normalization (step) -->
+        <rect x="368" y="304" width="152" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="444" y="328" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">AI Normalization</text>
+        <text x="444" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">JSON schema guard</text>
+
+        <!-- System 3: Save AI Draft (store) -->
+        <rect x="572" y="304" width="152" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="572" y="304" width="152" height="56" rx="6" fill="#2d3142" stroke="#4f5d75" stroke-width="1" fill-opacity="0.05"/>
+        <text x="648" y="328" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Save AI Draft</text>
+        <text x="648" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">status: unapproved</text>
+
+        <!-- System 4: Manual Queue (optional fallback) -->
+        <rect x="772" y="304" width="152" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="772" y="304" width="152" height="56" rx="6" fill="#2d3142" stroke="#2d3142" stroke-width="1" stroke-dasharray="4,3" fill-opacity="0.02" stroke-opacity="0.28"/>
+        <text x="848" y="328" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Manual Queue</text>
+        <text x="848" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">AI failure fallback</text>
+
+        <!-- System 5: Publish Micro-Guide (store) -->
+        <rect x="1056" y="304" width="176" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="1056" y="304" width="176" height="56" rx="6" fill="#2d3142" stroke="#4f5d75" stroke-width="1" fill-opacity="0.05"/>
+        <text x="1144" y="328" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Publish Guide</text>
+        <text x="1144" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">visible to hub riders</text>
+
+        <!-- Dispatcher 1: Reject & Archive (store) -->
+        <rect x="356" y="472" width="160" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="356" y="472" width="160" height="56" rx="6" fill="#2d3142" stroke="#4f5d75" stroke-width="1" fill-opacity="0.05"/>
+        <text x="436" y="496" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Reject &amp; Archive</text>
+        <text x="436" y="512" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">feedback recorded</text>
+
+        <!-- Dispatcher 2: Compare & Review (focal coral) -->
+        <rect x="588" y="472" width="300" height="56" rx="6" fill="#f5f5f5"/>
+        <rect x="588" y="472" width="300" height="56" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.08"/>
+        <text x="738" y="496" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Compare &amp; Review Draft</text>
+        <text x="738" y="512" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">raw note vs draft · human gate</text>
+
+        <!-- Legend strip -->
+        <line x1="40" y1="632" x2="1240" y2="632" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.12"/>
+        <text x="40" y="652" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">LEGEND</text>
+
+        <rect x="40" y="668" width="16" height="12" rx="2" fill="#4f5d75" stroke="#5a6580" stroke-width="1" fill-opacity="0.10"/>
+        <text x="64" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Input</text>
+
+        <rect x="136" y="668" width="16" height="12" rx="2" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="160" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Action step</text>
+
+        <rect x="268" y="668" width="16" height="12" rx="2" fill="#2d3142" stroke="#4f5d75" stroke-width="1" fill-opacity="0.05"/>
+        <text x="292" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">State / store</text>
+
+        <rect x="400" y="668" width="16" height="12" rx="2" fill="#2d3142" stroke="#2d3142" stroke-width="1" stroke-dasharray="3,2" fill-opacity="0.02" stroke-opacity="0.28"/>
+        <text x="424" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Fallback path</text>
+
+        <rect x="544" y="668" width="16" height="12" rx="2" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.08"/>
+        <text x="568" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Human review gate</text>
+
+        <line x1="712" y1="674" x2="744" y2="674" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#workflow-2-arrow)"/>
+        <text x="752" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Primary flow</text>
+
+        <line x1="860" y1="674" x2="892" y2="674" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#workflow-2-arrow)"/>
+        <text x="900" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Fallback / edit / update</text>
+
+        <line x1="1064" y1="674" x2="1096" y2="674" stroke="#bf4520" stroke-width="1.4" marker-end="url(#workflow-2-arrow-accent)"/>
+        <text x="1104" y="677" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Approval to publish</text>
+      </svg>
