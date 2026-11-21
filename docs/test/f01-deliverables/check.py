@@ -60,4 +60,4 @@ for screen in expected:
     assert screen in pdftext, screen
 inventory = subprocess.check_output(['pdfimages', '-list', str(pdf)], text=True)
 assert len(re.findall(r'^\s*\d+\s+\d+\s+image\s+1440\s+900\s', inventory, re.M)) == 19
-print('PASS: four UCs/eight fields, branch/screen refs, local links,19 PNG/PDF screens,18 unchanged source hashes; human review remains pending.')
+print('PASS: 4 UCs / 8 fields, branch/screen refs, local links, 19 PNG/PDF screens, and 18 original PNG hashes verified (review attribution recorded in UC-F01-Access.md and PR #23).')

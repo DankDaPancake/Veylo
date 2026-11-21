@@ -1,5 +1,4 @@
 # Delivery Execution and Reporting
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 PA3 Section D · [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) · Review draft
@@ -9,7 +8,6 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 **Sources.** [BOOYAH-24 use-case model](https://thaikiet291006.atlassian.net/browse/BOOYAH-24) and [BOOYAH-26 Vision](https://thaikiet291006.atlassian.net/browse/BOOYAH-26) supplied local editions 0.2 and 2.0-review. The Jira-linked review editions 0.4 and 2.2-review were unavailable for comparison. [BOOYAH-14](https://thaikiet291006.atlassian.net/browse/BOOYAH-14) and [BOOYAH-21](https://thaikiet291006.atlassian.net/browse/BOOYAH-21) clarify EP11-A: show a returned suggestion automatically, and open its explanation on selection. [BOOYAH-15](https://thaikiet291006.atlassian.net/browse/BOOYAH-15) owns UC15 guide publication and access. [F02 contract](../../../openspec/changes/archive/2026-11-21-f02-order-intake/specs/order-intake/spec.md) owns Order intake, scoped access and NEW/CANCELLED behavior. [F03 contract](UC-F03-F05-Shifts.md) owns published assignments, sequence and changes subject to active-attempt locks. The [working kit and capture instructions](prototypes/delivery-execution-reporting/README.md) derive from Phạm Công Khánh's BOOYAH-25 PrototypeKit.
 
 ## UC11 — View Assigned Shift and Deliveries
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Rider. **Description:** View current assigned work and choose an eligible stop. **Trigger:** The rider opens assigned work. **Preconditions:** A valid rider session and hub scope are needed to view assigned work. Any visible shift is published and assigned to this rider.
@@ -119,7 +117,6 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 ![S11-07-no-eligible-stops — no eligible stops](prototypes/delivery-execution-reporting/UC11/S11-07-no-eligible-stops.png)
 
 ## UC12 — Record Delivery Attempt
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Rider. **Description:** Record one assigned delivery attempt and continue through the shift. **Trigger:** The rider selects an eligible stop from UC11. **Preconditions:** Valid rider session and current published assignment. Start must recheck eligibility. Under P01, an existing active attempt can be resumed but not duplicated.
@@ -318,7 +315,6 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 ![S12-11-access-denied — access denied](prototypes/delivery-execution-reporting/UC12/S12-11-access-denied.png)
 
 ## UC13 — Monitor Attempts and Resolve Failed Orders
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Hub Dispatcher. **Description:** Inspect a shift and decide what to do with an unresolved failed order. **Trigger:** Dispatcher opens shift monitoring or an unresolved-failure row. **Preconditions:** Valid dispatcher session and authorized hub. Resolution requires an unresolved failure; P01 and F03 lock actions while an attempt is active.
@@ -478,7 +474,6 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 ![S13-10-result-recovered — result recovered](prototypes/delivery-execution-reporting/UC13/S13-10-result-recovered.png)
 
 ## UC19 — View Shift and Rider Reports
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 **Primary actor:** Hub Dispatcher. **Description:** Review recorded performance and progress with separate Order and DeliveryAttempt calculations. **Trigger:** Dispatcher opens Reports or follows the link from monitoring. **Preconditions:** Valid dispatcher session and authorized reporting hub. Results depend on the availability and completeness of recorded events.
@@ -617,7 +612,6 @@ This English specification documents synthetic rider and dispatcher flows. `Orde
 ![S19-08-tied-reasons — tied reasons](prototypes/delivery-execution-reporting/UC19/S19-08-tied-reasons.png)
 
 ## Decision Log
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 Each entry was reviewed and accepted by Nguyễn Thành Trung and Group 09 on 21 November 2026. Scenario results demonstrate the rules.
@@ -634,7 +628,6 @@ Each entry was reviewed and accepted by Nguyễn Thành Trung and Group 09 on 21
 **Cross-owner decisions:** Reconcile whether F02 can edit or cancel a NEW order after attempt activity, exact future terminal labels, and how F03 admits re-dispatched orders and releases the prior assignment. These questions stay open during this review. After confirmation, update this log, glossary terminology, affected flows, examples and screenshots together.
 
 ## Verification and handoff
-
 **Performed by:** Codex (AI-assisted work for Trần Lê Hải). **Reviewed by:** Nguyễn Thành Trung and Group 09 (21 November 2026). **Edited by:** Codex.
 
 [Synthetic metric checks and reproduction](prototypes/delivery-execution-reporting/README.md#verification) · [OpenSpec task status](../../../openspec/changes/archive/2026-11-21-booyah-14-delivery-execution-reporting/tasks.md)

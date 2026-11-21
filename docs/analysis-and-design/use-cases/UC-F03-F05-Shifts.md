@@ -1,11 +1,9 @@
 # Shift planning and next-order recommendation
-
 Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 BOOYAH-21 review draft. Traceability follows Vision v2 and BOOYAH-24. Khánh confirmed the planning and ranking rules on 19 November 2026. All 29 screens in the Light-theme BOOYAH-25 kit (`prototypes/kit/`) use synthetic data and were regenerated after the Jira feedback revision. Team acceptance of the kit and Trần Lê Hải’s review remain pending. The [decision log](#decision-log) records the rules and remaining review evidence.
 
 ## UC09 — Plan Delivery Shift
-
 Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 **Actor** · Hub Dispatcher. **Requirements** · FR-03-1 to FR-03-3.
@@ -43,7 +41,6 @@ Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Gro
 ![S09-08 · Branch 1a: Missing or invalid shift times keep inputs and lock rider selection](prototypes/UC09/S09-08-invalid-time.png)
 
 ## UC10 — Adjust Shift Assignment
-
 Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 **Actor** · Hub Dispatcher. **Requirement** · FR-03-4.
@@ -83,7 +80,6 @@ Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Gro
 ![S10-11 · Updated SH-034 with Rider 09 assigned to both VL-0124 and VL-0152](prototypes/UC10/S10-11-rider-updated.png)
 
 ## UC14 — View Next-Order Recommendation
-
 Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 **Actor** · Rider. **Requirements** · FR-05-1 and FR-05-2. **Extension point** · UC11 EP11-A after assigned work loads.
@@ -134,7 +130,6 @@ Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Gro
 ![S14-10 · UC11 retains both openable assigned stops when no recommendation is available](prototypes/UC14/S14-10-no-suggestion.png)
 
 ## Decision log
-
 Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 | Decision | Rule and rationale | Confirmation |

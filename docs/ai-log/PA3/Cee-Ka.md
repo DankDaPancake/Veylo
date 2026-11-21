@@ -309,3 +309,20 @@ Performed by Antigravity for Phạm Công Khánh. AI diagram authoring and autom
 - Human validation (pending unless performed): User confirmed option `2` (SVG export + embed into `VisionDocument.pdf`); peer review pending.
 - Requirements/database or other approvals (if applicable): Default skin `(e)` and `balanced` detail confirmed by user; no requirement, schema, or database change.
 - Outcome, limitations, and remaining work: Completed both `diagram-design` Swimlane HTML/SVG diagrams and integrated them cleanly into `VisionDocument.md` and `VisionDocument.pdf`. PNG rasterization remains skipped due to missing Python `playwright` (not needed for `VisionDocument.pdf` because WeasyPrint renders the vector SVGs directly).
+
+## 2026-11-21 — Remediate PR #23 review findings, PDF link/anchor export, and lossless PA3 submission ZIP (`BOOYAH-29`)
+
+Performed by Antigravity for Phạm Công Khánh. AI-assisted fixes and verification; formal GitHub PR review tracked in PR #23. Edited by Antigravity.
+
+- Task owner: Phạm Công Khánh (`Cee-Ka`).
+- AI tool/model (or unavailable): Antigravity (Gemini 4 Neon XHigh); `export-pdf.py`, `pdfinfo`, `pdftohtml`, `pdftotext`, `pdftoppm`, `zip`, `unzip`.
+- Request/prompt reference and purpose: Verify Thái Kiệt's PR #23 review findings (11 inline comments + 5 submission checklist items), fix valid findings across docs, exporter, checks, and reports, reply where split-ZIP rules apply, push a follow-up commit to PR #23, and rebuild lossless single and split PA3 submission archives.
+- AI-generated work / AI review:
+  - Fixed `docs/management/pa3/export-pdf.py` to add GFM heading `id` attributes (restoring `shared-access-recovery` named destination in `UC-F02-Orders.pdf`), resolve only relative `<img src>` paths, and omit `base_url` so PDFs keep relative/internal links instead of `file:///` workstation paths.
+  - Updated `docs/requirements/VisionDocument.md` (header course code `CS300 - CSC13002`, removed trailing spaces, added immediate attribution lines after all 20 remaining headings, rendered NFR symbols cleanly instead of raw `$...$` LaTeX), `docs/analysis-and-design/use-cases/UseCaseModel.md` (reconciled v0.4 label, added `UC11` to `FR-05-1` and `FR-06-4` for 59 FR-UC pairs, restored §7 template), and Section D blank attribution spacing (`UC-F03-F05-Shifts.md`, `UC-F04-F08-Delivery-Reporting.md`, `UC-F06-F07-Guides.md`).
+  - Updated `docs/Changes.md` (retargeted Section B links to `VisionDocument.md`, updated `B26-06` and handoff attribution), `docs/test/pa3-shared-changes/{README.md,check.py}`, `docs/test/f01-deliverables/check.py`, `.local/Docs/PA3/submit/WeeklyReports.md`, and `.local/Docs/PA3/submit/AIUsageReport.md`.
+- Affected files: `docs/management/pa3/export-pdf.py`, `docs/Changes.{md,pdf}`, `docs/requirements/VisionDocument.{md,pdf}`, `docs/analysis-and-design/use-cases/UseCaseModel.{md,pdf}`, `docs/analysis-and-design/use-cases/UC-*.{md,pdf}`, `docs/test/pa3-shared-changes/{README.md,check.py}`, `docs/test/f01-deliverables/check.py`, `docs/ai-log/PA3/Cee-Ka.md`, `.local/Docs/PA3/submit/{WeeklyReports,AIUsageReport}.{md,pdf}`, and `.local/Docs/PA3/{PA3-Group09.zip,split/Group09_InfoZip.*}`.
+- Commands/checks and actual results: Re-exported all 11 PA3 PDFs; verified `f01-deliverables/check.py` PASS, `pa3-shared-changes/check.py` PASS, `git diff --check dev...HEAD` clean, `UC-F02-Orders.pdf` `verifyPdf()` checks (`A4`, 39 × `2880x1800` images, `shared-access-recovery` dest, `BOOYAH-20` URL), 0 `file:///` links across all 11 PDFs, visual inspection of `VisionDocument.pdf` NFR table, 0 broken links and 100% lossless SHA-256 parity in extracted `PA3-Group09` ZIPs.
+- Human validation: Requested PR #23 remediation and reviewed deliverables by Cee-Ka / Group 09 on 21 November 2026; formal GitHub PR review tracked in PR #23.
+- Requirements/database or other approvals (if applicable): Restores `FR-05-1` and `FR-06-4` UC11 traceability in `UseCaseModel.md` to match existing VisionDocument; no database or code behavior changed.
+- Outcome, limitations, and remaining work: Ready for PR #23 merge and Moodle split-ZIP submission.

@@ -1,7 +1,7 @@
 # Veylo - Use-Case Model
 Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh Đăng and Group 09 (21 November 2026). Edited by: Codex.
 
-**Group 09 | PA3 Section C | BOOYAH-24 | Version 0.2 | 17 November 2026**
+**Group 09 | PA3 Section C | BOOYAH-24 | Version 0.4 (reconciled) | 21 November 2026**
 
 This document defines the Veylo Use-Case Model for PA3 Section C: 18 active user-goal use cases across five Mermaid views, FR-to-UC traceability coverage, shared terminology, and state vocabulary.
 
@@ -76,8 +76,8 @@ These sources use native `usecase-beta` syntax with pinned Mermaid 12.3.0. Contr
 | Relationship | One-line reason / condition |
 | --- | --- |
 | Administrator -> Staff User; Dispatcher -> Staff User; Rider -> Staff User (generalization) | Each role can sign in through UC01; only the shared authentication participation is inherited. |
-| UC14 extends UC11 | At extension point EP11-A, after assigned stops are displayed, a rider may request a next-stop recommendation when eligible work exists; the list remains useful without it. |
-| UC15 extends UC11 | At EP11-B, while inspecting a selected delivery, a rider may open its location guide; viewing the assignment does not require a guide to exist. |
+| UC14 extends UC11 | UC11 shows an available next-stop suggestion when opening a published shift; at EP11-A, the rider may open its explanation via UC14, and the list stays usable without a suggestion. |
+| UC15 extends UC11 | UC11 shows a published same-hub guide preview for an assigned stop when available; at EP11-B, the rider may open the full guide via UC15, and delivery actions stay usable without a guide. |
 | UC15 also has a direct Rider association | Vision F06 includes a searchable guide repository, so guide lookup remains an independent goal beyond the delivery-list entry point. |
 | No include relationships selected | No mandatory reusable actor-goal subroutine is needed at this abstraction level. Sign-in is a precondition, validation/logging are internal steps, and AI success is optional. |
 | No UC16 include UC17 | Raw-note persistence is the successful end of UC16; an AI timeout, invalid output or exhausted quota must not undo it or prevent manual work. |
@@ -329,7 +329,7 @@ Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh 
 
 | Source ID / reference | Capability / source status | Use cases |
 | --- | --- | --- |
-| FR-05-1 / SRC-05-01; V1 §5.1 F05 | Suggest an assigned, unfulfilled stop using time-window urgency, priority and proximity. **Baseline; ranking rules pending.** | UC14 |
+| FR-05-1 / SRC-05-01; V1 §5.1 F05 | Suggest an assigned, unfulfilled stop using time-window urgency, priority and proximity. **Baseline; ranking rules pending.** | UC11, UC14 |
 | FR-05-2 / SRC-05-02; V1 §5.1 F05; T08 | Show an understandable reason for the suggestion and preserve rider choice. **Baseline / task refinement.** | UC14 |
 
 ### F06 coverage
@@ -340,7 +340,7 @@ Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh 
 | FR-06-1 / SRC-06-01; V1 §5.1 F06 | Search and read published guides covering entrances, parking and security procedures. **Baseline.** | UC15 |
 | FR-06-2 / SRC-06-02; V1 §5.1 F06; workflow 2 | Submit and persist a raw field observation linked to a location. **Baseline.** | UC16 |
 | FR-06-3 / SRC-06-03; V1 §5.1 F06; workflow 2 | Review source content, edit a draft and explicitly approve or reject it. **Baseline.** | UC18 |
-| FR-06-4 / SRC-06-04; V1 §5.1 F06; workflow 2 | Make only approved published guidance available to authorized riders. **Baseline; audience boundary pending.** | UC18, UC15 |
+| FR-06-4 / SRC-06-04; V1 §5.1 F06; workflow 2 | Make only approved published guidance available to authorized riders. **Baseline; audience boundary pending.** | UC11, UC15, UC18 |
 
 ### F07 coverage
 Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh Đăng and Group 09 (21 November 2026). Edited by: Codex.
@@ -375,7 +375,7 @@ Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh 
 | UC08 | FR-02-3 / SRC-02-03, FR-02-5 / SRC-02-05 | Reviewed (21 Nov 2026) |
 | UC09 | FR-03-1 / SRC-03-01, FR-03-2 / SRC-03-02, FR-03-3 / SRC-03-03 | Reviewed (21 Nov 2026) |
 | UC10 | FR-03-4 / SRC-03-04 | Reviewed (21 Nov 2026) |
-| UC11 | FR-03-3 / SRC-03-03, FR-04-1 / SRC-04-01 | Reviewed (21 Nov 2026) |
+| UC11 | FR-03-3 / SRC-03-03, FR-04-1 / SRC-04-01, FR-05-1 / SRC-05-01, FR-06-4 / SRC-06-04 | Reviewed (21 Nov 2026) |
 | UC12 | FR-04-2 / SRC-04-02, FR-04-3 / SRC-04-03, FR-04-4 / SRC-04-04, FR-04-5 / SRC-04-05 | Reviewed (21 Nov 2026) |
 | UC13 | FR-04-5 / SRC-04-05, FR-04-6 / SRC-04-06, FR-08-1 / SRC-08-01 | Reviewed (21 Nov 2026) |
 | UC14 | FR-05-1 / SRC-05-01, FR-05-2 / SRC-05-02 | Reviewed (21 Nov 2026) |
@@ -427,3 +427,54 @@ This table distinguishes source labels and conceptual states from approved imple
 | Guide draft | Unapproved, rejected, approved/published occur in Vision workflow 2; exact approval/publication transaction and version labels need alignment. | BOOYAH-15; never equate a completed AI response with publication. |
 
 A generic "failed" field shared by orders, attempts and AI jobs is prohibited by the glossary distinction. Final status spelling follows the F02 OpenSpec contract (`NEW`, `CANCELLED` in `openspec/specs/order-intake/spec.md`) and owner specifications.
+
+<!-- pagebreak -->
+
+## 7. Shared use-case specification template
+Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh Đăng and Group 09 (21 November 2026). Edited by: Codex.
+
+Use this structure for every active catalog ID across the Section D specifications. Shared screens may be reused through explicit references.
+
+```text
+### UCxx - <Actor goal>
+Performed by: <actual person/tool>. Reviewed by: <actual reviewer>. Edited by: <actual person/tool>.
+
+ID / Name: <stable catalog ID and name>
+Primary actor: <who seeks the goal>
+Secondary actors: <external participants, if applicable>
+Description / goal: <observable value>
+Requirements: <BOOYAH-26 FR IDs and source references>
+Trigger: <event or actor action>
+Preconditions: <session, authority, data/lifecycle conditions>
+
+Basic flow:
+1. <Actor action> [screen/state ID]
+2. <System response and observable result> [screen/state ID]
+3. ...
+
+Alternative flows:
+A1 - <name>, branching from Basic step <n>
+A1.1 <trigger/condition>
+A1.2 <observable behavior and retained data> [screen/state ID]
+A1.3 <resume at Basic step x, terminate, or await retry>
+
+Postconditions:
+Success: <persisted result, visibility and relevant state>
+Failure/minimum guarantee: <what remains unchanged or retained>
+
+Special requirements: <applicable NFR IDs, privacy, access, timing>
+Relationships / extension points: <reference model; none if irrelevant>
+Decision Log: <decision, source, rationale, confirmer/date>
+Screen map: <flow/step, screen-state ID, screenshot, purpose>
+Review record: <reviewer/date; walked flows; findings>
+```
+
+### Flow and prototype completeness checklist
+Performed by: Thái Kiệt / Codex (AI-assisted). Reviewed by: Lý Huỳnh Minh Đăng and Group 09 (21 November 2026). Edited by: Codex.
+
+- Every basic and relevant alternative flow identifies its entry/branch step, observable outcome and resume/termination point.
+- Every UI step/state maps to an embedded screenshot; service-only steps reference the relevant visible processing/error state instead of inventing a screen for an internal job.
+- Include authorization, validation, empty/no-result, stale data, network/server failure, retry/double-submit and persistence cases where relevant; specify what happens rather than merely naming an error.
+- Screen IDs use BOOYAH-25 `S<UC-number>-<sequence>` with state suffixes; see [the shared kit](prototypes/kit/index.html).
+- Distinguish successful saving from AI success, attempt outcome from order resolution, and draft creation from publication.
+- Use synthetic examples and factual AI-use records. Every section includes attribution immediately after its heading.

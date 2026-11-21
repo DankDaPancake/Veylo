@@ -1,11 +1,9 @@
 # Location guides and AI-assisted note normalization
-
 Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăng (acceptance reported by the requester). Edited by Codex.
 
 BOOYAH-15 · PA3 Section D · Reviewed. Sources are [BOOYAH-15](https://thaikiet291006.atlassian.net/browse/BOOYAH-15), [Use-Case Model 0.4](https://drive.google.com/file/d/1G-GlRLTj7ZsOw_g9o-bYTu_MLQ4AYEfi/view), and [Vision 2.2-review](https://drive.google.com/file/d/1vC5KwBkyKqXwPbQVq8lEtUQZlhlkWkXU/view). UC17 is reserved. The [prototype](prototypes/guide-screens.html) uses synthetic data. BOOYAH-15 uses the [repository prototype kit](prototypes/kit/index.html) and Vision 2.2-review for acceptance. The [BOOYAH-14 UC11 walkthrough](prototypes/delivery-execution-reporting/index.html?screen=S11-02-stop-details&standalone=1) opens UC15 through EP11-B.
 
 ## UC15 — Search and View Location Guide
-
 Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăng (acceptance reported by the requester). Edited by Codex.
 
 **Actor** · Rider. **Requirements** · FR-06-1 and FR-06-4.
@@ -51,7 +49,6 @@ Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăn
 ![S15-08 · Delivery denied](prototypes/UC15/S15-08-delivery-denied.png)
 
 ## UC16 — Submit Location Note
-
 Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăng (acceptance reported by the requester). Edited by Codex.
 
 **Actor** · Rider. **Requirements** · FR-06-2 and FR-07-3.
@@ -92,7 +89,6 @@ Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăn
 ![S16-07 · Retry confirmed](prototypes/UC16/S16-07-retry-confirmed.png)
 
 ## UC18 — Prepare, Review and Publish Location Guide
-
 Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăng (acceptance reported by the requester). Edited by Codex.
 
 **Primary actor** · Hub Dispatcher. **Secondary actor** · AI Language Service during preparation. **Requirements** · FR-06-3, FR-06-4 and FR-07-1 through FR-07-3.
@@ -157,7 +153,6 @@ Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăn
 ![S18-15 · Guide conflict](prototypes/UC18/S18-15-guide-conflict.png)
 
 ## Decision and review record
-
 Performed by Codex for Nguyễn Thành Trung. Reviewed by Lý Huỳnh Minh Đăng (acceptance reported by the requester). Edited by Codex.
 
 | Draft decision | Walkthrough evidence |
