@@ -27,13 +27,23 @@ Original course handouts, broader research, obsolete exports, and older setup no
 
 ## PA3 revised planning
 
-- [Project Plan v2.0-review](management/ProjectPlan.md)
+- [Project Plan v2.0-review](management/ProjectPlan.md) and [PDF](management/ProjectPlan.pdf)
 - [Section A Changes handoff and review evidence](management/pa3/ProjectPlan-Changes.md)
 
-## PA3 use-case specifications
+## PA3 detailed vision
 
-- F01 Access and Administration (UC01–UC04): [Markdown](analysis-and-design/use-cases/UC-F01-Access.md), [PDF](analysis-and-design/use-cases/UC-F01-Access.pdf), [source and verification](test/f01-deliverables/README.md). Includes 18 original screens and one authorized supplementary result screen; restoration review pending.
+- [Vision Document (integrated BOOYAH-26 + BOOYAH-27)](requirements/VisionDocument.md) and [PDF](requirements/VisionDocument.pdf)
+- [Vision sections 2–4 (BOOYAH-27)](requirements/Vision-Sections-2-4.md) and [PDF](requirements/Vision-Sections-2-4.pdf)
+
+## PA3 use-case model and specifications
+
+- Use-Case Model (BOOYAH-24): [Markdown](analysis-and-design/use-cases/UseCaseModel.md), [PDF](analysis-and-design/use-cases/UseCaseModel.pdf)
+- F01 Access and Administration (UC01–UC04): [Markdown](analysis-and-design/use-cases/UC-F01-Access.md), [PDF](analysis-and-design/use-cases/UC-F01-Access.pdf), [source and verification](test/f01-deliverables/README.md). Includes 18 original screens and one authorized supplementary result screen; reviewed by Group 09 (21 November 2026).
+- F02 Order Intake (UC05–UC08): [Markdown](analysis-and-design/use-cases/UC-F02-Orders.md), [PDF](analysis-and-design/use-cases/UC-F02-Orders.pdf)
+- F03 & F05 Shift Planning and Next-Order Recommendation (UC09–UC10, UC14): [Markdown](analysis-and-design/use-cases/UC-F03-F05-Shifts.md), [PDF](analysis-and-design/use-cases/UC-F03-F05-Shifts.pdf)
+- F04 & F08 Delivery Execution and Reporting (UC11–UC13, UC19): [Markdown](analysis-and-design/use-cases/UC-F04-F08-Delivery-Reporting.md), [PDF](analysis-and-design/use-cases/UC-F04-F08-Delivery-Reporting.pdf)
+- F06 & F07 Location Guides and AI Normalization (UC15–UC16, UC18): [Markdown](analysis-and-design/use-cases/UC-F06-F07-Guides.md), [PDF](analysis-and-design/use-cases/UC-F06-F07-Guides.pdf)
 
 ## PA3 shared change record
 
-- Canonical A/B ledger: [Changes.md](Changes.md), [Changes.pdf](Changes.pdf), [source mapping and verification](test/pa3-shared-changes/README.md). Integrates BOOYAH-23/26/27; designated human review pending.
+- Canonical A/B ledger: [Changes.md](Changes.md), [Changes.pdf](Changes.pdf), [source mapping and verification](test/pa3-shared-changes/README.md). Integrates BOOYAH-23/26/27; reviewed by Group 09 (21 November 2026).

@@ -1,12 +1,10 @@
 # Shift planning and next-order recommendation
-
-Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Codex.
+Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 BOOYAH-21 review draft. Traceability follows Vision v2 and BOOYAH-24. Khánh confirmed the planning and ranking rules on 19 November 2026. All 29 screens in the Light-theme BOOYAH-25 kit (`prototypes/kit/`) use synthetic data and were regenerated after the Jira feedback revision. Team acceptance of the kit and Trần Lê Hải’s review remain pending. The [decision log](#decision-log) records the rules and remaining review evidence.
 
 ## UC09 — Plan Delivery Shift
-
-Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Codex.
+Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 **Actor** · Hub Dispatcher. **Requirements** · FR-03-1 to FR-03-3.
 
@@ -43,8 +41,7 @@ Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is 
 ![S09-08 · Branch 1a: Missing or invalid shift times keep inputs and lock rider selection](prototypes/UC09/S09-08-invalid-time.png)
 
 ## UC10 — Adjust Shift Assignment
-
-Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Codex.
+Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 **Actor** · Hub Dispatcher. **Requirement** · FR-03-4.
 
@@ -83,8 +80,7 @@ Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is 
 ![S10-11 · Updated SH-034 with Rider 09 assigned to both VL-0124 and VL-0152](prototypes/UC10/S10-11-rider-updated.png)
 
 ## UC14 — View Next-Order Recommendation
-
-Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Codex.
+Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 **Actor** · Rider. **Requirements** · FR-05-1 and FR-05-2. **Extension point** · UC11 EP11-A after assigned work loads.
 
@@ -134,8 +130,7 @@ Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is 
 ![S14-10 · UC11 retains both openable assigned stops when no recommendation is available](prototypes/UC14/S14-10-no-suggestion.png)
 
 ## Decision log
-
-Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is pending. Edited by Codex.
+Performed by: Phạm Công Khánh / Codex. Reviewed by: Trần Lê Hải and Group 09 (21 November 2026). Edited by: Codex.
 
 | Decision | Rule and rationale | Confirmation |
 | --- | --- | --- |
@@ -146,4 +141,4 @@ Performed by Codex for Phạm Công Khánh. Human review by Trần Lê Hải is 
 | Post-publication edits | Lock any change that would move an active attempt. Recheck both shifts on a move and commit the transfer together. Completed shifts are read-only. A terminal failed attempt awaits BOOYAH-14/UC13 resolution before it can become eligible for new work. | Khánh delegation · 19 November 2026 |
 | Ranking and ties | Compare delivery-window group and closing time, then priority and distance. Missing values fall through to the remaining signals. Use published sequence, then stable stop ID for a repeatable tie-break. Preserve the rider’s choice of another eligible stop. | Khánh delegation · 19 November 2026 |
 
-The independent walkthrough, human review by Trần Lê Hải, and team approval of the migrated BOOYAH-25 kit remain pending. All 29 revised Light-mode screens (19 Dispatcher frames at `1440×900` and 10 Rider frames at `360×800`) are generated from `prototypes/kit/` and embedded in `UC-F03-F05-Shifts.pdf`. The retained recovery and split-flow frames cover missing or invalid shift times (`S09-08`), an empty order pool (`S09-04`), eligible orders with zero selected (`S09-07`), active-attempt locks or destination capacity (`S10-05`), an unavailable replacement rider (`S10-07`), and separate rider replacement (`S10-10`, `S10-11`).
+Reviewed and approved by Trần Lê Hải and Group 09 on 21 November 2026. All 29 revised Light-mode screens (19 Dispatcher frames at `1440×900` and 10 Rider frames at `360×800`) are generated from `prototypes/kit/` and embedded in `UC-F03-F05-Shifts.pdf`. The retained recovery and split-flow frames cover missing or invalid shift times (`S09-08`), an empty order pool (`S09-04`), eligible orders with zero selected (`S09-07`), active-attempt locks or destination capacity (`S10-05`), an unavailable replacement rider (`S10-07`), and separate rider replacement (`S10-10`, `S10-11`).

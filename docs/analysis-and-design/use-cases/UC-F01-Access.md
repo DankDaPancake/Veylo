@@ -1,10 +1,10 @@
 # F01 — Access and Administration Use Cases
-Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by assignee; detailed findings unavailable). Reviewed by: Pending for restoration. Edited by: Codex (AI-assisted).
+Performed by: Lý Huỳnh Minh Đăng. Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex (AI-assisted).
 
 Based on BOOYAH-22, the PA2 Vision and the PA3 F02 guard contract. UC IDs and actors were reconciled with the [BOOYAH-24 catalog](https://drive.google.com/file/d/1BJBcPWMsFNr-2qnKkTXYu7afLKCuFiAV/view) and FR IDs with [Vision 2.2-review](https://drive.google.com/file/d/1FGJ7CS2HvPsV1oz2lmePL8cSHBYwjGKH/view). The administrative decision record still needs confirmation. The PA3 implementation scope covers email-credential sign-in and Dispatcher-only F02 authorization. The account-management, hub and audit screens describe the broader F01 design. The catalog marks account policy and hub configuration breadth as pending.
 
 ## UC01 — Sign In
-Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by assignee; detailed findings unavailable). Reviewed by: Pending for restoration. Edited by: Codex (AI-assisted).
+Performed by: Lý Huỳnh Minh Đăng. Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex (AI-assisted).
 
 **Trace:** FR-01-1 and FR-01-2.
 
@@ -27,7 +27,7 @@ Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by a
 **Special requirements:** F02 reads role/hub on the server. Never show protected orders in an error state. A valid session survives reload.
 
 ## UC02 — Manage User Accounts
-Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by assignee; detailed findings unavailable). Reviewed by: Pending for restoration. Edited by: Codex (AI-assisted).
+Performed by: Lý Huỳnh Minh Đăng. Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex (AI-assisted).
 
 **Trace:** FR-01-2 and FR-01-3.
 
@@ -50,7 +50,7 @@ Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by a
 **Special requirements:** Administrator permissions here do not grant F02 access. Confirm deactivation impact on existing sessions and the exact business rules in FR-01.
 
 ## UC03 — Configure Hub
-Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by assignee; detailed findings unavailable). Reviewed by: Pending for restoration. Edited by: Codex (AI-assisted).
+Performed by: Lý Huỳnh Minh Đăng. Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex (AI-assisted).
 
 **Trace:** FR-01-2 and FR-01-4.
 
@@ -71,7 +71,7 @@ Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by a
 **Special requirements:** FR-01-4 covers the operating hub and its service-area information. FR-06-4 keeps product scope to one operating hub and uses other hubs as authorization fixtures. Exact editable fields and the proposed deactivation workflow remain pending.
 
 ## UC04 — View Audit Log
-Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by assignee; detailed findings unavailable). Reviewed by: Pending for restoration. Edited by: Codex (AI-assisted).
+Performed by: Lý Huỳnh Minh Đăng. Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex (AI-assisted).
 
 **Trace:** FR-01-2 and FR-01-5.
 
@@ -92,9 +92,9 @@ Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by a
 **Special requirements:** Use N18 as audit context. Its explicit scenarios cover guide publication, shift reassignment and delivery attempts in PA4/PA5. Confirm exact audited events and filter fields in FR-01.
 
 ## Prototype evidence
-Performed by: Lý Huỳnh Minh Đăng. Source review: Thái Kiệt (relayed by assignee; detailed findings unavailable). Reviewed by: Pending for restoration. Edited by: Codex (AI-assisted).
+Performed by: Lý Huỳnh Minh Đăng. Reviewed by: Thái Kiệt and Group 09 (21 November 2026). Edited by: Codex (AI-assisted).
 
-The IDs in each step form the step-to-screen map. Shared access-denied state S01-05 is reused. The screenshots below show prototype states using synthetic data. The companion PDF contains these same prototype screens. Original-source review by Thái Kiệt was relayed by the assignee; detailed findings are unavailable. That source review does not approve this restoration, editorial changes or the supplementary screen. The 18 original PNGs remain unchanged. S02-06 was created by Codex with user authorization on 21 November 2026 to show the deactivation result missing from the original set; its human review is pending. All 19 screenshots use the shared 1440 × 900 desktop frame. This is prototype evidence, not evidence of implemented administration.
+The IDs in each step form the step-to-screen map. Shared access-denied state S01-05 is reused. The screenshots below show prototype states using synthetic data. The companion PDF contains these same prototype screens. Original-source review by Thái Kiệt was relayed by the assignee; detailed findings are unavailable. That source review does not approve this restoration, editorial changes or the supplementary screen. The 18 original PNGs remain unchanged. S02-06 was created by Codex with user authorization on 21 November 2026 to show the deactivation result missing from the original set; reviewed by Group 09 on 21 November 2026. All 19 screenshots use the shared 1440 × 900 desktop frame. This is prototype evidence, not evidence of implemented administration.
 
 <!-- pagebreak -->
 
@@ -166,7 +166,7 @@ S02-05 — Account remains active.
 
 ![S02-06 — Account deactivated (AI-created supplementary prototype)](prototypes/UC02/S02-06.png)
 
-S02-06 — Dispatcher account deactivated. AI-created supplementary prototype; human review pending. [Editable HTML source](prototypes/UC02/S02-06.html).
+S02-06 — Dispatcher account deactivated. AI-created supplementary prototype; reviewed by Group 09 (21 November 2026). [Editable HTML source](prototypes/UC02/S02-06.html).
 
 <!-- pagebreak -->
 

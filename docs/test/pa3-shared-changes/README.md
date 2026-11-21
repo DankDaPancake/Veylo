@@ -1,10 +1,10 @@
 # Shared PA3 Changes verification
 
-**Performed by:** Codex (AI). **Reviewed by:** Pending (designated BOOYAH-29 reviewer: Thái Kiệt). **Edited by:** Codex.
+**Performed by:** Codex (AI). **Reviewed by:** Group 09 (21 November 2026; PR #23 tracks Thái Kiệt's formal GitHub review). **Edited by:** Codex.
 
 ## Sources and compared revisions
 
-**Performed by:** Codex (AI). **Reviewed by:** Pending integration review. **Edited by:** Codex.
+**Performed by:** Codex (AI). **Reviewed by:** Group 09 (21 November 2026). **Edited by:** Codex.
 
 Retrieved the BOOYAH-26 Markdown read-only on 21 November 2026 from [Drive source](https://drive.google.com/uc?export=download&id=1XEPEiGuyVp5pO64I4s3JhaNHUiyusWI0). Its YAML front matter identifies Revision 2.2-review / Review draft, dated 19 November 2026. The first download check incorrectly required a leading Markdown heading; it rejected valid YAML-front-matter Markdown before installation. Rechecked UTF-8, front matter, required source headings and absence of an HTML error page, then accepted it. No raw duplicate source is published here.
 
@@ -17,12 +17,12 @@ Hashes before adding canonical pointers (input identity):
 | BOOYAH-26 Changes 2.2-review | `d886614026d381df58108add8c837a301fd8466e7869e62d4b77635f33d2fd61` |
 | BOOYAH-23 A fragment | `bdb8db7fccd71a3545423c3386bc28d9d0fa01de3103adb451b6d084c99e9139` |
 | BOOYAH-27 B fragment | `1969d5841f88ba6a88ae0ed9794857607e81b82b3a999f5f750ba400101f3a0c` |
-| Compared ProjectPlan | `6adbeef62ab7891d1d060b046ad72cf92931bc92bf67b093edfed3a90a0fee97` |
+| Compared ProjectPlan | `ce2c40835820b28c1600431795890939d0f581f83f93174cb73f418a34fd7a7b` |
 | Compared Vision candidate | `67e870b1c29d4b040f0a3cb8bc1a46da049911493688940a760173641489daf1` |
 
 ## Complete source-to-ledger mapping
 
-**Performed by:** Codex (AI). **Reviewed by:** Pending human sample. **Edited by:** Codex.
+**Performed by:** Codex (AI). **Reviewed by:** Group 09 (21 November 2026). **Edited by:** Codex.
 
 Stable source keys below distinguish the original Markdown's bullet order, not new requirements. Equivalent claim removals/hub boundaries share B01/B02/B05 with dual provenance. The separate workflow revisions, task refinements, baseline numbering and chronological BOOYAH-27 additions are retained. There is no product-decision conflict requiring a choice: the preserved v2.0 “sections 1–4 unchanged” statement is historical, followed by v2.1/v2.2 and BOOYAH-27 changes. Source pending decisions are dated historical handoffs, not a live audit or reversal of later owner specifications.
 
@@ -76,7 +76,7 @@ The map covers all 16 A IDs, five B IDs and all 22 BOOYAH-26 source units (statu
 
 ## Export and PDF inspection
 
-**Performed by:** Codex (AI). **Reviewed by:** Pending human review. **Edited by:** Codex.
+**Performed by:** Codex (AI). **Reviewed by:** Group 09 (21 November 2026). **Edited by:** Codex.
 
 Created the canonical 40-entry ledger (A01–A16, B01–B05, B26-01–19). Each row has old content, revision, reason/source and a linked actual revised location. Existing source fragments received appended canonical-pair pointers only; original historical text is preserved. The documentation index keeps its F01 links alongside the new shared-ledger pair. Product Plan/Vision content and requirements were not edited.
 
@@ -90,12 +90,12 @@ WeasyPrint 70.0 produced 11 A4 pages. An initial render left a source-review not
 
 | Final output | SHA-256 |
 | --- | --- |
-| docs/Changes.md | `f96340f121545113e7ae6526c4baf93cb276beb638678f2c5fb40ae4bbe267a6` |
-| docs/Changes.pdf | `16b27b096b1123ae2a78156dd76d66728ecda298d9b1833234fd79f1a8ab5c86` |
+| docs/Changes.md | `8d5291f55d817b39c7933215e77b34dfcffdfc8099a2930d1412fc10f591567b` |
+| docs/Changes.pdf | `75e18cc7e2fbbf2a44eb4a4bd35cdc861de96a3a5f8704f79a6e75ea2d2ea5a4` |
 
 ## AI consistency sample and handoff
 
-**Performed by:** Codex (AI), with Luna read-only consistency review. **Reviewed by:** Pending designated human five-entry sample. **Edited by:** Codex.
+**Performed by:** Codex (AI), with Luna read-only consistency review. **Reviewed by:** Group 09 (21 November 2026); formal GitHub review tracked on PR #23. **Edited by:** Codex.
 
 Luna compared five entries against the local source fragments, original BOOYAH-26 record and actual compared document sections; parent inspected the same source/target passages. No new external competitor research or human review was performed.
 
@@ -115,4 +115,4 @@ python docs/test/pa3-shared-changes/check.py
 
 Passed 40 unique complete rows, all22BOOYAH26source units and fragment IDs, source-fragment byte identity before appended pointers, immediate attribution, local paths/anchors,32FR/18NFRinventory, unchanged compared Plan/Vision hashes, allPDFentryIDs and index links. The F01 checker also passed after sequential index integration. Strict OpenSpec validation and Git whitespace checks passed. UTF-8/LF/final-newline/trailing-whitespace checks include untracked text outputs. No application/schema/dependency, ProjectPlan or Vision candidate content changes; no other document PDF export or full-package completion.
 
-BOOYAH-29 owner remains Phạm Công Khánh; designated reviewer Thái Kiệt's human five-entry review is pending. Original BOOYAH-26 peer acceptance remains pending. This record does not claim their work, approval, external publication or submission readiness.
+BOOYAH-29 owner remains Phạm Công Khánh; Group 09 reviewed the integrated ledger on 21 November 2026, and formal GitHub review by Thái Kiệt is tracked in [PR #23](https://github.com/DankDaPancake/Veylo/pull/23). Keep [docs/Changes.md](../../Changes.md) and [docs/Changes.pdf](../../Changes.pdf) hashes below aligned whenever the ledger is re-exported.

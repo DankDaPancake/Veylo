@@ -1,9 +1,10 @@
 """Export PA3 Markdown from the repository using markdown-it-py and WeasyPrint."""
 
 import argparse
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 import re
+from urllib.parse import unquote
 
 from markdown_it import MarkdownIt
 from weasyprint import HTML
@@ -11,6 +12,9 @@ from weasyprint import HTML
 # UseCaseModel.md pairs each Mermaid source with its owner's rendered PNG.
 MERMAID = re.compile(r"^```mermaid[^\n]*\n.*?^```[ \t]*$", re.MULTILINE | re.DOTALL)
 RENDERED_PNG = re.compile(r"\s*\[Rendered PNG\]\(([^)]+)\)")
+HEADING_RE = re.compile(r"<(h[1-6])>(.*?)</\1>", re.DOTALL)
+TAG_RE = re.compile(r"<[^>]+>")
+IMG_SRC_RE = re.compile(r'(<img\b[^>]*\bsrc=)(["\'])([^"\']+)\2', re.IGNORECASE)
 
 STYLE = """
 @page { size: A4; margin: 16mm; }
@@ -33,6 +37,38 @@ a { color: #0a614f; }
 """
 
 
+def _slug(inner_html: str) -> str:
+    plain = unescape(TAG_RE.sub("", inner_html)).lower()
+    return "".join(c for c in plain if c.isalnum() or c in " -_").replace(" ", "-")
+
+
+def add_heading_ids(markup: str) -> str:
+    seen: dict[str, int] = {}
+
+    def _replace(match: re.Match) -> str:
+        tag, inner = match.group(1), match.group(2)
+        base = _slug(inner)
+        if not base:
+            return match.group(0)
+        count = seen.get(base, 0)
+        seen[base] = count + 1
+        anchor = base if count == 0 else f"{base}-{count}"
+        return f'<{tag} id="{escape(anchor, quote=True)}">{inner}</{tag}>'
+
+    return HEADING_RE.sub(_replace, markup)
+
+
+def resolve_img_sources(markup: str, base_dir: Path) -> str:
+    def _replace(match: re.Match) -> str:
+        prefix, quote, src = match.group(1), match.group(2), match.group(3)
+        if re.match(r"^(?:https?:|data:|file:)", src, re.IGNORECASE):
+            return match.group(0)
+        resolved = (base_dir / unquote(src)).resolve().as_uri()
+        return f"{prefix}{quote}{escape(resolved, quote=True)}{quote}"
+
+    return IMG_SRC_RE.sub(_replace, markup)
+
+
 def export_pdf(source: Path, output: Path) -> None:
     text = source.read_text(encoding="utf-8")
 
@@ -51,10 +87,11 @@ def export_pdf(source: Path, output: Path) -> None:
     text = text.replace("<!-- pagebreak -->", '<div class="pagebreak"></div>')
     renderer = MarkdownIt("gfm-like", {"linkify": False})
     markup = renderer.render(text)
+    markup = add_heading_ids(markup)
+    markup = resolve_img_sources(markup, source.parent)
     document = HTML(
         string=f"<!doctype html><html lang='en'><meta charset='utf-8'>"
         f"<title>{escape(source.stem)}</title><style>{STYLE}</style>{markup}</html>",
-        base_url=source.parent.resolve().as_uri() + "/",
     )
     document.write_pdf(output)
 

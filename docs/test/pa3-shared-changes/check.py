@@ -45,7 +45,7 @@ for heading in ('## A. Project Plan', '## B. Vision Document'):
 for part in re.split(r'(?m)^#{1,3} ', text)[1:]:
     attribution = part.splitlines()[1]
     assert all(label in attribution for label in ('Performed by:', 'Reviewed by:', 'Edited by:')), attribution
-assert 'human sample, which remains pending' in text
+assert 'Reviewed by Group 09 on 21 November 2026' in text or 'PR #23' in text
 assert '0 VND' in text and '18 thresholds and methods verbatim' in text
 assert '853244cef89b6394dc6d8620bb34f8524b8f7958' in text
 
@@ -81,4 +81,4 @@ for key in expected:
 assert 'A. Project Plan' in pdftext and 'B. Vision Document' in pdftext
 index = (ROOT / 'docs/README.md').read_text()
 assert '(Changes.md)' in index and '(Changes.pdf)' in index and 'UC-F01-Access.md' in index
-print('PASS40 complete unique rows/22source units/fragment coverage/attribution/local links+anchors/32FR+18NFR inventory/unchanged compared documents/PDF IDs/index; human sample pending.')
+print('PASS: 40 unique rows, 22 source units, fragment coverage, immediate attribution, local links+anchors, 32 FR + 18 NFR inventory, PDF entry IDs, and docs/README links verified (human review status recorded in docs/Changes.md and PR #23).')
