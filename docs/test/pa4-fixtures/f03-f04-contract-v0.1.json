@@ -1,0 +1,308 @@
+{
+  "contractVersion": "0.1",
+  "status": "proposed synthetic examples",
+  "caseIsolation": "Start, empty shift, other Rider and stale assignment use independent setups. Replay follows an accepted Start with a lost acknowledgement. Attempt states are alternative snapshots of the same attempt.",
+  "roles": {
+    "dispatcher": {
+      "id": "dispatcher-pa4-a",
+      "role": "DISPATCHER",
+      "hubId": "hub-pa4-a"
+    },
+    "assignedRider": {
+      "id": "rider-pa4-a",
+      "role": "RIDER",
+      "hubId": "hub-pa4-a"
+    },
+    "otherRider": {
+      "id": "rider-pa4-b",
+      "role": "RIDER",
+      "hubId": "hub-pa4-a"
+    }
+  },
+  "publishedShift": {
+    "actorId": "rider-pa4-a",
+    "response": {
+      "status": 200,
+      "body": {
+        "shift": {
+          "id": "shift-pa4-a01",
+          "hubId": "hub-pa4-a",
+          "riderId": "rider-pa4-a",
+          "version": 3,
+          "state": "PUBLISHED",
+          "publishedAt": "2026-12-01T06:30:00Z",
+          "startsAt": "2026-12-01T07:00:00Z",
+          "endsAt": "2026-12-01T10:00:00Z",
+          "capacityKg": "10.00"
+        },
+        "stops": [
+          {
+            "id": "stop-pa4-a01",
+            "shiftId": "shift-pa4-a01",
+            "orderId": "order-pa4-a01",
+            "sequence": 1,
+            "version": 1,
+            "order": {
+              "id": "order-pa4-a01",
+              "priority": "HIGH",
+              "weightKg": "1.20",
+              "deliveryWindowStartsAt": "2026-12-01T07:00:00Z",
+              "deliveryWindowEndsAt": "2026-12-01T08:00:00Z",
+              "coordinates": {
+                "latitude": 10.75,
+                "longitude": 106.68
+              },
+              "eligible": true,
+              "orderCode": "PA4-SYNTH-01",
+              "recipientName": "Synthetic Recipient 1",
+              "recipientPhone": "0900000001",
+              "deliveryAddress": "Synthetic Test Street 1",
+              "note": null,
+              "status": "NEW",
+              "version": 1
+            },
+            "activeAttempt": null
+          },
+          {
+            "id": "stop-pa4-a02",
+            "shiftId": "shift-pa4-a01",
+            "orderId": "order-pa4-a02",
+            "sequence": 2,
+            "version": 1,
+            "order": {
+              "id": "order-pa4-a02",
+              "priority": "NORMAL",
+              "weightKg": "2.30",
+              "deliveryWindowStartsAt": "2026-12-01T07:00:00Z",
+              "deliveryWindowEndsAt": "2026-12-01T09:00:00Z",
+              "coordinates": null,
+              "eligible": true,
+              "orderCode": "PA4-SYNTH-02",
+              "recipientName": "Synthetic Recipient 2",
+              "recipientPhone": "0900000002",
+              "deliveryAddress": "Synthetic Test Street 2",
+              "note": null,
+              "status": "NEW",
+              "version": 1
+            },
+            "activeAttempt": null
+          }
+        ]
+      }
+    }
+  },
+  "start": {
+    "actorId": "rider-pa4-a",
+    "request": {
+      "stopId": "stop-pa4-a01",
+      "expectedShiftVersion": 3,
+      "expectedStopVersion": 1,
+      "clientRequestId": "start-pa4-a01"
+    },
+    "response": {
+      "status": 201,
+      "body": {
+        "attempt": {
+          "id": "attempt-pa4-a01",
+          "hubId": "hub-pa4-a",
+          "riderId": "rider-pa4-a",
+          "shiftId": "shift-pa4-a01",
+          "stopId": "stop-pa4-a01",
+          "orderId": "order-pa4-a01",
+          "startedAt": "2026-12-01T07:02:00Z",
+          "arrivedAt": null,
+          "finishedAt": null,
+          "outcome": null,
+          "state": "STARTED"
+        }
+      }
+    }
+  },
+  "replay": {
+    "actorId": "rider-pa4-a",
+    "request": {
+      "stopId": "stop-pa4-a01",
+      "expectedShiftVersion": 3,
+      "expectedStopVersion": 1,
+      "clientRequestId": "start-pa4-a01"
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "attempt": {
+          "id": "attempt-pa4-a01",
+          "hubId": "hub-pa4-a",
+          "riderId": "rider-pa4-a",
+          "shiftId": "shift-pa4-a01",
+          "stopId": "stop-pa4-a01",
+          "orderId": "order-pa4-a01",
+          "startedAt": "2026-12-01T07:02:00Z",
+          "arrivedAt": null,
+          "finishedAt": null,
+          "outcome": null,
+          "state": "STARTED"
+        }
+      }
+    }
+  },
+  "emptyShift": {
+    "actorId": "rider-pa4-b",
+    "response": {
+      "status": 200,
+      "body": {
+        "shift": null,
+        "stops": []
+      }
+    }
+  },
+  "otherRider": {
+    "actorId": "rider-pa4-b",
+    "targetStopId": "stop-pa4-a01",
+    "readResponse": {
+      "status": 403,
+      "body": {
+        "code": "FORBIDDEN"
+      }
+    },
+    "startRequest": {
+      "stopId": "stop-pa4-a01",
+      "expectedShiftVersion": 3,
+      "expectedStopVersion": 1,
+      "clientRequestId": "start-pa4-other-01"
+    },
+    "startResponse": {
+      "status": 403,
+      "body": {
+        "code": "FORBIDDEN"
+      }
+    }
+  },
+  "staleVersion": {
+    "actorId": "rider-pa4-a",
+    "precondition": "The Rider is still assigned to the published shift, but its current version is 4. There is no active attempt or matching Start replay.",
+    "request": {
+      "stopId": "stop-pa4-a01",
+      "expectedShiftVersion": 3,
+      "expectedStopVersion": 1,
+      "clientRequestId": "start-pa4-stale-01"
+    },
+    "response": {
+      "status": 409,
+      "body": {
+        "code": "STALE_ASSIGNMENT"
+      }
+    }
+  },
+  "attemptStates": [
+    {
+      "id": "attempt-pa4-a01",
+      "hubId": "hub-pa4-a",
+      "riderId": "rider-pa4-a",
+      "shiftId": "shift-pa4-a01",
+      "stopId": "stop-pa4-a01",
+      "orderId": "order-pa4-a01",
+      "startedAt": "2026-12-01T07:02:00Z",
+      "arrivedAt": null,
+      "finishedAt": null,
+      "outcome": null,
+      "state": "STARTED"
+    },
+    {
+      "id": "attempt-pa4-a01",
+      "hubId": "hub-pa4-a",
+      "riderId": "rider-pa4-a",
+      "shiftId": "shift-pa4-a01",
+      "stopId": "stop-pa4-a01",
+      "orderId": "order-pa4-a01",
+      "startedAt": "2026-12-01T07:02:00Z",
+      "arrivedAt": "2026-12-01T07:05:00Z",
+      "finishedAt": null,
+      "outcome": null,
+      "state": "ARRIVED"
+    },
+    {
+      "id": "attempt-pa4-a01",
+      "hubId": "hub-pa4-a",
+      "riderId": "rider-pa4-a",
+      "shiftId": "shift-pa4-a01",
+      "stopId": "stop-pa4-a01",
+      "orderId": "order-pa4-a01",
+      "startedAt": "2026-12-01T07:02:00Z",
+      "arrivedAt": "2026-12-01T07:05:00Z",
+      "finishedAt": "2026-12-01T07:08:00Z",
+      "outcome": {
+        "proofRef": "proof-pa4-a01",
+        "mediaType": "image/png"
+      },
+      "state": "SUCCESSFUL"
+    },
+    {
+      "id": "attempt-pa4-a01",
+      "hubId": "hub-pa4-a",
+      "riderId": "rider-pa4-a",
+      "shiftId": "shift-pa4-a01",
+      "stopId": "stop-pa4-a01",
+      "orderId": "order-pa4-a01",
+      "startedAt": "2026-12-01T07:02:00Z",
+      "arrivedAt": "2026-12-01T07:05:00Z",
+      "finishedAt": "2026-12-01T07:08:00Z",
+      "outcome": {
+        "reason": "UNREACHABLE",
+        "comment": null
+      },
+      "state": "FAILED"
+    },
+    {
+      "id": "attempt-pa4-a01",
+      "hubId": "hub-pa4-a",
+      "riderId": "rider-pa4-a",
+      "shiftId": "shift-pa4-a01",
+      "stopId": "stop-pa4-a01",
+      "orderId": "order-pa4-a01",
+      "startedAt": "2026-12-01T07:02:00Z",
+      "arrivedAt": null,
+      "finishedAt": "2026-12-01T07:08:00Z",
+      "outcome": {
+        "reason": "UNSAFE_ACCESS",
+        "comment": "Synthetic fixture: entry route inaccessible."
+      },
+      "state": "FAILED"
+    },
+    {
+      "id": "attempt-pa4-a01",
+      "hubId": "hub-pa4-a",
+      "riderId": "rider-pa4-a",
+      "shiftId": "shift-pa4-a01",
+      "stopId": "stop-pa4-a01",
+      "orderId": "order-pa4-a01",
+      "startedAt": "2026-12-01T07:02:00Z",
+      "arrivedAt": null,
+      "finishedAt": "2026-12-01T07:08:00Z",
+      "outcome": null,
+      "state": "ABORTED"
+    }
+  ],
+  "reloadActive": {
+    "actorId": "rider-pa4-a",
+    "shiftId": "shift-pa4-a01",
+    "stopId": "stop-pa4-a01",
+    "response": {
+      "status": 200,
+      "body": {
+        "activeAttempt": {
+          "id": "attempt-pa4-a01",
+          "hubId": "hub-pa4-a",
+          "riderId": "rider-pa4-a",
+          "shiftId": "shift-pa4-a01",
+          "stopId": "stop-pa4-a01",
+          "orderId": "order-pa4-a01",
+          "startedAt": "2026-12-01T07:02:00Z",
+          "arrivedAt": null,
+          "finishedAt": null,
+          "outcome": null,
+          "state": "STARTED"
+        }
+      }
+    }
+  }
+}
